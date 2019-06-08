@@ -12,6 +12,7 @@ publishDir = "docs"
 
   logo = "img/logo.png"
 
+  singleViewStyle = "casper"
 
 [[menu.main]]
   name = "Home"

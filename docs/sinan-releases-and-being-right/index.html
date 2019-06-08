@@ -49,21 +49,16 @@
 </head>
 
 
-<body class="ctsingle">
-
+<body class="post-template">
   <div class="site-wrapper"> 
 
-<header class="site-header outer "  >
+<header class="site-header outer">
   <div class="inner">
-    <div class="site-header-content">
-      <h1 class="site-title">
-        <img class="site-logo" src="/img/logo.png" alt="Erlware Blog" />
-       </h1>
-        <h2 class="site-description">Erlang tools and packaging </h2>
-    </div>
-
     <nav class="site-nav">
-      <div class="site-nav-left"><ul class="nav" role="menu">
+      <div class="site-nav-left">
+        <a class="site-nav-logo" href="#"><img src="/img/logo.png" alt="Erlware Blog" /></a>
+
+        <ul class="nav" role="menu">
         
         
         
@@ -97,33 +92,24 @@
   </div>
 </header>
 
-
 <main id="site-main" class="site-main outer" role="main">
   <div class="inner">
     
-    <div class="post-feed">
-      <article class="post-card post"> 
+      <article class="post-full post"> 
+    <header class="post-full-header">
+        <section class="post-full-meta">
+            <time class="post-full-meta-date" datetime="2012-05-05">5 May 2012</time>
+                <span class="date-divider">/</span> <a href="/tags/cowboy/">#Cowboy</a>&nbsp;<a href="/tags/erlang/">#Erlang</a>&nbsp;
+        </section>
+        <h1 class="post-full-title">Sinan Releases and Being Right</h1>
+    </header>
     
-    <a class="post-card-image-link" href="/sinan-releases-and-being-right/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
-    </a>    
-    
+    <figure class="post-full-image" style="background-image: url(/defimg/2.jpg)">
+    </figure>
 
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/sinan-releases-and-being-right/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #Cowboy 
-              #Erlang 
-              #OTP 
-              #rebar 
-              #sinan  </span>
-              
-              <h2 class="post-card-title">Sinan Releases and Being Right</h2>
-          </header>
-      </a>
-      <section class="post-card-excerpt" style="padding: 0 25px;">
-          <p><a href="http://ferd.ca/">Fred</a>, of <a href="http://learnyousomeerlang.com/" title="Learn You Some Erlang">Learn You Some Erlang for Great Good</a>, today posted on his blog about the problems around how rebar handles releases, <a href="http://ferd.ca/rebar-releases-and-being-wrong.html" title="Rebar Releases and Being Wrong">Rebar Releases and Being Wrong</a>. The problems he mentions and a few others are why, despite giving it a legitimate shot, I have found rebar unusable for my workflow to be efficient and stable while adhering to OTP standards at the same time.</p>
+    <section class="post-full-content">
+        <div class="kg-card-markdown">
+        <p><a href="http://ferd.ca/">Fred</a>, of <a href="http://learnyousomeerlang.com/" title="Learn You Some Erlang">Learn You Some Erlang for Great Good</a>, today posted on his blog about the problems around how rebar handles releases, <a href="http://ferd.ca/rebar-releases-and-being-wrong.html" title="Rebar Releases and Being Wrong">Rebar Releases and Being Wrong</a>. The problems he mentions and a few others are why, despite giving it a legitimate shot, I have found rebar unusable for my workflow to be efficient and stable while adhering to OTP standards at the same time.</p>
 
 <p>I suggest first reading his post, if you already use rebar, and then continuing on with the rest of this.</p>
 
@@ -263,29 +249,69 @@ Erlang R15B (erts-5.9)</p>
 <p>This is only the tip of the iceberg of what sinan is capable of. I can&rsquo;t go into all of it here but I&rsquo;ll mention that you are able to define multiple releases for a project to generate and which of your project apps to include in each. Additionally you are able to provide a custom rel file if you require tweaks.</p>
 
 <p>The important part to take away from this post is the structure of what you are working with when using sinan and how it is based on OTP standards, both for the source you work on and the results of the build process under _build/.</p>
+    
+        </div>
+    </section>
 
+    <footer class="post-full-footer">
+      <section class="author-card">
+        <img class="author-profile-image" src="/" alt="Author" />
+        <section class="author-card-content">
+            <h4 class="author-card-name"><a href="/">Tristan Sloughter</a></h4>
+                <p></p>
+        </section>
       </section>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/" alt="Author" />
-          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
-      </footer>
-    </div>
+    </footer>
 </article>
-    </div>
-
-    <nav class="pagination" role="navigation">
-      
-      <span class="page-number">&nbsp;</span>
-      
-    </nav>
-
     
     
     
 
   </div>
 </main>
+
+
+<aside class="read-next outer">
+  <div class="inner">
+    <div class="read-next-feed">      
+      
+
+      
+      
+    </div>
+  </div>
+</aside>
+
+<div class="floating-header">
+  <div class="floating-header-logo">
+    <a href="/">
+      <img src="/img/logo.png" alt="Erlware Blog" />
+      <span>Erlware Blog</span>
+    </a>
+  </div>
+  <span class="floating-header-divider">&mdash;</span>
+  <div class="floating-header-title">Sinan Releases and Being Right</div>
+  <div class="floating-header-share">
+    <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
+    </div>
+    
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=Sinan%20Releases%20and%20Being%20Right&amp;url=%2fsinan-releases-and-being-right%2f"
+          onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+      </a>
+      <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=%2fsinan-releases-and-being-right%2f"
+          onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+      </a>
+  </div>
+
+  <progress class="progress" value="0">
+    <div class="progress-container">
+      <span class="progress-bar"></span>
+    </div>
+  </progress>
+</div>
 
 
 
@@ -315,5 +341,67 @@ Erlang R15B (erts-5.9)</p>
 
 
 
+    <script>
 
+
+
+
+
+$(document).ready(function () {
+    
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
 </body></html>
