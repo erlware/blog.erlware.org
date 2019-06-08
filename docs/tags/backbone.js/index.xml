@@ -13,10 +13,10 @@
     
     <item>
       <title>eCloudEdit: Erlang, Webmachine and Backbone.js</title>
-      <link>/post/ecloudedit-erlang-webmachine-and-backbone-js/</link>
+      <link>/ecloudedit-erlang-webmachine-and-backbone-js/</link>
       <pubDate>Wed, 09 Feb 2011 09:10:43 +0000</pubDate>
       
-      <guid>/post/ecloudedit-erlang-webmachine-and-backbone-js/</guid>
+      <guid>/ecloudedit-erlang-webmachine-and-backbone-js/</guid>
       <description>To experiment with using a pure client-side rendering talking to an Erlang backend I&amp;rsquo;ve taken James Yu&amp;rsquo;s CloudEdit tutorial an app written with Backbone.js and Rails and converted the backend to use Webmachine and CouchDB. You can see eCloudEdit in action here. The Backbone.js code is the same so to understand that please see James&amp;rsquo; post, here I&amp;rsquo;ll describe the Erlang backend.
 To begin with we setup two applications, one for handling the web interaction and a second for handling the database interaction.</description>
     </item>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-us" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Designing for Actor Based Systems &middot; Erlware Blog</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/designing-for-actor-based-systems/" />
+
+     <meta name="description" content="Many people are intrigued and excited about Erlang style concurrency. Once they get the capability in their hands though they realize that they don’t know how t" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary"/>
+    
+ 
+    <meta name="twitter:title" content="Designing for Actor Based Systems"/>
+    <meta name="twitter:description" content="Many people are intrigued and excited about Erlang style concurrency. Once they get the capability in their hands though they realize that they don’t know how t"/>
+    <meta name="twitter:url" content="/designing-for-actor-based-systems/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="Erlware Blog" />
+    <meta property="og:title" content="Designing for Actor Based Systems &middot; Erlware Blog" />
+    <meta property="og:url" content="/designing-for-actor-based-systems/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="Many people are intrigued and excited about Erlang style concurrency. Once they get the capability in their hands though they realize that they don’t know how t" />
+
+    <meta property="article:published_time" content="2014-07-24T00:48:08Z" />
+    
+
+
+    <meta name="generator" content="Hugo 0.53" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    
+
+     
+
+</head>
+
+
+<body class="ctsingle">
+
+<div class="site-wrapper"> 
+
+<header class="site-header outer "  >
+  <div class="inner">
+    <div class="site-header-content">
+      <h1 class="site-title">
+        <img class="site-logo" src="/img/logo.png" alt="Erlware Blog" />
+       </h1>
+        <h2 class="site-description">Erlang tools and packaging </h2>
+    </div>
+
+    <nav class="site-nav">
+      <div class="site-nav-left"><ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about">About</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/erlware" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+  	
+    <div class="post-feed">
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/designing-for-actor-based-systems/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/designing-for-actor-based-systems/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Designing for Actor Based Systems</h2>
+          </header>
+      </a>
+      <section class="post-card-excerpt" style="padding: 0 25px;">
+          <p>Many people are intrigued and excited about Erlang style concurrency. Once they get the capability in their hands though they realize that they don’t know how to take advantage of the capabilities processes or actors provide. To do this we need to understand how to decompose systems with process based concurrency in mind. Keep in mind, that this material works equally well for actors in Scala or agents in F#. Differences between actors and processes don&rsquo;t much matter for the sake of this discussion. Before we dive into process based design it will be helpful to look at a more familiar approach so we can contrast the two.</p>
+
+<p>If you come from an OO background your natural instinct is to design much like you do when decomposing a problem for OO programming. After all, processes are much like objects in that they send messages to one another and they hold state. It goes something like this</p>
+
+<ol>
+<li>Determine your use cases<br /></li>
+<li>Create a narrative of what it is you are trying to design<br /></li>
+<li>Run through the narrative and pull out the nouns as potential classes<br /></li>
+<li>Do the same for the verbs acting on the nouns as potential methods on the classes<br /></li>
+<li>Clean all this up getting consolidating any duplication<br />
+For example, lets say you were trying to build software to run a vending machine. The use cases might be paying for and getting a soda. Another one might be paying too little and getting change back. So one of the narratives there might be<br />
+<br /></li>
+</ol>
+
+<p>As a customer I put sufficient coins into the vending machine and then press the selection button for coke and then press the button to vend and the robotic arm fetches a coke and dumps it into the pickup tray. The coke is nice and cold because the cooling system keeps the air in the vending machine at 50 degrees.</p>
+
+<p>Now we think about all the unique nouns in our narrative which are: customer, coins, vending machine, selection button, coke, vend button, robotic arm and cooling system. And we generally turn them into objects. Next we consider the verbs that act on those nouns and consider them for methods.</p>
+
+<p>selection button : push</p>
+
+<p>vend button : push</p>
+
+<p>robotic arm : pickup (coke)</p>
+
+<p>etcetera&hellip; After this you apply some lovely object oriented design principles and voila - you have a system that nicely models your narrative but does not take advantage of more than a single core on your system and is positively undistributable.</p>
+
+<p>Oh come on you say, don’t be daft, substitute the word object for actor and you are good to go. Well as it turns out not quite. Do we really need a coin process, how about a vend button process and lets not forget the coke process?? Darnit, this makes no sense! Lets back up and see what we can do about this.</p>
+
+<p><strong>Designing for Process Based Concurrency</strong></p>
+
+<p>The first thing you must do before we move on is say this three times</p>
+
+<p>“Processes are not threads. Processes are really cheap. Ohmmmm”</p>
+
+<p>“Processes are not threads. Processes are really cheap. Ohmmmm”</p>
+
+<p>“Processes are not threads. Processes are really cheap. Ohmmmm”</p>
+
+<p>This trips up folks new to process bases systems. They want to be stingy with processes worrying that they will take a long time to create, have massive context switching times, pollute L1 cache, etc… Remember that in almost all such systems, certainly for Erlang, Scala and F# processes/actors/agents are green threads. This means they have their own schedulers built into the VM they are running in. You never have to swap out a thread to switch between running one process vs another. With Erlang based systems you usually configure one erlang scheduler per core on the system. These schedulers remain relatively constant.</p>
+
+<p>With that in mind we solve some of the sticking points many new to process based systems have; not taking advantage of all the concurrency in the system or using complex “process pooling”.</p>
+
+<p>**One process for each truly concurrent *<strong><em>activity</em></strong>* in the system.**</p>
+
+<p>That is the rule. Going back to our vending machine what do we have that is really concurrent in that system. Coins? Not really. Slots? Not really. Buttons? Not really. Those are not activities they are things. What are the truly concurrent activities, the activities that do not have to happen in synchronous lock step?</p>
+
+<ul>
+<li>Putting coins into the slot<br /></li>
+<li>Handling coins<br /></li>
+<li>Handling selections<br /></li>
+<li>Fetching the coke and putting it into the pickup tray<br /></li>
+<li>Cooling the soda<br />
+We can use a process for all of these activities. We don’t If you want to name them for the nouns that perform the activities - but remember we are not making them processes because they are nouns. Notice how we go granular here, we did not just create a process for the customer and the vending machine. We created one for all the truly concurrent activities in our narrative - in this way we leverage more of the concurrency available to us. Now we know what processes we need, the next step is to organize them.<br />
+<br /></li>
+</ul>
+
+<p><strong>Organizing Processes</strong></p>
+
+<p>The various languages that use process based concurrency have differing levels of sophistication here. I am going to draw on the concepts from the Erlang language which have been used in the Akka system for Scala and which I have rolled successfully myself in F#.</p>
+
+<p>Again, forget all of your OO modeling techniques. Processes are not objects, they are fundamental units of concurrency. Forget all your thread modeling techniques - it’s not even close. Share nothing copy everything changes the game. To get started think about which of your processes have to cooperate with one another. In this case what do we have.</p>
+
+<ul>
+<li>Putting coins in a slot, cooperates with<br /></li>
+<li>Handling coins, cooperates with<br /></li>
+<li>Handling selections, cooperates with<br /></li>
+<li>Fetching the coke and putting it into the pickup tray<br />
+and nothing cooperates with, Cooling the soda - it happens whether or not other processes are there to support it or not. Putting coins in the slot however makes no sense if there is no way to handle them, and handing them makes no sense of you can’t make a selection and making a selection… well you get the drift.<br />
+<br /></li>
+</ul>
+
+<p>To model this we are going to use a tree of “Supervisors”. Supervisors create and watch over processes. Because of copy everything share nothing properties of actors one can’t corrupt another. So, a supervisor can watch over an actor and restart it when it blows up in the presence of some error. This means we get some incredible fault tolerance. But, that aside, lets talk about how to model these dependencies. We do so in a tree. First, we setup a supervisor at the top of the tree which models no dependencies between any of the processes it starts. In this layer we add the cooling system and then we add another supervisor which will start the group of dependent processes in the order in which they depend on one another. This supervisor will restart processes that die according to their dependencies. If a dependency dies the supervisor will kill and restart dependent processes so that everything starts in a known base state down the chain.</p>
+
+<p>**<strong><br />
+<a href="https://erlware.files.wordpress.com/2014/07/proctree.png"><img src="https://erlware.files.wordpress.com/2014/07/proctree.png?w=497" alt="proctree" /></a></p>
+
+<p>**</strong></p>
+
+<p>Now with things decomposed into processes, dependencies fleshed out and placed into a supervision hierarchy you are basically ready to go. Is there more to design for actor based concurrency - yes of course there is but here you have the fundamentals. Now it’s time to go and play with it and generate questions. Feel free to ask them here or on twitter at <a href="http://twitter.com/martinjlogan">@martinjlogan</a>.  I may do a second installment on some more advanced topics based on feedback.</p>
+
+<p>If you want to learn more come to <a href="http://erlangcamp.com">Erlang Camp</a> Oct 10 and 11, 2014 in Austin!</p>
+
+<p>**</p>
+
+<p>**</p>
+
+      </section>
+
+    </div>
+</article>
+    </div>
+    
+  </div>
+</main>
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/"></a>  <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/erlware" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body></html>

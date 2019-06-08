@@ -99,81 +99,11 @@
       
 
 
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/post/projmake-mode-flymake-replacement/">
-      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/post/projmake-mode-flymake-replacement/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #Emacs 
-              #Erlang 
-              #Functional Programming 
-              #OTP 
-              #rebar  </span>
-              
-              <h2 class="post-card-title">Projmake-mode: Flymake Replacement</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>There is a great new Emacs plugin from Eric Merritt that like FlyMake builds your code and highlights within Emacs any errors or warnings, but unlike FlyMake builds across the whole project. You can clone the mode from here projmake-mode
-After cloning the repo to your desired location add this bit to your dot emacs file, replacing &lt;PATH&gt; with the path to where you cloned the repo.
-[gist]3794732[/gist]
-This Emacs code also uses add-hook to set projmake-mode to start for erlang-mode is loaded. ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/" alt="Author" />
-          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/post/getting-flymake-and-rebar-to-play-nice/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/post/getting-flymake-and-rebar-to-play-nice/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #Emacs 
-              #Erlang  </span>
-              
-              <h2 class="post-card-title">Getting Flymake and Rebar to Play Nice</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>TLDR;
-Copy and paste the following into your elisp erlang-mode configuration to get flymake working with Rebar projects.
- (defun ebm-find-rebar-top-recr (dirname) (let* ((project-dir (locate-dominating-file dirname "rebar.config"))) (if project-dir (let* ((parent-dir (file-name-directory (directory-file-name project-dir))) (top-project-dir (if (and parent-dir (not (string= parent-dir "/"))) (ebm-find-rebar-top-recr parent-dir) nil))) (if top-project-dir top-project-dir project-dir)) project-dir))) (defun ebm-find-rebar-top () (interactive) (let* ((dirname (file-name-directory (buffer-file-name))) (project-dir (ebm-find-rebar-top-recr dirname))) (if project-dir project-dir (erlang-flymake-get-app-dir)))) (defun ebm-directory-dirs (dir name) "Find all directories in DIR. ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/" alt="Author" />
-          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
-      </footer>
-    </div>
-</article>
-
-
     </div>
 
     <nav class="pagination" role="navigation">
       
-      <span class="page-number"><span class="hide">Page 1 of 1</span>&nbsp;</span>
+      <span class="page-number"><span class="hide">Page 1 of 0</span>&nbsp;</span>
       
     </nav>
   </div>

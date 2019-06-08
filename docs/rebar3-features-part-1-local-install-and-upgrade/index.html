@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-us" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Rebar3 Features (part 1): Local install and upgrade &middot; Erlware Blog</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/rebar3-features-part-1-local-install-and-upgrade/" />
+
+     <meta name="description" content="Update January 22, 2016: The original post has been modified to reflect that the commands install and upgrade were moved from the unstable namespace to the loca" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary"/>
+    
+ 
+    <meta name="twitter:title" content="Rebar3 Features (part 1): Local install and upgrade"/>
+    <meta name="twitter:description" content="Update January 22, 2016: The original post has been modified to reflect that the commands install and upgrade were moved from the unstable namespace to the loca"/>
+    <meta name="twitter:url" content="/rebar3-features-part-1-local-install-and-upgrade/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="Erlware Blog" />
+    <meta property="og:title" content="Rebar3 Features (part 1): Local install and upgrade &middot; Erlware Blog" />
+    <meta property="og:url" content="/rebar3-features-part-1-local-install-and-upgrade/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="Update January 22, 2016: The original post has been modified to reflect that the commands install and upgrade were moved from the unstable namespace to the loca" />
+
+    <meta property="article:published_time" content="2015-09-11T04:21:52Z" />
+    <meta property="article:tag" content="Erlang" /><meta property="article:tag" content="rebar3" />
+
+
+    <meta name="generator" content="Hugo 0.53" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    
+
+     
+
+</head>
+
+
+<body class="ctsingle">
+
+<div class="site-wrapper"> 
+
+<header class="site-header outer "  >
+  <div class="inner">
+    <div class="site-header-content">
+      <h1 class="site-title">
+        <img class="site-logo" src="/img/logo.png" alt="Erlware Blog" />
+       </h1>
+        <h2 class="site-description">Erlang tools and packaging </h2>
+    </div>
+
+    <nav class="site-nav">
+      <div class="site-nav-left"><ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about">About</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/erlware" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+  	
+    <div class="post-feed">
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-features-part-1-local-install-and-upgrade/">
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-features-part-1-local-install-and-upgrade/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Features (part 1): Local install and upgrade</h2>
+          </header>
+      </a>
+      <section class="post-card-excerpt" style="padding: 0 25px;">
+          
+
+<p><strong>Update January 22, 2016:</strong> The original post has been modified to reflect that the commands <code>install</code> and <code>upgrade</code> were moved from the <code>unstable</code> namespace to the <code>local</code> namespace. Also added is use of the environment variable <code>$REBAR3_ERL_ARGS</code> in the run script which allows the user to specify custom Erlang VM arguments like: <code>REBAR3_ERL_ARGS=&quot;+A10&quot; rebar3 shell</code>.</p>
+
+<p><a href="https://rebar3.org">Rebar3</a> comes with a lot of new and improved features. I&rsquo;ll be publishing posts here to highlight some of these features over the coming weeks.</p>
+
+<h4 id="installing-and-upgrading-rebar3">Installing and Upgrading Rebar3</h4>
+
+<p>Rebar is an escript bundle, and this has been very important to its ease of use, mainly because they let Erlang users have a single file acting as an executable, regardless of the underlying Erlang installation, which can even be committed to a project&rsquo;s repository.</p>
+
+<p>So, rebar3 is also an escript. Pre-built escripts can be downloaded from s3:</p>
+
+<pre><code>$ wget https://s3.amazonaws.com/rebar3/rebar3
+</code></pre>
+
+<p>or clone and bootstrap the git repo:</p>
+
+<pre><code>$ git clone https://github.com/rebar/rebar3.git
+$ cd rebar3
+$ ./bootstrap
+</code></pre>
+
+<p>However, escripts do have their drawbacks. They are slower to start, rely on the old Erlang io server, making <code>rebar3 shell</code> not act exactly the same as an <code>erl</code> shell, and it can lead to repos storing the escript along with the code but never upgrading it.</p>
+
+<p>So in rebar3 we&rsquo;ve introduced the ability to extract the escript archive along with a run script to <code>~/.cache/rebar3/</code>, plus a command that will fetch and do the same for the latest escript release of rebar3 from s3.</p>
+
+<p>The <code>install</code> command will be under a provider namespace, originally it lived under <code>unstable</code>, the namespace for experimental features that are likely to change in the near future and that aren&rsquo;t yet considered stable, but now is in the <code>local</code> namespace:</p>
+
+<pre><code>$ ./rebar3 local install
+===&gt; Extracting rebar3 libs to $HOME/.cache/rebar3/lib...
+===&gt; Writing rebar3 run script $HOME/.cache/rebar3/bin/rebar3...
+===&gt; Add to $PATH for use: export PATH=$HOME/.cache/rebar3/bin:$PATH
+</code></pre>
+
+<p>Follow the instructions for adding the rebar3 bin directory to your <code>$PATH</code>, and optionally add it to your shell&rsquo;s configuration, such as <code>~/.bashrc</code> or <code>~/.zshrc</code>.</p>
+
+<p>To upgrade rebar3 use <code>rebar3 unstable upgrade</code> which will fetch the latest escript and extract it:</p>
+
+<pre><code>$ rebar3 local upgrade
+</code></pre>
+
+<p>We hope this new method for installing, upgrading and running rebar3 will allow people to be comfortable with not bundling rebar3 in their project&rsquo;s repositories, resolve any compilation speed differences between rebar3 and alternative Erlang build tools and help keep everyone up to date with the latest features and bug fixes.</p>
+
+      </section>
+
+    </div>
+</article>
+    </div>
+    
+  </div>
+</main>
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/"></a>  <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/erlware" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body></html>

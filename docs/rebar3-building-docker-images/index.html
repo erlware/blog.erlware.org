@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en-us" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Rebar3: Building Docker Images &middot; Erlware Blog</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/rebar3-building-docker-images/" />
+
+     <meta name="description" content="How I cut the time it takes to build an Erlang docker image in half. While adding support for a rebar3 option to only build dependencies and not project applica" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary"/>
+    
+ 
+    <meta name="twitter:title" content="Rebar3: Building Docker Images"/>
+    <meta name="twitter:description" content="How I cut the time it takes to build an Erlang docker image in half. While adding support for a rebar3 option to only build dependencies and not project applica"/>
+    <meta name="twitter:url" content="/rebar3-building-docker-images/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="Erlware Blog" />
+    <meta property="og:title" content="Rebar3: Building Docker Images &middot; Erlware Blog" />
+    <meta property="og:url" content="/rebar3-building-docker-images/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="How I cut the time it takes to build an Erlang docker image in half. While adding support for a rebar3 option to only build dependencies and not project applica" />
+
+    <meta property="article:published_time" content="2018-09-18T06:09:11Z" />
+    <meta property="article:tag" content="Erlang" /><meta property="article:tag" content="rebar3" /><meta property="article:tag" content="docker" />
+
+
+    <meta name="generator" content="Hugo 0.53" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    
+
+     
+
+</head>
+
+
+<body class="ctsingle">
+
+<div class="site-wrapper"> 
+
+<header class="site-header outer "  >
+  <div class="inner">
+    <div class="site-header-content">
+      <h1 class="site-title">
+        <img class="site-logo" src="/img/logo.png" alt="Erlware Blog" />
+       </h1>
+        <h2 class="site-description">Erlang tools and packaging </h2>
+    </div>
+
+    <nav class="site-nav">
+      <div class="site-nav-left"><ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about">About</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/erlware" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+  	
+    <div class="post-feed">
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-building-docker-images/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-building-docker-images/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3 
+              #docker  </span>
+              
+              <h2 class="post-card-title">Rebar3: Building Docker Images</h2>
+          </header>
+      </a>
+      <section class="post-card-excerpt" style="padding: 0 25px;">
+          
+
+<h3 id="how-i-cut-the-time-it-takes-to-build-an-erlang-docker-image-in-half">How I cut the time it takes to build an Erlang docker image in half.</h3>
+
+<p>While adding support for a rebar3 option to only build dependencies and not project applications, <code>rebar3 compile --deps_only</code>, I realized it might already actually work for the Docker use case I had in mind.</p>
+
+<p>So I gave it a try and, yup, turns out it does!</p>
+
+<p>The idea is to cache a docker layer of the built dependencies to reuse if they haven&rsquo;t changed. This is done by copying only the config files, which if changed will then invalidate the next Dockerfile commands, and build only the dependencies in the next layer. After that you copy in the source of your project as usual and build the release.</p>
+
+<pre><code># build and cache dependencies
+COPY rebar.config rebar.lock /usr/src/app/
+RUN rebar3 compile
+
+# copy in the vonnegut source and build release
+COPY . /usr/src/app
+RUN rebar3 as prod tar
+</code></pre>
+
+<p>No new functionality needed, just plain <code>rebar3 compile</code> does what we need when it is given a directory with only the config and/or lock file. After copying in the rest of the project <code>rebar3 as prod tar</code> will compile the project&rsquo;s source (the <code>tar</code> provider depends compile, so we don&rsquo;t need to call compile directly) and build a release tarball we can copy to a new image in the next stage.</p>
+
+<p>A quick test with the <a href="https://github.com/tsloughter/vonnegut/blob/7dd7fd0bcad3437a2ca231e066eae9710c9bce03/Dockerfile">vonnegut</a> Dockerfile I found the build times dropped from <strong>~30</strong> seconds to <strong>~14</strong> seconds. The initial build with only the Erlang image cached, so the packages and rebar3 still have to be installed, is around 50 seconds.</p>
+
+<p>Note that this also works when only copying <code>rebar.lock</code>. Only copying the lock file may be beneficial to some who don&rsquo;t care about caching plugins and prefer to be able to change the rebar config without it invalidating the cache.</p>
+
+<p>Also, we will still be merging in the <code>--deps_only</code> option as it likely has uses outside of building Docker images.</p>
+
+      </section>
+
+    </div>
+</article>
+    </div>
+    
+  </div>
+</main>
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/"></a>  <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/erlware" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body></html>

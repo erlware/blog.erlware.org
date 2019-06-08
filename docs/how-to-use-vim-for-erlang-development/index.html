@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en-us" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>How to use Vim for Erlang Development &middot; Erlware Blog</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/how-to-use-vim-for-erlang-development/" />
+
+     <meta name="description" content="This post sponsored by ErlangCamp 2013 in Nashville which was epic!
+You are about to learn to use Vim as your editor for Erlang development. You will learn how " /> 
+
+     
+    
+    <meta name="twitter:card" content="summary"/>
+    
+ 
+    <meta name="twitter:title" content="How to use Vim for Erlang Development"/>
+    <meta name="twitter:description" content="This post sponsored by ErlangCamp 2013 in Nashville which was epic!
+You are about to learn to use Vim as your editor for Erlang development. You will learn how "/>
+    <meta name="twitter:url" content="/how-to-use-vim-for-erlang-development/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="Erlware Blog" />
+    <meta property="og:title" content="How to use Vim for Erlang Development &middot; Erlware Blog" />
+    <meta property="og:url" content="/how-to-use-vim-for-erlang-development/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="This post sponsored by ErlangCamp 2013 in Nashville which was epic!
+You are about to learn to use Vim as your editor for Erlang development. You will learn how " />
+
+    <meta property="article:published_time" content="2013-09-09T18:00:21Z" />
+    
+
+
+    <meta name="generator" content="Hugo 0.53" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    
+
+     
+
+</head>
+
+
+<body class="ctsingle">
+
+<div class="site-wrapper"> 
+
+<header class="site-header outer "  >
+  <div class="inner">
+    <div class="site-header-content">
+      <h1 class="site-title">
+        <img class="site-logo" src="/img/logo.png" alt="Erlware Blog" />
+       </h1>
+        <h2 class="site-description">Erlang tools and packaging </h2>
+    </div>
+
+    <nav class="site-nav">
+      <div class="site-nav-left"><ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about">About</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/erlware" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+  	
+    <div class="post-feed">
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/how-to-use-vim-for-erlang-development/">
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/how-to-use-vim-for-erlang-development/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">How to use Vim for Erlang Development</h2>
+          </header>
+      </a>
+      <section class="post-card-excerpt" style="padding: 0 25px;">
+          
+
+<p><a href="http://erlware.files.wordpress.com/2013/09/vim-logo-bas.png"><img src="http://erlware.files.wordpress.com/2013/09/vim-logo-bas.png?w=150" alt="vim editor logo" /></a></p>
+
+<p><em>This post sponsored by <a href="http://www.erlangcamp.org">ErlangCamp 2013</a> in Nashville which was epic!</p>
+
+<p>You are about to learn to use <strong>Vim</strong> as your editor for Erlang development. You will learn how to install and use a variety of really powerful Vim plugins to make Erlang dev with Vim smooth and satisfying!</p>
+
+<p>I have been developing Erlang now for about 13 years, many of them full time and even wrote a book on Erlang: <a href="http://manning.com/logan">Erlang &amp; OTP in Action</a>. I have loved every minute of it but there was always one thing that made me sad, probably makes you sad too - Emacs. Emacs is the de-facto editor for Erlang. The emacs mode included with the Erlang distro is quite wonderful. The fact still remains, Emacs, we do not like it. ctrl ~, ctrl x ctrl f etc&hellip; Nope!</p>
+
+<h2 id="setting-up-vim-for-erlang">Setting up Vim for Erlang</h2>
+
+<p>Let&rsquo;s get started setting up Vim for Erlang development. The first thing we need to do is setup pathogen so that installing subsequent packages is really simple. The first thing to do is create the directory <code>$HOME/.vim/autoload</code>. Download <a href="https://github.com/tpope/vim-pathogen">pathogen.vim from here</a> and place it into this directory. Now add the following 2 commands to your <code>$HOME/.vimrc</code> file.</p>
+
+<p><code>
+call pathogen#infect()  
+call pathogen#helptags()  
+</code></p>
+
+<p>At this point pathogen will install and generate help documentation for any plugin you place into the <code>$HOME/.vim/bundle</code> directory - which you should of course create.</p>
+
+<p>With this created now we are ready to start installing plugins to make your life easier. Try these on for size by cloning these git repos directly into the <code>$HOME/.vim/bundle</code> directory. They will simply work next time you start vim.</p>
+
+<table>  
+<tr><td>[**vimerl.vim**](https://github.com/jimenezrick/vimerl)</td><td>Indenting, autocomplete and more for Erlang</td></tr>  
+<tr><td>[**ctrlp.vim**](https://github.com/kien/ctrlp.vim)</td><td>ctrl p and open a powerful fuzzy file finder. Makes navigating file trees a thing of the past.</td></tr>  
+<tr><td>[**NERDTree**](https://github.com/scrooloose/nerdtree)</td><td>Powerful file tree navigator right in vim - don't use it much since I installed ctrlp though.</td></tr>  
+<tr><td>[**NERDTree Tabs**](https://github.com/jistr/vim-nerdtree-tabs)</td><td>Add the NERDTree file finder to all tabs you have open in vim.</td></tr>  
+</table>  
+  
+
+<p>Before we get into basics on how to use all these plugins to create Erlang magic I want to show you two bonus tricks I really love. First, get a better color scheme. To do this create the directory <code>$HOME/.vim/colors</code> and find yourself a slick color scheme to drop into it. I recommend <a href="https://github.com/tpope/vim-vividchalk">vividchalk.vim by TPope</a>.</p>
+
+<blockquote>
+<p><strong>Pro Tip</strong></p>
+
+<p>For dropbox or other file sync users keep all your vim installs in sync easily like so; take your .vim and your .vimrc and move them into your Dropbox directory. Then run:</p>
+
+<p>`</p>
+
+<p>ln -s ~/Dropbox/.vim ~/.vim</p>
+
+<p>ln -s ~/Dropbox/.vimrc ~/.vimrc</p>
+
+<p>`</p>
+
+<p>Now all your machines vim installs will run just the same. If you have compatibility problems on any one, well then just skip this for that machine.</p>
+</blockquote>
+
+<p>Ok, so now on to how to use these plugins for Erlang/Vim greatness.</p>
+
+<h2 id="how-to-use-our-vim-plugins-for-erlang-dev">How to Use our Vim Plugins for Erlang Dev</h2>
+
+<p>I am going to use the <a href="https://github.com/erlware/erlware_commons">source for Erlware Commons</a> as an example. So I clone it first and then change into the <code>erlware_commons</code> directory and run vim. Now lets say I know what file I want to update, specifically the &ldquo;ec_date.erl&rdquo; file. The first thing I do is type <code>p</code> and then start typing ec_date.erl.</p>
+
+<pre>                                                                                                                                                            
+~                                                                                 
+[No Name] [TYPE= unix] [0/1 (100%)]                                               
+&gt; test/ec_dictionary_proper.erl  
+&gt; src/ec_dictionary.erl  
+&gt; src/ec_date.erl                                                                 
+ prt  path  ={ files }=  &gt;&gt; ec_da  
+</pre>  
+  
+
+<p>You can see that as I start typing and get to &ldquo;ec_da&rdquo; ctrlp has already displayed a narrowed down list of files in the directory tree under where I have opened vim that match. The file on the bottom ec_date.erl is the one selected and so just pressing enter here will open it. If I wanted to select &ldquo;test/ec_dictionary_proper.erl&rdquo; then I could simply press the up arrow and select it or keep typing until it was the only selection.</p>
+
+<p>Now, what if I don&rsquo;t know what file I want to select? This is where NERDTree comes into play. Run <code>:NERDTree</code> and you will pop open the file browser. Like this:</p>
+
+<pre>  
+  Press ? for help             |  
+                               |~                                                 
+.. (up a dir)                  |~                                                 
+&lt;lang-projects/erlware_commons/|~                                                 
+▸ doc/                         |~                                                 
+▸ priv/                        |~                                                 
+▸ src/                         |~                                                 
+▸ test/                        |~                                                 
+  CONTRIBUTING.md              |~                                                 
+  COPYING                      |~                                                 
+  Makefile                     |~                                                 
+  README.md                    |~                                                 
+  rebar.config                 |~                                                 
+  rebar.config.script          |~                                                 
+~                              |~                                                 
+~                              |~                                                 
+~                              |~                                                                                                                                         
+</pre>  
+  
+
+<p>Here we can see the directory tree for Erlware Commons. Each of the directories can be easily selected and expanded. Individual files can be selected and opened. There are a variety of ways to open a file. Below are the most common:</p>
+
+<ul>
+<li><code>&amp;lt;enter&amp;gt;</code> will open the file in the right pane<br /></li>
+<li><code>T</code> will open in a new tab within vim and keep focus in NERDTree<br /></li>
+<li><code>t</code> will open in a new tab and bring focus to the new tab<br />
+<br /></li>
+</ul>
+
+<p>IF you want to see the NERDTree browser in all your tabs use <code>:NERDTreeTabsToggle</code> to toggle it on and off. It will be the exact same NERDTree in the exact same state and cursor position on all tabs - nice! Once you are focused on the code in a given tab and you want to jump back to the left and into the NERDTree pane use <code>&amp;lt;ctrl&amp;gt; ww</code></p>
+
+<p>Once you have a load of tabs open you need to switch between then and to do this you need only two commands:</p>
+
+<ul>
+<li><code>gt</code> will goto the next tab the next tab<br /></li>
+<li><code>gT</code> will goto the previous tab<br />
+<br /></li>
+</ul>
+
+<blockquote>
+<p><strong>Pro Tip</strong></p>
+
+<p>Map the tab commands and the NERDTreeTabsToggle command by adding the following to your vimrc.</p>
+
+<p>`</p>
+
+<p>map &lt;C-t&gt; :tabn&lt;Enter&gt;</p>
+
+<p>map &lt;C-n&gt; :tabnew&lt;Enter&gt;</p>
+
+<p>map nt :NERDTreeTabsToggle&lt;Enter&gt;</p>
+
+<p>`</p>
+</blockquote>
+
+<p>Ok, now on to editing Erlang with vimerl.</p>
+
+<h2 id="editing-with-vimerl">Editing with vimerl</h2>
+
+<p>This is not going to be an exhaustive list of vimerl editing commands but just a few of the goodies. The 20% you will use 80% of the time.</p>
+
+<h3 id="auto-indenting">Auto-indenting</h3>
+
+<p>vimerl will auto-indent for you as you type. But if you come across a line that you want to indent try typing <code>==</code>. Lets say you want to indent a block of code. Simple, mark the line that starts the block with <code>ma</code> then go to the end of the block and tell vimerl to indent to the mark as such: <code>='a</code>. Now if your whole file is a mess then try <code>gg</code> to go to the beginning of your file and then <code>=G</code> to indent all the way to the end. You can do this all in one step as in <code>gg=G</code>.</p>
+
+<h3 id="code-completion">Code Completion</h3>
+
+<p><code>ctrl-x ctrl-o</code> after typing a module name and a <code>:</code> will cause vimerl to suggest function names for you. It does this by searching the .beam and .erl files in the erlang code path (<code>code:get_path()</code> to see what they are) as well as looking at your rebar deps_dir if you are using rebar.config as part of your project.</p>
+
+<h3 id="skeletons">Skeletons</h3>
+
+<p>This is the feature that I loved most about the emacs mode for Erlang, well this and the auto indenting (most of the time, the fun() indenting still feels like a kick in the teeth). Here is a list of the most useful skeletons and the commands to generate them from within vimerl.</p>
+
+<ul>
+<li><strong>:ErlangApplication</strong> generate the skeleton for an OTP application behaviour.<br /></li>
+<li><strong>:ErlangSupervisor</strong> generate the skeleton for an OTP supervisor behaviour.<br /></li>
+<li><strong>:ErlangGen[Server|Fsm|Event]</strong> skeletons for gen server, fsm and event - yay!<br />
+<br /></li>
+</ul>
+
+<p>Brilliant isn&rsquo;t it. Before I let you go there is one more invaluable command you should know about which is <code>:help vimerl</code> which will give you a list of all the other useful commands you may want to use. Remember to get it working be sure to add <code>call pathogen#helptags()</code> to the top of your .vimrc file. Goodbye Emacs, welcome back old friend Vim.</p>
+
+<p>Follow me on twitter <a href="http://twitter.com/martinjlogan">@martinjlogan</a></p>
+
+<p>&lt;esc&gt;:wq</p>
+
+      </section>
+
+    </div>
+</article>
+    </div>
+    
+  </div>
+</main>
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/"></a>  <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/erlware" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body></html>

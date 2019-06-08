@@ -13,20 +13,20 @@
     
     <item>
       <title>Opa Plugin Development with a PubNub Example</title>
-      <link>/post/opa-plugin-development-with-a-pubnub-example/</link>
+      <link>/opa-plugin-development-with-a-pubnub-example/</link>
       <pubDate>Thu, 24 Nov 2011 04:03:07 +0000</pubDate>
       
-      <guid>/post/opa-plugin-development-with-a-pubnub-example/</guid>
+      <guid>/opa-plugin-development-with-a-pubnub-example/</guid>
       <description>This will be a two part series of posts on writing plugins for Opa. One of Opa&amp;rsquo;s greatest features is you write everything in the functional, staticly typed Opa language. This even includes the frontend code you&amp;rsquo;d usually do in Javascript. This means your code is less error-prone which significantly reduces the amount of time spent on debugging code.
 But how do you use Javascript library X within your Opa code?</description>
     </item>
     
     <item>
       <title>OpaDo Data Storage</title>
-      <link>/post/opado-data-storage/</link>
+      <link>/opado-data-storage/</link>
       <pubDate>Thu, 06 Oct 2011 18:59:55 +0000</pubDate>
       
-      <guid>/post/opado-data-storage/</guid>
+      <guid>/opado-data-storage/</guid>
       <description>OpaDo (a port of the TodoMVC app to Opa) now persists todo items to the Opa database. The new version is up on dotcloud, http://opado-tristan.sloughter.dotcloud.com/
 I&amp;rsquo;ve added a _todoitem type which stores the item&amp;rsquo;s value and two other attributes we won&amp;rsquo;t use until the next post when we have user accounts for their own _todoitem stores.
 type todo_item = { user_id : string

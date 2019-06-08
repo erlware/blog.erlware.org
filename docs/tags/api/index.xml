@@ -13,10 +13,10 @@
     
     <item>
       <title>Erlang, Cowboy and Batman.js for Building Web Applications</title>
-      <link>/post/erlang-cowboy-and-batman-js-for-building-web-applications/</link>
+      <link>/erlang-cowboy-and-batman-js-for-building-web-applications/</link>
       <pubDate>Fri, 27 Apr 2012 20:11:28 +0000</pubDate>
       
-      <guid>/post/erlang-cowboy-and-batman-js-for-building-web-applications/</guid>
+      <guid>/erlang-cowboy-and-batman-js-for-building-web-applications/</guid>
       <description>I&amp;rsquo;ll have a complete walk of through using Cowboy and Batman.js to build the TodoMVC clone in a few days. For now I have the slides from my talk at the Chicago Erlang User Group:
 Chicago Erlang User Group April, 4th 2012
 I couldn&amp;rsquo;t get iframe embedding to work with Wordpress&amp;hellip; So if anyone knows what that is up with please comment.</description>

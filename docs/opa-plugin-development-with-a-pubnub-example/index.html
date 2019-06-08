@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en-us" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Opa Plugin Development with a PubNub Example &middot; Erlware Blog</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/opa-plugin-development-with-a-pubnub-example/" />
+
+     <meta name="description" content="This will be a two part series of posts on writing plugins for Opa. One of Opa&amp;rsquo;s greatest features is you write everything in the functional, staticly typ" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary"/>
+    
+ 
+    <meta name="twitter:title" content="Opa Plugin Development with a PubNub Example"/>
+    <meta name="twitter:description" content="This will be a two part series of posts on writing plugins for Opa. One of Opa&amp;rsquo;s greatest features is you write everything in the functional, staticly typ"/>
+    <meta name="twitter:url" content="/opa-plugin-development-with-a-pubnub-example/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="Erlware Blog" />
+    <meta property="og:title" content="Opa Plugin Development with a PubNub Example &middot; Erlware Blog" />
+    <meta property="og:url" content="/opa-plugin-development-with-a-pubnub-example/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="This will be a two part series of posts on writing plugins for Opa. One of Opa&amp;rsquo;s greatest features is you write everything in the functional, staticly typ" />
+
+    <meta property="article:published_time" content="2011-11-24T04:03:07Z" />
+    <meta property="article:tag" content="cloud" /><meta property="article:tag" content="Functional Programming" /><meta property="article:tag" content="Javascript" /><meta property="article:tag" content="Opa" /><meta property="article:tag" content="Web" />
+
+
+    <meta name="generator" content="Hugo 0.53" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    
+
+     
+
+</head>
+
+
+<body class="ctsingle">
+
+<div class="site-wrapper"> 
+
+<header class="site-header outer "  >
+  <div class="inner">
+    <div class="site-header-content">
+      <h1 class="site-title">
+        <img class="site-logo" src="/img/logo.png" alt="Erlware Blog" />
+       </h1>
+        <h2 class="site-description">Erlang tools and packaging </h2>
+    </div>
+
+    <nav class="site-nav">
+      <div class="site-nav-left"><ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about">About</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/erlware" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+  	
+    <div class="post-feed">
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/opa-plugin-development-with-a-pubnub-example/">
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/opa-plugin-development-with-a-pubnub-example/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #cloud 
+              #Functional Programming 
+              #Javascript 
+              #Opa 
+              #Web  </span>
+              
+              <h2 class="post-card-title">Opa Plugin Development with a PubNub Example</h2>
+          </header>
+      </a>
+      <section class="post-card-excerpt" style="padding: 0 25px;">
+          <p>This will be a two part series of posts on writing plugins for <a href="http://opalang.org" title="Opa">Opa</a>. One of Opa&rsquo;s greatest features is you write everything in the functional, staticly typed Opa language. This even includes the frontend code you&rsquo;d usually do in Javascript. This means your code is less error-prone which significantly reduces the amount of time spent on debugging code.</p>
+
+<p>But how do you use Javascript library X within your Opa code?</p>
+
+<p>While you can include Javascript code in a resource, like we do here for Google Analytics:<br />
+<pre style="color:#00ff00;background-color:#000000;"><span style="color:#00ffff;">do</span> <span style="color:#87cefa;">Resource.register_external_js</span>(<span style="color:#ffa07a;">&rdquo;/resources/js/google_analytics.js&rdquo;</span>)</pre><br />
+This isn&rsquo;t what we want to do if we want to call external Javascript functions from Opa code. For this we create an Opa plugin. In this post I&rsquo;ll be showing how I built the Opa client side bindings for the <a href="http://www.pubnub.com/" title="PubNub">PubNub</a> Javascript API, <a href="https://github.com/tsloughter/opa_pubnub_plugin" title="Opa PubNub Plugin">fork it on github</a> and see all the <a href="https://github.com/pubnub/pubnub-api" title="PubNub API">other language bindings</a>. PubNub is a cloud hosted real-time publish and subscribe interface for all types of applications.</p>
+
+<p>Opa allows binding to external functions through its Binding System Library (BSL). In order to use this to create a plugin for some external Javascript, we create a file pubnub.js that we will compile to a plugin using <em>opa-plugin-builder</em>. Below is an example of one of the external functions that needs to be defined to use PubNub&rsquo;s publish.<br />
+<pre style="color:#00ff00;background-color:#000000;"><span style="color:#ff0000;">##</span>register <span style="color:#eedd82;">publish :</span> string, string -&gt; <span style="color:#7fffd4;">void</span><br />
+<span style="color:#ff0000;">##</span>args(c, m)<br />
+{<br />
+    PUBNUB.publish({<br />
+                       <span style="color:#eedd82;">channel</span> : c, <span style="color:#eedd82;">message</span> : m<br />
+                   });</p>
+
+<pre><code>&lt;span style=&quot;color:#00ffff;&quot;&gt;return&lt;/span&gt; js_void;  
+</code></pre>
+
+<p>}</pre><br />
+The first line registers the function <em>publish</em> and specifies its arguments to be two strings and its return value to be <em>void</em>. The next line names the arguments. You can think of <em>##args</em> like Javascript&rsquo;s <em>function</em> keyword. In the function, we can use the PUBNUB library just like we would normally. Here we pass to publish the channel and the message to be published. Note that the message can be any Javascript object, even though its a string to the plugin. We simply must serialize the JSON before passing to <em>publish</em>, which we&rsquo;ll see shortly.</p>
+
+<p>Now after defining external functions for all PubNub api calls in the <a href="https://github.com/tsloughter/opa_pubnub_plugin/blob/master/src/plugin/pubnub.js" title="Pubnub.js">pubnub.js</a> file we can compile it:<br />
+<pre style="color:#00ff00;background-color:#000000;">$ opa-plugin-builder src/plugin/pubnub.js -o pubnub</pre><br />
+This creates the plugin pubnub.opp.</p>
+
+<p>To make using the plugin easier, we create a package in pubnub.opa that will contain a module <em>PubNub</em>. Below is the contents of pubnub.opa for the publish function that will show how to register the external functions and create a module named PubNub around them.<br />
+<pre style="color:#00ff00;background-color:#000000;"><span style="color:#00ffff;">package</span> pubnub</p>
+
+<p><span style="color:#b0c4de;">pubnub_publish =</span> <span style="color:#ffa07a;">%%pubnub.publish%%</span></p>
+
+<p><span style="color:#cd3700;">@client</span> <span style="color:#b0c4de;">publish_client =</span> pubnub_publish</p>
+
+<p><span style="color:#b0c4de;">PubNub =</span> <span style="color:#00ffff;">{{</span><br />
+  <span style="color:#87cefa;">publish</span>(channel<span style="color:#98fb98;">: string</span>, j <span style="color:#98fb98;">: RPC.Json.json</span>) =<br />
+    <span style="color:#87cefa;">publish_client</span>(channel, <span style="color:#87cefa;">Json.to_string</span>(j))<br />
+<span style="color:#00ffff;">}}</span></p>
+
+<p><span style="color:#00ffff;">do</span> <span style="color:#87cefa;">Resource.register_external_js</span>(<span style="color:#ffa07a;">&ldquo;<a href="http://cdn.pubnub.com/pubnub-3.1.min.js&quot;">http://cdn.pubnub.com/pubnub-3.1.min.js&quot;</a></span>)</pre><br />
+The first thing to notice is setting the _pubnub<em>publish</em> variable. The <em>%%</em> syntax is specifying that <em>pubnub.publish</em> is the key of an external primitive. <em>pubnub</em> is the name of the plugin (pubnub.opp) and <em>publish</em> is the function we registered in the plugin.</p>
+
+<p>After this we create another variable _publish<em>client</em> that specifies that that this function (variables can contain functions) is to be run on the client side. Lastly, we define a module <em>PubNub</em> and a <em>publish</em> function inside the module to be used by our Opa programs.</p>
+
+<p>At the end we make sure that the needed PubNub Javascript file is includes in all resources by registering it and giving the URL to the PubNub CDN.</p>
+
+<p>Now we can compile it all together with the <em>opa-plugin-builder</em> command from above and use the plugin.<br />
+<pre style="color:#00ff00;background-color:#000000;"><span style="color:#00ffff;">import</span> pubnub</p>
+
+<p><span style="color:#87cefa;">broadcast</span>(author, msg) =<br />
+   <span style="color:#b0c4de;">username </span><span style="color:#98fb98;">: RPC.Json.json</span><span style="color:#b0c4de;"> =</span> <span style="color:#00ffff;">{</span><span style="color:#b0c4de;">String =</span> author<span style="color:#00ffff;">}</span><br />
+   <span style="color:#b0c4de;">message </span><span style="color:#98fb98;">: RPC.Json.json</span><span style="color:#b0c4de;"> =</span> <span style="color:#00ffff;">{</span><span style="color:#b0c4de;">String =</span> msg<span style="color:#00ffff;">}</span><br />
+   <span style="color:#b0c4de;">record_json </span><span style="color:#98fb98;">: RPC.Json.json</span><span style="color:#b0c4de;"> =</span> <span style="color:#00ffff;">{</span><span style="color:#b0c4de;">Record =</span> [(<span style="color:#ffa07a;">&ldquo;username&rdquo;</span>, username), (<span style="color:#ffa07a;">&ldquo;message&rdquo;</span>, message)]<span style="color:#00ffff;">}</span><br />
+   <span style="color:#00ffff;">do</span> <span style="color:#87cefa;">PubNub.publish</span>(<span style="color:#ffa07a;">&ldquo;chat&rdquo;</span>, record_json)<br />
+   <span style="color:#87cefa;">Dom.clear_value</span>(#entry)</pre><br />
+The <em>broadcast</em> function is part of pubnub_chat.opa. <em>broadcast</em> takes 2 arguments, the username of the user sending the message and the message itself. We then construct three variables of Opa&rsquo;s json type, <em>username</em>, <em>message</em> and _record<em>json</em>. <em>username</em> and <em>message</em> are simply Json strings and they are then combined into a Json Record type that is a list of string/Json pairs. Since our <em>PubNub.publish</em> function converts the Opa Json to a string before sending to the Javascript binding we can simply pass the Opa Json variable _record<em>json</em>.</p>
+
+<p>Lastly, lets take a quick look at the <em>subscribe</em> function. Defining it in <em>pubnub.js</em> look like:<br />
+<pre style="color:#00ff00;background-color:#000000;"><span style="color:#ff0000;">##</span>register <span style="color:#eedd82;">subscribe :</span> string, (string -&gt; <span style="color:#7fffd4;">void</span>) -&gt; <span style="color:#7fffd4;">void</span></pre><br />
+Since it takes a callback function you&rsquo;ll notice that the second argument&rsquo;s type looks different from in <em>publish</em>. <em>(string -&gt; void)</em> is defining that the function takes a variable that is a function which takes a single argument of type <em>string</em> and has a <em>void</em> return type.</p>
+
+<p>Now in <em>pubnub.opa</em> we have a <em>subscribe</em> function that is hardly different from the <em>publish</em> function we described above.<br />
+<pre style="color:#00ff00;background-color:#000000;"><span style="color:#87cefa;">subscribe</span>(channel<span style="color:#98fb98;">: string</span>, callback) =<br />
+  <span style="color:#87cefa;">subscribe_client</span>(channel, callback)</pre><br />
+But how do we define a function we can pass to <em>subscribe</em>? That is the great thing, it can be any Opa function!<br />
+<pre style="color:#00ff00;background-color:#000000;"><span style="color:#87cefa;">PubNub.subscribe</span>(<span style="color:#ffa07a;">&ldquo;chat&rdquo;</span>, (x <span style="color:#00ffff;">-&gt;</span> <span style="color:#87cefa;">user_update</span>(x)))</pre><br />
+Above we are subscribing to the channel <em>chat</em> and passing an anonymous function that takes a single argument and sends it to the function _user<em>update</em>.<br />
+<pre style="color:#00ff00;background-color:#000000;"><span style="color:#87cefa;">user_update</span>(x) =<br />
+  <span style="color:#00ffff;">match</span> <span style="color:#87cefa;">Json.deserialize</span>(x) <span style="color:#00ffff;">with</span><br />
+         | <span style="color:#00ffff;">{</span><span style="color:#b0c4de;">some=</span><span style="color:#00ffff;">{</span><span style="color:#b0c4de;">Record =</span> [(<span style="color:#ffa07a;">&ldquo;username&rdquo;</span>, username), (<span style="color:#ffa07a;">&ldquo;message&rdquo;</span>, message)]<span style="color:#00ffff;">}}</span> <span style="color:#00ffff;">-&gt;</span><br />
+                    <span style="color:#b0c4de;">line =</span> <span style="color:#ffa07a;">&lt;</span><span style="color:#00ffff;">div </span><span style="color:#ffa07a;">class=&ldquo;line&rdquo;&gt; &lt;</span><span style="color:#00ffff;">div </span><span style="color:#ffa07a;">class=&ldquo;user&rdquo;&gt;{</span><span style="color:#87cefa;">Json.to_string</span>(username)<span style="color:#ffa07a;">}:&lt;</span><span style="color:#00ffff;">/</span><span style="color:#ffa07a;">&gt;</span><br />
+                             <span style="color:#ffa07a;">&lt;</span><span style="color:#00ffff;">div </span><span style="color:#ffa07a;">class=&ldquo;message&rdquo;&gt;{</span><span style="color:#87cefa;">Json.to_string</span>(message)<span style="color:#ffa07a;">}&lt;</span><span style="color:#00ffff;">/</span><span style="color:#ffa07a;">&gt;</span><br />
+                            &lt;/&gt;<br />
+                    <span style="color:#00ffff;">do</span> <span style="color:#87cefa;">Dom.transform</span>([#conversation <span style="color:#00ffff;">+&lt;-</span> line ])<br />
+                    <span style="color:#87cefa;">Dom.scroll_to_bottom</span>(#conversation)<br />
+         | _ <span style="color:#00ffff;">-&gt;</span> void</pre><br />
+Now every time a message is posted to the <em>chat</em> channel, our callback, the anonymous function, will be run and call the function _user<em>update</em> which we see deserializes the Json string to get an Opa Json Record. The rest is basic Opa DOM manipulation to add the new message to the messages in the conversation element.</p>
+
+<p>In my next post on Opa and PubNub, I&rsquo;ll be describing an Opa server side API for PubNub.</p>
+
+      </section>
+
+    </div>
+</article>
+    </div>
+    
+  </div>
+</main>
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/"></a>  <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/erlware" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body></html>

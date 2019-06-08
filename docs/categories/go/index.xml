@@ -13,10 +13,10 @@
     
     <item>
       <title>Some Thoughts on Go and Erlang</title>
-      <link>/post/some-thoughts-on-go-and-erlang/</link>
+      <link>/some-thoughts-on-go-and-erlang/</link>
       <pubDate>Mon, 28 Apr 2014 01:41:16 +0000</pubDate>
       
-      <guid>/post/some-thoughts-on-go-and-erlang/</guid>
+      <guid>/some-thoughts-on-go-and-erlang/</guid>
       <description>UPDATE: I&amp;rsquo;m seeing that I did not make the point of this post clear. I am not saying Go is wrong or should change because it isn&amp;rsquo;t like Erlang. What I am attempting to show is the choices Go made that make it not an alternative to Erlang for backends where availability and low latency for high numbers of concurrent requests is a requirement. And notice I&amp;rsquo;m not writing this about a language like Julia.</description>
     </item>
     

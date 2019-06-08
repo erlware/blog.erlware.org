@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-us" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Rebar3 features (part 3): Overrides &middot; Erlware Blog</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/rebar3-features-part-3-overrides/" />
+
+     <meta name="description" content="What do you do when a dependency has settings in its rebar.config that are causing you problems? Maybe it includes dependencies that are not needed in the gener" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary"/>
+    
+ 
+    <meta name="twitter:title" content="Rebar3 features (part 3): Overrides"/>
+    <meta name="twitter:description" content="What do you do when a dependency has settings in its rebar.config that are causing you problems? Maybe it includes dependencies that are not needed in the gener"/>
+    <meta name="twitter:url" content="/rebar3-features-part-3-overrides/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="Erlware Blog" />
+    <meta property="og:title" content="Rebar3 features (part 3): Overrides &middot; Erlware Blog" />
+    <meta property="og:url" content="/rebar3-features-part-3-overrides/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="What do you do when a dependency has settings in its rebar.config that are causing you problems? Maybe it includes dependencies that are not needed in the gener" />
+
+    <meta property="article:published_time" content="2015-09-15T00:32:30Z" />
+    <meta property="article:tag" content="Erlang" /><meta property="article:tag" content="rebar3" />
+
+
+    <meta name="generator" content="Hugo 0.53" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    
+
+     
+
+</head>
+
+
+<body class="ctsingle">
+
+<div class="site-wrapper"> 
+
+<header class="site-header outer "  >
+  <div class="inner">
+    <div class="site-header-content">
+      <h1 class="site-title">
+        <img class="site-logo" src="/img/logo.png" alt="Erlware Blog" />
+       </h1>
+        <h2 class="site-description">Erlang tools and packaging </h2>
+    </div>
+
+    <nav class="site-nav">
+      <div class="site-nav-left"><ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about">About</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/erlware" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+  	
+    <div class="post-feed">
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-features-part-3-overrides/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-features-part-3-overrides/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 features (part 3): Overrides</h2>
+          </header>
+      </a>
+      <section class="post-card-excerpt" style="padding: 0 25px;">
+          <p>What do you do when a dependency has settings in its <code>rebar.config</code> that are causing you problems? Maybe it includes dependencies that are not needed in the general case, like <code>meck</code> or <code>edown</code>. Or it could have set a required OTP version that isn&rsquo;t accurate and you want to remove. Or the app could contain C code that needs compiling and had relied on rebar2&rsquo;s port compiler. These problems often lead to forks of projects, which isn&rsquo;t good for anyone, so in rebar3 we&rsquo;ve added a feature called <code>overrides</code>.</p>
+
+<p>Overrides allow any <code>rebar.config</code> at a higher level than a dependency to either replace or add to the configuration of all or an individual application at a lower level.</p>
+
+<p>The type spec for overrides looks like:</p>
+
+<pre><code class="language-erlang">{overrides, [{add, atom(), [{atom(), any()]}
+             | {override, atom(), [{atom(), any()]},
+             | {override, [{atom(), any()]} 
+            ]}.
+</code></pre>
+
+<p>The <a href="https://github.com/basho/bitcask/">bitcask</a> application from Basho is configured to be built with rebar2, but instead of forking the project and patching the config, a user can instead simply add the below overrides section to their <code>rebar.config</code>:</p>
+
+<pre><code class="language-erlang">{overrides, 
+  [
+    {override, bitcask,
+      [{deps, []},
+       {plugins, [pc]},
+       {artifacts, [&quot;priv/bitcask.so&quot;]},
+       {provider_hooks, [{post, 
+                          [{compile, {pc, compile}},
+                           {clean, {pc, clean}}]
+                         }]}
+      ]
+    }
+  ]
+}.
+</code></pre>
+
+<p>These overrides for <code>bitcask</code> replace its <code>deps</code> entry with an empty list, this removes the <code>meck</code> dependency which is only needed if you were running tests and the <code>cuttlefish</code> dependency which isn&rsquo;t required. Plus, since the port compiler functionality was removed in rebar3, the <a href="http://www.rebar3.org/docs/using-available-plugins#port-compiler">port compiler</a> plugin must be added and hooked in to <code>compile</code> and <code>clean</code> with <code>provider_hooks</code>.</p>
+
+<p>The rest of the guts of the override will be covered in future posts, see the docs for more information on <a href="http://www.rebar3.org/docs/configuration#section-provider-hooks">provider_hooks</a>, <a href="http://www.rebar3.org/docs/configuration#artifacts">artifacts</a> and <a href="http://www.rebar3.org/docs/using-available-plugins">plugins</a></p>
+
+      </section>
+
+    </div>
+</article>
+    </div>
+    
+  </div>
+</main>
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/"></a>  <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/erlware" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body></html>

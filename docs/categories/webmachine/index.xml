@@ -13,19 +13,19 @@
     
     <item>
       <title>Cowboy and Batman.js for Erlang Web Development</title>
-      <link>/post/cowboy-and-batman-js-for-erlang-web-development/</link>
+      <link>/cowboy-and-batman-js-for-erlang-web-development/</link>
       <pubDate>Mon, 30 Apr 2012 19:59:11 +0000</pubDate>
       
-      <guid>/post/cowboy-and-batman-js-for-erlang-web-development/</guid>
+      <guid>/cowboy-and-batman-js-for-erlang-web-development/</guid>
       <description>Why Cowboy and Batman.js There are a lot of Erlang web frameworks out there today. Not all are modeled after the MVC model (see Nitrogen), but I think all of them are addressing the problem the wrong way. I recently gave a presentation, slides here and the code for this example here, describing my perferred method for using Erlang for web development and why I think it is the best way to go.</description>
     </item>
     
     <item>
       <title>eCloudEdit Part 2: CouchDB</title>
-      <link>/post/ecloudedit-part-2-couchdb/</link>
+      <link>/ecloudedit-part-2-couchdb/</link>
       <pubDate>Sat, 12 Feb 2011 23:37:34 +0000</pubDate>
       
-      <guid>/post/ecloudedit-part-2-couchdb/</guid>
+      <guid>/ecloudedit-part-2-couchdb/</guid>
       <description>In my last post I showed the Webmachine backend to James Yu&amp;rsquo;s CloudEdit app in Backbone.js. What was left out was, where are the documents stored? Here I&amp;rsquo;ll show how this is done with CouchDB. And you can give the app a try at http://erlware.org:8080
 First, a new Erlang app is needed that we&amp;rsquo;ll call ece_db.
 ece_db/ &amp;#9500;&amp;#9472;&amp;#9472; doc &amp;#9500;&amp;#9472;&amp;#9472; ebin &amp;#9474;&amp;#160;&amp;#160; &amp;#9500;&amp;#9472;&amp;#9472; ece_db.app &amp;#9474;&amp;#160;&amp;#160; &amp;#9492;&amp;#9472;&amp;#9472; overview.edoc &amp;#9500;&amp;#9472;&amp;#9472; include &amp;#9492;&amp;#9472;&amp;#9472; src &amp;#9500;&amp;#9472;&amp;#9472; ece_db.</description>
@@ -33,10 +33,10 @@ ece_db/ &amp;#9500;&amp;#9472;&amp;#9472; doc &amp;#9500;&amp;#9472;&amp;#9472; 
     
     <item>
       <title>eCloudEdit: Erlang, Webmachine and Backbone.js</title>
-      <link>/post/ecloudedit-erlang-webmachine-and-backbone-js/</link>
+      <link>/ecloudedit-erlang-webmachine-and-backbone-js/</link>
       <pubDate>Wed, 09 Feb 2011 09:10:43 +0000</pubDate>
       
-      <guid>/post/ecloudedit-erlang-webmachine-and-backbone-js/</guid>
+      <guid>/ecloudedit-erlang-webmachine-and-backbone-js/</guid>
       <description>To experiment with using a pure client-side rendering talking to an Erlang backend I&amp;rsquo;ve taken James Yu&amp;rsquo;s CloudEdit tutorial an app written with Backbone.js and Rails and converted the backend to use Webmachine and CouchDB. You can see eCloudEdit in action here. The Backbone.js code is the same so to understand that please see James&amp;rsquo; post, here I&amp;rsquo;ll describe the Erlang backend.
 To begin with we setup two applications, one for handling the web interaction and a second for handling the database interaction.</description>
     </item>
