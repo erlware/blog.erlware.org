@@ -2,6 +2,7 @@ baseURL = "/blog.erlware.org/"
 languageCode = "en-us"
 title = "Erlware Blog"
 theme = "casper-two"
+publishDir = "docs"
 
 [params]
   title       = "Erlware Blog"
