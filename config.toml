@@ -14,6 +14,9 @@ publishDir = "docs"
 
   singleViewStyle = "casper"
 
+  author = "Tristan Sloughter"
+  authorAvatar = "img/avatar.jpeg"
+
 [[menu.main]]
   name = "Home"
   url = "/"
