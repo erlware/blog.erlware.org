@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on Erlware Blog</title>
-    <link>/blog.erlware.org/categories/docker/</link>
+    <link>/categories/docker/</link>
     <description>Recent content in Docker on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 18 Sep 2018 06:09:11 +0000</lastBuildDate>
     
-	<atom:link href="/blog.erlware.org/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/docker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Rebar3: Building Docker Images</title>
-      <link>/blog.erlware.org/post/rebar3-building-docker-images/</link>
+      <link>/post/rebar3-building-docker-images/</link>
       <pubDate>Tue, 18 Sep 2018 06:09:11 +0000</pubDate>
       
-      <guid>/blog.erlware.org/post/rebar3-building-docker-images/</guid>
+      <guid>/post/rebar3-building-docker-images/</guid>
       <description>How I cut the time it takes to build an Erlang docker image in half. While adding support for a rebar3 option to only build dependencies and not project applications, rebar3 compile --deps_only, I realized it might already actually work for the Docker use case I had in mind.
 So I gave it a try and, yup, turns out it does!
 The idea is to cache a docker layer of the built dependencies to reuse if they haven&amp;rsquo;t changed.</description>
