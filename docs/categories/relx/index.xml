@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Relx on Erlware Blog</title>
-    <link>/blog.erlware.org/docs/categories/relx/</link>
+    <link>/blog.erlware.org/categories/relx/</link>
     <description>Recent content in Relx on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 21 Jun 2018 03:55:53 +0000</lastBuildDate>
     
-	<atom:link href="/blog.erlware.org/docs/categories/relx/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/blog.erlware.org/categories/relx/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>OTP-21: New sys_config_src option in relx</title>
-      <link>/blog.erlware.org/docs/post/otp-21-new-sys_config_src-option-in-relx/</link>
+      <link>/blog.erlware.org/post/otp-21-new-sys_config_src-option-in-relx/</link>
       <pubDate>Thu, 21 Jun 2018 03:55:53 +0000</pubDate>
       
-      <guid>/blog.erlware.org/docs/post/otp-21-new-sys_config_src-option-in-relx/</guid>
+      <guid>/blog.erlware.org/post/otp-21-new-sys_config_src-option-in-relx/</guid>
       <description>With the release of OTP-21 and rebar3 3.6.0, which includes a new relx 3.25.0, there is better support for dynamic configuration of releases at runtime. If you are new to this concept checkout the rebar3 docs first
 No longer will you be forced to declare RELX_REPLACE_OS_VARS and convert strings to integers in your code because the sys.config file had to be valid Erlang terms when building the release.
 Instead, you can use {sys_config_src, &amp;quot;config/sys.</description>
