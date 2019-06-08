@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Opa on Erlware Blog</title>
-    <link>/docs/categories/opa/</link>
+    <link>/blog.erlware.org/docs/categories/opa/</link>
     <description>Recent content in Opa on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 12 Nov 2012 22:07:50 +0000</lastBuildDate>
     
-	<atom:link href="/docs/categories/opa/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/blog.erlware.org/docs/categories/opa/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Running Opa Applications on Heroku</title>
-      <link>/docs/post/running-opa-applications-on-heroku/</link>
+      <link>/blog.erlware.org/docs/post/running-opa-applications-on-heroku/</link>
       <pubDate>Mon, 12 Nov 2012 22:07:50 +0000</pubDate>
       
-      <guid>/docs/post/running-opa-applications-on-heroku/</guid>
+      <guid>/blog.erlware.org/docs/post/running-opa-applications-on-heroku/</guid>
       <description>TL;DR
 As I&amp;rsquo;ve mentioned before, Opa is a new web framework that introduces not only the framework itself but a whole new language. A lot has changed in Opa since I last posted about it. Now Opa has a Javascript-esque look and runs on Node.js. But it still has the amazing typing system that makes Opa a joy to code in.
 The currently available Heroku buildpack for Opa only supported the old, pre-Node, support.</description>
@@ -24,39 +24,39 @@ The currently available Heroku buildpack for Opa only supported the old, pre-Nod
     
     <item>
       <title>Opa Plugin Development with a PubNub Example</title>
-      <link>/docs/post/opa-plugin-development-with-a-pubnub-example/</link>
+      <link>/blog.erlware.org/docs/post/opa-plugin-development-with-a-pubnub-example/</link>
       <pubDate>Thu, 24 Nov 2011 04:03:07 +0000</pubDate>
       
-      <guid>/docs/post/opa-plugin-development-with-a-pubnub-example/</guid>
+      <guid>/blog.erlware.org/docs/post/opa-plugin-development-with-a-pubnub-example/</guid>
       <description>This will be a two part series of posts on writing plugins for Opa. One of Opa&amp;rsquo;s greatest features is you write everything in the functional, staticly typed Opa language. This even includes the frontend code you&amp;rsquo;d usually do in Javascript. This means your code is less error-prone which significantly reduces the amount of time spent on debugging code.
 But how do you use Javascript library X within your Opa code?</description>
     </item>
     
     <item>
       <title>Major OpaDo Speed-Up with @publish</title>
-      <link>/docs/post/major-opado-speed-up-with-publish/</link>
+      <link>/blog.erlware.org/docs/post/major-opado-speed-up-with-publish/</link>
       <pubDate>Mon, 07 Nov 2011 07:19:48 +0000</pubDate>
       
-      <guid>/docs/post/major-opado-speed-up-with-publish/</guid>
+      <guid>/blog.erlware.org/docs/post/major-opado-speed-up-with-publish/</guid>
       <description>I received a patch for OpaDo from Francois Regis Sinot that has made the hosted OpaDo http://opado.org on Dotcloud MUCH faster, adding and removing item is now instantaneous. He placed @publish around explicitly server side functions that caused adding todo items to go from 21 to 1 server calls. I thought this simple but maybe not obvious for new Opa developers (it certainly wasn&amp;rsquo;t to me!) needed a blog post so that beginners like my self may find it and be able to start using the @publish directive.</description>
     </item>
     
     <item>
       <title>Adding JS To all Opa Resources: Use Case Google Analytics</title>
-      <link>/docs/post/adding-js-to-all-opa-resources-use-case-google-analytics/</link>
+      <link>/blog.erlware.org/docs/post/adding-js-to-all-opa-resources-use-case-google-analytics/</link>
       <pubDate>Sun, 06 Nov 2011 23:19:38 +0000</pubDate>
       
-      <guid>/docs/post/adding-js-to-all-opa-resources-use-case-google-analytics/</guid>
+      <guid>/blog.erlware.org/docs/post/adding-js-to-all-opa-resources-use-case-google-analytics/</guid>
       <description>I decided I wanted to add Google Analytics to OpaDo but had no idea how to easily tell each page to include the necessary Javascript. I asked on the Opa mailing list and got a quick and simple response. Frederic Ye pointed me to Resource.register_external_js
 It couldn&amp;rsquo;t have been any easier. You simply place your google_analytics.js file in your project and use the Resource.register_external_js function to modify the default customization of all Resources.</description>
     </item>
     
     <item>
       <title>Opa Database Migrations</title>
-      <link>/docs/post/opa-database-migrations/</link>
+      <link>/blog.erlware.org/docs/post/opa-database-migrations/</link>
       <pubDate>Sat, 15 Oct 2011 19:11:58 +0000</pubDate>
       
-      <guid>/docs/post/opa-database-migrations/</guid>
+      <guid>/blog.erlware.org/docs/post/opa-database-migrations/</guid>
       <description>Nicolas Glondu posted a comment on an earlier post detailing ways for doing database migrations with Opa. I thought it was useful enough that I should put up a post around it:
  If you have complex changes in database structures in a OPA program, you have two choices :
 1 – Keep both structure in your database and create a function which populates the new empty field from the other fields.</description>
@@ -64,10 +64,10 @@ It couldn&amp;rsquo;t have been any easier. You simply place your google_analyti
     
     <item>
       <title>OpaDo: Personal ToDo Lists</title>
-      <link>/docs/post/opado-personal-todo-lists/</link>
+      <link>/blog.erlware.org/docs/post/opado-personal-todo-lists/</link>
       <pubDate>Sat, 15 Oct 2011 17:59:01 +0000</pubDate>
       
-      <guid>/docs/post/opado-personal-todo-lists/</guid>
+      <guid>/blog.erlware.org/docs/post/opado-personal-todo-lists/</guid>
       <description>This is a continuation of two past posts (one, two) on my first application with Opa called OpaDo. You can try the live demo here and check out the full source code on Github
 Updating OpaDo to add user accounts the project structure has been changed a bit and modularized. Below is the new project layout.
 opado/
@@ -81,10 +81,10 @@ opado/
     
     <item>
       <title>OpaDo Data Storage</title>
-      <link>/docs/post/opado-data-storage/</link>
+      <link>/blog.erlware.org/docs/post/opado-data-storage/</link>
       <pubDate>Thu, 06 Oct 2011 18:59:55 +0000</pubDate>
       
-      <guid>/docs/post/opado-data-storage/</guid>
+      <guid>/blog.erlware.org/docs/post/opado-data-storage/</guid>
       <description>OpaDo (a port of the TodoMVC app to Opa) now persists todo items to the Opa database. The new version is up on dotcloud, http://opado-tristan.sloughter.dotcloud.com/
 I&amp;rsquo;ve added a _todoitem type which stores the item&amp;rsquo;s value and two other attributes we won&amp;rsquo;t use until the next post when we have user accounts for their own _todoitem stores.
 type todo_item = { user_id : string
@@ -94,10 +94,10 @@ type todo_item = { user_id : string
     
     <item>
       <title>TodoMVC in Opa</title>
-      <link>/docs/post/todomvc-in-opa/</link>
+      <link>/blog.erlware.org/docs/post/todomvc-in-opa/</link>
       <pubDate>Wed, 05 Oct 2011 04:19:27 +0000</pubDate>
       
-      <guid>/docs/post/todomvc-in-opa/</guid>
+      <guid>/blog.erlware.org/docs/post/todomvc-in-opa/</guid>
       <description>Edit: I just learned that dotcloud supports Opa! So I&amp;rsquo;ve pushed OpaDo and you can see a demo here http://opado-tristan.sloughter.dotcloud.com/
 I wanted something quick and simple to do in Opa to give it a try so I decided to implement the TodoMVC example that has been redone in almost all Javascript frameworks, https://github.com/addyosmani/todomvc.
 The code can be found on GitHub here: https://github.com/tsloughter/OpaDo

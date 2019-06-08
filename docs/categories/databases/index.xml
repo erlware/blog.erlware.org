@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Databases on Erlware Blog</title>
-    <link>/docs/categories/databases/</link>
+    <link>/blog.erlware.org/docs/categories/databases/</link>
     <description>Recent content in Databases on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 05 May 2014 02:41:52 +0000</lastBuildDate>
     
-	<atom:link href="/docs/categories/databases/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/blog.erlware.org/docs/categories/databases/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Erlang Postgres Connection Pool with Episcina</title>
-      <link>/docs/post/erlang-postgres-connection-pool-with-episcina/</link>
+      <link>/blog.erlware.org/docs/post/erlang-postgres-connection-pool-with-episcina/</link>
       <pubDate>Mon, 05 May 2014 02:41:52 +0000</pubDate>
       
-      <guid>/docs/post/erlang-postgres-connection-pool-with-episcina/</guid>
+      <guid>/blog.erlware.org/docs/post/erlang-postgres-connection-pool-with-episcina/</guid>
       <description>Almost exactly a year ago I was looking to merge the many forks of Will Glozer&amp;rsquo;s Postgres client for use in a project at Heroku. Instead Semiocast released their client, I gave it a try and never looked back. (But note that David Welton, a braver person than me, is working on merging the forks of epgsql at this time). I found Semiocast&amp;rsquo;s client to be clean, stable and I liked the interface better.</description>
     </item>
     
