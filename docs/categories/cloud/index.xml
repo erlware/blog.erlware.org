@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cloud on Erlware Blog</title>
+    <link>/categories/cloud/</link>
+    <description>Recent content in Cloud on Erlware Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Nov 2011 04:03:07 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/cloud/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Opa Plugin Development with a PubNub Example</title>
+      <link>/post/opa-plugin-development-with-a-pubnub-example/</link>
+      <pubDate>Thu, 24 Nov 2011 04:03:07 +0000</pubDate>
+      
+      <guid>/post/opa-plugin-development-with-a-pubnub-example/</guid>
+      <description>This will be a two part series of posts on writing plugins for Opa. One of Opa&amp;rsquo;s greatest features is you write everything in the functional, staticly typed Opa language. This even includes the frontend code you&amp;rsquo;d usually do in Javascript. This means your code is less error-prone which significantly reduces the amount of time spent on debugging code.
+But how do you use Javascript library X within your Opa code?</description>
+    </item>
+    
+    <item>
+      <title>OpaDo Data Storage</title>
+      <link>/post/opado-data-storage/</link>
+      <pubDate>Thu, 06 Oct 2011 18:59:55 +0000</pubDate>
+      
+      <guid>/post/opado-data-storage/</guid>
+      <description>OpaDo (a port of the TodoMVC app to Opa) now persists todo items to the Opa database. The new version is up on dotcloud, http://opado-tristan.sloughter.dotcloud.com/
+I&amp;rsquo;ve added a _todoitem type which stores the item&amp;rsquo;s value and two other attributes we won&amp;rsquo;t use until the next post when we have user accounts for their own _todoitem stores.
+type todo_item = { user_id : string
+; value : string
+; created_at : string</description>
+    </item>
+    
+  </channel>
+</rss>

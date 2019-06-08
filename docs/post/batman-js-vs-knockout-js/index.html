@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en-us" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Batman.js vs Knockout.js &middot; Erlware Blog</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/post/batman-js-vs-knockout-js/" />
+
+     <meta name="description" content="The following is NOT a tutorial for either Batman.js or Knockout.js. But, it is instead a sort of side-by-side comparison of the two for creating a user creatio" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary"/>
+    
+ 
+    <meta name="twitter:title" content="Batman.js vs Knockout.js"/>
+    <meta name="twitter:description" content="The following is NOT a tutorial for either Batman.js or Knockout.js. But, it is instead a sort of side-by-side comparison of the two for creating a user creatio"/>
+    <meta name="twitter:url" content="/post/batman-js-vs-knockout-js/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="Erlware Blog" />
+    <meta property="og:title" content="Batman.js vs Knockout.js &middot; Erlware Blog" />
+    <meta property="og:url" content="/post/batman-js-vs-knockout-js/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="The following is NOT a tutorial for either Batman.js or Knockout.js. But, it is instead a sort of side-by-side comparison of the two for creating a user creatio" />
+
+    <meta property="article:published_time" content="2011-08-29T01:37:13Z" />
+    <meta property="article:tag" content="batman.js" /><meta property="article:tag" content="coffeescript" /><meta property="article:tag" content="Javascript" /><meta property="article:tag" content="js" /><meta property="article:tag" content="knockout.js" /><meta property="article:tag" content="RESTful" />
+
+
+    <meta name="generator" content="Hugo 0.53" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    
+
+     
+
+</head>
+
+
+<body class="ctsingle">
+
+  <div class="site-wrapper"> 
+
+<header class="site-header outer "  >
+  <div class="inner">
+    <div class="site-header-content">
+      <h1 class="site-title">
+        <img class="site-logo" src="/img/logo.png" alt="Erlware Blog" />
+       </h1>
+        <h2 class="site-description">Erlang tools and packaging </h2>
+    </div>
+
+    <nav class="site-nav">
+      <div class="site-nav-left"><ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about">About</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/erlware" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+    <div class="post-feed">
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/batman-js-vs-knockout-js/">
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/batman-js-vs-knockout-js/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #batman.js 
+              #coffeescript 
+              #Javascript 
+              #js 
+              #knockout.js 
+              #RESTful  </span>
+              
+              <h2 class="post-card-title">Batman.js vs Knockout.js</h2>
+          </header>
+      </a>
+      <section class="post-card-excerpt" style="padding: 0 25px;">
+          <p>The following is NOT a tutorial for either Batman.js or Knockout.js. But, it is instead a sort of side-by-side comparison of the two for creating a user creation form that POSTs the new user&rsquo;s data as JSON to the backend.</p>
+
+<p>The method of web development I&rsquo;ve come to find the best is based on heavy frontend Javascript (though written in Coffeescript) communicating with a backend via a RESTful interface. This is appealing, because you are not cluttering the application logic with view related code. This allows me to use Erlang, my language of choice, which is great at implementing RESTful interfaces with Webmachine, but not too great for trying to build a site like you would with Rails.</p>
+
+<p>I recently began using Knockout.js and found it to be a great fit for my development paradigm. When Batman.js came out, I saw that it could provide me with what Knockout.js does but also already take care of pieces I would develop myself on the frontend, like RESTful persistence.</p>
+
+<p>First, we have the Knockout.js logic, written in Coffeescript, for setting up a User class and object that observers the input fields.<br />
+<pre style="color:#00ff00;background-color:#000000;"><span style="color:#00ffff;">class</span> <span style="color:#eedd82;">@User</span><br />
+  <span style="color:#98fb98;">constructor :</span> -&gt;<br />
+    <span style="color:#98fb98;">firstname :</span> ko.observable <span style="color:#ffa07a;">&rdquo;&rdquo;</span><br />
+    <span style="color:#98fb98;">lastname :</span> ko.observable <span style="color:#ffa07a;">&rdquo;&rdquo;</span><br />
+    <span style="color:#98fb98;">email :</span> ko.observable <span style="color:#ffa07a;">&rdquo;&rdquo;</span><br />
+    <span style="color:#98fb98;">username :</span> ko.observable <span style="color:#ffa07a;">&rdquo;&rdquo;</span><br />
+    <span style="color:#98fb98;">password :</span> ko.observable <span style="color:#ffa07a;">&rdquo;&rdquo;</span></p>
+
+<p><span style="color:#98fb98;">save :</span> -&gt;<br />
+    <span style="color:#00ffff;">if</span> $(<span style="color:#ffa07a;">&ldquo;form&rdquo;</span>).validate().form()<br />
+      $.post(<span style="color:#ffa07a;">&rsquo;/user&rsquo;</span>, ko.toJSON(<span style="color:#eedd82;">this</span>), (data) -&gt; window.location = <span style="color:#ffa07a;">&rdquo;/login.html&rdquo;</span>; <span style="color:#00ffff;">return</span> <span style="color:#7fffd4;">false</span>;).error () -&gt; alert(<span style="color:#ffa07a;">&ldquo;error&rdquo;</span>); <span style="color:#00ffff;">return</span> <span style="color:#7fffd4;">false</span>;</p>
+
+<p>user = <span style="color:#00ffff;">new</span> User<br />
+ko.applyBindings user</pre><br />
+Now for the HTML for displaying the fields, configuring the submit handler, binding the inputs to Knockout.js observables and setting validators.<br />
+<pre style="color:#00ff00;background-color:#000000;">&lt;<span style="color:#87cefa;">form</span> <span style="color:#eedd82;">data-bind</span>=<span style="color:#ffa07a;">&ldquo;submit: save&rdquo;</span>&gt;<br />
+    &lt;<span style="color:#87cefa;">div</span> <span style="color:#eedd82;">class</span>=<span style="color:#ffa07a;">&ldquo;new_user_box&rdquo;</span>&gt;<br />
+    &lt;<span style="color:#87cefa;">label</span>&gt;First Name: &lt;/<span style="color:#87cefa;">label</span>&gt;<br />
+    &lt;<span style="color:#87cefa;">input</span> type=text name=firstname <span style="color:#eedd82;">data-bind</span>=<span style="color:#ffa07a;">&ldquo;value: firstname&rdquo;</span> minlength=2 maxlength=25 <span style="color:#eedd82;">class</span>=<span style="color:#ffa07a;">&ldquo;required&rdquo;</span> /&gt;</p>
+
+<pre><code>&amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;Last Name: &amp;lt;/&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;  
+&amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;input&lt;/span&gt; type=text name=lastname &lt;span style=&quot;color:#eedd82;&quot;&gt;data-bind&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;value: lastname&quot;&lt;/span&gt;  minlength=2 maxlength=25 &lt;span style=&quot;color:#eedd82;&quot;&gt;class&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;required&quot;&lt;/span&gt; /&amp;gt;  
+
+&amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;Username: &amp;lt;/&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;  
+&amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;input&lt;/span&gt; type=text name=username &lt;span style=&quot;color:#eedd82;&quot;&gt;data-bind&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;value: username&quot;&lt;/span&gt; &lt;span style=&quot;color:#eedd82;&quot;&gt;remote&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;/user/check&quot;&lt;/span&gt;  minlength=6 maxlength=25 &lt;span style=&quot;color:#eedd82;&quot;&gt;class&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;required&quot;&lt;/span&gt; /&amp;gt;  
+
+&amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;Password: &amp;lt;/&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;  
+&amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;input&lt;/span&gt; type=password &lt;span style=&quot;color:#eedd82;&quot;&gt;id&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;password1&quot;&lt;/span&gt; &lt;span style=&quot;color:#eedd82;&quot;&gt;data-bind&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;value: password, uniqueName: true&quot;&lt;/span&gt; minlength=8 &lt;span style=&quot;color:#eedd82;&quot;&gt;class&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;required password&quot;&lt;/span&gt; /&amp;gt;  
+
+&amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;Retype Password: &amp;lt;/&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;  
+&amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;input&lt;/span&gt; type=password &lt;span style=&quot;color:#eedd82;&quot;&gt;data-bind&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;uniqueName: true&quot;&lt;/span&gt;  &lt;span style=&quot;color:#eedd82;&quot;&gt;id&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;password1&quot;&lt;/span&gt; &lt;span style=&quot;color:#eedd82;&quot;&gt;equalto&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;#password1&quot;&lt;/span&gt; &lt;span style=&quot;color:#eedd82;&quot;&gt;class&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;required&quot;&lt;/span&gt; /&amp;gt;  
+
+&amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;Email Address: &amp;lt;/&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;  
+&amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;input&lt;/span&gt; type=email name=email &lt;span style=&quot;color:#eedd82;&quot;&gt;data-bind&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;value: email&quot;&lt;/span&gt;  &lt;span style=&quot;color:#eedd82;&quot;&gt;remote&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;/user/email_check&quot;&lt;/span&gt;  &lt;span style=&quot;color:#eedd82;&quot;&gt;class&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;required email&quot;&lt;/span&gt; /&amp;gt;  
+
+&amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;input&lt;/span&gt; type=submit &lt;span style=&quot;color:#eedd82;&quot;&gt;value&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;Save&quot;&lt;/span&gt; &lt;span style=&quot;color:#eedd82;&quot;&gt;id&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;saveSubmit&quot;&lt;/span&gt; /&amp;gt;  
+&amp;lt;/&lt;span style=&quot;color:#87cefa;&quot;&gt;div&lt;/span&gt;&amp;gt;  
+</code></pre>
+
+<p>&lt;/<span style="color:#87cefa;">form</span>&gt;</pre><br />
+With Batman.js our validation will be configured in the user model. Here we only need to set @persist to Batman.RestStorage and when a model is saved with the save method it will POST the encoded fields as JSON to /users.<br />
+<pre style="color:#00ff00;background-color:#000000;"><span style="color:#00ffff;">class</span> CT <span style="color:#00ffff;">extends</span> Batman.App<br />
+    <span style="color:#eedd82;">@global</span> <span style="color:#7fffd4;">yes</span><br />
+    <span style="color:#eedd82;">@root</span> <span style="color:#ffa07a;">&lsquo;users#index&rsquo;</span></p>
+
+<p><span style="color:#00ffff;">class</span> CT.User <span style="color:#00ffff;">extends</span> Batman.Model<br />
+    <span style="color:#eedd82;">@global</span> <span style="color:#7fffd4;">yes</span><br />
+    <span style="color:#eedd82;">@persist</span> Batman.RestStorage<br />
+    <span style="color:#eedd82;">@encode</span> <span style="color:#ffa07a;">&lsquo;firstname&rsquo;</span>, <span style="color:#ffa07a;">&lsquo;lastname&rsquo;</span>, <span style="color:#ffa07a;">&lsquo;username&rsquo;</span>, <span style="color:#ffa07a;">&lsquo;email&rsquo;</span>, <span style="color:#ffa07a;">&lsquo;password&rsquo;</span><br />
+    <span style="color:#eedd82;">@validate</span> <span style="color:#ffa07a;">&lsquo;firstname&rsquo;</span>, <span style="color:#98fb98;">presence:</span> <span style="color:#7fffd4;">yes</span>, <span style="color:#98fb98;">maxLength:</span> 255<br />
+    <span style="color:#eedd82;">@validate</span> <span style="color:#ffa07a;">&lsquo;lastname&rsquo;</span>, <span style="color:#98fb98;">presence:</span> <span style="color:#7fffd4;">yes</span>, <span style="color:#98fb98;">maxLength:</span> 255<br />
+    <span style="color:#eedd82;">@validate</span> <span style="color:#ffa07a;">&lsquo;username&rsquo;</span>, <span style="color:#98fb98;">presence:</span> <span style="color:#7fffd4;">yes</span>, <span style="color:#98fb98;">lengthWithin:</span> [6,255]<br />
+    <span style="color:#eedd82;">@validate</span> <span style="color:#ffa07a;">&lsquo;email&rsquo;</span>, <span style="color:#98fb98;">presence:</span> <span style="color:#7fffd4;">yes</span><br />
+    <span style="color:#eedd82;">@validate</span> <span style="color:#ffa07a;">&lsquo;password&rsquo;</span>, <span style="color:#ffa07a;">&lsquo;passwordConfirmation&rsquo;</span>, <span style="color:#98fb98;">presence:</span> <span style="color:#7fffd4;">yes</span>, <span style="color:#98fb98;">lengthWithin:</span> [6,255]</p>
+
+<p><span style="color:#00ffff;">class</span> CT.UsersController <span style="color:#00ffff;">extends</span> Batman.Controller<br />
+    <span style="color:#98fb98;">user:</span> <span style="color:#7fffd4;">null</span></p>
+
+<pre><code>&lt;span style=&quot;color:#98fb98;&quot;&gt;index:&lt;/span&gt; -&amp;gt;  
+    &lt;span style=&quot;color:#eedd82;&quot;&gt;@set&lt;/span&gt; &lt;span style=&quot;color:#ffa07a;&quot;&gt;'user'&lt;/span&gt;, &lt;span style=&quot;color:#00ffff;&quot;&gt;new&lt;/span&gt; User  
+    &lt;span style=&quot;color:#00ffff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color:#7fffd4;&quot;&gt;false&lt;/span&gt;  
+
+&lt;span style=&quot;color:#98fb98;&quot;&gt;create:&lt;/span&gt; =&amp;gt;  
+    &lt;span style=&quot;color:#eedd82;&quot;&gt;@user&lt;/span&gt;.save()  
+    &lt;span style=&quot;color:#00ffff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color:#7fffd4;&quot;&gt;false&lt;/span&gt;  
+</code></pre>
+
+<p>CT.run()</pre><br />
+We see below that the Batman.js HTML is a bit cleaner than that in the Knockout.js example above.<br />
+<pre style="color:#00ff00;background-color:#000000;">        &lt;<span style="color:#87cefa;">form</span> <span style="color:#eedd82;">data-formfor-user</span>=<span style="color:#ffa07a;">&ldquo;controllers.users.user&rdquo;</span> <span style="color:#eedd82;">data-event-submit</span>=<span style="color:#ffa07a;">&ldquo;controllers.users.create&rdquo;</span>&gt;<br />
+          &lt;<span style="color:#87cefa;">div</span> <span style="color:#eedd82;">class</span>=<span style="color:#ffa07a;">&ldquo;new_user_box&rdquo;</span>&gt;<br />
+          &lt;<span style="color:#87cefa;">label</span>&gt;First Name: &lt;/<span style="color:#87cefa;">label</span>&gt;<br />
+          &lt;<span style="color:#87cefa;">input</span> type=text name=firstname <span style="color:#eedd82;">data-bind</span>=<span style="color:#ffa07a;">&ldquo;user.firstname&rdquo;</span> /&gt;</p>
+
+<pre><code>      &amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;Last Name: &amp;lt;/&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;  
+      &amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;input&lt;/span&gt; type=text name=lastname &lt;span style=&quot;color:#eedd82;&quot;&gt;data-bind&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;user.lastname&quot;&lt;/span&gt; /&amp;gt;  
+
+      &amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;Username: &amp;lt;/&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;  
+      &amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;input&lt;/span&gt; type=text name=username &lt;span style=&quot;color:#eedd82;&quot;&gt;data-bind&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;user.username&quot;&lt;/span&gt; &lt;span style=&quot;color:#eedd82;&quot;&gt;remote&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;/user/check&quot;&lt;/span&gt; /&amp;gt;  
+
+      &amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;Password: &amp;lt;/&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;  
+      &amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;input&lt;/span&gt; type=password &lt;span style=&quot;color:#eedd82;&quot;&gt;data-bind&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;user.password&quot;&lt;/span&gt; /&amp;gt;  
+
+      &amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;Retype Password: &amp;lt;/&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;  
+      &amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;input&lt;/span&gt; type=password &lt;span style=&quot;color:#eedd82;&quot;&gt;data-bind&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;user.passwordConfirmation&quot;&lt;/span&gt; /&amp;gt;  
+
+      &amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;Email Address: &amp;lt;/&lt;span style=&quot;color:#87cefa;&quot;&gt;label&lt;/span&gt;&amp;gt;  
+      &amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;input&lt;/span&gt; type=email &lt;span style=&quot;color:#eedd82;&quot;&gt;data-bind&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;user.email&quot;&lt;/span&gt; &lt;span style=&quot;color:#eedd82;&quot;&gt;remote&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;/user/email_check&quot;&lt;/span&gt; /&amp;gt;  
+
+      &amp;lt;&lt;span style=&quot;color:#87cefa;&quot;&gt;input&lt;/span&gt; type=submit &lt;span style=&quot;color:#eedd82;&quot;&gt;value&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;Save&quot;&lt;/span&gt; &lt;span style=&quot;color:#eedd82;&quot;&gt;id&lt;/span&gt;=&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;saveSubmit&quot;&lt;/span&gt; /&amp;gt;  
+      &amp;lt;/&lt;span style=&quot;color:#87cefa;&quot;&gt;div&lt;/span&gt;&amp;gt;  
+
+    &amp;lt;/&lt;span style=&quot;color:#87cefa;&quot;&gt;form&lt;/span&gt;&amp;gt;&lt;/pre&gt;
+</code></pre>
+
+      </section>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+    </div>
+
+    <nav class="pagination" role="navigation">
+      
+          <a class="newer-posts" href="/post/mixed-erlang-and-scala-with-scalang/">&larr; <span class="hide">Next Post</span></a>
+      
+      <span class="page-number">&nbsp;</span>
+      
+          <a class="older-posts" href="/post/property-based-testing-for-unit-testers-proper-part-1/"><span class="hide">Previous Post</span> &rarr;</a>
+      
+    </nav>
+
+    
+    
+    
+
+  </div>
+</main>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/"></a>  <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/erlware" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+</body></html>

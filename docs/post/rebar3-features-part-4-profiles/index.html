@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en-us" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Rebar3 Features (part 4): Profiles &middot; Erlware Blog</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/post/rebar3-features-part-4-profiles/" />
+
+     <meta name="description" content="Running tests and need meck or proper? Building docs and want edown? Bundling up a target system and want to include erts and turn off relx&amp;rsquo;s dev_mode? Re" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary"/>
+    
+ 
+    <meta name="twitter:title" content="Rebar3 Features (part 4): Profiles"/>
+    <meta name="twitter:description" content="Running tests and need meck or proper? Building docs and want edown? Bundling up a target system and want to include erts and turn off relx&amp;rsquo;s dev_mode? Re"/>
+    <meta name="twitter:url" content="/post/rebar3-features-part-4-profiles/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="Erlware Blog" />
+    <meta property="og:title" content="Rebar3 Features (part 4): Profiles &middot; Erlware Blog" />
+    <meta property="og:url" content="/post/rebar3-features-part-4-profiles/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="Running tests and need meck or proper? Building docs and want edown? Bundling up a target system and want to include erts and turn off relx&amp;rsquo;s dev_mode? Re" />
+
+    <meta property="article:published_time" content="2015-09-21T02:04:20Z" />
+    <meta property="article:tag" content="Erlang" /><meta property="article:tag" content="rebar3" />
+
+
+    <meta name="generator" content="Hugo 0.53" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    
+
+     
+
+</head>
+
+
+<body class="ctsingle">
+
+  <div class="site-wrapper"> 
+
+<header class="site-header outer "  >
+  <div class="inner">
+    <div class="site-header-content">
+      <h1 class="site-title">
+        <img class="site-logo" src="/img/logo.png" alt="Erlware Blog" />
+       </h1>
+        <h2 class="site-description">Erlang tools and packaging </h2>
+    </div>
+
+    <nav class="site-nav">
+      <div class="site-nav-left"><ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about">About</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/erlware" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+    <div class="post-feed">
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/rebar3-features-part-4-profiles/">
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/rebar3-features-part-4-profiles/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Features (part 4): Profiles</h2>
+          </header>
+      </a>
+      <section class="post-card-excerpt" style="padding: 0 25px;">
+          <p>Running tests and need <code>meck</code> or <code>proper</code>? Building docs and want <code>edown</code>? Bundling up a target system and want to include <code>erts</code> and turn off relx&rsquo;s <code>dev_mode</code>? Rebar3 now has you covered for these scenarios through <code>profiles</code>.</p>
+
+<p>Profiles can be named with any atom, can add new items to the configuration, or prepend new options to existing elements, and multiple profiles can be combined themselves.</p>
+
+<p>The two special profiles are <code>default</code> and <code>global</code>. <code>default</code> is the profile everything is run under, with output going to <code>_build/default/</code>, unless another is specified in addition to <code>default</code>. When multiple profiles are used together the output directory is the profiles concatenated together with <code>+</code>, for example running <code>rebar3 as test,prod &lt;task&gt;</code> would produce <code>_build/test+prod/</code>, however the actual combination of profiles used in that run is <code>default,test,prod</code>, in the output <code>default</code> is always removed from the beginning unless it is the only profile in use.</p>
+
+<p>The other special case for how profiles decide where output is written is <code>global</code> always refers to <code>~/.cache/rebar3/</code>.</p>
+
+<p>Providers are able to set profiles they will run under (in addition to <code>default</code>) with the <code>{profiles, [atom()]}</code> option to <code>providers:create/1</code>. Four providers that come with <code>rebar3</code> specify a profile: <code>eunit</code>, <code>ct</code> and <code>cover</code> use <code>test</code> and <code>edoc</code> uses <code>docs</code>.</p>
+
+<p>Examples of profile usage can help give an idea of how you might use them in your projects.</p>
+
+<p>Since <code>eunit</code>, <code>ct</code> and <code>cover</code> run with the <code>test</code> profile adding <code>deps</code> specific to tests, like <code>meck</code> and <code>eunit_formatters</code>, which will be used when running <code>rebar3 ct</code> or any of the others, there is no need to include <code>as test</code> in the run, but to be clear, profiles are deduplicated so <code>rebar3 as test ct</code> will still be <code>_build/test</code> and <em>not</em> <code>_build/test+test</code>.</p>
+
+<pre><code>{profiles, 
+  [{test, [{deps,
+            [
+             meck,
+             {eunit_formatters, {git, &quot;git://github.com/seancribbs/eunit_formatters&quot;, {branch, &quot;master&quot;}}}
+            ]},
+
+            {eunit_opts, [
+              no_tty,
+              {report, {eunit_progress, [colored, profile]}}
+             ]}
+           ]
+   },
+....
+</code></pre>
+
+<p>Another common dependency that in rebar2 would be included in the main dependency list and thus be fetched even when using used as a dependency is <code>edown</code>. With the <code>docs</code> profile that <code>edoc</code> runs with that is solved by moving <code>edown</code> under the profile:</p>
+
+<pre><code>{profiles, [{docs, 
+            [{deps, [
+              {edown, {git, &quot;git://github.com/uwiger/edown.git&quot;, {branch, &quot;master&quot;}}}
+             ]}]
+           }]
+}.
+</code></pre>
+
+<p>When developing a release, it is useful to use relx&rsquo;s <code>dev_mode</code> and to set <code>include_erts</code> to false. But when building a release for production you&rsquo;ll want the opposite. In this case, unlike with tests and docs, it is required to specify the profile you want to run the command with. Running <code>rebar3 release</code> will run as default, so with <code>dev_mode</code> true and <code>include_erts</code> false, while <code>rebar3 as prod release</code> pulls in the settings from the <code>prod</code> profile making <code>dev_mode</code> false and <code>include_erts</code> true.</p>
+
+<pre><code>{relx, [...
+        {dev_mode, true},
+        {include_erts, false},
+        ...
+       ]}.
+
+{profiles, 
+  [{prod, [{relx, [
+                   {dev_mode, false},
+                   {include_erts, true}
+                  ]
+          }]
+   },
+</code></pre>
+
+<p>The <code>global</code> profile is used in particular for plugins that the user defines in their personal <code>rebar.config</code>. For example I run <code>rebar3 as global plugins upgrade</code> to upgrade the two plugins in my <code>~/.config/rebar3/rebar.config</code>:</p>
+
+<pre><code>{plugins, [rebar3_hex, rebar3_run]}.
+</code></pre>
+
+<p>Profiles are an important addition to the rebar configuration for making development and dependency management simpler. Please be a good Erlang citizen and separate your dependencies into the appropriate profiles, those who depend on your application will appreciate it.</p>
+
+      </section>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+    </div>
+
+    <nav class="pagination" role="navigation">
+      
+          <a class="newer-posts" href="/post/rebar3-features-part-5-dependency-branch-handling/">&larr; <span class="hide">Next Post</span></a>
+      
+      <span class="page-number">&nbsp;</span>
+      
+          <a class="older-posts" href="/post/rebar3-features-part-3-overrides/"><span class="hide">Previous Post</span> &rarr;</a>
+      
+    </nav>
+
+    
+    
+    
+
+  </div>
+</main>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/"></a>  <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/erlware" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+</body></html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-us" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>OpaDo: Personal ToDo Lists &middot; Erlware Blog</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/post/opado-personal-todo-lists/" />
+
+     <meta name="description" content="This is a continuation of two past posts (one, two) on my first application with Opa called OpaDo. You can try the live demo here and check out the full source " /> 
+
+     
+    
+    <meta name="twitter:card" content="summary"/>
+    
+ 
+    <meta name="twitter:title" content="OpaDo: Personal ToDo Lists"/>
+    <meta name="twitter:description" content="This is a continuation of two past posts (one, two) on my first application with Opa called OpaDo. You can try the live demo here and check out the full source "/>
+    <meta name="twitter:url" content="/post/opado-personal-todo-lists/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="Erlware Blog" />
+    <meta property="og:title" content="OpaDo: Personal ToDo Lists &middot; Erlware Blog" />
+    <meta property="og:url" content="/post/opado-personal-todo-lists/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="This is a continuation of two past posts (one, two) on my first application with Opa called OpaDo. You can try the live demo here and check out the full source " />
+
+    <meta property="article:published_time" content="2011-10-15T17:59:01Z" />
+    <meta property="article:tag" content="dotcloud" /><meta property="article:tag" content="Functional Programming" /><meta property="article:tag" content="OCaml" /><meta property="article:tag" content="Opa" /><meta property="article:tag" content="Web" />
+
+
+    <meta name="generator" content="Hugo 0.53" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    
+
+     
+
+</head>
+
+
+<body class="ctsingle">
+
+  <div class="site-wrapper"> 
+
+<header class="site-header outer "  >
+  <div class="inner">
+    <div class="site-header-content">
+      <h1 class="site-title">
+        <img class="site-logo" src="/img/logo.png" alt="Erlware Blog" />
+       </h1>
+        <h2 class="site-description">Erlang tools and packaging </h2>
+    </div>
+
+    <nav class="site-nav">
+      <div class="site-nav-left"><ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about">About</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/erlware" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+    <div class="post-feed">
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/opado-personal-todo-lists/">
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/opado-personal-todo-lists/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #dotcloud 
+              #Functional Programming 
+              #OCaml 
+              #Opa 
+              #Web  </span>
+              
+              <h2 class="post-card-title">OpaDo: Personal ToDo Lists</h2>
+          </header>
+      </a>
+      <section class="post-card-excerpt" style="padding: 0 25px;">
+          <p>This is a continuation of two past posts (<a href="http://blog.erlware.org/2011/10/04/todomvc-in-opa/" title="TodoMVC in Opa">one</a>, <a href="http://blog.erlware.org/2011/10/06/opado-data-storage/" title="OpaDo Data Storage">two</a>) on my first application with <a href="http://opalang.com" title="Opa">Opa</a> called OpaDo. You can try the <a href="http://www.opado.org" title="OpaDo Demo">live demo here</a> and check out the full source code on <a href="https://github.com/tsloughter/opado" title="OpaDo Source">Github</a></p>
+
+<p>Updating OpaDo to add user accounts the project structure has been changed a bit and modularized. Below is the new project layout.<br />
+<pre style="color:#00ff00;background-color:#000000;">opado/<br />
+├── Makefile<br />
+├── README.md<br />
+├── dotcloud.yml<br />
+├── resources<br />
+│   ├── destroy.png<br />
+│   └── todos.css<br />
+└── src<br />
+    ├── main.opa<br />
+    ├── todo.opa<br />
+    └── user.opa</pre><br />
+Now there is a <em>main</em>, <em>todo</em> and <em>user</em> module. The <em>main</em> module is the entry point for the app and looks like:<br />
+<pre style="color:#00ff00;background-color:#000000;"><span style="color:#00ffff;">package</span> opado<span style="color:#7fffd4;">.main</span></p>
+
+<p><span style="color:#00ffff;">import</span> opado<span style="color:#7fffd4;">.user</span><br />
+<span style="color:#00ffff;">import</span> opado<span style="color:#7fffd4;">.todo</span></p>
+
+<p><span style="color:#b0c4de;">urls </span><span style="color:#98fb98;">: Parser.general_parser(http_request -&gt; resource)</span><span style="color:#b0c4de;"> =</span><br />
+  <span style="color:#00ffff;">parser</span><br />
+  | <span style="color:#00ffff;">{</span><span style="color:#87cefa;">Rule.debug_parse_string</span>(s <span style="color:#00ffff;">-&gt;</span> <span style="color:#87cefa;">Log.notice</span>(<span style="color:#ffa07a;">&ldquo;URL&rdquo;</span>,s))<span style="color:#00ffff;">}</span> Rule<span style="color:#7fffd4;">.fail</span> <span style="color:#00ffff;">-&gt;</span> <span style="color:#87cefa;">error</span>(<span style="color:#ffa07a;">&rdquo;&rdquo;</span>)<br />
+  | <span style="color:#ffa07a;">&rdquo;/todos&rdquo;</span> <span style="color:#b0c4de;">result=</span><span style="color:#00ffff;">{</span>Todo<span style="color:#7fffd4;">.resource</span><span style="color:#00ffff;">}</span> <span style="color:#00ffff;">-&gt;</span> result<br />
+  | <span style="color:#ffa07a;">&rdquo;/user&rdquo;</span> <span style="color:#b0c4de;">result=</span><span style="color:#00ffff;">{</span>User<span style="color:#7fffd4;">.resource</span><span style="color:#00ffff;">}</span> <span style="color:#00ffff;">-&gt;</span> result<br />
+  | <span style="color:#ffa07a;">&rdquo;/login&rdquo;</span> <span style="color:#b0c4de;">result=</span><span style="color:#00ffff;">{</span>User<span style="color:#7fffd4;">.resource</span><span style="color:#00ffff;">}</span> <span style="color:#00ffff;">-&gt;</span> result<br />
+  | (.<span style="color:#00ffff;">*</span>) <span style="color:#b0c4de;">result=</span><span style="color:#00ffff;">{</span>Todo<span style="color:#7fffd4;">.resource</span><span style="color:#00ffff;">}</span> <span style="color:#00ffff;">-&gt;</span> result</p>
+
+<p><span style="color:#00ffff;">server</span><span style="color:#b0c4de;"> =</span> <span style="color:#87cefa;">Server.of_bundle</span>([<span style="color:#cd3700;">@static_resource_directory</span>(<span style="color:#ffa07a;">&ldquo;resources&rdquo;</span>)])<br />
+<span style="color:#00ffff;">server</span><span style="color:#b0c4de;"> =</span> <span style="color:#87cefa;">Server.make</span>(urls)</pre><br />
+Here we define the name of this package and import the <em>user</em> and <em>todo</em> modules. Next is the url matching code. <em>urls</em> is a parser that takes an HTTP request and returns a resource. The matching is pretty straight forward. For example:<br />
+<pre style="color:#00ff00;background-color:#000000;">  | <span style="color:#ffa07a;">&rdquo;/todos&rdquo;</span> <span style="color:#b0c4de;">result=</span><span style="color:#00ffff;">{</span>Todo<span style="color:#7fffd4;">.resource</span><span style="color:#00ffff;">}</span> <span style="color:#00ffff;">-&gt;</span> result</pre><br />
+Here we are matching on URLs that begin with <em>/todos</em> but could have anything after that. What is contained after <em>/todos</em> is passed to the <em>Todo.resource</em> which the variable result is set to. And finally that result is returned.</p>
+
+<p>The last two lines simple define the reource directory for the server and pass in the matching function for the HTTP requests.</p>
+
+<p>The <em>todo</em> resource isn&rsquo;t important to us in this post since its hardly changed. But there are a two important changes:<br />
+<pre style="color:#00ff00;background-color:#000000;"><span style="color:#00ffff;">db</span> /todo_items <span style="color:#98fb98;">: stringmap(stringmap(todo_item))</span><br />
+<span style="color:#00ffff;">db</span> /todo<em>items[<em>][</em>]/<span style="color:#b0c4de;">done =</span> <span style="color:#00ffff;">false</span></pre><br />
+Here we see that the _/todo<em>items</em> database is not longer simply a <em>stringmap</em> of _todo<em>item</em>&rsquo;s but a <em>stringmap</em> of a that. This is so we can reference the items by a user identifier. For example a user identified by the string &ldquo;user01&rdquo; who has a todo item identified by &ldquo;aaa&rdquo; would be read from the data base as _/todo[&ldquo;user01&rdquo;][&ldquo;aaa&rdquo;]</em>.</p>
+
+<p>There are a few other changes to the todo module so that items are properly inserted for the logged in user and deleting must be done in the second <em>stringmap</em>. But we&rsquo;ll move on to the <em>user</em> module now.</p>
+
+<p>Much of the user module was taken from <a href="https://github.com/mattgu74/OpaCms">Matthieu Guffroy&rsquo;s OpaCMS code on github</a>. But I&rsquo;ve made a number of modification for my needs.<br />
+<pre style="color:#00ff00;background-color:#000000;"><span style="color:#cd3700;">@abstract</span> <span style="color:#00ffff;">type</span> <span style="color:#b0c4de;">User.password =</span> string<br />
+<span style="color:#cd3700;">@abstract</span> <span style="color:#00ffff;">type</span> <span style="color:#b0c4de;">User.ref =</span> string</p>
+
+<p><span style="color:#00ffff;">type</span> <span style="color:#b0c4de;">User.t =</span><br />
+  <span style="color:#00ffff;">{</span><br />
+    username <span style="color:#98fb98;">: string</span><br />
+    fullname <span style="color:#98fb98;">: string</span><br />
+    password <span style="color:#98fb98;">: User.password</span><br />
+  <span style="color:#00ffff;">}</span></p>
+
+<p><span style="color:#00ffff;">type</span> <span style="color:#b0c4de;">User.status =</span> <span style="color:#00ffff;">{</span> logged <span style="color:#98fb98;">: User.ref</span> <span style="color:#00ffff;">}</span> / <span style="color:#00ffff;">{</span> unlogged <span style="color:#00ffff;">}</span><br />
+<span style="color:#00ffff;">type</span> <span style="color:#b0c4de;">User.info =</span> <span style="color:#87cefa;">UserContext.t</span>(User<span style="color:#7fffd4;">.status</span>)<br />
+<span style="color:#00ffff;">type</span> <span style="color:#87cefa;">User.map</span>(&lsquo;a) = <span style="color:#87cefa;">ordered_map</span>(User<span style="color:#7fffd4;">.ref</span>, &lsquo;a, String<span style="color:#7fffd4;">.order</span>)</p>
+
+<p><span style="color:#00ffff;">db</span> /users <span style="color:#98fb98;">: User.map(User.t)</span></p>
+
+<p><span style="color:#b0c4de;">User_data =</span> <span style="color:#00ffff;">{{</span><br />
+  <span style="color:#87cefa;">mk_ref</span>( login <span style="color:#98fb98;">: string</span> ) <span style="color:#98fb98;">: User.ref</span><span style="color:#b0c4de;"> =</span><br />
+    <span style="color:#87cefa;">String.to_lower</span>(login)</p>
+
+<p><span style="color:#87cefa;">ref_to_string</span>( login <span style="color:#98fb98;">: User.ref</span> ) <span style="color:#98fb98;">: string</span><span style="color:#b0c4de;"> =</span><br />
+    login</p>
+
+<p><span style="color:#87cefa;">save</span>( ref <span style="color:#98fb98;">: User.ref</span>, user <span style="color:#98fb98;">: User.t</span> ) <span style="color:#98fb98;">: void</span><span style="color:#b0c4de;"> =</span><br />
+    /users[ref] <span style="color:#00ffff;">&lt;-</span> user</p>
+
+<p><span style="color:#87cefa;">get</span>( ref <span style="color:#98fb98;">: User.ref</span> ) <span style="color:#98fb98;">: option(User.t)</span><span style="color:#b0c4de;"> =</span><br />
+    ?/users[ref]<br />
+<span style="color:#00ffff;">}}</span></pre><br />
+Above we have the data, types and database definitions necessary to handle the users.</p>
+
+<p><em>User.t</em> provides the record for storing necessary user data. Next, we have types for checking the user status of if they are logged in or not.</p>
+
+<p><em>UserContext</em> is a module provided by Opa for dealing with associating the user values with the client &ndash; via cookies. And the data for that user can only accessed by the user that owns it.</p>
+
+<p>_User<em>data</em> object provides functions for accessing and manipulating users.</p>
+
+<p>Now we can look at the <em>User</em> module.<br />
+<pre style="color:#00ff00;background-color:#000000;"><span style="color:#b0c4de;">User =</span> <span style="color:#00ffff;">{{</span></p>
+
+<p><span style="color:#cd3700;">@private</span> <span style="color:#b0c4de;">state =</span> <span style="color:#87cefa;">UserContext.make</span>(<span style="color:#00ffff;">{</span> unlogged <span style="color:#00ffff;">}</span> <span style="color:#98fb98;">: User.status</span>)</p>
+
+<p><span style="color:#87cefa;">create</span>(username, password) =<br />
+    <span style="color:#00ffff;">do</span> <span style="color:#00ffff;">match</span> ?/users[username] <span style="color:#00ffff;">with</span><br />
+      | <span style="color:#00ffff;">{</span>none<span style="color:#00ffff;">}</span> <span style="color:#00ffff;">-&gt;</span><br />
+          <span style="color:#b0c4de;">user </span><span style="color:#98fb98;">: User.t</span><span style="color:#b0c4de;"> =</span><br />
+            <span style="color:#00ffff;">{</span> <span style="color:#b0c4de;">username=</span>username <span style="color:#00ffff;">;</span><br />
+              <span style="color:#b0c4de;">fullname=</span><span style="color:#ffa07a;">&rdquo;&rdquo;</span> <span style="color:#00ffff;">;</span><br />
+              <span style="color:#b0c4de;">password =</span> <span style="color:#87cefa;">Crypto.Hash.sha2</span>(password) <span style="color:#00ffff;">}</span><br />
+          /users[username] <span style="color:#00ffff;">&lt;-</span> user</p>
+
+<pre><code>  | _ &lt;span style=&quot;color:#00ffff;&quot;&gt;-&amp;gt;&lt;/span&gt; void  
+&lt;span style=&quot;color:#87cefa;&quot;&gt;Client.goto&lt;/span&gt;(&lt;span style=&quot;color:#ffa07a;&quot;&gt;&quot;/login&quot;&lt;/span&gt;)&lt;/pre&gt;  
+</code></pre>
+
+<p>At the beginning of the <em>User</em> object we declare a <em>UserContext</em> and a function for creating new users. The function simply checks if the user exists already with the match statement and if not creates a new <em>User.t</em> record and inserts it to the users database.</p>
+
+<p>If we wish to login we must also modify the <em>UserContext</em><br />
+<pre style="color:#00ff00;background-color:#000000;">  <span style="color:#87cefa;">login</span>(login, password) =<br />
+    <span style="color:#b0c4de;">useref =</span> <span style="color:#87cefa;">User_data.mk_ref</span>(login)<br />
+    <span style="color:#b0c4de;">user =</span> <span style="color:#87cefa;">User_data.get</span>(useref)<br />
+    <span style="color:#00ffff;">do</span> <span style="color:#00ffff;">match</span> user <span style="color:#00ffff;">with</span><br />
+     | <span style="color:#00ffff;">{</span><span style="color:#b0c4de;">some =</span> u<span style="color:#00ffff;">}</span> <span style="color:#00ffff;">-&gt;</span> <span style="color:#00ffff;">if</span> u<span style="color:#7fffd4;">.password</span> == <span style="color:#87cefa;">Crypto.Hash.sha2</span>(password) <span style="color:#00ffff;">then</span><br />
+                       <span style="color:#87cefa;">UserContext.change</span>(( _ <span style="color:#00ffff;">-&gt;</span> <span style="color:#00ffff;">{</span> <span style="color:#b0c4de;">logged =</span> <span style="color:#87cefa;">User_data.mk_ref</span>(login) <span style="color:#00ffff;">}</span>), state)<br />
+     | _ <span style="color:#00ffff;">-&gt;</span> void<br />
+    <span style="color:#87cefa;">Client.goto</span>(<span style="color:#ffa07a;">&rdquo;/todos&rdquo;</span>)</pre><br />
+The function attempts to read the user from the database and checks if the passwords match. If so, it will set the <em>UserContext</em> to logged in. The function then tells the client to go to <em>/todos</em>. If the login was unsuccessful, it doesn&rsquo;t matter and will just redirect to the sign up page.</p>
+
+<p>Obviously, better error handling and notification is the next step for the application.</p>
+
+<p>The last interesting part for this I think is the request matching. The rest of the code is mostly just HTML and piecing together the functions I already described.<br />
+<pre style="color:#00ff00;background-color:#000000;">  <span style="color:#b0c4de;">resource </span><span style="color:#98fb98;">: Parser.general_parser(http_request -&gt; resource)</span><span style="color:#b0c4de;"> =</span><br />
+    <span style="color:#00ffff;">parser</span><br />
+    | <span style="color:#ffa07a;">&rdquo;/new&rdquo;</span> <span style="color:#00ffff;">-&gt;</span><br />
+      _req <span style="color:#00ffff;">-&gt;</span> <span style="color:#87cefa;">Resource.styled_page</span>(<span style="color:#ffa07a;">&ldquo;New User&rdquo;</span>, [<span style="color:#ffa07a;">&rdquo;/resources/todos.css&rdquo;</span>], <span style="color:#87cefa;">new</span>())<br />
+    | <span style="color:#ffa07a;">&rdquo;/edit&rdquo;</span> <span style="color:#00ffff;">-&gt;</span><br />
+      _req <span style="color:#00ffff;">-&gt;</span> <span style="color:#87cefa;">edit</span>()<br />
+    | <span style="color:#ffa07a;">&rdquo;/view/&rdquo;</span> <span style="color:#b0c4de;">login=</span>(.<span style="color:#00ffff;"><em></span>) <span style="color:#00ffff;">-&gt;</span><br />
+      _req <span style="color:#00ffff;">-&gt;</span> <span style="color:#87cefa;">view</span>(<span style="color:#87cefa;">Text.to_string</span>(login))<br />
+    | .<span style="color:#00ffff;"></em></span> <span style="color:#00ffff;">-&gt;</span><br />
+      _req <span style="color:#00ffff;">-&gt;</span> <span style="color:#87cefa;">start</span>()</pre><br />
+The key match to look at is:<br />
+<pre style="color:#00ff00;background-color:#000000;">    | <span style="color:#ffa07a;">&rdquo;/view/&rdquo;</span> <span style="color:#b0c4de;">login=</span>(.<span style="color:#00ffff;">*</span>) <span style="color:#00ffff;">-&gt;</span><br />
+      _req <span style="color:#00ffff;">-&gt;</span> <span style="color:#87cefa;">view</span>(<span style="color:#87cefa;">Text.to_string</span>(login))</pre></p>
+
+<p>This shows the request matching <em>/view</em>, which in this case comes after the main module matches &lsquo;/user&rsquo; and routes to the User module resource. But then we have <em>login=(.*)</em>, this is matching the variable login to the rest of the url. This variable <em>login</em> can then be used in _view(Text.to<em>string(login))</em> to pass to the <em>view</em> function so it knows what user is being asked to be displayed.</p>
+
+<p>There&rsquo;ll be more to come. Next, I need to add some validation, an admin page and then the ability for users to have categories to organize their todo items under.</p>
+
+<p>And let me know anything else people would like to see!</p>
+
+      </section>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+    </div>
+
+    <nav class="pagination" role="navigation">
+      
+          <a class="newer-posts" href="/post/opa-database-migrations/">&larr; <span class="hide">Next Post</span></a>
+      
+      <span class="page-number">&nbsp;</span>
+      
+          <a class="older-posts" href="/post/announcing-erlangdc-an-epic-one-day-erlang-conference-in-the-washington-dc-area/"><span class="hide">Previous Post</span> &rarr;</a>
+      
+    </nav>
+
+    
+    
+    
+
+  </div>
+</main>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/"></a>  <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/erlware" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+</body></html>

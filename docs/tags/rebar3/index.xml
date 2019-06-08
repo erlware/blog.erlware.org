@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rebar3 on Erlware Blog</title>
+    <link>/tags/rebar3/</link>
+    <description>Recent content in Rebar3 on Erlware Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 18 Sep 2018 06:09:11 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/rebar3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rebar3: Building Docker Images</title>
+      <link>/post/rebar3-building-docker-images/</link>
+      <pubDate>Tue, 18 Sep 2018 06:09:11 +0000</pubDate>
+      
+      <guid>/post/rebar3-building-docker-images/</guid>
+      <description>How I cut the time it takes to build an Erlang docker image in half. While adding support for a rebar3 option to only build dependencies and not project applications, rebar3 compile --deps_only, I realized it might already actually work for the Docker use case I had in mind.
+So I gave it a try and, yup, turns out it does!
+The idea is to cache a docker layer of the built dependencies to reuse if they haven&amp;rsquo;t changed.</description>
+    </item>
+    
+    <item>
+      <title>OTP-21: New sys_config_src option in relx</title>
+      <link>/post/otp-21-new-sys_config_src-option-in-relx/</link>
+      <pubDate>Thu, 21 Jun 2018 03:55:53 +0000</pubDate>
+      
+      <guid>/post/otp-21-new-sys_config_src-option-in-relx/</guid>
+      <description>With the release of OTP-21 and rebar3 3.6.0, which includes a new relx 3.25.0, there is better support for dynamic configuration of releases at runtime. If you are new to this concept checkout the rebar3 docs first
+No longer will you be forced to declare RELX_REPLACE_OS_VARS and convert strings to integers in your code because the sys.config file had to be valid Erlang terms when building the release.
+Instead, you can use {sys_config_src, &amp;quot;config/sys.</description>
+    </item>
+    
+    <item>
+      <title>Rebar3 Hex Plugin</title>
+      <link>/post/rebar3-hex-plugin/</link>
+      <pubDate>Mon, 05 Oct 2015 19:50:56 +0000</pubDate>
+      
+      <guid>/post/rebar3-hex-plugin/</guid>
+      <description>No plugin is needed for using Hex packages in your project, covered in documentation here, but at this time the plugin rebar3_hex is needed for publishing. The plugin provides support for registering with hex.pm and publishing packages. For instructions on registering see the rebar3 hex.pm documentation, here we&amp;rsquo;ll cover publishing a package with some unique features to the rebar3 plugin.
+rebar3 hex cut The cut command provides some automation on top of publish.</description>
+    </item>
+    
+    <item>
+      <title>Rebar3 Features (part 6): _checkouts</title>
+      <link>/post/rebar3-features-part-6-_checkouts-2/</link>
+      <pubDate>Sat, 03 Oct 2015 22:15:36 +0000</pubDate>
+      
+      <guid>/post/rebar3-features-part-6-_checkouts-2/</guid>
+      <description>In a build tool there is often a balancing act between ensuring repeatability and efficiency for the user. Wanting to make modifications on a dependency of your project is a common case of this. In rebar2 you could simply modify the source under deps/ and running rebar compile would pick those up. This meant that the contents of deps/ are not representative of the dependencies listed in rebar.config.
+With rebar3 a dependency is never rebuilt, even if a source file changes.</description>
+    </item>
+    
+    <item>
+      <title>Rebar3 Auto Compile and Load Plugin</title>
+      <link>/post/rebar3-auto-comile-and-load-plugin/</link>
+      <pubDate>Sat, 26 Sep 2015 21:57:18 +0000</pubDate>
+      
+      <guid>/post/rebar3-auto-comile-and-load-plugin/</guid>
+      <description>During development the Erlang shell is often used for quickly testing functionality. Erlang&amp;rsquo;s ability to reload modules while running makes this workflow even more efficient. To go a step further in removing manual intervention tools like [sync]() and [active]() have been created. These libs will listen for file modifications, recompile and reload the changed modules.
+With rebar3 there is a plugin rebar3_auto which will start the shell, begin listening for modifications in the source directories of the project and recompile/reload when changes occur.</description>
+    </item>
+    
+    <item>
+      <title>Rebar3 Features (part 5): Dependency Tracking</title>
+      <link>/post/rebar3-features-part-5-dependency-branch-handling/</link>
+      <pubDate>Mon, 21 Sep 2015 19:24:21 +0000</pubDate>
+      
+      <guid>/post/rebar3-features-part-5-dependency-branch-handling/</guid>
+      <description>When starting rebar3 a goal was to never again end up in a situation where rm -rf deps to get the right set of dependencies was the quickest or only way forward.
+An important piece of this is the new and improved upgrade command. However, this post will cover a less visible (it isn&amp;rsquo;t a new command) improvement related to how rebar3 fetches and tracks dependencies each time the compile command is run.</description>
+    </item>
+    
+    <item>
+      <title>Rebar3 Features (part 4): Profiles</title>
+      <link>/post/rebar3-features-part-4-profiles/</link>
+      <pubDate>Mon, 21 Sep 2015 02:04:20 +0000</pubDate>
+      
+      <guid>/post/rebar3-features-part-4-profiles/</guid>
+      <description>Running tests and need meck or proper? Building docs and want edown? Bundling up a target system and want to include erts and turn off relx&amp;rsquo;s dev_mode? Rebar3 now has you covered for these scenarios through profiles.
+Profiles can be named with any atom, can add new items to the configuration, or prepend new options to existing elements, and multiple profiles can be combined themselves.
+The two special profiles are default and global.</description>
+    </item>
+    
+    <item>
+      <title>Rebar3 features (part 3): Overrides</title>
+      <link>/post/rebar3-features-part-3-overrides/</link>
+      <pubDate>Tue, 15 Sep 2015 00:32:30 +0000</pubDate>
+      
+      <guid>/post/rebar3-features-part-3-overrides/</guid>
+      <description>What do you do when a dependency has settings in its rebar.config that are causing you problems? Maybe it includes dependencies that are not needed in the general case, like meck or edown. Or it could have set a required OTP version that isn&amp;rsquo;t accurate and you want to remove. Or the app could contain C code that needs compiling and had relied on rebar2&amp;rsquo;s port compiler. These problems often lead to forks of projects, which isn&amp;rsquo;t good for anyone, so in rebar3 we&amp;rsquo;ve added a feature called overrides.</description>
+    </item>
+    
+    <item>
+      <title>Rebar3 Features (part 2): Dependency Tree</title>
+      <link>/post/rebar3-features-part-2-dependency-tree/</link>
+      <pubDate>Sat, 12 Sep 2015 21:56:08 +0000</pubDate>
+      
+      <guid>/post/rebar3-features-part-2-dependency-tree/</guid>
+      <description>rebar3 tree is a new command to allow the user to view what dependency pulled in each transitive dependency. This is especially useful with rebar3&amp;rsquo;s dependency resolution strategy of &amp;ldquo;first wins&amp;rdquo;.
+Thanks for pushing for this feature goes to Heinz N. Gies and inspiration comes from leiningen&amp;rsquo;s command lein deps :tree.
+For an example I&amp;rsquo;ve cloned chef-server and built oc_erchef under src/oc_erchef. It is unique because it has both a top level app oc_erchef under src/ as well as additional project apps under apps/.</description>
+    </item>
+    
+    <item>
+      <title>Rebar3 Features (part 1): Local install and upgrade</title>
+      <link>/post/rebar3-features-part-1-local-install-and-upgrade/</link>
+      <pubDate>Fri, 11 Sep 2015 04:21:52 +0000</pubDate>
+      
+      <guid>/post/rebar3-features-part-1-local-install-and-upgrade/</guid>
+      <description>Update January 22, 2016: The original post has been modified to reflect that the commands install and upgrade were moved from the unstable namespace to the local namespace. Also added is use of the environment variable $REBAR3_ERL_ARGS in the run script which allows the user to specify custom Erlang VM arguments like: REBAR3_ERL_ARGS=&amp;quot;+A10&amp;quot; rebar3 shell.
+Rebar3 comes with a lot of new and improved features. I&amp;rsquo;ll be publishing posts here to highlight some of these features over the coming weeks.</description>
+    </item>
+    
+  </channel>
+</rss>

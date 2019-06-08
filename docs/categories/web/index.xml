@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on Erlware Blog</title>
+    <link>/categories/web/</link>
+    <description>Recent content in Web on Erlware Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 27 Apr 2012 20:11:28 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Erlang, Cowboy and Batman.js for Building Web Applications</title>
+      <link>/post/erlang-cowboy-and-batman-js-for-building-web-applications/</link>
+      <pubDate>Fri, 27 Apr 2012 20:11:28 +0000</pubDate>
+      
+      <guid>/post/erlang-cowboy-and-batman-js-for-building-web-applications/</guid>
+      <description>I&amp;rsquo;ll have a complete walk of through using Cowboy and Batman.js to build the TodoMVC clone in a few days. For now I have the slides from my talk at the Chicago Erlang User Group:
+Chicago Erlang User Group April, 4th 2012
+I couldn&amp;rsquo;t get iframe embedding to work with Wordpress&amp;hellip; So if anyone knows what that is up with please comment.</description>
+    </item>
+    
+    <item>
+      <title>Opa Plugin Development with a PubNub Example</title>
+      <link>/post/opa-plugin-development-with-a-pubnub-example/</link>
+      <pubDate>Thu, 24 Nov 2011 04:03:07 +0000</pubDate>
+      
+      <guid>/post/opa-plugin-development-with-a-pubnub-example/</guid>
+      <description>This will be a two part series of posts on writing plugins for Opa. One of Opa&amp;rsquo;s greatest features is you write everything in the functional, staticly typed Opa language. This even includes the frontend code you&amp;rsquo;d usually do in Javascript. This means your code is less error-prone which significantly reduces the amount of time spent on debugging code.
+But how do you use Javascript library X within your Opa code?</description>
+    </item>
+    
+    <item>
+      <title>Major OpaDo Speed-Up with @publish</title>
+      <link>/post/major-opado-speed-up-with-publish/</link>
+      <pubDate>Mon, 07 Nov 2011 07:19:48 +0000</pubDate>
+      
+      <guid>/post/major-opado-speed-up-with-publish/</guid>
+      <description>I received a patch for OpaDo from Francois Regis Sinot that has made the hosted OpaDo http://opado.org on Dotcloud MUCH faster, adding and removing item is now instantaneous. He placed @publish around explicitly server side functions that caused adding todo items to go from 21 to 1 server calls. I thought this simple but maybe not obvious for new Opa developers (it certainly wasn&amp;rsquo;t to me!) needed a blog post so that beginners like my self may find it and be able to start using the @publish directive.</description>
+    </item>
+    
+    <item>
+      <title>Adding JS To all Opa Resources: Use Case Google Analytics</title>
+      <link>/post/adding-js-to-all-opa-resources-use-case-google-analytics/</link>
+      <pubDate>Sun, 06 Nov 2011 23:19:38 +0000</pubDate>
+      
+      <guid>/post/adding-js-to-all-opa-resources-use-case-google-analytics/</guid>
+      <description>I decided I wanted to add Google Analytics to OpaDo but had no idea how to easily tell each page to include the necessary Javascript. I asked on the Opa mailing list and got a quick and simple response. Frederic Ye pointed me to Resource.register_external_js
+It couldn&amp;rsquo;t have been any easier. You simply place your google_analytics.js file in your project and use the Resource.register_external_js function to modify the default customization of all Resources.</description>
+    </item>
+    
+    <item>
+      <title>OpaDo: Personal ToDo Lists</title>
+      <link>/post/opado-personal-todo-lists/</link>
+      <pubDate>Sat, 15 Oct 2011 17:59:01 +0000</pubDate>
+      
+      <guid>/post/opado-personal-todo-lists/</guid>
+      <description>This is a continuation of two past posts (one, two) on my first application with Opa called OpaDo. You can try the live demo here and check out the full source code on Github
+Updating OpaDo to add user accounts the project structure has been changed a bit and modularized. Below is the new project layout.
+opado/
+├── Makefile
+├── README.md
+├── dotcloud.yml
+├── resources
+│ ├── destroy.png
+│ └── todos.</description>
+    </item>
+    
+    <item>
+      <title>OpaDo Data Storage</title>
+      <link>/post/opado-data-storage/</link>
+      <pubDate>Thu, 06 Oct 2011 18:59:55 +0000</pubDate>
+      
+      <guid>/post/opado-data-storage/</guid>
+      <description>OpaDo (a port of the TodoMVC app to Opa) now persists todo items to the Opa database. The new version is up on dotcloud, http://opado-tristan.sloughter.dotcloud.com/
+I&amp;rsquo;ve added a _todoitem type which stores the item&amp;rsquo;s value and two other attributes we won&amp;rsquo;t use until the next post when we have user accounts for their own _todoitem stores.
+type todo_item = { user_id : string
+; value : string
+; created_at : string</description>
+    </item>
+    
+    <item>
+      <title>TodoMVC in Opa</title>
+      <link>/post/todomvc-in-opa/</link>
+      <pubDate>Wed, 05 Oct 2011 04:19:27 +0000</pubDate>
+      
+      <guid>/post/todomvc-in-opa/</guid>
+      <description>Edit: I just learned that dotcloud supports Opa! So I&amp;rsquo;ve pushed OpaDo and you can see a demo here http://opado-tristan.sloughter.dotcloud.com/
+I wanted something quick and simple to do in Opa to give it a try so I decided to implement the TodoMVC example that has been redone in almost all Javascript frameworks, https://github.com/addyosmani/todomvc.
+The code can be found on GitHub here: https://github.com/tsloughter/OpaDo
+Opa is unique in that it is not only a new language but also a new web server and database.</description>
+    </item>
+    
+    <item>
+      <title>Erlang PubNub Client and Chat</title>
+      <link>/post/erlang-pubnub-client-and-chat/</link>
+      <pubDate>Sun, 10 Apr 2011 20:33:19 +0000</pubDate>
+      
+      <guid>/post/erlang-pubnub-client-and-chat/</guid>
+      <description>I was thoroughly impressed with PubNub, a publish/subscribe service, when I first read their articles and played around with it some in Javascript. But obviously I need an Erlang API if I&amp;rsquo;m going to really use it! So I&amp;rsquo;ve created ePubNub.
+In the ePubNub README you&amp;rsquo;ll find information on some basic usage of the application. You don&amp;rsquo;t have to do anything more than use the epubnub.erl module to publish and subscribe (by either providing a PID to send messages to or a function handler to process each).</description>
+    </item>
+    
+    <item>
+      <title>eCloudEdit Part 2: CouchDB</title>
+      <link>/post/ecloudedit-part-2-couchdb/</link>
+      <pubDate>Sat, 12 Feb 2011 23:37:34 +0000</pubDate>
+      
+      <guid>/post/ecloudedit-part-2-couchdb/</guid>
+      <description>In my last post I showed the Webmachine backend to James Yu&amp;rsquo;s CloudEdit app in Backbone.js. What was left out was, where are the documents stored? Here I&amp;rsquo;ll show how this is done with CouchDB. And you can give the app a try at http://erlware.org:8080
+First, a new Erlang app is needed that we&amp;rsquo;ll call ece_db.
+ece_db/ &amp;#9500;&amp;#9472;&amp;#9472; doc &amp;#9500;&amp;#9472;&amp;#9472; ebin &amp;#9474;&amp;#160;&amp;#160; &amp;#9500;&amp;#9472;&amp;#9472; ece_db.app &amp;#9474;&amp;#160;&amp;#160; &amp;#9492;&amp;#9472;&amp;#9472; overview.edoc &amp;#9500;&amp;#9472;&amp;#9472; include &amp;#9492;&amp;#9472;&amp;#9472; src &amp;#9500;&amp;#9472;&amp;#9472; ece_db.</description>
+    </item>
+    
+    <item>
+      <title>eCloudEdit: Erlang, Webmachine and Backbone.js</title>
+      <link>/post/ecloudedit-erlang-webmachine-and-backbone-js/</link>
+      <pubDate>Wed, 09 Feb 2011 09:10:43 +0000</pubDate>
+      
+      <guid>/post/ecloudedit-erlang-webmachine-and-backbone-js/</guid>
+      <description>To experiment with using a pure client-side rendering talking to an Erlang backend I&amp;rsquo;ve taken James Yu&amp;rsquo;s CloudEdit tutorial an app written with Backbone.js and Rails and converted the backend to use Webmachine and CouchDB. You can see eCloudEdit in action here. The Backbone.js code is the same so to understand that please see James&amp;rsquo; post, here I&amp;rsquo;ll describe the Erlang backend.
+To begin with we setup two applications, one for handling the web interaction and a second for handling the database interaction.</description>
+    </item>
+    
+  </channel>
+</rss>

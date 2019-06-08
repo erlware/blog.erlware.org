@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Restful on Erlware Blog</title>
+    <link>/tags/restful/</link>
+    <description>Recent content in Restful on Erlware Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Apr 2012 19:59:11 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/restful/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cowboy and Batman.js for Erlang Web Development</title>
+      <link>/post/cowboy-and-batman-js-for-erlang-web-development/</link>
+      <pubDate>Mon, 30 Apr 2012 19:59:11 +0000</pubDate>
+      
+      <guid>/post/cowboy-and-batman-js-for-erlang-web-development/</guid>
+      <description>Why Cowboy and Batman.js There are a lot of Erlang web frameworks out there today. Not all are modeled after the MVC model (see Nitrogen), but I think all of them are addressing the problem the wrong way. I recently gave a presentation, slides here and the code for this example here, describing my perferred method for using Erlang for web development and why I think it is the best way to go.</description>
+    </item>
+    
+    <item>
+      <title>Erlang, Cowboy and Batman.js for Building Web Applications</title>
+      <link>/post/erlang-cowboy-and-batman-js-for-building-web-applications/</link>
+      <pubDate>Fri, 27 Apr 2012 20:11:28 +0000</pubDate>
+      
+      <guid>/post/erlang-cowboy-and-batman-js-for-building-web-applications/</guid>
+      <description>I&amp;rsquo;ll have a complete walk of through using Cowboy and Batman.js to build the TodoMVC clone in a few days. For now I have the slides from my talk at the Chicago Erlang User Group:
+Chicago Erlang User Group April, 4th 2012
+I couldn&amp;rsquo;t get iframe embedding to work with Wordpress&amp;hellip; So if anyone knows what that is up with please comment.</description>
+    </item>
+    
+    <item>
+      <title>Batman.js vs Knockout.js</title>
+      <link>/post/batman-js-vs-knockout-js/</link>
+      <pubDate>Mon, 29 Aug 2011 01:37:13 +0000</pubDate>
+      
+      <guid>/post/batman-js-vs-knockout-js/</guid>
+      <description>The following is NOT a tutorial for either Batman.js or Knockout.js. But, it is instead a sort of side-by-side comparison of the two for creating a user creation form that POSTs the new user&amp;rsquo;s data as JSON to the backend.
+The method of web development I&amp;rsquo;ve come to find the best is based on heavy frontend Javascript (though written in Coffeescript) communicating with a backend via a RESTful interface. This is appealing, because you are not cluttering the application logic with view related code.</description>
+    </item>
+    
+  </channel>
+</rss>

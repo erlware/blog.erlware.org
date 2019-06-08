@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en-us" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Erlang PubNub Client and Chat &middot; Erlware Blog</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/post/erlang-pubnub-client-and-chat/" />
+
+     <meta name="description" content="I was thoroughly impressed with PubNub, a publish/subscribe service, when I first read their articles and played around with it some in Javascript. But obviousl" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary"/>
+    
+ 
+    <meta name="twitter:title" content="Erlang PubNub Client and Chat"/>
+    <meta name="twitter:description" content="I was thoroughly impressed with PubNub, a publish/subscribe service, when I first read their articles and played around with it some in Javascript. But obviousl"/>
+    <meta name="twitter:url" content="/post/erlang-pubnub-client-and-chat/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="Erlware Blog" />
+    <meta property="og:title" content="Erlang PubNub Client and Chat &middot; Erlware Blog" />
+    <meta property="og:url" content="/post/erlang-pubnub-client-and-chat/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="I was thoroughly impressed with PubNub, a publish/subscribe service, when I first read their articles and played around with it some in Javascript. But obviousl" />
+
+    <meta property="article:published_time" content="2011-04-10T20:33:19Z" />
+    <meta property="article:tag" content="Erlang" /><meta property="article:tag" content="pubnub" /><meta property="article:tag" content="pubsub" /><meta property="article:tag" content="simple_one_for_one" /><meta property="article:tag" content="Web" />
+
+
+    <meta name="generator" content="Hugo 0.53" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    
+
+     
+
+</head>
+
+
+<body class="ctsingle">
+
+  <div class="site-wrapper"> 
+
+<header class="site-header outer "  >
+  <div class="inner">
+    <div class="site-header-content">
+      <h1 class="site-title">
+        <img class="site-logo" src="/img/logo.png" alt="Erlware Blog" />
+       </h1>
+        <h2 class="site-description">Erlang tools and packaging </h2>
+    </div>
+
+    <nav class="site-nav">
+      <div class="site-nav-left"><ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about">About</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/erlware" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+    <div class="post-feed">
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/erlang-pubnub-client-and-chat/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/erlang-pubnub-client-and-chat/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #pubnub 
+              #pubsub 
+              #simple_one_for_one 
+              #Web  </span>
+              
+              <h2 class="post-card-title">Erlang PubNub Client and Chat</h2>
+          </header>
+      </a>
+      <section class="post-card-excerpt" style="padding: 0 25px;">
+          <p>I was thoroughly impressed with <a href="http://pubnub.com">PubNub</a>, a publish/subscribe service, when I first read their articles and played around with it some in Javascript. But obviously I need an Erlang API if I&rsquo;m going to really use it! So I&rsquo;ve created <a href="https://github.com/tsloughter/epubnub">ePubNub</a>.</p>
+
+<p>In the ePubNub README you&rsquo;ll find information on some basic usage of the application. You don&rsquo;t have to do anything more than use the <em>epubnub.erl</em> module to publish and subscribe (by either providing a <em>PID</em> to send messages to or a function handler to process each).</p>
+
+<p>Here I&rsquo;ve built a little more complicated app/release called epubnub_chat, and the source is also on <a href="https://github.com/tsloughter/epubnub_chat">github</a>.</p>
+
+<p>The first thing we need is the epubnub app as a dependency in the _epubnub<em>chat.app</em> file:<br />
+<pre style="color:#bebebe;background-color:#262626;overflow:auto;padding:5px;">   {<span style="color:#7fffd4;">applications</span>, [<span style="color:#7fffd4;">kernel</span>, <span style="color:#7fffd4;">stdlib</span>, <span style="color:#7fffd4;">epubnub</span>]},</pre><br />
+We&rsquo;ll use a simple_one_for_one for supervising channel subscribed processes. In e_pubnub_chat<em>sup</em> we have 3 API functions for the user to use (_start<em>link</em> is run by the _<em>app.erl</em> module on startup): <em>connect/1</em>, <em>connect/2</em>, <em>disconnect/1</em>:<br />
+<pre style="color:#bebebe;background-color:#262626;overflow:auto;padding:5px;"><span style="color:# a6e22e;">connect</span>(<span style="color:# fd971f;">Channel</span>) -&gt;<br />
+    <span style="color:#66d9ef;">supervisor</span>:<span style="color:#66d9ef;">start_child</span>(?<span style="color:#66d9ef;">SERVER</span>, [<span style="color:# fd971f;">Channel</span>]).</p>
+
+<p><span style="color:# a6e22e;">connect</span>(<span style="color:# fd971f;">EPN</span>, <span style="color:# fd971f;">Channel</span>) -&gt;<br />
+    <span style="color:#66d9ef;">supervisor</span>:<span style="color:#66d9ef;">start_child</span>(?<span style="color:#66d9ef;">SERVER</span>, [<span style="color:# fd971f;">EPN</span>, <span style="color:# fd971f;">Channel</span>]).</p>
+
+<p><span style="color:# a6e22e;">disconnect</span>(<span style="color:# fd971f;">PID</span>) -&gt;<br />
+    <span style="color:#66d9ef;">epubnub_chat</span>:<span style="color:#66d9ef;">stop</span>(<span style="color:# fd971f;">PID</span>).</pre><br />
+EPN is a record containing the necessary url and keys for talking to the PubNub service and is created with the new functions in epubnub:<br />
+<pre style="color:#bebebe;background-color:#262626;overflow:auto;padding:5px;"><span style="color:#66d9ef;">-spec</span> <span style="color:#66d9ef;">new</span>() -&gt; <span style="color:#b0c4de;">record</span>(<span style="color:#7fffd4;">epn</span>).<br />
+<span style="color:# a6e22e;">new</span>() -&gt;<br />
+    #<span style="color:#66d9ef;">epn</span>{}.</p>
+
+<p><span style="color:#66d9ef;">-spec</span> <span style="color:#66d9ef;">new</span>(<span style="color:#66d9ef;">string</span>()) -&gt; <span style="color:#b0c4de;">record</span>(<span style="color:#7fffd4;">epn</span>).<br />
+<span style="color:# a6e22e;">new</span>(<span style="color:# fd971f;">Origin</span>) -&gt;<br />
+    #<span style="color:#66d9ef;">epn</span>{<span style="color:#7fffd4;">origin</span>=<span style="color:# fd971f;">Origin</span>}.</p>
+
+<p><span style="color:#66d9ef;">-spec</span> <span style="color:#66d9ef;">new</span>(<span style="color:#66d9ef;">string</span>(), <span style="color:#66d9ef;">string</span>()) -&gt; <span style="color:#b0c4de;">record</span>(<span style="color:#7fffd4;">epn</span>).<br />
+<span style="color:# a6e22e;">new</span>(<span style="color:# fd971f;">PubKey</span>, <span style="color:# fd971f;">SubKey</span>) -&gt;<br />
+    #<span style="color:#66d9ef;">epn</span>{<span style="color:#7fffd4;">pubkey</span>=<span style="color:# fd971f;">PubKey</span>, <span style="color:#7fffd4;">subkey</span>=<span style="color:# fd971f;">SubKey</span>}.</p>
+
+<p><span style="color:#66d9ef;">-spec</span> <span style="color:#66d9ef;">new</span>(<span style="color:#66d9ef;">string</span>(), <span style="color:#66d9ef;">string</span>(), <span style="color:#66d9ef;">string</span>()) -&gt; <span style="color:#b0c4de;">record</span>(<span style="color:#7fffd4;">epn</span>).<br />
+<span style="color:# a6e22e;">new</span>(<span style="color:# fd971f;">Origin</span>, <span style="color:# fd971f;">PubKey</span>, <span style="color:# fd971f;">SubKey</span>) -&gt;<br />
+    #<span style="color:#66d9ef;">epn</span>{<span style="color:#7fffd4;">origin</span>=<span style="color:# fd971f;">Origin</span>, <span style="color:#7fffd4;">pubkey</span>=<span style="color:# fd971f;">PubKey</span>, <span style="color:#7fffd4;">subkey</span>=<span style="color:# fd971f;">SubKey</span>}.</pre><br />
+You can pass none to <em>connect/1</em> and it will send none to the chat gen_server and it will use defaults of pubsub.pubnub.com, demo and demo, for the url, publish key and subscribe key respectively.</p>
+
+<p>Now in the _epubnub<em>chat</em> gen_server we need the following API functions:<br />
+<pre style="color:#bebebe;background-color:#262626;overflow:auto;padding:5px;"><span style="color:# a6e22e;">start_link</span>(<span style="color:# fd971f;">Channel</span>) -&gt;<br />
+    <span style="color:#66d9ef;">start_link</span>(<span style="color:#66d9ef;">epubnub</span>:<span style="color:#66d9ef;">new</span>(), <span style="color:# fd971f;">Channel</span>).</p>
+
+<p><span style="color:# a6e22e;">start_link</span>(<span style="color:# fd971f;">EPN</span>, <span style="color:# fd971f;">Channel</span>) -&gt;<br />
+    <span style="color:#66d9ef;">gen_server</span>:<span style="color:#66d9ef;">start_link</span>(?<span style="color:#66d9ef;">MODULE</span>, [<span style="color:# fd971f;">EPN</span>, <span style="color:# fd971f;">Channel</span>], []).</p>
+
+<p><span style="color:# a6e22e;">message</span>(<span style="color:# fd971f;">Server</span>, <span style="color:# fd971f;">Msg</span>) -&gt;<br />
+    <span style="color:#66d9ef;">gen_server</span>:<span style="color:#66d9ef;">cast</span>(<span style="color:# fd971f;">Server</span>, {<span style="color:#7fffd4;">message</span>, <span style="color:# fd971f;">Msg</span>}).</p>
+
+<p><span style="color:# a6e22e;">stop</span>(<span style="color:# fd971f;">Server</span>) -&gt;<br />
+    <span style="color:#66d9ef;">gen_server</span>:<span style="color:#66d9ef;">cast</span>(<span style="color:# fd971f;">Server</span>, <span style="color:#7fffd4;">stop</span>).</pre><br />
+The _start<em>link</em> functions are run when the supervisor spawns a simple_one_for_one supervisor for the process. This returns <em>{ok, PID}</em>. This <em>PID</em> must be remembered so we can talk to the process we have started thats subscribed to a specific channel. We pass this <em>PID</em> to the <em>message/2</em> and <em>stop/1</em> functions, which we&rsquo;ll see at the and when we use the program.</p>
+
+<p>_start<em>link/1</em> and <em>/2</em> call <em>init/1</em> with the provided arguments:<br />
+<pre style="color:#bebebe;background-color:#262626;overflow:auto;padding:5px;"><span style="color:# a6e22e;">init</span>([<span style="color:# fd971f;">EPN</span>, <span style="color:# fd971f;">Channel</span>]) -&gt;<br />
+    {<span style="color:#7fffd4;">ok</span>, <span style="color:# fd971f;">PID</span>} = <span style="color:#66d9ef;">epubnub_sup</span>:<span style="color:#66d9ef;">subscribe</span>(<span style="color:# fd971f;">EPN</span>, <span style="color:# fd971f;">Channel</span>, <span style="color:#b0c4de;">self</span>()),<br />
+    {<span style="color:#7fffd4;">ok</span>, #<span style="color:#66d9ef;">state</span>{<span style="color:#7fffd4;">epn</span>=<span style="color:# fd971f;">EPN</span>, <span style="color:#7fffd4;">pid</span>=<span style="color:# fd971f;">PID</span>, <span style="color:#7fffd4;">channel</span>=<span style="color:# fd971f;">Channel</span>}}.</pre><br />
+Here we use the epubnub_sup subscribe/3 function and not epubnub:subscribe because we want it to be supervised. We store the PID for this process so we can terminate it later.</p>
+
+<p>The epubnub subscribe process was given the <em>PID</em>, returned by <em>self/1</em>, of the current process which is the gen_server process and will send messages that are published to the channel to that process. We handle these messages in _handle<em>info/2</em>:<br />
+<pre style="color:#bebebe;background-color:#262626;overflow:auto;padding:5px;"><span style="color:# a6e22e;">handle_info</span>({<span style="color:#7fffd4;">message</span>, <span style="color:# fd971f;">Message</span>}, <span style="color:# fd971f;">State</span>) -&gt;<br />
+    <span style="color:#66d9ef;">io</span>:<span style="color:#66d9ef;">format</span>(<span style="color:#e6db74;">&ldquo;~p~n&rdquo;</span>, [<span style="color:# fd971f;">Message</span>]),<br />
+    {<span style="color:#7fffd4;">noreply</span>, <span style="color:# fd971f;">State</span>}.</pre><br />
+Lastly, we have to handle the messages from <em>message/2</em> and <em>stop/1</em>:<br />
+<pre style="color:#bebebe;background-color:#262626;overflow:auto;padding:5px;"><span style="color:# a6e22e;">handle_cast</span>({<span style="color:#7fffd4;">message</span>, <span style="color:# fd971f;">Msg</span>}, <span style="color:# fd971f;">State</span>=#<span style="color:#66d9ef;">state</span>{<span style="color:#7fffd4;">epn</span>=<span style="color:# fd971f;">EPN</span>, <span style="color:#7fffd4;">channel</span>=<span style="color:# fd971f;">Channel</span>}) -&gt;<br />
+    <span style="color:#66d9ef;">epubnub</span>:<span style="color:#66d9ef;">publish</span>(<span style="color:# fd971f;">EPN</span>, <span style="color:# fd971f;">Channel</span>, <span style="color:# fd971f;">Msg</span>),<br />
+    {<span style="color:#7fffd4;">noreply</span>, <span style="color:# fd971f;">State</span>}.<br />
+<span style="color:#75715e;"><br />
+</span><span style="color:# a6e22e;">terminate</span>(<span style="color:# fd971f;">_Reason</span>, #<span style="color:#66d9ef;">state</span>{<span style="color:#7fffd4;">pid</span>=<span style="color:# fd971f;">PID</span>}) -&gt;<br />
+    <span style="color:#66d9ef;">epubnub</span>:<span style="color:#66d9ef;">unsubscribe</span>(<span style="color:# fd971f;">PID</span>),<br />
+    <span style="color:#7fffd4;">ok</span>.</pre><br />
+The _handle<em>cast/2</em> function published your message to the channel this process subscribed to with <em>epubnub:publish/3</em> and terminate calls <em>epubnub:unsubscribe/1</em> before this process ending which sends a terminate message to the subscibred process.</p>
+
+<p>Now lets see this program in action:<br />
+<pre>[tristan@marx ~/Devel/epubnub_chat]<br />
+09:55 (master)$ sinan dist<br />
+starting: depends<br />
+starting: build<br />
+starting: release<br />
+starting: dist<br />
+[tristan@marx ~/Devel/epubnub_chat]<br />
+09:55 (master)$ sudo faxien ir<br />
+Password:<br />
+Do you want to install the release: /Users/tristan/Devel/epubnub_chat/_build/development/tar/epubnub_chat-0.0.1.tar.gz<br />
+Enter (y)es, (n)o, or yes to (a)ll? &gt; ? y<br />
+Replacing existing executable file at: /usr/local/lib/erlang/bin/epubnub_chat<br />
+Replacing existing executable file at: /usr/local/lib/erlang/bin/5.8.2/epubnub_chat<br />
+Replacing existing executable file at: /usr/local/lib/erlang/bin/erlware_release_start_helper<br />
+Replacing existing executable file at: /usr/local/lib/erlang/bin/5.8.2/erlware_release_start_helper<br />
+ok<br />
+[tristan@marx ~/Devel/epubnub_chat]<br />
+09:56 (master)$ epubnub_chat<br />
+&hellip;.<br />
+Eshell V5.8.2  (abort with ^G)<br />
+1&gt; {ok, Server} = epubnub_chat_sup:connect(&ldquo;chat&rdquo;).<br />
+{ok,}<br />
+2&gt;<br />
+=PROGRESS REPORT==== 10-Apr-2011::09:57:14 ===<br />
+          supervisor: {local,inet_gethost_native_sup}<br />
+             started: [{pid,},{mfa,{inet_gethost_native,init,[[]]}}]</p>
+
+<p>=PROGRESS REPORT==== 10-Apr-2011::09:57:14 ===<br />
+          supervisor: {local,kernel_safe_sup}<br />
+             started: [{pid,},<br />
+                       {name,inet_gethost_native_sup},<br />
+                       {mfargs,{inet_gethost_native,start_link,[]}},<br />
+                       {restart_type,temporary},<br />
+                       {shutdown,1000},<br />
+                       {child_type,worker}]</p>
+
+<p>2&gt; epubnub_chat:message(Server, &lt;&ldquo;hello there!&rdquo;&gt;).<br />
+ok<br />
+3&gt; &lt;&ldquo;hello there!&rdquo;&gt;<br />
+&lt;&ldquo;I&rsquo;m from the webapp!&rdquo;&gt;</p>
+
+<p>3&gt; q().<br />
+ok</pre><br />
+You can go to the <a href="http://www.pubnub.com/blog/build-real-time-web-apps-easy">PubNub tutorial page</a> to chat between yourself, or get someone else to join!</p>
+
+<p>That&rsquo;s it! Simple and quick global communication that scales for you!</p>
+
+<p>I&rsquo;ve really enjoyed playing with PubNub and hope I get to use it for a real project soon.</p>
+
+      </section>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+    </div>
+
+    <nav class="pagination" role="navigation">
+      
+          <a class="newer-posts" href="/post/signatures-reusable-toolable-testable-types/">&larr; <span class="hide">Next Post</span></a>
+      
+      <span class="page-number">&nbsp;</span>
+      
+          <a class="older-posts" href="/post/ecloudedit-part-2-couchdb/"><span class="hide">Previous Post</span> &rarr;</a>
+      
+    </nav>
+
+    
+    
+    
+
+  </div>
+</main>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/"></a>  <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/erlware" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+</body></html>

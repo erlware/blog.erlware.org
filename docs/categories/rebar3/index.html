@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en-us" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Rebar3 &middot; Erlware Blog</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/categories/rebar3/" />
+
+    
+    <meta name="description" content="" /> 
+
+    
+    <meta name="twitter:card" content="summary"/>
+    
+ 
+    <meta name="twitter:title" content="Rebar3"/>
+    <meta name="twitter:description" content=""/>
+    <meta name="twitter:url" content="/categories/rebar3/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="Erlware Blog" />
+    <meta property="og:title" content="Rebar3 &middot; Erlware Blog" />
+    <meta property="og:url" content="/categories/rebar3/" />
+    
+
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="" />
+
+
+    <meta name="generator" content="Hugo 0.53" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    
+
+     
+
+</head>
+
+
+
+  <body class="home-template"><div class="site-wrapper">
+  <header class="site-header outer "  >
+  <div class="inner">
+    <div class="site-header-content">
+      <h1 class="site-title">
+        <img class="site-logo" src="/img/logo.png" alt="Erlware Blog" />
+       </h1>
+        <h2 class="site-description">Erlang tools and packaging </h2>
+    </div>
+
+    <nav class="site-nav">
+      <div class="site-nav-left"><ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about">About</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/erlware" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    <div class="post-feed">
+      
+
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/rebar3-building-docker-images/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/rebar3-building-docker-images/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3 
+              #docker  </span>
+              
+              <h2 class="post-card-title">Rebar3: Building Docker Images</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>How I cut the time it takes to build an Erlang docker image in half. While adding support for a rebar3 option to only build dependencies and not project applications, rebar3 compile --deps_only, I realized it might already actually work for the Docker use case I had in mind.
+So I gave it a try and, yup, turns out it does!
+The idea is to cache a docker layer of the built dependencies to reuse if they haven&rsquo;t changed. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/otp-21-new-sys_config_src-option-in-relx/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/otp-21-new-sys_config_src-option-in-relx/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3 
+              #relx 
+              #OTP  </span>
+              
+              <h2 class="post-card-title">OTP-21: New sys_config_src option in relx</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>With the release of OTP-21 and rebar3 3.6.0, which includes a new relx 3.25.0, there is better support for dynamic configuration of releases at runtime. If you are new to this concept checkout the rebar3 docs first
+No longer will you be forced to declare RELX_REPLACE_OS_VARS and convert strings to integers in your code because the sys.config file had to be valid Erlang terms when building the release.
+Instead, you can use {sys_config_src, &quot;config/sys. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/rebar3-hex-plugin/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/rebar3-hex-plugin/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Hex Plugin</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>No plugin is needed for using Hex packages in your project, covered in documentation here, but at this time the plugin rebar3_hex is needed for publishing. The plugin provides support for registering with hex.pm and publishing packages. For instructions on registering see the rebar3 hex.pm documentation, here we&rsquo;ll cover publishing a package with some unique features to the rebar3 plugin.
+rebar3 hex cut The cut command provides some automation on top of publish. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/rebar3-features-part-6-_checkouts-2/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/rebar3-features-part-6-_checkouts-2/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Features (part 6): _checkouts</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>In a build tool there is often a balancing act between ensuring repeatability and efficiency for the user. Wanting to make modifications on a dependency of your project is a common case of this. In rebar2 you could simply modify the source under deps/ and running rebar compile would pick those up. This meant that the contents of deps/ are not representative of the dependencies listed in rebar.config.
+With rebar3 a dependency is never rebuilt, even if a source file changes. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/rebar3-auto-comile-and-load-plugin/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/rebar3-auto-comile-and-load-plugin/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Auto Compile and Load Plugin</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>During development the Erlang shell is often used for quickly testing functionality. Erlang&rsquo;s ability to reload modules while running makes this workflow even more efficient. To go a step further in removing manual intervention tools like [sync]() and [active]() have been created. These libs will listen for file modifications, recompile and reload the changed modules.
+With rebar3 there is a plugin rebar3_auto which will start the shell, begin listening for modifications in the source directories of the project and recompile/reload when changes occur. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/rebar3-features-part-5-dependency-branch-handling/">
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/rebar3-features-part-5-dependency-branch-handling/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Features (part 5): Dependency Tracking</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>When starting rebar3 a goal was to never again end up in a situation where rm -rf deps to get the right set of dependencies was the quickest or only way forward.
+An important piece of this is the new and improved upgrade command. However, this post will cover a less visible (it isn&rsquo;t a new command) improvement related to how rebar3 fetches and tracks dependencies each time the compile command is run. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/rebar3-features-part-4-profiles/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/rebar3-features-part-4-profiles/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Features (part 4): Profiles</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Running tests and need meck or proper? Building docs and want edown? Bundling up a target system and want to include erts and turn off relx&rsquo;s dev_mode? Rebar3 now has you covered for these scenarios through profiles.
+Profiles can be named with any atom, can add new items to the configuration, or prepend new options to existing elements, and multiple profiles can be combined themselves.
+The two special profiles are default and global. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/rebar3-features-part-3-overrides/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/rebar3-features-part-3-overrides/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 features (part 3): Overrides</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>What do you do when a dependency has settings in its rebar.config that are causing you problems? Maybe it includes dependencies that are not needed in the general case, like meck or edown. Or it could have set a required OTP version that isn&rsquo;t accurate and you want to remove. Or the app could contain C code that needs compiling and had relied on rebar2&rsquo;s port compiler. These problems often lead to forks of projects, which isn&rsquo;t good for anyone, so in rebar3 we&rsquo;ve added a feature called overrides. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/rebar3-features-part-2-dependency-tree/">
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/rebar3-features-part-2-dependency-tree/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Features (part 2): Dependency Tree</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>rebar3 tree is a new command to allow the user to view what dependency pulled in each transitive dependency. This is especially useful with rebar3&rsquo;s dependency resolution strategy of &ldquo;first wins&rdquo;.
+Thanks for pushing for this feature goes to Heinz N. Gies and inspiration comes from leiningen&rsquo;s command lein deps :tree.
+For an example I&rsquo;ve cloned chef-server and built oc_erchef under src/oc_erchef. It is unique because it has both a top level app oc_erchef under src/ as well as additional project apps under apps/. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/rebar3-features-part-1-local-install-and-upgrade/">
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/rebar3-features-part-1-local-install-and-upgrade/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Features (part 1): Local install and upgrade</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Update January 22, 2016: The original post has been modified to reflect that the commands install and upgrade were moved from the unstable namespace to the local namespace. Also added is use of the environment variable $REBAR3_ERL_ARGS in the run script which allows the user to specify custom Erlang VM arguments like: REBAR3_ERL_ARGS=&quot;+A10&quot; rebar3 shell.
+Rebar3 comes with a lot of new and improved features. I&rsquo;ll be publishing posts here to highlight some of these features over the coming weeks. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+
+
+    </div>
+
+    <nav class="pagination" role="navigation">
+      
+      <span class="page-number"><span class="hide">Page 1 of 1</span>&nbsp;</span>
+      
+    </nav>
+  </div>
+</main>
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/"></a>  <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/erlware" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body></html>

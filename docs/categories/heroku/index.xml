@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Heroku on Erlware Blog</title>
+    <link>/categories/heroku/</link>
+    <description>Recent content in Heroku on Erlware Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 Nov 2012 22:07:50 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/heroku/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Running Opa Applications on Heroku</title>
+      <link>/post/running-opa-applications-on-heroku/</link>
+      <pubDate>Mon, 12 Nov 2012 22:07:50 +0000</pubDate>
+      
+      <guid>/post/running-opa-applications-on-heroku/</guid>
+      <description>TL;DR
+As I&amp;rsquo;ve mentioned before, Opa is a new web framework that introduces not only the framework itself but a whole new language. A lot has changed in Opa since I last posted about it. Now Opa has a Javascript-esque look and runs on Node.js. But it still has the amazing typing system that makes Opa a joy to code in.
+The currently available Heroku buildpack for Opa only supported the old, pre-Node, support.</description>
+    </item>
+    
+  </channel>
+</rss>

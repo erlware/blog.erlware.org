@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Simple_one_for_one on Erlware Blog</title>
+    <link>/categories/simple_one_for_one/</link>
+    <description>Recent content in Simple_one_for_one on Erlware Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Apr 2011 20:33:19 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/simple_one_for_one/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Erlang PubNub Client and Chat</title>
+      <link>/post/erlang-pubnub-client-and-chat/</link>
+      <pubDate>Sun, 10 Apr 2011 20:33:19 +0000</pubDate>
+      
+      <guid>/post/erlang-pubnub-client-and-chat/</guid>
+      <description>I was thoroughly impressed with PubNub, a publish/subscribe service, when I first read their articles and played around with it some in Javascript. But obviously I need an Erlang API if I&amp;rsquo;m going to really use it! So I&amp;rsquo;ve created ePubNub.
+In the ePubNub README you&amp;rsquo;ll find information on some basic usage of the application. You don&amp;rsquo;t have to do anything more than use the epubnub.erl module to publish and subscribe (by either providing a PID to send messages to or a function handler to process each).</description>
+    </item>
+    
+    <item>
+      <title>eCloudEdit Part 2: CouchDB</title>
+      <link>/post/ecloudedit-part-2-couchdb/</link>
+      <pubDate>Sat, 12 Feb 2011 23:37:34 +0000</pubDate>
+      
+      <guid>/post/ecloudedit-part-2-couchdb/</guid>
+      <description>In my last post I showed the Webmachine backend to James Yu&amp;rsquo;s CloudEdit app in Backbone.js. What was left out was, where are the documents stored? Here I&amp;rsquo;ll show how this is done with CouchDB. And you can give the app a try at http://erlware.org:8080
+First, a new Erlang app is needed that we&amp;rsquo;ll call ece_db.
+ece_db/ &amp;#9500;&amp;#9472;&amp;#9472; doc &amp;#9500;&amp;#9472;&amp;#9472; ebin &amp;#9474;&amp;#160;&amp;#160; &amp;#9500;&amp;#9472;&amp;#9472; ece_db.app &amp;#9474;&amp;#160;&amp;#160; &amp;#9492;&amp;#9472;&amp;#9472; overview.edoc &amp;#9500;&amp;#9472;&amp;#9472; include &amp;#9492;&amp;#9472;&amp;#9472; src &amp;#9500;&amp;#9472;&amp;#9472; ece_db.</description>
+    </item>
+    
+  </channel>
+</rss>

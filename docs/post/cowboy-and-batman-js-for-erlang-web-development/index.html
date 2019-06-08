@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en-us" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Cowboy and Batman.js for Erlang Web Development &middot; Erlware Blog</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/post/cowboy-and-batman-js-for-erlang-web-development/" />
+
+     <meta name="description" content="Why Cowboy and Batman.js There are a lot of Erlang web frameworks out there today. Not all are modeled after the MVC model (see Nitrogen), but I think all of th" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary"/>
+    
+ 
+    <meta name="twitter:title" content="Cowboy and Batman.js for Erlang Web Development"/>
+    <meta name="twitter:description" content="Why Cowboy and Batman.js There are a lot of Erlang web frameworks out there today. Not all are modeled after the MVC model (see Nitrogen), but I think all of th"/>
+    <meta name="twitter:url" content="/post/cowboy-and-batman-js-for-erlang-web-development/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="Erlware Blog" />
+    <meta property="og:title" content="Cowboy and Batman.js for Erlang Web Development &middot; Erlware Blog" />
+    <meta property="og:url" content="/post/cowboy-and-batman-js-for-erlang-web-development/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="Why Cowboy and Batman.js There are a lot of Erlang web frameworks out there today. Not all are modeled after the MVC model (see Nitrogen), but I think all of th" />
+
+    <meta property="article:published_time" content="2012-04-30T19:59:11Z" />
+    <meta property="article:tag" content="batman.js" /><meta property="article:tag" content="Cowboy" /><meta property="article:tag" content="Erlang" /><meta property="article:tag" content="Javascript" /><meta property="article:tag" content="RESTful" /><meta property="article:tag" content="web development" /><meta property="article:tag" content="Webmachine" />
+
+
+    <meta name="generator" content="Hugo 0.53" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    
+
+     
+
+</head>
+
+
+<body class="ctsingle">
+
+  <div class="site-wrapper"> 
+
+<header class="site-header outer "  >
+  <div class="inner">
+    <div class="site-header-content">
+      <h1 class="site-title">
+        <img class="site-logo" src="/img/logo.png" alt="Erlware Blog" />
+       </h1>
+        <h2 class="site-description">Erlang tools and packaging </h2>
+    </div>
+
+    <nav class="site-nav">
+      <div class="site-nav-left"><ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about">About</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/erlware" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+    <div class="post-feed">
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/cowboy-and-batman-js-for-erlang-web-development/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/cowboy-and-batman-js-for-erlang-web-development/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #batman.js 
+              #Cowboy 
+              #Erlang 
+              #Javascript 
+              #RESTful 
+              #web development 
+              #Webmachine  </span>
+              
+              <h2 class="post-card-title">Cowboy and Batman.js for Erlang Web Development</h2>
+          </header>
+      </a>
+      <section class="post-card-excerpt" style="padding: 0 25px;">
+          
+
+<h2 id="why-cowboy-and-batman-js">Why Cowboy and Batman.js</h2>
+
+<p>There are a lot of Erlang web frameworks out there today. Not all are modeled after the MVC model (see <a href="http://nitrogenproject.com/" title="Nitrogen">Nitrogen</a>), but I think all of them are addressing the problem the wrong way. I recently gave a presentation, <a href="http://tsloughter.github.com/ceug_4_2012/" title="Chicago Erlang User Group April 4th, 2012">slides here</a> and the <a href="https://github.com/tsloughter/bcmvc/" title="Batman Cowboy MVC">code for this example here</a>, describing my perferred method for using Erlang for web development and why I think it is the best way to go. In this post, I&rsquo;ll go into more details on how to build the Erlang backend for the TodoMVC clone I did with <a href="http://batmanjs.org/" title="Batman.js">Batman.js</a>. I will not spend time on Batman.js but instead only give a quick list of reasons I prefer it to other Javascript frameworks.</p>
+
+<p>Batman.js advantages:</p>
+
+<ul>
+<li>Automatic URL generation based on model<br /></li>
+<li>HTML data-bind templates<br /></li>
+<li>Coffeescript<br />
+<a href="https://github.com/extend/cowboy" title="Cowboy: Erlang web server">Cowboy</a> is a newer Erlang web server that provides a REST handler based on <a href="https://github.com/basho/webmachine" title="Webmachine">Webmachine</a>. Both of these are perfect for developing a RESTful API, because they follow the HTTP standard exactly and when you are building an API based on HTTP, being able to properly reason about how the logic of the application maps to the protocol eases development and eases getting REST &ldquo;right&rdquo;.<br />
+<br /></li>
+</ul>
+
+<h2 id="nginx">Nginx</h2>
+
+<p>Any non-dynamic content should be served by <a href="http://nginx.com/" title="Nginx">Nginx</a> since there is no logic needed and it is something Nginx is great at, so why have Erlang do it? The snippet below configures Nginx to listen on port 80 and serve files from bcmvc&rsquo;s <em>priv</em> directory. Each request is checked to see if it is a POST or any other method with a JSON request type. If either of those are true, the request is proxied on to a server listening on port 8080, in our case the Cowboy server.<br />
+<pre style="color:#dcdccc;background-color:#3f3f3f;">server {<br />
+  listen 80;<br />
+  server_name localhost;</p>
+
+<p>location / {<br />
+    root   &lt;PATH TO CLONE&gt;/bcmvc/lib/bcmvc_web/priv/;</p>
+
+<pre><code>&lt;span style=&quot;color:#f0dfaf;font-weight:bold;&quot;&gt;if&lt;/span&gt; ($request_method ~* POST) {  
+  proxy_pass        http:&lt;span style=&quot;color:#7f9f7f;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color:#e0cf9f;font-weight:bold;text-decoration:underline;&quot;&gt;localhost&lt;/span&gt;&lt;span style=&quot;color:#7f9f7f;&quot;&gt;:8080; &lt;/span&gt;    }  
+
+&lt;span style=&quot;color:#f0dfaf;font-weight:bold;&quot;&gt;if&lt;/span&gt; ($http_accept ~* application/json) {  
+  proxy_pass        http:&lt;span style=&quot;color:#7f9f7f;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color:#e0cf9f;font-weight:bold;text-decoration:underline;&quot;&gt;localhost&lt;/span&gt;&lt;span style=&quot;color:#7f9f7f;&quot;&gt;:8080; &lt;/span&gt;    }  
+</code></pre>
+
+<p>}<br />
+}</pre></p>
+
+<h2 id="the-api">The API</h2>
+
+<p>Batman.js knows what endpoints to use and what data to send based on the name of the model we created and the encoded variables, <a href="https://github.com/tsloughter/bcmvc/blob/master/lib/bcmvc_web/priv/models/todo.coffee" title="Todo Model">code here</a>. This results in the following API:<br />
+<table border="2" rules="groups" cellspacing="0" cellpadding="6"><caption> </caption><col class="left" /> <col class="left" /> <col class="left" /> <col class="left" /><br />
+<thead><br />
+<tr><br />
+<th class="left" scope="col">Method</th><br />
+<th class="left" scope="col">Endpoint</th><br />
+<th class="left" scope="col">Data</th><br />
+<th class="left" scope="col">Return</th><br />
+</tr><br />
+</thead><br />
+<tbody><br />
+<tr><br />
+<td class="left">POST</td><br />
+<td class="left"><em>todos</em></td><br />
+<td class="left">{todo : {body:&ldquo;bane wants to meet, not worried&rdquo;,isDone:false}}</td><br />
+<td class="left"></td><br />
+</tr><br />
+<tr><br />
+<td class="left">PUT</td><br />
+<td class="left">/todos/33e93b30-2371-4071-afc5-2d48226d5dba</td><br />
+<td class="left">{todo : {body:&ldquo;bane wants to meet, not worried&rdquo;,isDone:false}}</td><br />
+<td class="left"></td><br />
+</tr><br />
+<tr><br />
+<td class="left">GET</td><br />
+<td class="left"><em>todos</em></td><br />
+<td class="left"></td><br />
+<td class="left">[{todo : {id:&ldquo;33e93b30-2371-4071-afc5-2d48226d5dba&rdquo;, body:&ldquo;bane wants to meet, not worried&rdquo;, isDone:false}}]</td><br />
+</tr><br />
+<tr><br />
+<td class="left">DELETE</td><br />
+<td class="left">/todos/33e93b30-2371-4071-afc5-2d48226d5dba</td><br />
+<td class="left"></td><br />
+<td class="left"></td><br />
+</tr><br />
+</tbody><br />
+</table></p>
+
+<h2 id="cowboy-dispatch-and-supervisor">Cowboy Dispatch and Supervisor</h2>
+
+<p>Dispatch rules are matched by Cowboy to know what handler to send the request to. Here we have two rules. One that matches just the URL <em>/todos</em> and one that matches the URL with an additional element which will be associated with the atom <em>todo</em>. Both requests will be sent to the module _bcmvc_todo<em>handler</em>.<br />
+<pre style="color:#dcdccc;background-color:#3f3f3f;">Dispatch = [{<span style="color:#cc9393;">&lsquo;_&rsquo;</span>, [{[&lt;&lt;<span style="color:#cc9393;">&ldquo;todos&rdquo;</span>&gt;&gt;], bcmvc_todo_handler, []},<br />
+                   {[&lt;&lt;<span style="color:#cc9393;">&ldquo;todos&rdquo;</span>&gt;&gt;, todo], bcmvc_todo_handler, []}]}],</pre><br />
+Cowboy provides a useful function _child<em>spec</em> for creating a child specfication to use in our supervisor. The child spec here tells Cowboy we want a TCP listener on port 8080 that handles the HTTP protocol. We additionally provide our dispatch list for it to match against and pass on requests.<br />
+<pre style="color:#dcdccc;background-color:#3f3f3f;">ChildSpec = <span style="color:#8cd0d3;">cowboy</span>:<span style="color:#8cd0d3;">child_spec</span>(bcmvc_cowboy, 100, cowboy_tcp_transport,<br />
+                              [{port, 8080}], cowboy_http_protocol, [{dispatch, <span style="color:#dfaf8f;">Dispatch</span>}]),</pre></p>
+
+<h2 id="cowboy-handler">Cowboy Handler</h2>
+
+<p>Now that we have a server on port 8080 that knows to send certain requests to our todo handler, we can build the module. The first required function to export is <em>init/3</em>. This function let&rsquo;s Cowboy know we have a REST protocol, this is how it knows what functions to call (some have defaults and some existing in our module) to handle the request.<br />
+<pre style="color:#dcdccc;background-color:#3f3f3f;"><span style="color:#8cd0d3;">init</span>(<span style="color:#dfaf8f;">_Transport</span>, <span style="color:#dfaf8f;">_Req</span>, <span style="color:#dfaf8f;">_Opts</span>) -&gt;<br />
+    {upgrade, protocol, cowboy_http_rest}.</pre><br />
+Knowing that this is a REST handler Cowboy will pass the request on to _allowed<em>methods/2</em> to find out if our handler is able to handle this method. Next, the content types accepted and provided by the handler are checked against the incoming request. The expected HTTP response status codes are returned if any of these fail. 405 for _allowed<em>methods</em>, XXX for _content_types_accepted_ and XXX for _content_types<em>provided</em>.<br />
+<pre style="color:#dcdccc;background-color:#3f3f3f;"><span style="color:#8cd0d3;">allowed_methods</span>(<span style="color:#dfaf8f;">Req</span>, <span style="color:#dfaf8f;">State</span>) -&gt;<br />
+    {[<span style="color:#cc9393;">&lsquo;HEAD&rsquo;</span>, <span style="color:#cc9393;">&lsquo;GET&rsquo;</span>, <span style="color:#cc9393;">&lsquo;PUT&rsquo;</span>, <span style="color:#cc9393;">&lsquo;POST&rsquo;</span>, <span style="color:#cc9393;">&lsquo;DELETE&rsquo;</span>], <span style="color:#dfaf8f;">Req</span>, <span style="color:#dfaf8f;">State</span>}.</p>
+
+<p><span style="color:#8cd0d3;">content_types_accepted</span>(<span style="color:#dfaf8f;">Req</span>, <span style="color:#dfaf8f;">State</span>) -&gt;<br />
+    {[{{&lt;&lt;<span style="color:#cc9393;">&ldquo;application&rdquo;</span>&gt;&gt;, &lt;&lt;<span style="color:#cc9393;">&ldquo;json&rdquo;</span>&gt;&gt;, []}, put_json}], <span style="color:#dfaf8f;">Req</span>, <span style="color:#dfaf8f;">State</span>}.</p>
+
+<p><span style="color:#8cd0d3;">content_types_provided</span>(<span style="color:#dfaf8f;">Req</span>, <span style="color:#dfaf8f;">State</span>) -&gt;<br />
+    {[{{&lt;&lt;<span style="color:#cc9393;">&ldquo;application&rdquo;</span>&gt;&gt;, &lt;&lt;<span style="color:#cc9393;">&ldquo;json&rdquo;</span>&gt;&gt;, []}, get_json}], <span style="color:#dfaf8f;">Req</span>, <span style="color:#dfaf8f;">State</span>}.</pre><br />
+Now the request is sent to the function that handles the HTTP method type of the request.</p>
+
+<p>For a POST, a request to create a new todo item, the function _process<em>post/2</em> is sent the request. Here we retrieve the body, a JSON object, from the request, convert it to a record and save the model. We&rsquo;ll see how this record conversion is done when we look at the model module. To inform the frontend of the id of our new resource we set the location header to be the path with the id.<br />
+<pre style="color:#dcdccc;background-color:#3f3f3f;"><span style="color:#8cd0d3;">process_post</span>(<span style="color:#dfaf8f;">Req</span>, <span style="color:#dfaf8f;">State</span>) -&gt;<br />
+    {ok, <span style="color:#dfaf8f;">Body</span>, <span style="color:#dfaf8f;">Req1</span>} = <span style="color:#8cd0d3;">cowboy_http_req</span>:<span style="color:#8cd0d3;">body</span>(<span style="color:#dfaf8f;">Req</span>),<br />
+    <span style="color:#dfaf8f;">Todo</span> = <span style="color:#8cd0d3;">bcmvc_model_todo</span>:<span style="color:#8cd0d3;">to_record</span>(<span style="color:#dfaf8f;">Body</span>),<br />
+    <span style="color:#8cd0d3;">bcmvc_model_todo</span>:<span style="color:#8cd0d3;">save</span>(<span style="color:#dfaf8f;">Todo</span>),</p>
+
+<pre><code>&lt;span style=&quot;color:#dfaf8f;&quot;&gt;NewId&lt;/span&gt; = &lt;span style=&quot;color:#8cd0d3;&quot;&gt;bcmvc_model_todo&lt;/span&gt;:&lt;span style=&quot;color:#8cd0d3;&quot;&gt;get&lt;/span&gt;(id, &lt;span style=&quot;color:#dfaf8f;&quot;&gt;Todo&lt;/span&gt;),  
+{ok, &lt;span style=&quot;color:#dfaf8f;&quot;&gt;Req2&lt;/span&gt;} = &lt;span style=&quot;color:#8cd0d3;&quot;&gt;cowboy_http_req&lt;/span&gt;:&lt;span style=&quot;color:#8cd0d3;&quot;&gt;set_resp_header&lt;/span&gt;(  
+               &amp;lt;&amp;lt;&lt;span style=&quot;color:#cc9393;&quot;&gt;&quot;Location&quot;&lt;/span&gt;&amp;gt;&amp;gt;, &amp;lt;&amp;lt;&lt;span style=&quot;color:#cc9393;&quot;&gt;&quot;/todos/&quot;&lt;/span&gt;, &lt;span style=&quot;color:#dfaf8f;&quot;&gt;NewId&lt;/span&gt;/binary&amp;gt;&amp;gt;, &lt;span style=&quot;color:#dfaf8f;&quot;&gt;Req1&lt;/span&gt;),  
+
+{true, &lt;span style=&quot;color:#dfaf8f;&quot;&gt;Req2&lt;/span&gt;, &lt;span style=&quot;color:#dfaf8f;&quot;&gt;State&lt;/span&gt;}.&lt;/pre&gt;  
+</code></pre>
+
+<p>For this handler we expect PUT for an update to an object, that is what Batman.js does, but a PATCH would make more sense. For a PUT the URL contains the id for the todo item to be updated. That is retrieved with the_ binding/2_ function. The todo record is created the same as in _process<em>post/2</em> but then the this id is set for the model and the <em>update/1</em> function is used to save it to the database.<br />
+<pre style="color:#dcdccc;background-color:#3f3f3f;"><span style="color:#8cd0d3;">put_json</span>(<span style="color:#dfaf8f;">Req</span>, <span style="color:#dfaf8f;">State</span>) -&gt;<br />
+    {ok, <span style="color:#dfaf8f;">Body</span>, <span style="color:#dfaf8f;">Req1</span>} = <span style="color:#8cd0d3;">cowboy_http_req</span>:<span style="color:#8cd0d3;">body</span>(<span style="color:#dfaf8f;">Req</span>),<br />
+    {<span style="color:#dfaf8f;">TodoId</span>, <span style="color:#dfaf8f;">Req2</span>} = <span style="color:#8cd0d3;">cowboy_http_req</span>:<span style="color:#8cd0d3;">binding</span>(todo, <span style="color:#dfaf8f;">Req1</span>),<br />
+    <span style="color:#dfaf8f;">Todo</span> = <span style="color:#8cd0d3;">bcmvc_model_todo</span>:<span style="color:#8cd0d3;">to_record</span>(<span style="color:#dfaf8f;">Body</span>),<br />
+    <span style="color:#dfaf8f;">Todo2</span> = <span style="color:#8cd0d3;">bcmvc_model_todo</span>:<span style="color:#8cd0d3;">set</span>([{id, <span style="color:#dfaf8f;">TodoId</span>}], <span style="color:#dfaf8f;">Todo</span>),<br />
+    <span style="color:#8cd0d3;">bcmvc_model_todo</span>:<span style="color:#8cd0d3;">update</span>(<span style="color:#dfaf8f;">Todo2</span>),<br />
+    {true, <span style="color:#dfaf8f;">Req2</span>, <span style="color:#dfaf8f;">State</span>}.</pre><br />
+For a GET request, which for this application we do not deal with a request for a single todo item, all todo items are retrieved from the model module. Each of these is passed to the model&rsquo;s _to<em>json/1</em> function and the result of converting each to JSON is combined into a binary string and placed between brackets so the Batman.js frontend receives a proper JSON list of JSON objects.<br />
+<pre style="color:#dcdccc;background-color:#3f3f3f;"><span style="color:#8cd0d3;">get_json</span>(<span style="color:#dfaf8f;">Req</span>, <span style="color:#dfaf8f;">State</span>) -&gt;<br />
+    <span style="color:#dfaf8f;">JsonModels</span> = <span style="color:#8cd0d3;">lists</span>:<span style="color:#8cd0d3;">foldr</span>(<span style="color:#f0dfaf;font-weight:bold;">fun</span>(<span style="color:#dfaf8f;">X</span>, &lt;&lt;<span style="color:#cc9393;">&rdquo;&rdquo;</span>&gt;&gt;) -&gt;<br />
+                                 <span style="color:#dfaf8f;">X</span>;<br />
+                            (<span style="color:#dfaf8f;">X</span>, <span style="color:#dfaf8f;">Acc</span>) -&gt;<br />
+                                 &lt;&lt;<span style="color:#dfaf8f;">Acc</span>/binary, <span style="color:#cc9393;">&rdquo;,&rdquo;</span>, <span style="color:#dfaf8f;">X</span>/binary&gt;&gt;<br />
+                         <span style="color:#f0dfaf;font-weight:bold;">end</span>, &lt;&lt;<span style="color:#cc9393;">&rdquo;&rdquo;</span>&gt;&gt;, [<span style="color:#8cd0d3;">bcmvc_model_todo</span>:<span style="color:#8cd0d3;">to_json</span>(<span style="color:#dfaf8f;">Model</span>) <span style="color:#f0dfaf;font-weight:bold;">||</span> <span style="color:#dfaf8f;">Model</span> <span style="color:#f0dfaf;font-weight:bold;">&lt;-</span> <span style="color:#8cd0d3;">bcmvc_model_todo</span>:<span style="color:#8cd0d3;">all</span>()]),</p>
+
+<pre><code>{&amp;lt;&amp;lt;&lt;span style=&quot;color:#cc9393;&quot;&gt;&quot;[&quot;&lt;/span&gt;, &lt;span style=&quot;color:#dfaf8f;&quot;&gt;JsonModels&lt;/span&gt;/binary, &lt;span style=&quot;color:#cc9393;&quot;&gt;&quot;]&quot;&lt;/span&gt;&amp;gt;&amp;gt;, &lt;span style=&quot;color:#dfaf8f;&quot;&gt;Req&lt;/span&gt;, &lt;span style=&quot;color:#dfaf8f;&quot;&gt;State&lt;/span&gt;}.&lt;/pre&gt;  
+</code></pre>
+
+<p>And lastly, DELETE. Like in PUT the todo item&rsquo;s id is retrieved from the bindings created based on the dispatch rules and this is passed to the model&rsquo;s delete function.<br />
+<pre style="color:#dcdccc;background-color:#3f3f3f;"><span style="color:#8cd0d3;">delete_resource</span>(<span style="color:#dfaf8f;">Req</span>, <span style="color:#dfaf8f;">State</span>) -&gt;<br />
+    {<span style="color:#dfaf8f;">TodoId</span>, <span style="color:#dfaf8f;">Req1</span>} = <span style="color:#8cd0d3;">cowboy_http_req</span>:<span style="color:#8cd0d3;">binding</span>(todo, <span style="color:#dfaf8f;">Req</span>),<br />
+    <span style="color:#8cd0d3;">bcmvc_model_todo</span>:<span style="color:#8cd0d3;">delete</span>(<span style="color:#dfaf8f;">TodoId</span>),<br />
+    {true, <span style="color:#dfaf8f;">Req1</span>, <span style="color:#dfaf8f;">State</span>}.</pre></p>
+
+<h2 id="models">Models</h2>
+
+<p>Model&rsquo;s are repsented as records and must provide serialization functions to go between JSON and a record. Each model uses a parse transform that creates functions for creating and updating the record. The transform is a modified version of <a href="https://github.com/uwiger/parse_trans" title="Parse Transforms">exprecs</a> from Ulf Wiger that also uses the type definitions in the record to ensure when setting a field that it is the correct type. For example in the todo model <em>isDone</em> is a boolean, so when the model is created the boolean convert function will be matched to convert the string representation to an atom:<br />
+<pre style="color:#dcdccc;background-color:#3f3f3f;"><span style="color:#8cd0d3;">convert</span>(boolean, &lt;&lt;<span style="color:#cc9393;">&ldquo;false&rdquo;</span>&gt;&gt;) -&gt;<br />
+    false;<br />
+<span style="color:#8cd0d3;">convert</span>(boolean, &lt;&lt;<span style="color:#cc9393;">&ldquo;true&rdquo;</span>&gt;&gt;) -&gt;<br />
+    true;</pre><br />
+So the key pieces of the_ bcmvc_model<em>todo</em> are:<br />
+<pre style="color:#dcdccc;background-color:#3f3f3f;"><span style="color:#8cd0d3;">-compile</span>({parse_transform, bcmvc_model_transform}).</p>
+
+<p><span style="color:#8cd0d3;">-record</span>(<span style="color:#8cd0d3;">bcmvc_model_todo</span>, {id = <span style="color:#8cd0d3;">ossp_uuid</span>:<span style="color:#8cd0d3;">make</span>(v1, text) :: <span style="color:#8cd0d3;">string</span>(),<br />
+                           body                          :: <span style="color:#8cd0d3;">binary</span>(),<br />
+                           isDone                        :: <span style="color:#8cd0d3;">boolean</span>()}).</p>
+
+<p><span style="color:#8cd0d3;">to_json</span>(<span style="color:#dfaf8f;">Record</span>) -&gt;<br />
+    ?<span style="color:#bfebbf;">record_to_json</span>(?<span style="color:#bfebbf;">MODULE</span>, <span style="color:#dfaf8f;">Record</span>).</p>
+
+<p><span style="color:#8cd0d3;">to_record</span>(<span style="color:#dfaf8f;">JSON</span>) -&gt;<br />
+    ?<span style="color:#bfebbf;">json_to<em>record</span>(?<span style="color:#bfebbf;">MODULE</span>, <span style="color:#dfaf8f;">JSON</span>).</pre><br />
+The</em> ?record_to<em>json</em> and _?json_to<em>record</em> macros are defined in <em>jsonerl.hrl</em>. These marcos are generic and work for any record that is typed and uses the model transform.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Clearly, much of what the resource handler and model do is generic and can be abstracted out so that implementing new models and resources can be even simpler. This is the goal of my project <a href="https://github.com/tsloughter/maru" title="Maru">Maru</a>. Currently it is based on Webmachine but is now being convered to Cowboy.</p>
+
+<p>In the end, using Cowboy for building a RESTful interface for your application allows you to build interfaces for the frontend entirely separted from backend development, and if you want multiple interfaces (like native mobile and web), they both talk directly to the same backend. Also, from the beginning you have the option to open up your application with an API for other developers to take your application new places, and, shameless plug here, add your API to <a href="http://www.mashape.com" title="Mashape">Mashape</a> to spread your new app!</p>
+
+      </section>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+    </div>
+
+    <nav class="pagination" role="navigation">
+      
+          <a class="newer-posts" href="/post/sinan-releases-and-being-right/">&larr; <span class="hide">Next Post</span></a>
+      
+      <span class="page-number">&nbsp;</span>
+      
+          <a class="older-posts" href="/post/erlang-cowboy-and-batman-js-for-building-web-applications/"><span class="hide">Previous Post</span> &rarr;</a>
+      
+    </nav>
+
+    
+    
+    
+
+  </div>
+</main>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/"></a>  <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/erlware" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+</body></html>

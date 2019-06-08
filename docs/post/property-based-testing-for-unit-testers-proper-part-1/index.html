@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en-us" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Property based testing for unit testers with PropEr - Part 1 &middot; Erlware Blog</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/post/property-based-testing-for-unit-testers-proper-part-1/" />
+
+     <meta name="description" content="This tutorial is brought to you by ErlangCamp 2011 (click here) - Boston, August 12th and 13th - It&amp;rsquo;s gonna be totally sweet!
+ Main contributors: Torben H" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary"/>
+    
+ 
+    <meta name="twitter:title" content="Property based testing for unit testers with PropEr - Part 1"/>
+    <meta name="twitter:description" content="This tutorial is brought to you by ErlangCamp 2011 (click here) - Boston, August 12th and 13th - It&amp;rsquo;s gonna be totally sweet!
+ Main contributors: Torben H"/>
+    <meta name="twitter:url" content="/post/property-based-testing-for-unit-testers-proper-part-1/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="Erlware Blog" />
+    <meta property="og:title" content="Property based testing for unit testers with PropEr - Part 1 &middot; Erlware Blog" />
+    <meta property="og:url" content="/post/property-based-testing-for-unit-testers-proper-part-1/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="This tutorial is brought to you by ErlangCamp 2011 (click here) - Boston, August 12th and 13th - It&amp;rsquo;s gonna be totally sweet!
+ Main contributors: Torben H" />
+
+    <meta property="article:published_time" content="2011-07-12T18:08:16Z" />
+    
+
+
+    <meta name="generator" content="Hugo 0.53" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    
+
+     
+
+</head>
+
+
+<body class="ctsingle">
+
+  <div class="site-wrapper"> 
+
+<header class="site-header outer "  >
+  <div class="inner">
+    <div class="site-header-content">
+      <h1 class="site-title">
+        <img class="site-logo" src="/img/logo.png" alt="Erlware Blog" />
+       </h1>
+        <h2 class="site-description">Erlang tools and packaging </h2>
+    </div>
+
+    <nav class="site-nav">
+      <div class="site-nav-left"><ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about">About</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/erlware" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+    <div class="post-feed">
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/post/property-based-testing-for-unit-testers-proper-part-1/">
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/post/property-based-testing-for-unit-testers-proper-part-1/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Property based testing for unit testers with PropEr - Part 1</h2>
+          </header>
+      </a>
+      <section class="post-card-excerpt" style="padding: 0 25px;">
+          
+
+<blockquote>
+<p>This tutorial is brought to you by <a href="http://www.erlangcamp.com">ErlangCamp 2011 (click here)</a> - Boston, August 12th and 13th - It&rsquo;s gonna be totally sweet!</p>
+</blockquote>
+
+<p>Main contributors: Torben Hoffmann, Raghav Karol, Eric Merritt</p>
+
+<p>The purpose of the short document is to help people who are familiar<br />
+with unit testing understand how property based testing (PBT) differs,<br />
+but also where the thinking is the same.</p>
+
+<p>This document focusses on the PBT tool<br />
+<a href="https://github.com/manopapad/proper"><code>PropEr</code></a> for Erlang since that is<br />
+what I am familiar with, but the general principles applies to all PBT<br />
+tools regardless of which language they are written in.</p>
+
+<p>The approach taken here is that we hear from people who are used to<br />
+working with unit testing regarding how they think when designing<br />
+their tests and how a concrete test might look.</p>
+
+<p>These descriptions are then &ldquo;converted&rdquo; into the way it works with<br />
+PBT, with a clear focus on what stays the same and what is different.</p>
+
+<h2 id="testing-philosophies">Testing philosophies</h2>
+
+<h3 id="a-quote-from-martin-logan-martinjlogan-http-twitter-com-martinjlogan">A quote from Martin Logan (<a href="http://twitter.com/martinjlogan">@martinjlogan</a>):</h3>
+
+<blockquote>
+<p>For me unit testing is about contracts. I think about the same things</p>
+
+<p>I think about when I write statements like {ok, Resp} =</p>
+
+<p>Mod:Func(Args). Unit testing and writing specs are very close for me.</p>
+
+<p>Hypothetically speaking lets say a function should return return {ok,</p>
+
+<p>string()} | {error, term()} for all given input parameters then my</p>
+
+<p>unit tests should be able to show that for a representative set of</p>
+
+<p>input parameters that those contracts are honored. The art comes in</p>
+
+<p>thinking about what that set is.</p>
+</blockquote>
+
+<p>The trap in writing all your own tests can often be that we think<br />
+about the set in terms of what we coded for and not what may indeed be<br />
+asked of our function. As the code is tried in further exploratory<br />
+testing and in production new input parameter sets for which the given<br />
+function does not meet the stated contract are discovered and added to<br />
+the test case once a fix has been put into place.</p>
+
+<p>This is a very good description of what the ground rules for unit<br />
+testing are:</p>
+
+<ul>
+<li>Checking that contracts are obeyed.<br /></li>
+<li>Creating a representative set of input parameters.<br />
+<br /></li>
+</ul>
+
+<p>The former is very much part of PBT - each property you write will<br />
+check a contract, so that thinking is the same.</p>
+
+<h2 id="xunit-vs-pbt">xUnit vs PBT</h2>
+
+<p>Unit testing has become popular for software testing with the advent<br />
+of xUnit tools like jUnit for Java.  xUnit like tools typically<br />
+provide a testing framework with the following functionality</p>
+
+<ul>
+<li>test fixture setup<br /></li>
+<li>test case execution<br /></li>
+<li>test fixture teardown<br /></li>
+<li>test suite management<br /></li>
+<li>test status reporting and management<br />
+<br /></li>
+</ul>
+
+<p>While xUnit tools provide a lot of functionality to execute and manage<br />
+test cases and suites, reporting results there is no focus on test<br />
+case execution step, while this is the main focus area of<br />
+property-based testing (PBT).</p>
+
+<p>Consider the following function specification</p>
+
+<div class="codehilite"><pre><span class="nf">sort</span><span class="p">(</span><span class="nn">list</span><span class="p">::</span><span class="n">integer</span><span class="p">())</span> <span class="o">---&gt;</span> <span class="nn">list</span><span class="p">::</span><span class="n">integer</span><span class="p">()</span> <span class="p">|</span> <span class="n">error</span>  
+</pre></div>  
+  
+
+<p>A verbal specification of this function is,</p>
+
+<blockquote>
+<p>For all input lists of integers, the sort function returns a sorted</p>
+
+<p>list of integers.</p>
+</blockquote>
+
+<p>For any other kind of argument the function returns the atom error.</p>
+
+<p>The specification above may be a requirement of how the function<br />
+should behave or even how the function does behave. This distinction<br />
+is important; the former is the requirement for the function, the<br />
+latter is the actual API. Both should be the same and that is what our<br />
+testing should confirm. Test cases for this function might look like</p>
+
+<div class="codehilite"><pre><span class="nf">assertEqual</span><span class="p">(</span><span class="n">sort</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>  
+<span class="nf">assertEqual</span><span class="p">(</span><span class="n">sort</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>  
+<span class="nf">assertEqual</span><span class="p">(</span><span class="n">sort</span><span class="p">([]</span>         <span class="p">),</span> <span class="p">[]</span>         <span class="p">)</span>  
+<span class="nf">assertEqual</span><span class="p">(</span><span class="n">sort</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="p">),</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="p">)</span>  
+</pre></div>  
+  
+
+<p>How many tests cases should we write to be convinced that the actual<br />
+behaviour of the function is the same as its specification? Clearly,<br />
+it is impossible to write tests cases for all possible input values,<br />
+here all lists of integers, the art of testing is finding individual<br />
+input values that are representative of a large part of the input<br />
+space. We hope that the test cases are exhaustive to cover the<br />
+specification. xUnit tools offer no support for this and this is where<br />
+PBT and PBT Tools like <code>PropEr</code> and <code>QuickCheck</code> come in.</p>
+
+<p>PBT introduces testing with a large set of random input values and<br />
+verifying that the specification holds for each input value<br />
+selected. Functions used to generate input values, generators, are<br />
+specified using rules and can be simply composed together to construct<br />
+complicated values.  So, a property based test for the function above<br />
+may look like:</p>
+
+<div class="codehilite"><pre><span class="nv">FOREACH</span><span class="p">({</span><span class="nv">I</span><span class="p">,</span> <span class="nv">J</span><span class="p">,</span> <span class="nv">InputList</span><span class="p">},</span>  <span class="p">{</span><span class="n">nat</span><span class="p">(),</span> <span class="n">nat</span><span class="p">(),</span> <span class="n">integer_list</span><span class="p">()},</span>  
+    <span class="nv">SUCHTHAT</span><span class="p">(</span><span class="nv">I</span> <span class="o">&lt;</span> <span class="nv">J</span> <span class="ow">andalso</span> <span class="nv">J</span> <span class="o">&lt;</span> <span class="nb">length</span><span class="p">(</span><span class="nv">InputList</span><span class="p">),</span>  
+    <span class="nv">SortedList</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="nv">InputList</span><span class="p">)</span>  
+    <span class="nb">length</span><span class="p">(</span><span class="nv">SortedList</span><span class="p">)</span> <span class="o">==</span> <span class="nb">length</span><span class="p">(</span><span class="nv">InputList</span><span class="p">)</span>  
+    <span class="ow">andalso</span>  
+    <span class="nn">lists</span><span class="p">:</span><span class="nb">get</span><span class="p">(</span><span class="nv">SortedList</span><span class="p">,</span> <span class="nv">I</span><span class="p">)</span> <span class="o">=&lt;</span> <span class="nn">lists</span><span class="p">:</span><span class="nb">get</span><span class="p">(</span><span class="nv">SortedList</span><span class="p">,</span> <span class="nv">J</span><span class="p">))</span>  
+</pre></div>  
+  
+
+<p>The property above works as follows</p>
+
+<ul>
+<li>Generate a random list of integers <code>InputList</code> and two natural numbers<br />
+I, J, such that I &lt; J &lt; size of <code>InputList</code><br /></li>
+<li>Check that size of sorted and input lists is the same.<br /></li>
+<li>Check that element with smaller index I is less than or equal to<br />
+element with larger index J in <code>SortedList</code>.<br />
+<br /></li>
+</ul>
+
+<p>Notice in the property above, we <em>specify</em> property. Verification of<br />
+the property based on random input values will be done by the property<br />
+based tool, therefore we can generated a large number of tests cases<br />
+with random input values and have a higher level of confidence that<br />
+the function when using unit tests alone.</p>
+
+<p>But it does not stop at generation of input parameters. If you have<br />
+more complex tests where you have to generate a series of events and<br />
+keep track of some state then your PBT tool will generate random<br />
+sequences of events which corresponds to legal sequences of events and<br />
+test that your system behaves correctly for all sequences.</p>
+
+<p>So when you have written a property with associated generators you<br />
+have in fact created something that can create numerous test cases -<br />
+you just have to tell your PBT tool how many test cases you want to<br />
+check the property on.</p>
+
+<h2 id="shrinking-the-bar">Shrinking the bar</h2>
+
+<p>At this point you might still have the feeling that introducing the<br />
+notion of some sort of generators to your unit testing tool of choice<br />
+would bring you on par with PBT tools, but wait there is more to<br />
+come.</p>
+
+<p>When a PBT tool creates a test case that fails there is real chance<br />
+that it has created a long test case or some big input parameters -<br />
+trying to debug that is very much like receiving a humongous log from<br />
+a system in the field and try to figure out what cause the system to<br />
+fail.</p>
+
+<p>Enter shrinking&hellip;</p>
+
+<p>When a test case fails the PBT tool will try to shrink the failing<br />
+test case down to the essentials by stripping out input elements or<br />
+events that does not cause the failure. In most cases this results in<br />
+a very short counterexample that clearly states which events and<br />
+inputs are required to break a property.</p>
+
+<p>As we go through some concrete examples later the effects of shrinking<br />
+will be shown.</p>
+
+<p>Shrinking makes it a lot easier to debug problems and is as key to the<br />
+strength of PBT as the generators.</p>
+
+<h2 id="converting-a-unit-test">Converting a unit test</h2>
+
+<p>We will now take a look at one possible way of translating a unit<br />
+test into a PBT setting.</p>
+
+<p>The example comes from Eric Merritt and is about the <code>add/2</code> function in<br />
+the <code>ec_dictionary</code> instance <code>ec_gb_trees</code>.</p>
+
+<p>The add function has the following spec:</p>
+
+<div class="codehilite"><pre><span class="p">-</span><span class="ni">spec</span> <span class="n">add</span><span class="p">(</span><span class="nn">ec_dictionary</span><span class="p">:</span><span class="n">key</span><span class="p">(),</span> <span class="nn">ec_dictionary</span><span class="p">:</span><span class="n">value</span><span class="p">(),</span> <span class="nv">Object</span><span class="p">::</span><span class="n">dictionary</span><span class="p">())</span> <span class="o">-&gt;</span>  
+          <span class="n">dictionary</span><span class="p">().</span>  
+</pre></div>  
+  
+
+<p>and it is supposed to do the obvious: add the key and value pair to<br />
+the dictionary and return a new dictionary.</p>
+
+<p>Eric states his basic expectations as follows:</p>
+
+<ol>
+<li>I can put arbitrary terms into the dictionary as keys<br /></li>
+<li>I can put arbitrary terms into the dictionary as values<br /></li>
+<li>When I put a value in the dictionary by a key, I can retrieve that same value<br /></li>
+<li>When I put a different value in the dictionary by key it does not change other key value pairs.<br /></li>
+<li>When I update a value the new value in available by the new key<br /></li>
+<li>When a value does not exist a not found exception is created<br />
+<br /></li>
+</ol>
+
+<p>The first two expectations regarding being able to use arbritrary<br />
+terms as keys and values is a job for generators.</p>
+
+<p>The latter four are prime candidates for properties and we will create<br />
+one for each of them.</p>
+
+<h3 id="generators">Generators</h3>
+
+<div class="codehilite"><pre><span class="nf">key</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">any</span><span class="p">().</span>  
+  
+<span class="nf">value</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">any</span><span class="p">().</span>  
+</pre></div>  
+  
+
+<p>For <code>PropEr</code> this approach has the drawback that creation and shrinking<br />
+becomes rather time consuming, so it might be better to narrow to<br />
+something like this:</p>
+
+<div class="codehilite"><pre><span class="nf">key</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">union</span><span class="p">([</span><span class="n">integer</span><span class="p">(),</span><span class="n">atom</span><span class="p">()]).</span>  
+  
+<span class="nf">value</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">union</span><span class="p">([</span><span class="n">integer</span><span class="p">(),</span><span class="n">atom</span><span class="p">(),</span><span class="n">binary</span><span class="p">(),</span><span class="n">boolean</span><span class="p">(),</span><span class="n">string</span><span class="p">()]).</span>  
+</pre></div>  
+  
+
+<p>What is best depends on the situation and intended usage.</p>
+
+<p>Now, being able to generate keys and values is not enough. You also<br />
+have to tell <code>PropEr</code> how to create a dictionary and in this case we<br />
+will use a symbolic generator (detail to be explained later).</p>
+
+<div class="codehilite"><pre><span class="nf">sym_dict</span><span class="p">()</span> <span class="o">-&gt;</span>  
+    <span class="no">?SIZED</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span><span class="n">sym_dict</span><span class="p">(</span><span class="nv">N</span><span class="p">)).</span>  
+  
+<span class="nf">sym_dict</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span>  
+    <span class="p">{</span><span class="n">&#039;$call&#039;</span><span class="p">,</span><span class="n">ec_dictionary</span><span class="p">,</span><span class="n">new</span><span class="p">,[</span><span class="n">ec_gb_trees</span><span class="p">]};</span>  
+<span class="nf">sym_dict</span><span class="p">(</span><span class="nv">N</span><span class="p">)</span> <span class="o">-&gt;</span>  
+    <span class="no">?LAZY</span><span class="p">(</span>  
+       <span class="n">frequency</span><span class="p">([</span>  
+                  <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="n">&#039;$call&#039;</span><span class="p">,</span><span class="n">ec_dictionary</span><span class="p">,</span><span class="n">remove</span><span class="p">,[</span><span class="n">key</span><span class="p">(),</span><span class="n">sym_dict</span><span class="p">(</span><span class="nv">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)]}},</span>  
+                  <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="n">&#039;$call&#039;</span><span class="p">,</span><span class="n">ec_dictionary</span><span class="p">,</span><span class="n">add</span><span class="p">,[</span><span class="n">value</span><span class="p">(),</span><span class="n">value</span><span class="p">(),</span><span class="n">sym_dict</span><span class="p">(</span><span class="nv">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)]}}</span>  
+                 <span class="p">])).</span>  
+</pre></div>  
+  
+
+<p><code>sym_dict/0</code> uses the <code>?SIZED</code> macro to control the size of the<br />
+generated dictionary. <code>PropEr</code> will start out with small numbers and<br />
+gradually raise it.</p>
+
+<p><code>sym_dict/1</code> is building a dictionary by randomly adding key/value<br />
+pairs and removing keys. Eventually the base case is reached which<br />
+will create an empty dictionary.</p>
+
+<p>The <code>?LAZY</code> macro is used to defer the calculation of the<br />
+<code>sym_dict(N-1)</code> until they are needed and <code>frequency/1</code> is used<br />
+to ensure that twice as many adds compared to removes are done. This<br />
+should give rather more interesting dictionaries in the long run, if<br />
+not one can alter the frequencies accondingly.</p>
+
+<p>But does it really work?</p>
+
+<p>That is a good question and one that should always be asked when<br />
+looking at genetors. Fortunately there is a way to see what a<br />
+generator produces provided that the generator functions are exported.</p>
+
+<p>Hint: in most cases it will not hurt to throw in a<br />
+<code>-compile(export_all).</code> in the module used to specify the<br />
+properties. And here we actually have a sub-hint: specify the<br />
+properties in a separate file to avoid peeking inside the<br />
+implementation! Base the test on the published API as this is what the<br />
+users of the code will be restricted to.</p>
+
+<p>When the test module has been loaded you can test the generators by<br />
+starting up an Erlang shell (this example uses the erlware_commons<br />
+code so get yourself a clone to play with):</p>
+
+<div class="codehilite"><pre><span class="nv">$ </span>erl -pz ebin -pz <span class="nb">test</span>  
+1&gt; proper_gen:pick<span class="o">(</span>ec_dictionary_proper:key<span class="o">())</span>.  
+<span class="o">{</span>ok,4<span class="o">}</span>  
+2&gt; proper_gen:pick<span class="o">(</span>ec_dictionary_proper:key<span class="o">())</span>.  
+<span class="o">{</span>ok,35<span class="o">}</span>  
+3&gt; proper_gen:pick<span class="o">(</span>ec_dictionary_proper:key<span class="o">())</span>.  
+<span class="o">{</span>ok,-5<span class="o">}</span>  
+4&gt; proper_gen:pick<span class="o">(</span>ec_dictionary_proper:key<span class="o">())</span>.  
+<span class="o">{</span>ok,48<span class="o">}</span>  
+5&gt; proper_gen:pick<span class="o">(</span>ec_dictionary_proper:key<span class="o">())</span>.  
+<span class="o">{</span>ok,<span class="s1">&#039;36\207_lÃ Â´?\nc&#039;</span><span class="o">}</span>  
+6&gt; proper_gen:pick<span class="o">(</span>ec_dictionary_proper:value<span class="o">())</span>.  
+<span class="o">{</span>ok,2<span class="o">}</span>  
+7&gt; proper_gen:pick<span class="o">(</span>ec_dictionary_proper:value<span class="o">())</span>.  
+<span class="o">{</span>ok,-14<span class="o">}</span>  
+8&gt; proper_gen:pick<span class="o">(</span>ec_dictionary_proper:value<span class="o">())</span>.  
+<span class="o">{</span>ok,-3<span class="o">}</span>  
+9&gt; proper_gen:pick<span class="o">(</span>ec_dictionary_proper:value<span class="o">())</span>.  
+<span class="o">{</span>ok,27<span class="o">}</span>  
+10&gt; proper_gen:pick<span class="o">(</span>ec_dictionary_proper:value<span class="o">())</span>.  
+<span class="o">{</span>ok,-8<span class="o">}</span>  
+11&gt; proper_gen:pick<span class="o">(</span>ec_dictionary_proper:value<span class="o">())</span>.  
+<span class="o">{</span>ok,<span class="o">[</span>472765,17121<span class="o">]}</span>  
+12&gt; proper_gen:pick<span class="o">(</span>ec_dictionary_proper:value<span class="o">())</span>.  
+<span class="o">{</span>ok,true<span class="o">}</span>  
+13&gt; proper_gen:pick<span class="o">(</span>ec_dictionary_proper:value<span class="o">())</span>.  
+<span class="o">{</span>ok,&lt;&lt;&gt;&gt;<span class="o">}</span>  
+14&gt; proper_gen:pick<span class="o">(</span>ec_dictionary_proper:value<span class="o">())</span>.  
+<span class="o">{</span>ok,<span class="s">&lt;&lt;89,69,18</span>,148,32,42,238,101&gt;&gt;<span class="o">}</span>  
+15&gt; proper_gen:pick<span class="o">(</span>ec_dictionary_proper:sym_dict<span class="o">())</span>.  
+<span class="o">{</span>ok,<span class="o">{</span><span class="s1">&#039;$call&#039;</span>,ec_dictionary,add,  
+        <span class="o">[[</span>114776,1053475<span class="o">]</span>,  
+         <span class="s1">&#039;fÂª20\227\215&#039;</span>,  
+         <span class="o">{</span><span class="s1">&#039;$call&#039;</span>,ec_dictionary,add,  
+             <span class="o">[</span><span class="s1">&#039;&#039;</span>,true,  
+              <span class="o">{</span><span class="s1">&#039;$call&#039;</span>,ec_dictionary,add,  
+                  <span class="o">[</span><span class="s1">&#039;2^Ã˜Â¡&#039;</span>,  
+                   <span class="o">[</span>900408,886056<span class="o">]</span>,  
+                   <span class="o">{</span><span class="s1">&#039;$call&#039;</span>,ec_dictionary,add,<span class="o">[[</span>48618|...<span class="o">]</span>,&lt;&lt;...&gt;&gt;|...<span class="o">]}]}]}]}}</span>  
+16&gt; proper_gen:pick<span class="o">(</span>ec_dictionary_proper:sym_dict<span class="o">())</span>.  
+<span class="o">{</span>ok,<span class="o">{</span><span class="s1">&#039;$call&#039;</span>,ec_dictionary,add,  
+        <span class="o">[</span>10,<span class="s1">&#039;aÂ¯\21431fÃµC&#039;</span>,  
+         <span class="o">{</span><span class="s1">&#039;$call&#039;</span>,ec_dictionary,add,  
+             <span class="o">[</span><span class="nb">false</span>,-1,  
+              <span class="o">{</span><span class="s1">&#039;$call&#039;</span>,ec_dictionary,remove,  
+                  <span class="o">[</span><span class="s1">&#039;dÂ·Ã‰VÃ·[&#039;</span>,  
+                   <span class="o">{</span><span class="s1">&#039;$call&#039;</span>,ec_dictionary,remove,<span class="o">[</span>12,<span class="o">{</span><span class="s1">&#039;$call&#039;</span>,...<span class="o">}]}]}]}]}}</span>  
+</pre></div>  
+  
+
+<p>That does not look too bad, so we will continue with that for now.</p>
+
+<h3 id="properties-of-add-2">Properties of <code>add/2</code></h3>
+
+<p>The first expectation Eric had about how the dictionary works was that<br />
+if a key had been stored it could be retrieved.</p>
+
+<p>One way of expressing this could be with this property:</p>
+
+<div class="codehilite"><pre><span class="nf">prop_get_after_add_returns_correct_value</span><span class="p">()</span> <span class="o">-&gt;</span>  
+    <span class="no">?FORALL</span><span class="p">({</span><span class="nv">Dict</span><span class="p">,</span><span class="nv">K</span><span class="p">,</span><span class="nv">V</span><span class="p">},</span> <span class="p">{</span><span class="n">sym_dict</span><span class="p">(),</span><span class="n">key</span><span class="p">(),</span><span class="n">value</span><span class="p">()},</span>  
+         <span class="k">begin</span>  
+             <span class="k">try</span> <span class="nn">ec_dictionary</span><span class="p">:</span><span class="nb">get</span><span class="p">(</span><span class="nv">K</span><span class="p">,</span><span class="nn">ec_dictionary</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="nv">K</span><span class="p">,</span><span class="nv">V</span><span class="p">,</span><span class="nv">Dict</span><span class="p">))</span> <span class="k">of</span>  
+                    <span class="nv">V</span> <span class="o">-&gt;</span>  
+                        <span class="n">true</span><span class="p">;</span>  
+                    <span class="p">_</span> <span class="o">-&gt;</span>  
+                        <span class="n">false</span>  
+             <span class="k">catch</span>  
+                   <span class="p">_:_</span> <span class="o">-&gt;</span>  
+                       <span class="n">false</span>  
+             <span class="k">end</span>  
+          <span class="k">end</span><span class="p">).</span>  
+</pre></div>  
+  
+
+<p>This property reads that for all dictionaries <code>get/2</code> using a key<br />
+from a key/value pair just inserted using the <code>add/3</code> function<br />
+will return that value. If that is not the case the property will<br />
+evaluate to false.</p>
+
+<p>Running the property is done using <code>proper:quickcheck/1</code>:</p>
+
+<div class="codehilite"><pre>proper:quickcheck<span class="o">(</span>ec_dictionary_proper:prop_get_after_add_returns_correct_value<span class="o">())</span>.  
+....................................................................................................  
+OK: Passed 100 <span class="nb">test</span><span class="o">(</span>s<span class="o">)</span>.  
+<span class="nb">true</span>  
+</pre></div>  
+  
+
+<p>This was as expected, but at this point we will take a little detour<br />
+and introduce a mistake in the <code>ec_gb_trees</code> implementation and see<br />
+how that works.</p>
+
+      </section>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+    </div>
+
+    <nav class="pagination" role="navigation">
+      
+          <a class="newer-posts" href="/post/batman-js-vs-knockout-js/">&larr; <span class="hide">Next Post</span></a>
+      
+      <span class="page-number">&nbsp;</span>
+      
+          <a class="older-posts" href="/post/signatures-reusable-toolable-testable-types/"><span class="hide">Previous Post</span> &rarr;</a>
+      
+    </nav>
+
+    
+    
+    
+
+  </div>
+</main>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/"></a>  <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/erlware" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+</body></html>

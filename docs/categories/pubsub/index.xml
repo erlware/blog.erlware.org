@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pubsub on Erlware Blog</title>
+    <link>/categories/pubsub/</link>
+    <description>Recent content in Pubsub on Erlware Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Apr 2011 20:33:19 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/pubsub/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Erlang PubNub Client and Chat</title>
+      <link>/post/erlang-pubnub-client-and-chat/</link>
+      <pubDate>Sun, 10 Apr 2011 20:33:19 +0000</pubDate>
+      
+      <guid>/post/erlang-pubnub-client-and-chat/</guid>
+      <description>I was thoroughly impressed with PubNub, a publish/subscribe service, when I first read their articles and played around with it some in Javascript. But obviously I need an Erlang API if I&amp;rsquo;m going to really use it! So I&amp;rsquo;ve created ePubNub.
+In the ePubNub README you&amp;rsquo;ll find information on some basic usage of the application. You don&amp;rsquo;t have to do anything more than use the epubnub.erl module to publish and subscribe (by either providing a PID to send messages to or a function handler to process each).</description>
+    </item>
+    
+  </channel>
+</rss>

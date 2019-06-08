@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Otp on Erlware Blog</title>
+    <link>/tags/otp/</link>
+    <description>Recent content in Otp on Erlware Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Jun 2018 03:55:53 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/otp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>OTP-21: New sys_config_src option in relx</title>
+      <link>/post/otp-21-new-sys_config_src-option-in-relx/</link>
+      <pubDate>Thu, 21 Jun 2018 03:55:53 +0000</pubDate>
+      
+      <guid>/post/otp-21-new-sys_config_src-option-in-relx/</guid>
+      <description>With the release of OTP-21 and rebar3 3.6.0, which includes a new relx 3.25.0, there is better support for dynamic configuration of releases at runtime. If you are new to this concept checkout the rebar3 docs first
+No longer will you be forced to declare RELX_REPLACE_OS_VARS and convert strings to integers in your code because the sys.config file had to be valid Erlang terms when building the release.
+Instead, you can use {sys_config_src, &amp;quot;config/sys.</description>
+    </item>
+    
+    <item>
+      <title>Projmake-mode: Flymake Replacement</title>
+      <link>/post/projmake-mode-flymake-replacement/</link>
+      <pubDate>Thu, 27 Sep 2012 23:13:47 +0000</pubDate>
+      
+      <guid>/post/projmake-mode-flymake-replacement/</guid>
+      <description>There is a great new Emacs plugin from Eric Merritt that like FlyMake builds your code and highlights within Emacs any errors or warnings, but unlike FlyMake builds across the whole project. You can clone the mode from here projmake-mode
+After cloning the repo to your desired location add this bit to your dot emacs file, replacing &amp;lt;PATH&amp;gt; with the path to where you cloned the repo.
+[gist]3794732[/gist]
+This Emacs code also uses add-hook to set projmake-mode to start for erlang-mode is loaded.</description>
+    </item>
+    
+    <item>
+      <title>Sinan Releases and Being Right</title>
+      <link>/post/sinan-releases-and-being-right/</link>
+      <pubDate>Sat, 05 May 2012 01:33:07 +0000</pubDate>
+      
+      <guid>/post/sinan-releases-and-being-right/</guid>
+      <description>Fred, of Learn You Some Erlang for Great Good, today posted on his blog about the problems around how rebar handles releases, Rebar Releases and Being Wrong. The problems he mentions and a few others are why, despite giving it a legitimate shot, I have found rebar unusable for my workflow to be efficient and stable while adhering to OTP standards at the same time.
+I suggest first reading his post, if you already use rebar, and then continuing on with the rest of this.</description>
+    </item>
+    
+  </channel>
+</rss>
