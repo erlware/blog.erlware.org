@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["Erlang", "rebar3", "docker"]
 date = 2018-09-18T06:09:11Z
 description = ""

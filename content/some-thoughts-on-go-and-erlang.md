@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["Erlang", "fault tolerance", "Go"]
 date = 2014-04-28T01:41:16Z
 description = ""

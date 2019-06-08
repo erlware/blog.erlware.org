@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["Cowboy", "Erlang", "OTP", "rebar", "sinan"]
 date = 2012-05-05T01:33:07Z
 description = ""

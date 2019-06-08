@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["batman.js", "Cowboy", "Erlang", "Javascript", "RESTful", "web development", "Webmachine"]
 date = 2012-04-30T19:59:11Z
 description = ""

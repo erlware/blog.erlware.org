@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["Erlang", "Functional Programming"]
 date = 2011-11-07T00:06:31Z
 description = ""

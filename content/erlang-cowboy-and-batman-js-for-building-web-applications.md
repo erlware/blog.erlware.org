@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["API", "batman.js", "coffeescript", "Cowboy", "Erlang", "Javascript", "RESTful", "Web"]
 date = 2012-04-27T20:11:28Z
 description = ""

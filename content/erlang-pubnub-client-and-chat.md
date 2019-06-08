@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["Erlang", "pubnub", "pubsub", "simple_one_for_one", "Web"]
 date = 2011-04-10T20:33:19Z
 description = ""

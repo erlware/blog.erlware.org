@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["cloud", "dotcloud", "Opa", "Web"]
 date = 2011-10-06T18:59:55Z
 description = ""

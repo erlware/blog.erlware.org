@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["Functional Programming", "Opa"]
 date = 2011-10-15T19:11:58Z
 description = ""

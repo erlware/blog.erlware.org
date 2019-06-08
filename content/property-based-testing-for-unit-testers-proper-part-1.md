@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 date = 2011-07-12T18:08:16Z
 description = ""
 draft = false

@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["Erlang"]
 date = 2012-01-05T03:40:38Z
 description = ""

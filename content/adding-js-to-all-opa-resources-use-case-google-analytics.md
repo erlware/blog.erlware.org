@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["Javascript", "Opa", "Web"]
 date = 2011-11-06T23:19:38Z
 description = ""
@@ -7,7 +8,6 @@ draft = false
 slug = "adding-js-to-all-opa-resources-use-case-google-analytics"
 tags = ["Javascript", "Opa", "Web"]
 title = "Adding JS To all Opa Resources: Use Case Google Analytics"
-
 +++
 
 I decided I wanted to add [Google Analytics](http://www.google.com/analytics/ "Google Analytics") to [OpaDo](http://opado.org/ "OpaDo") but had no idea how to easily tell each page to include the necessary Javascript. I asked on the Opa mailing list and got a quick and simple response. Frederic Ye pointed me to [Resource.register_external_js](http://doc.opalang.org/new_doc/#stdlib.core.web.resource.resource.opa.html/!/value_stdlib.core.web.resource.Resource.register_external_js "Opa Resource.register_external_js")  

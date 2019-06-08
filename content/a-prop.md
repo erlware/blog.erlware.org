@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["Erlang", "proper"]
 date = 2019-06-08T09:08:10Z
 description = ""
@@ -7,7 +8,6 @@ draft = false
 slug = "a-prop"
 tags = ["Erlang", "proper", "property testing"]
 title = "A Little on Property-Based Testing with PropEr"
-
 +++
 
 Fred Hebert's latest book [Property-Based Testing with PropEr, Erlang and Elixir](http://propertesting.com/) is out in a print version from The Pragmatic Programmers.

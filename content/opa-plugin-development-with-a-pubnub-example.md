@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["cloud", "Functional Programming", "Javascript", "Opa", "Web"]
 date = 2011-11-24T04:03:07Z
 description = ""

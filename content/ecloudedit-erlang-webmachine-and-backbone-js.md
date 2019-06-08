@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["Backbone.js", "CouchDB", "Erlang", "Javascript", "MVC", "Web", "Webmachine"]
 date = 2011-02-09T09:10:43Z
 description = ""

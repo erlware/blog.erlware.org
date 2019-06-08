@@ -1,5 +1,6 @@
 +++
 author = "Eric Merritt"
+type="post"
 date = 2015-06-22T22:27:54Z
 description = ""
 draft = false

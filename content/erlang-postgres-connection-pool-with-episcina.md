@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["Databases", "Erlang", "Postgres"]
 date = 2014-05-05T02:41:52Z
 description = ""

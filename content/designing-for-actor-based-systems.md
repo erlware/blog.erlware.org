@@ -1,5 +1,6 @@
 +++
 author = "Martin J. Logan"
+type="post"
 date = 2014-07-24T00:48:08Z
 description = ""
 draft = false

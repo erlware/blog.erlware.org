@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["Erlang", "rebar3", "relx", "OTP"]
 date = 2018-06-21T03:55:53Z
 description = ""

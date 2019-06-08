@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["Chef", "Devops", "Opscode"]
 date = 2011-09-29T20:05:30Z
 description = ""

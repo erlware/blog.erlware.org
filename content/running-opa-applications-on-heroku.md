@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["buildpacks", "heroku", "node.js", "Opa", "web development"]
 date = 2012-11-12T22:07:50Z
 description = ""

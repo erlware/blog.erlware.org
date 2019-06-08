@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["CouchDB", "Erlang", "simple_one_for_one", "Web", "Webmachine"]
 date = 2011-02-12T23:37:34Z
 description = ""

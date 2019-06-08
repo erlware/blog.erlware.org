@@ -1,5 +1,6 @@
 +++
 author = "Tristan Sloughter"
+type="post"
 categories = ["Emacs", "Erlang"]
 date = 2012-05-16T01:39:32Z
 description = ""
