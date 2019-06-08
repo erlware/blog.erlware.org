@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sinan on Erlware Blog</title>
-    <link>/categories/sinan/</link>
+    <link>/docs/categories/sinan/</link>
     <description>Recent content in Sinan on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 05 May 2012 01:33:07 +0000</lastBuildDate>
     
-	<atom:link href="/categories/sinan/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/docs/categories/sinan/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Sinan Releases and Being Right</title>
-      <link>/post/sinan-releases-and-being-right/</link>
+      <link>/docs/post/sinan-releases-and-being-right/</link>
       <pubDate>Sat, 05 May 2012 01:33:07 +0000</pubDate>
       
-      <guid>/post/sinan-releases-and-being-right/</guid>
+      <guid>/docs/post/sinan-releases-and-being-right/</guid>
       <description>Fred, of Learn You Some Erlang for Great Good, today posted on his blog about the problems around how rebar handles releases, Rebar Releases and Being Wrong. The problems he mentions and a few others are why, despite giving it a legitimate shot, I have found rebar unusable for my workflow to be efficient and stable while adhering to OTP standards at the same time.
 I suggest first reading his post, if you already use rebar, and then continuing on with the rest of this.</description>
     </item>

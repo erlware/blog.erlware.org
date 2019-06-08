@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Js on Erlware Blog</title>
-    <link>/tags/js/</link>
+    <link>/docs/tags/js/</link>
     <description>Recent content in Js on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 29 Aug 2011 01:37:13 +0000</lastBuildDate>
     
-	<atom:link href="/tags/js/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/docs/tags/js/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Batman.js vs Knockout.js</title>
-      <link>/post/batman-js-vs-knockout-js/</link>
+      <link>/docs/post/batman-js-vs-knockout-js/</link>
       <pubDate>Mon, 29 Aug 2011 01:37:13 +0000</pubDate>
       
-      <guid>/post/batman-js-vs-knockout-js/</guid>
+      <guid>/docs/post/batman-js-vs-knockout-js/</guid>
       <description>The following is NOT a tutorial for either Batman.js or Knockout.js. But, it is instead a sort of side-by-side comparison of the two for creating a user creation form that POSTs the new user&amp;rsquo;s data as JSON to the backend.
 The method of web development I&amp;rsquo;ve come to find the best is based on heavy frontend Javascript (though written in Coffeescript) communicating with a backend via a RESTful interface. This is appealing, because you are not cluttering the application logic with view related code.</description>
     </item>

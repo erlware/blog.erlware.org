@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ocaml on Erlware Blog</title>
-    <link>/categories/ocaml/</link>
+    <link>/docs/categories/ocaml/</link>
     <description>Recent content in Ocaml on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 15 Oct 2011 17:59:01 +0000</lastBuildDate>
     
-	<atom:link href="/categories/ocaml/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/docs/categories/ocaml/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>OpaDo: Personal ToDo Lists</title>
-      <link>/post/opado-personal-todo-lists/</link>
+      <link>/docs/post/opado-personal-todo-lists/</link>
       <pubDate>Sat, 15 Oct 2011 17:59:01 +0000</pubDate>
       
-      <guid>/post/opado-personal-todo-lists/</guid>
+      <guid>/docs/post/opado-personal-todo-lists/</guid>
       <description>This is a continuation of two past posts (one, two) on my first application with Opa called OpaDo. You can try the live demo here and check out the full source code on Github
 Updating OpaDo to add user accounts the project structure has been changed a bit and modularized. Below is the new project layout.
 opado/

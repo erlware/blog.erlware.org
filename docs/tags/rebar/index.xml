@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rebar on Erlware Blog</title>
-    <link>/tags/rebar/</link>
+    <link>/docs/tags/rebar/</link>
     <description>Recent content in Rebar on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 27 Sep 2012 23:13:47 +0000</lastBuildDate>
     
-	<atom:link href="/tags/rebar/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/docs/tags/rebar/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Projmake-mode: Flymake Replacement</title>
-      <link>/post/projmake-mode-flymake-replacement/</link>
+      <link>/docs/post/projmake-mode-flymake-replacement/</link>
       <pubDate>Thu, 27 Sep 2012 23:13:47 +0000</pubDate>
       
-      <guid>/post/projmake-mode-flymake-replacement/</guid>
+      <guid>/docs/post/projmake-mode-flymake-replacement/</guid>
       <description>There is a great new Emacs plugin from Eric Merritt that like FlyMake builds your code and highlights within Emacs any errors or warnings, but unlike FlyMake builds across the whole project. You can clone the mode from here projmake-mode
 After cloning the repo to your desired location add this bit to your dot emacs file, replacing &amp;lt;PATH&amp;gt; with the path to where you cloned the repo.
 [gist]3794732[/gist]
@@ -25,10 +25,10 @@ This Emacs code also uses add-hook to set projmake-mode to start for erlang-mode
     
     <item>
       <title>Sinan Releases and Being Right</title>
-      <link>/post/sinan-releases-and-being-right/</link>
+      <link>/docs/post/sinan-releases-and-being-right/</link>
       <pubDate>Sat, 05 May 2012 01:33:07 +0000</pubDate>
       
-      <guid>/post/sinan-releases-and-being-right/</guid>
+      <guid>/docs/post/sinan-releases-and-being-right/</guid>
       <description>Fred, of Learn You Some Erlang for Great Good, today posted on his blog about the problems around how rebar handles releases, Rebar Releases and Being Wrong. The problems he mentions and a few others are why, despite giving it a legitimate shot, I have found rebar unusable for my workflow to be efficient and stable while adhering to OTP standards at the same time.
 I suggest first reading his post, if you already use rebar, and then continuing on with the rest of this.</description>
     </item>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Erlware Blog</title>
-    <link>/</link>
+    <link>/docs/</link>
     <description>Recent content on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 08 Jun 2019 09:08:10 +0000</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/docs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A Little on Property-Based Testing with PropEr</title>
-      <link>/post/a-prop/</link>
+      <link>/docs/post/a-prop/</link>
       <pubDate>Sat, 08 Jun 2019 09:08:10 +0000</pubDate>
       
-      <guid>/post/a-prop/</guid>
+      <guid>/docs/post/a-prop/</guid>
       <description>Fred Hebert&amp;rsquo;s latest book Property-Based Testing with PropEr, Erlang and Elixir is out in a print version from The Pragmatic Programmers.
 If you are like me you&amp;rsquo;ve known you need to figure out property testing for a long time now and keep putting it off. Now that there is a book, with a free version even, it is the best time to get going.
 The book even details avoiding a common pitfall that I certainly fall into anytime I&amp;rsquo;ve tried picking up property based testing: attempting to shoehorn property testing in to any problem even when a regular unit test is a better fit.</description>
@@ -24,10 +24,10 @@ The book even details avoiding a common pitfall that I certainly fall into anyti
     
     <item>
       <title>Rebar3: Building Docker Images</title>
-      <link>/post/rebar3-building-docker-images/</link>
+      <link>/docs/post/rebar3-building-docker-images/</link>
       <pubDate>Tue, 18 Sep 2018 06:09:11 +0000</pubDate>
       
-      <guid>/post/rebar3-building-docker-images/</guid>
+      <guid>/docs/post/rebar3-building-docker-images/</guid>
       <description>How I cut the time it takes to build an Erlang docker image in half. While adding support for a rebar3 option to only build dependencies and not project applications, rebar3 compile --deps_only, I realized it might already actually work for the Docker use case I had in mind.
 So I gave it a try and, yup, turns out it does!
 The idea is to cache a docker layer of the built dependencies to reuse if they haven&amp;rsquo;t changed.</description>
@@ -35,10 +35,10 @@ The idea is to cache a docker layer of the built dependencies to reuse if they h
     
     <item>
       <title>OTP-21: New sys_config_src option in relx</title>
-      <link>/post/otp-21-new-sys_config_src-option-in-relx/</link>
+      <link>/docs/post/otp-21-new-sys_config_src-option-in-relx/</link>
       <pubDate>Thu, 21 Jun 2018 03:55:53 +0000</pubDate>
       
-      <guid>/post/otp-21-new-sys_config_src-option-in-relx/</guid>
+      <guid>/docs/post/otp-21-new-sys_config_src-option-in-relx/</guid>
       <description>With the release of OTP-21 and rebar3 3.6.0, which includes a new relx 3.25.0, there is better support for dynamic configuration of releases at runtime. If you are new to this concept checkout the rebar3 docs first
 No longer will you be forced to declare RELX_REPLACE_OS_VARS and convert strings to integers in your code because the sys.config file had to be valid Erlang terms when building the release.
 Instead, you can use {sys_config_src, &amp;quot;config/sys.</description>
@@ -46,10 +46,10 @@ Instead, you can use {sys_config_src, &amp;quot;config/sys.</description>
     
     <item>
       <title>Automatic Hex Package Publishing with Travis-CI</title>
-      <link>/post/automatic-hex-package-publishing-with-travis-ci/</link>
+      <link>/docs/post/automatic-hex-package-publishing-with-travis-ci/</link>
       <pubDate>Thu, 19 Nov 2015 05:31:57 +0000</pubDate>
       
-      <guid>/post/automatic-hex-package-publishing-with-travis-ci/</guid>
+      <guid>/docs/post/automatic-hex-package-publishing-with-travis-ci/</guid>
       <description>Note: Travis CI does not yet provide rebar3 as a build tool for Erlang projects, so you will have to include a rebar3 executable escript in your repository.
 In your application&amp;rsquo;s .app.src file use &amp;quot;git&amp;quot; as the version. This will replace the version string with the current tag when publishing the hex package:
 {vsn,&amp;quot;git&amp;quot;},  In the .travis.yml configuration add the below section so that the script scripts/hex.sh is run everytime a new tag is made:</description>
@@ -57,50 +57,50 @@ In your application&amp;rsquo;s .app.src file use &amp;quot;git&amp;quot; as the
     
     <item>
       <title>Rebar3 Hex Plugin</title>
-      <link>/post/rebar3-hex-plugin/</link>
+      <link>/docs/post/rebar3-hex-plugin/</link>
       <pubDate>Mon, 05 Oct 2015 19:50:56 +0000</pubDate>
       
-      <guid>/post/rebar3-hex-plugin/</guid>
+      <guid>/docs/post/rebar3-hex-plugin/</guid>
       <description>No plugin is needed for using Hex packages in your project, covered in documentation here, but at this time the plugin rebar3_hex is needed for publishing. The plugin provides support for registering with hex.pm and publishing packages. For instructions on registering see the rebar3 hex.pm documentation, here we&amp;rsquo;ll cover publishing a package with some unique features to the rebar3 plugin.
 rebar3 hex cut The cut command provides some automation on top of publish.</description>
     </item>
     
     <item>
       <title>Rebar3 Features (part 6): _checkouts</title>
-      <link>/post/rebar3-features-part-6-_checkouts-2/</link>
+      <link>/docs/post/rebar3-features-part-6-_checkouts-2/</link>
       <pubDate>Sat, 03 Oct 2015 22:15:36 +0000</pubDate>
       
-      <guid>/post/rebar3-features-part-6-_checkouts-2/</guid>
+      <guid>/docs/post/rebar3-features-part-6-_checkouts-2/</guid>
       <description>In a build tool there is often a balancing act between ensuring repeatability and efficiency for the user. Wanting to make modifications on a dependency of your project is a common case of this. In rebar2 you could simply modify the source under deps/ and running rebar compile would pick those up. This meant that the contents of deps/ are not representative of the dependencies listed in rebar.config.
 With rebar3 a dependency is never rebuilt, even if a source file changes.</description>
     </item>
     
     <item>
       <title>Rebar3 Auto Compile and Load Plugin</title>
-      <link>/post/rebar3-auto-comile-and-load-plugin/</link>
+      <link>/docs/post/rebar3-auto-comile-and-load-plugin/</link>
       <pubDate>Sat, 26 Sep 2015 21:57:18 +0000</pubDate>
       
-      <guid>/post/rebar3-auto-comile-and-load-plugin/</guid>
+      <guid>/docs/post/rebar3-auto-comile-and-load-plugin/</guid>
       <description>During development the Erlang shell is often used for quickly testing functionality. Erlang&amp;rsquo;s ability to reload modules while running makes this workflow even more efficient. To go a step further in removing manual intervention tools like [sync]() and [active]() have been created. These libs will listen for file modifications, recompile and reload the changed modules.
 With rebar3 there is a plugin rebar3_auto which will start the shell, begin listening for modifications in the source directories of the project and recompile/reload when changes occur.</description>
     </item>
     
     <item>
       <title>Rebar3 Features (part 5): Dependency Tracking</title>
-      <link>/post/rebar3-features-part-5-dependency-branch-handling/</link>
+      <link>/docs/post/rebar3-features-part-5-dependency-branch-handling/</link>
       <pubDate>Mon, 21 Sep 2015 19:24:21 +0000</pubDate>
       
-      <guid>/post/rebar3-features-part-5-dependency-branch-handling/</guid>
+      <guid>/docs/post/rebar3-features-part-5-dependency-branch-handling/</guid>
       <description>When starting rebar3 a goal was to never again end up in a situation where rm -rf deps to get the right set of dependencies was the quickest or only way forward.
 An important piece of this is the new and improved upgrade command. However, this post will cover a less visible (it isn&amp;rsquo;t a new command) improvement related to how rebar3 fetches and tracks dependencies each time the compile command is run.</description>
     </item>
     
     <item>
       <title>Rebar3 Features (part 4): Profiles</title>
-      <link>/post/rebar3-features-part-4-profiles/</link>
+      <link>/docs/post/rebar3-features-part-4-profiles/</link>
       <pubDate>Mon, 21 Sep 2015 02:04:20 +0000</pubDate>
       
-      <guid>/post/rebar3-features-part-4-profiles/</guid>
+      <guid>/docs/post/rebar3-features-part-4-profiles/</guid>
       <description>Running tests and need meck or proper? Building docs and want edown? Bundling up a target system and want to include erts and turn off relx&amp;rsquo;s dev_mode? Rebar3 now has you covered for these scenarios through profiles.
 Profiles can be named with any atom, can add new items to the configuration, or prepend new options to existing elements, and multiple profiles can be combined themselves.
 The two special profiles are default and global.</description>
@@ -108,19 +108,19 @@ The two special profiles are default and global.</description>
     
     <item>
       <title>Rebar3 features (part 3): Overrides</title>
-      <link>/post/rebar3-features-part-3-overrides/</link>
+      <link>/docs/post/rebar3-features-part-3-overrides/</link>
       <pubDate>Tue, 15 Sep 2015 00:32:30 +0000</pubDate>
       
-      <guid>/post/rebar3-features-part-3-overrides/</guid>
+      <guid>/docs/post/rebar3-features-part-3-overrides/</guid>
       <description>What do you do when a dependency has settings in its rebar.config that are causing you problems? Maybe it includes dependencies that are not needed in the general case, like meck or edown. Or it could have set a required OTP version that isn&amp;rsquo;t accurate and you want to remove. Or the app could contain C code that needs compiling and had relied on rebar2&amp;rsquo;s port compiler. These problems often lead to forks of projects, which isn&amp;rsquo;t good for anyone, so in rebar3 we&amp;rsquo;ve added a feature called overrides.</description>
     </item>
     
     <item>
       <title>Rebar3 Features (part 2): Dependency Tree</title>
-      <link>/post/rebar3-features-part-2-dependency-tree/</link>
+      <link>/docs/post/rebar3-features-part-2-dependency-tree/</link>
       <pubDate>Sat, 12 Sep 2015 21:56:08 +0000</pubDate>
       
-      <guid>/post/rebar3-features-part-2-dependency-tree/</guid>
+      <guid>/docs/post/rebar3-features-part-2-dependency-tree/</guid>
       <description>rebar3 tree is a new command to allow the user to view what dependency pulled in each transitive dependency. This is especially useful with rebar3&amp;rsquo;s dependency resolution strategy of &amp;ldquo;first wins&amp;rdquo;.
 Thanks for pushing for this feature goes to Heinz N. Gies and inspiration comes from leiningen&amp;rsquo;s command lein deps :tree.
 For an example I&amp;rsquo;ve cloned chef-server and built oc_erchef under src/oc_erchef. It is unique because it has both a top level app oc_erchef under src/ as well as additional project apps under apps/.</description>
@@ -128,30 +128,30 @@ For an example I&amp;rsquo;ve cloned chef-server and built oc_erchef under src/o
     
     <item>
       <title>Rebar3 Features (part 1): Local install and upgrade</title>
-      <link>/post/rebar3-features-part-1-local-install-and-upgrade/</link>
+      <link>/docs/post/rebar3-features-part-1-local-install-and-upgrade/</link>
       <pubDate>Fri, 11 Sep 2015 04:21:52 +0000</pubDate>
       
-      <guid>/post/rebar3-features-part-1-local-install-and-upgrade/</guid>
+      <guid>/docs/post/rebar3-features-part-1-local-install-and-upgrade/</guid>
       <description>Update January 22, 2016: The original post has been modified to reflect that the commands install and upgrade were moved from the unstable namespace to the local namespace. Also added is use of the environment variable $REBAR3_ERL_ARGS in the run script which allows the user to specify custom Erlang VM arguments like: REBAR3_ERL_ARGS=&amp;quot;+A10&amp;quot; rebar3 shell.
 Rebar3 comes with a lot of new and improved features. I&amp;rsquo;ll be publishing posts here to highlight some of these features over the coming weeks.</description>
     </item>
     
     <item>
       <title>Monolith vs Microservices: Where to start</title>
-      <link>/post/monolith-vs-microservices-where-to-start/</link>
+      <link>/docs/post/monolith-vs-microservices-where-to-start/</link>
       <pubDate>Mon, 22 Jun 2015 22:27:54 +0000</pubDate>
       
-      <guid>/post/monolith-vs-microservices-where-to-start/</guid>
+      <guid>/docs/post/monolith-vs-microservices-where-to-start/</guid>
       <description>There is a debate going around how to do the initial design of a new system in the context of Microservices. Should you start with a Monolithic approach initially and move to a Microservices later or use Microservices from the beginning?
 Introduction Martin Fowler recently wrote article called &amp;lsquo;Monolith First&amp;rsquo; that talks about how to get started on a new Microservice project. Stefan Tilkov wrote a response Don&amp;rsquo;t start with a monolith arguing the reverse.</description>
     </item>
     
     <item>
       <title>Deploy Erlang Target System to Heroku</title>
-      <link>/post/deploy-erlang-target-system-to-heroku/</link>
+      <link>/docs/post/deploy-erlang-target-system-to-heroku/</link>
       <pubDate>Thu, 28 Aug 2014 02:54:05 +0000</pubDate>
       
-      <guid>/post/deploy-erlang-target-system-to-heroku/</guid>
+      <guid>/docs/post/deploy-erlang-target-system-to-heroku/</guid>
       <description>In this post these new tools will be used:
  rebar3 hk - new cli client for Heroku
  hk slug plugin - plugin for hk that uploads the target system
@@ -166,37 +166,37 @@ Now that Heroku has the cedar-14 stack if you are also running a recent Linux di
     
     <item>
       <title>Designing for Actor Based Systems</title>
-      <link>/post/designing-for-actor-based-systems/</link>
+      <link>/docs/post/designing-for-actor-based-systems/</link>
       <pubDate>Thu, 24 Jul 2014 00:48:08 +0000</pubDate>
       
-      <guid>/post/designing-for-actor-based-systems/</guid>
+      <guid>/docs/post/designing-for-actor-based-systems/</guid>
       <description>Many people are intrigued and excited about Erlang style concurrency. Once they get the capability in their hands though they realize that they don’t know how to take advantage of the capabilities processes or actors provide. To do this we need to understand how to decompose systems with process based concurrency in mind. Keep in mind, that this material works equally well for actors in Scala or agents in F#. Differences between actors and processes don&amp;rsquo;t much matter for the sake of this discussion.</description>
     </item>
     
     <item>
       <title>Erlang Postgres Connection Pool with Episcina</title>
-      <link>/post/erlang-postgres-connection-pool-with-episcina/</link>
+      <link>/docs/post/erlang-postgres-connection-pool-with-episcina/</link>
       <pubDate>Mon, 05 May 2014 02:41:52 +0000</pubDate>
       
-      <guid>/post/erlang-postgres-connection-pool-with-episcina/</guid>
+      <guid>/docs/post/erlang-postgres-connection-pool-with-episcina/</guid>
       <description>Almost exactly a year ago I was looking to merge the many forks of Will Glozer&amp;rsquo;s Postgres client for use in a project at Heroku. Instead Semiocast released their client, I gave it a try and never looked back. (But note that David Welton, a braver person than me, is working on merging the forks of epgsql at this time). I found Semiocast&amp;rsquo;s client to be clean, stable and I liked the interface better.</description>
     </item>
     
     <item>
       <title>Some Thoughts on Go and Erlang</title>
-      <link>/post/some-thoughts-on-go-and-erlang/</link>
+      <link>/docs/post/some-thoughts-on-go-and-erlang/</link>
       <pubDate>Mon, 28 Apr 2014 01:41:16 +0000</pubDate>
       
-      <guid>/post/some-thoughts-on-go-and-erlang/</guid>
+      <guid>/docs/post/some-thoughts-on-go-and-erlang/</guid>
       <description>UPDATE: I&amp;rsquo;m seeing that I did not make the point of this post clear. I am not saying Go is wrong or should change because it isn&amp;rsquo;t like Erlang. What I am attempting to show is the choices Go made that make it not an alternative to Erlang for backends where availability and low latency for high numbers of concurrent requests is a requirement. And notice I&amp;rsquo;m not writing this about a language like Julia.</description>
     </item>
     
     <item>
       <title>How to use Vim for Erlang Development</title>
-      <link>/post/how-to-use-vim-for-erlang-development/</link>
+      <link>/docs/post/how-to-use-vim-for-erlang-development/</link>
       <pubDate>Mon, 09 Sep 2013 18:00:21 +0000</pubDate>
       
-      <guid>/post/how-to-use-vim-for-erlang-development/</guid>
+      <guid>/docs/post/how-to-use-vim-for-erlang-development/</guid>
       <description>This post sponsored by ErlangCamp 2013 in Nashville which was epic!
 You are about to learn to use Vim as your editor for Erlang development. You will learn how to install and use a variety of really powerful Vim plugins to make Erlang dev with Vim smooth and satisfying!
 I have been developing Erlang now for about 13 years, many of them full time and even wrote a book on Erlang: Erlang &amp;amp; OTP in Action.</description>
@@ -204,29 +204,29 @@ I have been developing Erlang now for about 13 years, many of them full time and
     
     <item>
       <title>Universal Makefile for Erlang Projects That Use Rebar</title>
-      <link>/post/universal-makefile-for-erlang-projects-that-use-rebar/</link>
+      <link>/docs/post/universal-makefile-for-erlang-projects-that-use-rebar/</link>
       <pubDate>Tue, 04 Jun 2013 19:41:53 +0000</pubDate>
       
-      <guid>/post/universal-makefile-for-erlang-projects-that-use-rebar/</guid>
+      <guid>/docs/post/universal-makefile-for-erlang-projects-that-use-rebar/</guid>
       <description>This post sponsored by ErlangCamp 2013 in Nashville and Amsterdam
 At this point in the game nearly every Erlang project uses Rebar. The problem with that is that Rebar&amp;rsquo;s approach to the command line and command dependency chaining is leaves a lot to be desired. You tend to end up typing the same command with the same options list over and over again during the course of your work. Because of the poor dependency chaining you often must retype the same sequence of commands as well.</description>
     </item>
     
     <item>
       <title>Deal of the Day - Half off Erlang and OTP in Action</title>
-      <link>/post/deal-of-the-day-half-off-erlang-and-otp-in-action/</link>
+      <link>/docs/post/deal-of-the-day-half-off-erlang-and-otp-in-action/</link>
       <pubDate>Tue, 16 Apr 2013 09:47:53 +0000</pubDate>
       
-      <guid>/post/deal-of-the-day-half-off-erlang-and-otp-in-action/</guid>
+      <guid>/docs/post/deal-of-the-day-half-off-erlang-and-otp-in-action/</guid>
       <description>Here is your chance to get our book Erlang and OTP in Action for half price on April 16th. Use code dotd0416au at www.manning.com/logan/</description>
     </item>
     
     <item>
       <title>Running Opa Applications on Heroku</title>
-      <link>/post/running-opa-applications-on-heroku/</link>
+      <link>/docs/post/running-opa-applications-on-heroku/</link>
       <pubDate>Mon, 12 Nov 2012 22:07:50 +0000</pubDate>
       
-      <guid>/post/running-opa-applications-on-heroku/</guid>
+      <guid>/docs/post/running-opa-applications-on-heroku/</guid>
       <description>TL;DR
 As I&amp;rsquo;ve mentioned before, Opa is a new web framework that introduces not only the framework itself but a whole new language. A lot has changed in Opa since I last posted about it. Now Opa has a Javascript-esque look and runs on Node.js. But it still has the amazing typing system that makes Opa a joy to code in.
 The currently available Heroku buildpack for Opa only supported the old, pre-Node, support.</description>
@@ -234,10 +234,10 @@ The currently available Heroku buildpack for Opa only supported the old, pre-Nod
     
     <item>
       <title>Projmake-mode: Flymake Replacement</title>
-      <link>/post/projmake-mode-flymake-replacement/</link>
+      <link>/docs/post/projmake-mode-flymake-replacement/</link>
       <pubDate>Thu, 27 Sep 2012 23:13:47 +0000</pubDate>
       
-      <guid>/post/projmake-mode-flymake-replacement/</guid>
+      <guid>/docs/post/projmake-mode-flymake-replacement/</guid>
       <description>There is a great new Emacs plugin from Eric Merritt that like FlyMake builds your code and highlights within Emacs any errors or warnings, but unlike FlyMake builds across the whole project. You can clone the mode from here projmake-mode
 After cloning the repo to your desired location add this bit to your dot emacs file, replacing &amp;lt;PATH&amp;gt; with the path to where you cloned the repo.
 [gist]3794732[/gist]
@@ -246,19 +246,19 @@ This Emacs code also uses add-hook to set projmake-mode to start for erlang-mode
     
     <item>
       <title>Maru Models: JSON to Erlang Record with Custom Types</title>
-      <link>/post/maru-models-json-to-erlang-record-with-custom-types/</link>
+      <link>/docs/post/maru-models-json-to-erlang-record-with-custom-types/</link>
       <pubDate>Wed, 26 Sep 2012 23:43:44 +0000</pubDate>
       
-      <guid>/post/maru-models-json-to-erlang-record-with-custom-types/</guid>
+      <guid>/docs/post/maru-models-json-to-erlang-record-with-custom-types/</guid>
       <description>Working with Erlang for writing RESTful interfaces JSON is the communication &amp;ldquo;language&amp;rdquo; of choice. For simplifying the process of JSON to a model the backend could work with efficiently I&amp;rsquo;ve created _marumodels. This app decodes the JSON with jiffy and uses functions generated by a modified version of Ulf&amp;rsquo;s exprecs to create an Erlang record. The generated functions are created with type information from the record definition and when a property is set for the record through these functions it is first passed to the convert function of _maru_modeltypes to do any necessary processing.</description>
     </item>
     
     <item>
       <title>Getting Flymake and Rebar to Play Nice</title>
-      <link>/post/getting-flymake-and-rebar-to-play-nice/</link>
+      <link>/docs/post/getting-flymake-and-rebar-to-play-nice/</link>
       <pubDate>Wed, 16 May 2012 01:39:32 +0000</pubDate>
       
-      <guid>/post/getting-flymake-and-rebar-to-play-nice/</guid>
+      <guid>/docs/post/getting-flymake-and-rebar-to-play-nice/</guid>
       <description>TLDR;
 Copy and paste the following into your elisp erlang-mode configuration to get flymake working with Rebar projects.
  (defun ebm-find-rebar-top-recr (dirname) (let* ((project-dir (locate-dominating-file dirname &#34;rebar.config&#34;))) (if project-dir (let* ((parent-dir (file-name-directory (directory-file-name project-dir))) (top-project-dir (if (and parent-dir (not (string= parent-dir &#34;/&#34;))) (ebm-find-rebar-top-recr parent-dir) nil))) (if top-project-dir top-project-dir project-dir)) project-dir))) (defun ebm-find-rebar-top () (interactive) (let* ((dirname (file-name-directory (buffer-file-name))) (project-dir (ebm-find-rebar-top-recr dirname))) (if project-dir project-dir (erlang-flymake-get-app-dir)))) (defun ebm-directory-dirs (dir name) &#34;Find all directories in DIR.</description>
@@ -266,10 +266,10 @@ Copy and paste the following into your elisp erlang-mode configuration to get fl
     
     <item>
       <title>Erlang Common Test Continuous Integration</title>
-      <link>/post/erlang-common-test-continuous-integration/</link>
+      <link>/docs/post/erlang-common-test-continuous-integration/</link>
       <pubDate>Wed, 09 May 2012 20:01:52 +0000</pubDate>
       
-      <guid>/post/erlang-common-test-continuous-integration/</guid>
+      <guid>/docs/post/erlang-common-test-continuous-integration/</guid>
       <description>Common Test is a well thought out integration testing framework for Erlang. If you
 are not using it you probably should be. However, it has one fault. It
 does not return non-negative exit status&amp;rsquo; to the caller when the tests
@@ -281,29 +281,29 @@ The long term fix is for the OTP folks to resolve the issue in the</description>
     
     <item>
       <title>Sinan Releases and Being Right</title>
-      <link>/post/sinan-releases-and-being-right/</link>
+      <link>/docs/post/sinan-releases-and-being-right/</link>
       <pubDate>Sat, 05 May 2012 01:33:07 +0000</pubDate>
       
-      <guid>/post/sinan-releases-and-being-right/</guid>
+      <guid>/docs/post/sinan-releases-and-being-right/</guid>
       <description>Fred, of Learn You Some Erlang for Great Good, today posted on his blog about the problems around how rebar handles releases, Rebar Releases and Being Wrong. The problems he mentions and a few others are why, despite giving it a legitimate shot, I have found rebar unusable for my workflow to be efficient and stable while adhering to OTP standards at the same time.
 I suggest first reading his post, if you already use rebar, and then continuing on with the rest of this.</description>
     </item>
     
     <item>
       <title>Cowboy and Batman.js for Erlang Web Development</title>
-      <link>/post/cowboy-and-batman-js-for-erlang-web-development/</link>
+      <link>/docs/post/cowboy-and-batman-js-for-erlang-web-development/</link>
       <pubDate>Mon, 30 Apr 2012 19:59:11 +0000</pubDate>
       
-      <guid>/post/cowboy-and-batman-js-for-erlang-web-development/</guid>
+      <guid>/docs/post/cowboy-and-batman-js-for-erlang-web-development/</guid>
       <description>Why Cowboy and Batman.js There are a lot of Erlang web frameworks out there today. Not all are modeled after the MVC model (see Nitrogen), but I think all of them are addressing the problem the wrong way. I recently gave a presentation, slides here and the code for this example here, describing my perferred method for using Erlang for web development and why I think it is the best way to go.</description>
     </item>
     
     <item>
       <title>Erlang, Cowboy and Batman.js for Building Web Applications</title>
-      <link>/post/erlang-cowboy-and-batman-js-for-building-web-applications/</link>
+      <link>/docs/post/erlang-cowboy-and-batman-js-for-building-web-applications/</link>
       <pubDate>Fri, 27 Apr 2012 20:11:28 +0000</pubDate>
       
-      <guid>/post/erlang-cowboy-and-batman-js-for-building-web-applications/</guid>
+      <guid>/docs/post/erlang-cowboy-and-batman-js-for-building-web-applications/</guid>
       <description>I&amp;rsquo;ll have a complete walk of through using Cowboy and Batman.js to build the TodoMVC clone in a few days. For now I have the slides from my talk at the Chicago Erlang User Group:
 Chicago Erlang User Group April, 4th 2012
 I couldn&amp;rsquo;t get iframe embedding to work with Wordpress&amp;hellip; So if anyone knows what that is up with please comment.</description>
@@ -311,68 +311,68 @@ I couldn&amp;rsquo;t get iframe embedding to work with Wordpress&amp;hellip; So 
     
     <item>
       <title>Erlang/OTP Release Structure</title>
-      <link>/post/erlangotp-release-structure/</link>
+      <link>/docs/post/erlangotp-release-structure/</link>
       <pubDate>Mon, 23 Jan 2012 23:34:39 +0000</pubDate>
       
-      <guid>/post/erlangotp-release-structure/</guid>
+      <guid>/docs/post/erlangotp-release-structure/</guid>
       <description>How to organize Erlang/OTP releases over on my personal blog. Worth reading if you are in the process of figuring out how to manage Erlang in your organization.</description>
     </item>
     
     <item>
       <title>New Screencast: Sinan - Building Enterprise Erlang Applications</title>
-      <link>/post/new-screencast-sinan-building-enterprise-erlang-applications/</link>
+      <link>/docs/post/new-screencast-sinan-building-enterprise-erlang-applications/</link>
       <pubDate>Thu, 05 Jan 2012 03:40:38 +0000</pubDate>
       
-      <guid>/post/new-screencast-sinan-building-enterprise-erlang-applications/</guid>
+      <guid>/docs/post/new-screencast-sinan-building-enterprise-erlang-applications/</guid>
       <description>[vimeo http://www.vimeo.com/34177001 w=400&amp;amp;h=220]
 Sinan - Building Enterprise Application from Eric Merritt on Vimeo.</description>
     </item>
     
     <item>
       <title>Opa Plugin Development with a PubNub Example</title>
-      <link>/post/opa-plugin-development-with-a-pubnub-example/</link>
+      <link>/docs/post/opa-plugin-development-with-a-pubnub-example/</link>
       <pubDate>Thu, 24 Nov 2011 04:03:07 +0000</pubDate>
       
-      <guid>/post/opa-plugin-development-with-a-pubnub-example/</guid>
+      <guid>/docs/post/opa-plugin-development-with-a-pubnub-example/</guid>
       <description>This will be a two part series of posts on writing plugins for Opa. One of Opa&amp;rsquo;s greatest features is you write everything in the functional, staticly typed Opa language. This even includes the frontend code you&amp;rsquo;d usually do in Javascript. This means your code is less error-prone which significantly reduces the amount of time spent on debugging code.
 But how do you use Javascript library X within your Opa code?</description>
     </item>
     
     <item>
       <title>Major OpaDo Speed-Up with @publish</title>
-      <link>/post/major-opado-speed-up-with-publish/</link>
+      <link>/docs/post/major-opado-speed-up-with-publish/</link>
       <pubDate>Mon, 07 Nov 2011 07:19:48 +0000</pubDate>
       
-      <guid>/post/major-opado-speed-up-with-publish/</guid>
+      <guid>/docs/post/major-opado-speed-up-with-publish/</guid>
       <description>I received a patch for OpaDo from Francois Regis Sinot that has made the hosted OpaDo http://opado.org on Dotcloud MUCH faster, adding and removing item is now instantaneous. He placed @publish around explicitly server side functions that caused adding todo items to go from 21 to 1 server calls. I thought this simple but maybe not obvious for new Opa developers (it certainly wasn&amp;rsquo;t to me!) needed a blog post so that beginners like my self may find it and be able to start using the @publish directive.</description>
     </item>
     
     <item>
       <title>Erlang DC: December 3rd, 2011</title>
-      <link>/post/erlang-dc-december-3rd-2011/</link>
+      <link>/docs/post/erlang-dc-december-3rd-2011/</link>
       <pubDate>Mon, 07 Nov 2011 00:06:31 +0000</pubDate>
       
-      <guid>/post/erlang-dc-december-3rd-2011/</guid>
+      <guid>/docs/post/erlang-dc-december-3rd-2011/</guid>
       <description>ErlangDC is coming up in a month and will be featuring our own Eric Merritt speaking on building enterprise applications with Erlang and Sinan, as well as other great presentations from Erlang experts. You can still submit your own proposal.
 Get your tickets now!</description>
     </item>
     
     <item>
       <title>Adding JS To all Opa Resources: Use Case Google Analytics</title>
-      <link>/post/adding-js-to-all-opa-resources-use-case-google-analytics/</link>
+      <link>/docs/post/adding-js-to-all-opa-resources-use-case-google-analytics/</link>
       <pubDate>Sun, 06 Nov 2011 23:19:38 +0000</pubDate>
       
-      <guid>/post/adding-js-to-all-opa-resources-use-case-google-analytics/</guid>
+      <guid>/docs/post/adding-js-to-all-opa-resources-use-case-google-analytics/</guid>
       <description>I decided I wanted to add Google Analytics to OpaDo but had no idea how to easily tell each page to include the necessary Javascript. I asked on the Opa mailing list and got a quick and simple response. Frederic Ye pointed me to Resource.register_external_js
 It couldn&amp;rsquo;t have been any easier. You simply place your google_analytics.js file in your project and use the Resource.register_external_js function to modify the default customization of all Resources.</description>
     </item>
     
     <item>
       <title>Opa Database Migrations</title>
-      <link>/post/opa-database-migrations/</link>
+      <link>/docs/post/opa-database-migrations/</link>
       <pubDate>Sat, 15 Oct 2011 19:11:58 +0000</pubDate>
       
-      <guid>/post/opa-database-migrations/</guid>
+      <guid>/docs/post/opa-database-migrations/</guid>
       <description>Nicolas Glondu posted a comment on an earlier post detailing ways for doing database migrations with Opa. I thought it was useful enough that I should put up a post around it:
  If you have complex changes in database structures in a OPA program, you have two choices :
 1 – Keep both structure in your database and create a function which populates the new empty field from the other fields.</description>
@@ -380,10 +380,10 @@ It couldn&amp;rsquo;t have been any easier. You simply place your google_analyti
     
     <item>
       <title>OpaDo: Personal ToDo Lists</title>
-      <link>/post/opado-personal-todo-lists/</link>
+      <link>/docs/post/opado-personal-todo-lists/</link>
       <pubDate>Sat, 15 Oct 2011 17:59:01 +0000</pubDate>
       
-      <guid>/post/opado-personal-todo-lists/</guid>
+      <guid>/docs/post/opado-personal-todo-lists/</guid>
       <description>This is a continuation of two past posts (one, two) on my first application with Opa called OpaDo. You can try the live demo here and check out the full source code on Github
 Updating OpaDo to add user accounts the project structure has been changed a bit and modularized. Below is the new project layout.
 opado/
@@ -397,20 +397,20 @@ opado/
     
     <item>
       <title>Announcing ErlangDC: An Epic One-Day Erlang Conference in the Washington, DC Area</title>
-      <link>/post/announcing-erlangdc-an-epic-one-day-erlang-conference-in-the-washington-dc-area/</link>
+      <link>/docs/post/announcing-erlangdc-an-epic-one-day-erlang-conference-in-the-washington-dc-area/</link>
       <pubDate>Tue, 11 Oct 2011 08:27:35 +0000</pubDate>
       
-      <guid>/post/announcing-erlangdc-an-epic-one-day-erlang-conference-in-the-washington-dc-area/</guid>
+      <guid>/docs/post/announcing-erlangdc-an-epic-one-day-erlang-conference-in-the-washington-dc-area/</guid>
       <description>We are happy to announce ErlangDC: An Epic One-Day Erlang Conference in the Washington, DC area.
 New to Erlang? Learn the basics — and find out why Erlang should be in your programmer&amp;rsquo;s toolkit — during the morning bootcamp. Meet fellow DC-area Erlang enthusiasts at lunch. Learn advanced Erlang techniques in the afternoon tech talks. Swap Erlang war stories and make lifelong friends over pints at the post- conference Happy Hour.</description>
     </item>
     
     <item>
       <title>OpaDo Data Storage</title>
-      <link>/post/opado-data-storage/</link>
+      <link>/docs/post/opado-data-storage/</link>
       <pubDate>Thu, 06 Oct 2011 18:59:55 +0000</pubDate>
       
-      <guid>/post/opado-data-storage/</guid>
+      <guid>/docs/post/opado-data-storage/</guid>
       <description>OpaDo (a port of the TodoMVC app to Opa) now persists todo items to the Opa database. The new version is up on dotcloud, http://opado-tristan.sloughter.dotcloud.com/
 I&amp;rsquo;ve added a _todoitem type which stores the item&amp;rsquo;s value and two other attributes we won&amp;rsquo;t use until the next post when we have user accounts for their own _todoitem stores.
 type todo_item = { user_id : string
@@ -420,10 +420,10 @@ type todo_item = { user_id : string
     
     <item>
       <title>TodoMVC in Opa</title>
-      <link>/post/todomvc-in-opa/</link>
+      <link>/docs/post/todomvc-in-opa/</link>
       <pubDate>Wed, 05 Oct 2011 04:19:27 +0000</pubDate>
       
-      <guid>/post/todomvc-in-opa/</guid>
+      <guid>/docs/post/todomvc-in-opa/</guid>
       <description>Edit: I just learned that dotcloud supports Opa! So I&amp;rsquo;ve pushed OpaDo and you can see a demo here http://opado-tristan.sloughter.dotcloud.com/
 I wanted something quick and simple to do in Opa to give it a try so I decided to implement the TodoMVC example that has been redone in almost all Javascript frameworks, https://github.com/addyosmani/todomvc.
 The code can be found on GitHub here: https://github.com/tsloughter/OpaDo
@@ -432,39 +432,39 @@ Opa is unique in that it is not only a new language but also a new web server an
     
     <item>
       <title>Centos6 : Chef Node Creation</title>
-      <link>/post/centos6-chef-node-creation/</link>
+      <link>/docs/post/centos6-chef-node-creation/</link>
       <pubDate>Thu, 29 Sep 2011 20:05:30 +0000</pubDate>
       
-      <guid>/post/centos6-chef-node-creation/</guid>
+      <guid>/docs/post/centos6-chef-node-creation/</guid>
       <description>I thought I&amp;rsquo;d share the scripts I use to take a fresh Centos6 install and have it configured to work with a Chef server. Maybe its not as easy as when running in a virtualized environment, but it saves plenty of time.
 On the new node I run the _setupclient.sh script which calls in the end _clientgen.sh on the Chef server once everything is installed on the node. I left the version numbers for Ruby and Chef in the script so you know what versions I&amp;rsquo;ve tested this with.</description>
     </item>
     
     <item>
       <title>Mixed Erlang and Scala with Scalang</title>
-      <link>/post/mixed-erlang-and-scala-with-scalang/</link>
+      <link>/docs/post/mixed-erlang-and-scala-with-scalang/</link>
       <pubDate>Tue, 20 Sep 2011 20:26:13 +0000</pubDate>
       
-      <guid>/post/mixed-erlang-and-scala-with-scalang/</guid>
+      <guid>/docs/post/mixed-erlang-and-scala-with-scalang/</guid>
       <description>This is a summary of a talk by Cliff Moon @moonpolysoft given at Strangeloop about building mixed Erlang and Scala systems with Scalang. Boundary does network analytics as a service. Their architecture uses a mixture of Erlang and Scala. Erlang is very very good at doing things like no down time deploys. We can have very low downtime on public facing parts of the system and we don&amp;rsquo;t even have to go down for deploys.</description>
     </item>
     
     <item>
       <title>Batman.js vs Knockout.js</title>
-      <link>/post/batman-js-vs-knockout-js/</link>
+      <link>/docs/post/batman-js-vs-knockout-js/</link>
       <pubDate>Mon, 29 Aug 2011 01:37:13 +0000</pubDate>
       
-      <guid>/post/batman-js-vs-knockout-js/</guid>
+      <guid>/docs/post/batman-js-vs-knockout-js/</guid>
       <description>The following is NOT a tutorial for either Batman.js or Knockout.js. But, it is instead a sort of side-by-side comparison of the two for creating a user creation form that POSTs the new user&amp;rsquo;s data as JSON to the backend.
 The method of web development I&amp;rsquo;ve come to find the best is based on heavy frontend Javascript (though written in Coffeescript) communicating with a backend via a RESTful interface. This is appealing, because you are not cluttering the application logic with view related code.</description>
     </item>
     
     <item>
       <title>Property based testing for unit testers with PropEr - Part 1</title>
-      <link>/post/property-based-testing-for-unit-testers-proper-part-1/</link>
+      <link>/docs/post/property-based-testing-for-unit-testers-proper-part-1/</link>
       <pubDate>Tue, 12 Jul 2011 18:08:16 +0000</pubDate>
       
-      <guid>/post/property-based-testing-for-unit-testers-proper-part-1/</guid>
+      <guid>/docs/post/property-based-testing-for-unit-testers-proper-part-1/</guid>
       <description>This tutorial is brought to you by ErlangCamp 2011 (click here) - Boston, August 12th and 13th - It&amp;rsquo;s gonna be totally sweet!
  Main contributors: Torben Hoffmann, Raghav Karol, Eric Merritt
 The purpose of the short document is to help people who are familiar
@@ -475,10 +475,10 @@ This document focusses on the PBT tool</description>
     
     <item>
       <title>Signatures - Reusable, Toolable, Testable Types</title>
-      <link>/post/signatures-reusable-toolable-testable-types/</link>
+      <link>/docs/post/signatures-reusable-toolable-testable-types/</link>
       <pubDate>Tue, 21 Jun 2011 18:08:33 +0000</pubDate>
       
-      <guid>/post/signatures-reusable-toolable-testable-types/</guid>
+      <guid>/docs/post/signatures-reusable-toolable-testable-types/</guid>
       <description>This tutorial is brought to you by ErlangCamp 2011 - Boston, August 12th and 13th - It&amp;rsquo;s gonna be totally sweet!
 It often occurs in coding that we need a library, a set of functionality. Often there are several algorithms that could provide
 this functionality. However, the code that uses it, either doesn&amp;rsquo;t care about the individual algorithm or wishes to delegate choosing that algorithm to some higher level.</description>
@@ -486,20 +486,20 @@ this functionality. However, the code that uses it, either doesn&amp;rsquo;t ca
     
     <item>
       <title>Erlang PubNub Client and Chat</title>
-      <link>/post/erlang-pubnub-client-and-chat/</link>
+      <link>/docs/post/erlang-pubnub-client-and-chat/</link>
       <pubDate>Sun, 10 Apr 2011 20:33:19 +0000</pubDate>
       
-      <guid>/post/erlang-pubnub-client-and-chat/</guid>
+      <guid>/docs/post/erlang-pubnub-client-and-chat/</guid>
       <description>I was thoroughly impressed with PubNub, a publish/subscribe service, when I first read their articles and played around with it some in Javascript. But obviously I need an Erlang API if I&amp;rsquo;m going to really use it! So I&amp;rsquo;ve created ePubNub.
 In the ePubNub README you&amp;rsquo;ll find information on some basic usage of the application. You don&amp;rsquo;t have to do anything more than use the epubnub.erl module to publish and subscribe (by either providing a PID to send messages to or a function handler to process each).</description>
     </item>
     
     <item>
       <title>eCloudEdit Part 2: CouchDB</title>
-      <link>/post/ecloudedit-part-2-couchdb/</link>
+      <link>/docs/post/ecloudedit-part-2-couchdb/</link>
       <pubDate>Sat, 12 Feb 2011 23:37:34 +0000</pubDate>
       
-      <guid>/post/ecloudedit-part-2-couchdb/</guid>
+      <guid>/docs/post/ecloudedit-part-2-couchdb/</guid>
       <description>In my last post I showed the Webmachine backend to James Yu&amp;rsquo;s CloudEdit app in Backbone.js. What was left out was, where are the documents stored? Here I&amp;rsquo;ll show how this is done with CouchDB. And you can give the app a try at http://erlware.org:8080
 First, a new Erlang app is needed that we&amp;rsquo;ll call ece_db.
 ece_db/ &amp;#9500;&amp;#9472;&amp;#9472; doc &amp;#9500;&amp;#9472;&amp;#9472; ebin &amp;#9474;&amp;#160;&amp;#160; &amp;#9500;&amp;#9472;&amp;#9472; ece_db.app &amp;#9474;&amp;#160;&amp;#160; &amp;#9492;&amp;#9472;&amp;#9472; overview.edoc &amp;#9500;&amp;#9472;&amp;#9472; include &amp;#9492;&amp;#9472;&amp;#9472; src &amp;#9500;&amp;#9472;&amp;#9472; ece_db.</description>
@@ -507,20 +507,20 @@ ece_db/ &amp;#9500;&amp;#9472;&amp;#9472; doc &amp;#9500;&amp;#9472;&amp;#9472; 
     
     <item>
       <title>eCloudEdit: Erlang, Webmachine and Backbone.js</title>
-      <link>/post/ecloudedit-erlang-webmachine-and-backbone-js/</link>
+      <link>/docs/post/ecloudedit-erlang-webmachine-and-backbone-js/</link>
       <pubDate>Wed, 09 Feb 2011 09:10:43 +0000</pubDate>
       
-      <guid>/post/ecloudedit-erlang-webmachine-and-backbone-js/</guid>
+      <guid>/docs/post/ecloudedit-erlang-webmachine-and-backbone-js/</guid>
       <description>To experiment with using a pure client-side rendering talking to an Erlang backend I&amp;rsquo;ve taken James Yu&amp;rsquo;s CloudEdit tutorial an app written with Backbone.js and Rails and converted the backend to use Webmachine and CouchDB. You can see eCloudEdit in action here. The Backbone.js code is the same so to understand that please see James&amp;rsquo; post, here I&amp;rsquo;ll describe the Erlang backend.
 To begin with we setup two applications, one for handling the web interaction and a second for handling the database interaction.</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>/about/</link>
+      <link>/docs/about/</link>
       <pubDate>Wed, 09 Feb 2011 05:06:25 +0000</pubDate>
       
-      <guid>/about/</guid>
+      <guid>/docs/about/</guid>
       <description>Erlware has been moving very slowly for the last 2 years while Eric and Martin have been off writing the recently published Erlang and OTP in Action. We are back to our passion, we have two new core team members, Jordan Wilberding and Tristan Sloughter, and we are working hard on Erlware!</description>
     </item>
     

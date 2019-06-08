@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Emacs on Erlware Blog</title>
-    <link>/tags/emacs/</link>
+    <link>/docs/tags/emacs/</link>
     <description>Recent content in Emacs on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 27 Sep 2012 23:13:47 +0000</lastBuildDate>
     
-	<atom:link href="/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/docs/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Projmake-mode: Flymake Replacement</title>
-      <link>/post/projmake-mode-flymake-replacement/</link>
+      <link>/docs/post/projmake-mode-flymake-replacement/</link>
       <pubDate>Thu, 27 Sep 2012 23:13:47 +0000</pubDate>
       
-      <guid>/post/projmake-mode-flymake-replacement/</guid>
+      <guid>/docs/post/projmake-mode-flymake-replacement/</guid>
       <description>There is a great new Emacs plugin from Eric Merritt that like FlyMake builds your code and highlights within Emacs any errors or warnings, but unlike FlyMake builds across the whole project. You can clone the mode from here projmake-mode
 After cloning the repo to your desired location add this bit to your dot emacs file, replacing &amp;lt;PATH&amp;gt; with the path to where you cloned the repo.
 [gist]3794732[/gist]
@@ -25,10 +25,10 @@ This Emacs code also uses add-hook to set projmake-mode to start for erlang-mode
     
     <item>
       <title>Getting Flymake and Rebar to Play Nice</title>
-      <link>/post/getting-flymake-and-rebar-to-play-nice/</link>
+      <link>/docs/post/getting-flymake-and-rebar-to-play-nice/</link>
       <pubDate>Wed, 16 May 2012 01:39:32 +0000</pubDate>
       
-      <guid>/post/getting-flymake-and-rebar-to-play-nice/</guid>
+      <guid>/docs/post/getting-flymake-and-rebar-to-play-nice/</guid>
       <description>TLDR;
 Copy and paste the following into your elisp erlang-mode configuration to get flymake working with Rebar projects.
  (defun ebm-find-rebar-top-recr (dirname) (let* ((project-dir (locate-dominating-file dirname &#34;rebar.config&#34;))) (if project-dir (let* ((parent-dir (file-name-directory (directory-file-name project-dir))) (top-project-dir (if (and parent-dir (not (string= parent-dir &#34;/&#34;))) (ebm-find-rebar-top-recr parent-dir) nil))) (if top-project-dir top-project-dir project-dir)) project-dir))) (defun ebm-find-rebar-top () (interactive) (let* ((dirname (file-name-directory (buffer-file-name))) (project-dir (ebm-find-rebar-top-recr dirname))) (if project-dir project-dir (erlang-flymake-get-app-dir)))) (defun ebm-directory-dirs (dir name) &#34;Find all directories in DIR.</description>

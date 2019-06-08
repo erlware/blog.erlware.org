@@ -3,763 +3,763 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/post/a-prop/</loc>
+    <loc>/docs/post/a-prop/</loc>
     <lastmod>2019-06-08T09:08:10+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/rebar3-building-docker-images/</loc>
+    <loc>/docs/post/rebar3-building-docker-images/</loc>
     <lastmod>2018-09-18T06:09:11+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/otp-21-new-sys_config_src-option-in-relx/</loc>
+    <loc>/docs/post/otp-21-new-sys_config_src-option-in-relx/</loc>
     <lastmod>2018-06-21T03:55:53+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/automatic-hex-package-publishing-with-travis-ci/</loc>
+    <loc>/docs/post/automatic-hex-package-publishing-with-travis-ci/</loc>
     <lastmod>2015-11-19T05:31:57+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/rebar3-hex-plugin/</loc>
+    <loc>/docs/post/rebar3-hex-plugin/</loc>
     <lastmod>2015-10-05T19:50:56+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/rebar3-features-part-6-_checkouts-2/</loc>
+    <loc>/docs/post/rebar3-features-part-6-_checkouts-2/</loc>
     <lastmod>2015-10-03T22:15:36+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/rebar3-auto-comile-and-load-plugin/</loc>
+    <loc>/docs/post/rebar3-auto-comile-and-load-plugin/</loc>
     <lastmod>2015-09-26T21:57:18+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/rebar3-features-part-5-dependency-branch-handling/</loc>
+    <loc>/docs/post/rebar3-features-part-5-dependency-branch-handling/</loc>
     <lastmod>2015-09-21T19:24:21+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/rebar3-features-part-4-profiles/</loc>
+    <loc>/docs/post/rebar3-features-part-4-profiles/</loc>
     <lastmod>2015-09-21T02:04:20+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/rebar3-features-part-3-overrides/</loc>
+    <loc>/docs/post/rebar3-features-part-3-overrides/</loc>
     <lastmod>2015-09-15T00:32:30+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/rebar3-features-part-2-dependency-tree/</loc>
+    <loc>/docs/post/rebar3-features-part-2-dependency-tree/</loc>
     <lastmod>2015-09-12T21:56:08+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/rebar3-features-part-1-local-install-and-upgrade/</loc>
+    <loc>/docs/post/rebar3-features-part-1-local-install-and-upgrade/</loc>
     <lastmod>2015-09-11T04:21:52+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/monolith-vs-microservices-where-to-start/</loc>
+    <loc>/docs/post/monolith-vs-microservices-where-to-start/</loc>
     <lastmod>2015-06-22T22:27:54+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/deploy-erlang-target-system-to-heroku/</loc>
+    <loc>/docs/post/deploy-erlang-target-system-to-heroku/</loc>
     <lastmod>2014-08-28T02:54:05+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/designing-for-actor-based-systems/</loc>
+    <loc>/docs/post/designing-for-actor-based-systems/</loc>
     <lastmod>2014-07-24T00:48:08+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/erlang-postgres-connection-pool-with-episcina/</loc>
+    <loc>/docs/post/erlang-postgres-connection-pool-with-episcina/</loc>
     <lastmod>2014-05-05T02:41:52+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/some-thoughts-on-go-and-erlang/</loc>
+    <loc>/docs/post/some-thoughts-on-go-and-erlang/</loc>
     <lastmod>2014-04-28T01:41:16+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/how-to-use-vim-for-erlang-development/</loc>
+    <loc>/docs/post/how-to-use-vim-for-erlang-development/</loc>
     <lastmod>2013-09-09T18:00:21+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/universal-makefile-for-erlang-projects-that-use-rebar/</loc>
+    <loc>/docs/post/universal-makefile-for-erlang-projects-that-use-rebar/</loc>
     <lastmod>2013-06-04T19:41:53+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/deal-of-the-day-half-off-erlang-and-otp-in-action/</loc>
+    <loc>/docs/post/deal-of-the-day-half-off-erlang-and-otp-in-action/</loc>
     <lastmod>2013-04-16T09:47:53+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/running-opa-applications-on-heroku/</loc>
+    <loc>/docs/post/running-opa-applications-on-heroku/</loc>
     <lastmod>2012-11-12T22:07:50+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/projmake-mode-flymake-replacement/</loc>
+    <loc>/docs/post/projmake-mode-flymake-replacement/</loc>
     <lastmod>2012-09-27T23:13:47+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/maru-models-json-to-erlang-record-with-custom-types/</loc>
+    <loc>/docs/post/maru-models-json-to-erlang-record-with-custom-types/</loc>
     <lastmod>2012-09-26T23:43:44+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/getting-flymake-and-rebar-to-play-nice/</loc>
+    <loc>/docs/post/getting-flymake-and-rebar-to-play-nice/</loc>
     <lastmod>2012-05-16T01:39:32+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/erlang-common-test-continuous-integration/</loc>
+    <loc>/docs/post/erlang-common-test-continuous-integration/</loc>
     <lastmod>2012-05-09T20:01:52+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/sinan-releases-and-being-right/</loc>
+    <loc>/docs/post/sinan-releases-and-being-right/</loc>
     <lastmod>2012-05-05T01:33:07+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/cowboy-and-batman-js-for-erlang-web-development/</loc>
+    <loc>/docs/post/cowboy-and-batman-js-for-erlang-web-development/</loc>
     <lastmod>2012-04-30T19:59:11+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/erlang-cowboy-and-batman-js-for-building-web-applications/</loc>
+    <loc>/docs/post/erlang-cowboy-and-batman-js-for-building-web-applications/</loc>
     <lastmod>2012-04-27T20:11:28+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/erlangotp-release-structure/</loc>
+    <loc>/docs/post/erlangotp-release-structure/</loc>
     <lastmod>2012-01-23T23:34:39+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/new-screencast-sinan-building-enterprise-erlang-applications/</loc>
+    <loc>/docs/post/new-screencast-sinan-building-enterprise-erlang-applications/</loc>
     <lastmod>2012-01-05T03:40:38+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/opa-plugin-development-with-a-pubnub-example/</loc>
+    <loc>/docs/post/opa-plugin-development-with-a-pubnub-example/</loc>
     <lastmod>2011-11-24T04:03:07+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/major-opado-speed-up-with-publish/</loc>
+    <loc>/docs/post/major-opado-speed-up-with-publish/</loc>
     <lastmod>2011-11-07T07:19:48+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/erlang-dc-december-3rd-2011/</loc>
+    <loc>/docs/post/erlang-dc-december-3rd-2011/</loc>
     <lastmod>2011-11-07T00:06:31+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/adding-js-to-all-opa-resources-use-case-google-analytics/</loc>
+    <loc>/docs/post/adding-js-to-all-opa-resources-use-case-google-analytics/</loc>
     <lastmod>2011-11-06T23:19:38+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/opa-database-migrations/</loc>
+    <loc>/docs/post/opa-database-migrations/</loc>
     <lastmod>2011-10-15T19:11:58+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/opado-personal-todo-lists/</loc>
+    <loc>/docs/post/opado-personal-todo-lists/</loc>
     <lastmod>2011-10-15T17:59:01+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/announcing-erlangdc-an-epic-one-day-erlang-conference-in-the-washington-dc-area/</loc>
+    <loc>/docs/post/announcing-erlangdc-an-epic-one-day-erlang-conference-in-the-washington-dc-area/</loc>
     <lastmod>2011-10-11T08:27:35+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/opado-data-storage/</loc>
+    <loc>/docs/post/opado-data-storage/</loc>
     <lastmod>2011-10-06T18:59:55+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/todomvc-in-opa/</loc>
+    <loc>/docs/post/todomvc-in-opa/</loc>
     <lastmod>2011-10-05T04:19:27+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/centos6-chef-node-creation/</loc>
+    <loc>/docs/post/centos6-chef-node-creation/</loc>
     <lastmod>2011-09-29T20:05:30+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/mixed-erlang-and-scala-with-scalang/</loc>
+    <loc>/docs/post/mixed-erlang-and-scala-with-scalang/</loc>
     <lastmod>2011-09-20T20:26:13+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/batman-js-vs-knockout-js/</loc>
+    <loc>/docs/post/batman-js-vs-knockout-js/</loc>
     <lastmod>2011-08-29T01:37:13+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/property-based-testing-for-unit-testers-proper-part-1/</loc>
+    <loc>/docs/post/property-based-testing-for-unit-testers-proper-part-1/</loc>
     <lastmod>2011-07-12T18:08:16+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/signatures-reusable-toolable-testable-types/</loc>
+    <loc>/docs/post/signatures-reusable-toolable-testable-types/</loc>
     <lastmod>2011-06-21T18:08:33+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/erlang-pubnub-client-and-chat/</loc>
+    <loc>/docs/post/erlang-pubnub-client-and-chat/</loc>
     <lastmod>2011-04-10T20:33:19+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/ecloudedit-part-2-couchdb/</loc>
+    <loc>/docs/post/ecloudedit-part-2-couchdb/</loc>
     <lastmod>2011-02-12T23:37:34+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/ecloudedit-erlang-webmachine-and-backbone-js/</loc>
+    <loc>/docs/post/ecloudedit-erlang-webmachine-and-backbone-js/</loc>
     <lastmod>2011-02-09T09:10:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/about/</loc>
+    <loc>/docs/about/</loc>
     <lastmod>2011-02-09T05:06:25+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/api/</loc>
+    <loc>/docs/tags/api/</loc>
     <lastmod>2012-04-27T20:11:28+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/api/</loc>
+    <loc>/docs/categories/api/</loc>
     <lastmod>2012-04-27T20:11:28+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/backbone.js/</loc>
+    <loc>/docs/tags/backbone.js/</loc>
     <lastmod>2011-02-09T09:10:43+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/backbone.js/</loc>
+    <loc>/docs/categories/backbone.js/</loc>
     <lastmod>2011-02-09T09:10:43+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/batman.js/</loc>
+    <loc>/docs/tags/batman.js/</loc>
     <lastmod>2012-04-30T19:59:11+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/batman.js/</loc>
+    <loc>/docs/categories/batman.js/</loc>
     <lastmod>2012-04-30T19:59:11+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/buildpacks/</loc>
+    <loc>/docs/tags/buildpacks/</loc>
     <lastmod>2012-11-12T22:07:50+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/buildpacks/</loc>
+    <loc>/docs/categories/buildpacks/</loc>
     <lastmod>2012-11-12T22:07:50+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>/docs/categories/</loc>
     <lastmod>2012-04-27T20:11:28+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/chef/</loc>
+    <loc>/docs/tags/chef/</loc>
     <lastmod>2011-09-29T20:05:30+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/chef/</loc>
+    <loc>/docs/categories/chef/</loc>
     <lastmod>2011-09-29T20:05:30+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/cloud/</loc>
+    <loc>/docs/tags/cloud/</loc>
     <lastmod>2011-11-24T04:03:07+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/cloud/</loc>
+    <loc>/docs/categories/cloud/</loc>
     <lastmod>2011-11-24T04:03:07+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/coffeescript/</loc>
+    <loc>/docs/tags/coffeescript/</loc>
     <lastmod>2012-04-27T20:11:28+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/coffeescript/</loc>
+    <loc>/docs/categories/coffeescript/</loc>
     <lastmod>2012-04-27T20:11:28+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/couchdb/</loc>
+    <loc>/docs/tags/couchdb/</loc>
     <lastmod>2011-02-12T23:37:34+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/couchdb/</loc>
+    <loc>/docs/categories/couchdb/</loc>
     <lastmod>2011-02-12T23:37:34+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/cowboy/</loc>
+    <loc>/docs/tags/cowboy/</loc>
     <lastmod>2012-05-05T01:33:07+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/cowboy/</loc>
+    <loc>/docs/categories/cowboy/</loc>
     <lastmod>2012-05-05T01:33:07+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/databases/</loc>
+    <loc>/docs/tags/databases/</loc>
     <lastmod>2014-05-05T02:41:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/databases/</loc>
+    <loc>/docs/categories/databases/</loc>
     <lastmod>2014-05-05T02:41:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/devops/</loc>
+    <loc>/docs/tags/devops/</loc>
     <lastmod>2011-09-29T20:05:30+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/devops/</loc>
+    <loc>/docs/categories/devops/</loc>
     <lastmod>2011-09-29T20:05:30+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/docker/</loc>
+    <loc>/docs/tags/docker/</loc>
     <lastmod>2018-09-18T06:09:11+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/docker/</loc>
+    <loc>/docs/categories/docker/</loc>
     <lastmod>2018-09-18T06:09:11+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/dotcloud/</loc>
+    <loc>/docs/tags/dotcloud/</loc>
     <lastmod>2011-11-07T07:19:48+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/dotcloud/</loc>
+    <loc>/docs/categories/dotcloud/</loc>
     <lastmod>2011-11-07T07:19:48+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/emacs/</loc>
+    <loc>/docs/tags/emacs/</loc>
     <lastmod>2012-09-27T23:13:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/emacs/</loc>
+    <loc>/docs/categories/emacs/</loc>
     <lastmod>2012-09-27T23:13:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/erlang/</loc>
+    <loc>/docs/tags/erlang/</loc>
     <lastmod>2019-06-08T09:08:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/erlang/</loc>
+    <loc>/docs/categories/erlang/</loc>
     <lastmod>2019-06-08T09:08:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>/docs/</loc>
     <lastmod>2019-06-08T09:08:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/fault-tolerance/</loc>
+    <loc>/docs/tags/fault-tolerance/</loc>
     <lastmod>2014-04-28T01:41:16+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/fault-tolerance/</loc>
+    <loc>/docs/categories/fault-tolerance/</loc>
     <lastmod>2014-04-28T01:41:16+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/functional-programming/</loc>
+    <loc>/docs/tags/functional-programming/</loc>
     <lastmod>2012-09-27T23:13:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/functional-programming/</loc>
+    <loc>/docs/categories/functional-programming/</loc>
     <lastmod>2012-09-27T23:13:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/go/</loc>
+    <loc>/docs/tags/go/</loc>
     <lastmod>2014-04-28T01:41:16+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/go/</loc>
+    <loc>/docs/categories/go/</loc>
     <lastmod>2014-04-28T01:41:16+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/heroku/</loc>
+    <loc>/docs/tags/heroku/</loc>
     <lastmod>2012-11-12T22:07:50+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/heroku/</loc>
+    <loc>/docs/categories/heroku/</loc>
     <lastmod>2012-11-12T22:07:50+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/javascript/</loc>
+    <loc>/docs/tags/javascript/</loc>
     <lastmod>2012-04-30T19:59:11+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/javascript/</loc>
+    <loc>/docs/categories/javascript/</loc>
     <lastmod>2012-04-30T19:59:11+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/js/</loc>
+    <loc>/docs/tags/js/</loc>
     <lastmod>2011-08-29T01:37:13+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/js/</loc>
+    <loc>/docs/categories/js/</loc>
     <lastmod>2011-08-29T01:37:13+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/knockout.js/</loc>
+    <loc>/docs/tags/knockout.js/</loc>
     <lastmod>2011-08-29T01:37:13+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/knockout.js/</loc>
+    <loc>/docs/categories/knockout.js/</loc>
     <lastmod>2011-08-29T01:37:13+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/mvc/</loc>
+    <loc>/docs/tags/mvc/</loc>
     <lastmod>2011-02-09T09:10:43+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/mvc/</loc>
+    <loc>/docs/categories/mvc/</loc>
     <lastmod>2011-02-09T09:10:43+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/node.js/</loc>
+    <loc>/docs/tags/node.js/</loc>
     <lastmod>2012-11-12T22:07:50+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/node.js/</loc>
+    <loc>/docs/categories/node.js/</loc>
     <lastmod>2012-11-12T22:07:50+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/ocaml/</loc>
+    <loc>/docs/tags/ocaml/</loc>
     <lastmod>2011-10-15T17:59:01+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/ocaml/</loc>
+    <loc>/docs/categories/ocaml/</loc>
     <lastmod>2011-10-15T17:59:01+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/opa/</loc>
+    <loc>/docs/tags/opa/</loc>
     <lastmod>2012-11-12T22:07:50+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/opa/</loc>
+    <loc>/docs/categories/opa/</loc>
     <lastmod>2012-11-12T22:07:50+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/opscode/</loc>
+    <loc>/docs/tags/opscode/</loc>
     <lastmod>2011-09-29T20:05:30+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/opscode/</loc>
+    <loc>/docs/categories/opscode/</loc>
     <lastmod>2011-09-29T20:05:30+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/otp/</loc>
+    <loc>/docs/tags/otp/</loc>
     <lastmod>2018-06-21T03:55:53+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/otp/</loc>
+    <loc>/docs/categories/otp/</loc>
     <lastmod>2018-06-21T03:55:53+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/postgres/</loc>
+    <loc>/docs/tags/postgres/</loc>
     <lastmod>2014-05-05T02:41:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/postgres/</loc>
+    <loc>/docs/categories/postgres/</loc>
     <lastmod>2014-05-05T02:41:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/post/</loc>
+    <loc>/docs/post/</loc>
     <lastmod>2019-06-08T09:08:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/proper/</loc>
+    <loc>/docs/tags/proper/</loc>
     <lastmod>2019-06-08T09:08:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/proper/</loc>
+    <loc>/docs/categories/proper/</loc>
     <lastmod>2019-06-08T09:08:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/property-testing/</loc>
+    <loc>/docs/tags/property-testing/</loc>
     <lastmod>2019-06-08T09:08:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/pubnub/</loc>
+    <loc>/docs/tags/pubnub/</loc>
     <lastmod>2011-04-10T20:33:19+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/pubnub/</loc>
+    <loc>/docs/categories/pubnub/</loc>
     <lastmod>2011-04-10T20:33:19+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/pubsub/</loc>
+    <loc>/docs/tags/pubsub/</loc>
     <lastmod>2011-04-10T20:33:19+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/pubsub/</loc>
+    <loc>/docs/categories/pubsub/</loc>
     <lastmod>2011-04-10T20:33:19+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/rebar/</loc>
+    <loc>/docs/tags/rebar/</loc>
     <lastmod>2012-09-27T23:13:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/rebar/</loc>
+    <loc>/docs/categories/rebar/</loc>
     <lastmod>2012-09-27T23:13:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/rebar3/</loc>
+    <loc>/docs/tags/rebar3/</loc>
     <lastmod>2018-09-18T06:09:11+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/rebar3/</loc>
+    <loc>/docs/categories/rebar3/</loc>
     <lastmod>2018-09-18T06:09:11+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/relx/</loc>
+    <loc>/docs/tags/relx/</loc>
     <lastmod>2018-06-21T03:55:53+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/relx/</loc>
+    <loc>/docs/categories/relx/</loc>
     <lastmod>2018-06-21T03:55:53+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/restful/</loc>
+    <loc>/docs/tags/restful/</loc>
     <lastmod>2012-04-30T19:59:11+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/restful/</loc>
+    <loc>/docs/categories/restful/</loc>
     <lastmod>2012-04-30T19:59:11+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/simple_one_for_one/</loc>
+    <loc>/docs/tags/simple_one_for_one/</loc>
     <lastmod>2011-04-10T20:33:19+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/simple_one_for_one/</loc>
+    <loc>/docs/categories/simple_one_for_one/</loc>
     <lastmod>2011-04-10T20:33:19+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/sinan/</loc>
+    <loc>/docs/tags/sinan/</loc>
     <lastmod>2012-05-05T01:33:07+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/sinan/</loc>
+    <loc>/docs/categories/sinan/</loc>
     <lastmod>2012-05-05T01:33:07+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>/docs/tags/</loc>
     <lastmod>2012-04-27T20:11:28+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/web/</loc>
+    <loc>/docs/tags/web/</loc>
     <lastmod>2012-04-27T20:11:28+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/web/</loc>
+    <loc>/docs/categories/web/</loc>
     <lastmod>2012-04-27T20:11:28+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/web-development/</loc>
+    <loc>/docs/tags/web-development/</loc>
     <lastmod>2012-11-12T22:07:50+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/web-development/</loc>
+    <loc>/docs/categories/web-development/</loc>
     <lastmod>2012-11-12T22:07:50+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/webmachine/</loc>
+    <loc>/docs/tags/webmachine/</loc>
     <lastmod>2012-04-30T19:59:11+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/webmachine/</loc>
+    <loc>/docs/categories/webmachine/</loc>
     <lastmod>2012-04-30T19:59:11+00:00</lastmod>
     <priority>0</priority>
   </url>

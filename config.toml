@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "/docs/"
 languageCode = "en-us"
 title = "Erlware Blog"
 theme = "casper-two"

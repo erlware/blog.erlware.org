@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Backbone.js on Erlware Blog</title>
-    <link>/tags/backbone.js/</link>
+    <link>/docs/tags/backbone.js/</link>
     <description>Recent content in Backbone.js on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 09 Feb 2011 09:10:43 +0000</lastBuildDate>
     
-	<atom:link href="/tags/backbone.js/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/docs/tags/backbone.js/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>eCloudEdit: Erlang, Webmachine and Backbone.js</title>
-      <link>/post/ecloudedit-erlang-webmachine-and-backbone-js/</link>
+      <link>/docs/post/ecloudedit-erlang-webmachine-and-backbone-js/</link>
       <pubDate>Wed, 09 Feb 2011 09:10:43 +0000</pubDate>
       
-      <guid>/post/ecloudedit-erlang-webmachine-and-backbone-js/</guid>
+      <guid>/docs/post/ecloudedit-erlang-webmachine-and-backbone-js/</guid>
       <description>To experiment with using a pure client-side rendering talking to an Erlang backend I&amp;rsquo;ve taken James Yu&amp;rsquo;s CloudEdit tutorial an app written with Backbone.js and Rails and converted the backend to use Webmachine and CouchDB. You can see eCloudEdit in action here. The Backbone.js code is the same so to understand that please see James&amp;rsquo; post, here I&amp;rsquo;ll describe the Erlang backend.
 To begin with we setup two applications, one for handling the web interaction and a second for handling the database interaction.</description>
     </item>
