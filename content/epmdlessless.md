@@ -19,8 +19,8 @@ EPMD is a separate process that is started, if
 not already running, when an Erlang node boots with distribution enabled --
 meaning `-sname` or `-name` is passed to the boot command. The new node [talks to
 the EPMD process](http://erlang.org/doc/apps/erts/erl_dist_protocol.html#epmd-protocol) to register its name with a port that the node will also bind
-to. When a node wants to connect to another it must lookup the port the other
-node is listening on and does so through EPMD. This is required both for
+to. When a node wants to connect to another one it must look up the port the other
+node is listening on through EPMD. This is required both for
 clustering nodes together and connecting a remote shell on the command line --
 which is essentially the same as clustering because a new node is started before
 attaching to the remote node to bring up a shell on that node.
