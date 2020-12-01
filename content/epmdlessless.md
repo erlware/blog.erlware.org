@@ -37,7 +37,7 @@ Bypassing EPMD has been made possible through a couple new options added to `erl
 An extra option has also been added to [`erl_call`](http://erlang.org/doc/man/erl_call.html) :
 
 * `-address P`: Sets the address and/or port to connect to the running Erlang
-  node on.
+  node.
   
 As of OTP 23.1+ the `relx` generated release script uses `erl_call` instead of
 the custom `escript` `nodetool` when the commands `rpc` and `eval` are used to
