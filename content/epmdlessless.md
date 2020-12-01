@@ -15,7 +15,7 @@ to conveniently run Erlang releases without relying on EPMD or any third party
 dependency, like [epmdless](https://github.com/tsloughter/epmdless), for opening a
 remote shell or clustering nodes.
 
-The Erlang Port Mapper Daemon (EPMD) is a separate process that is started, if
+EPMD is a separate process that is started, if
 not already running, when an Erlang node boots with distribution enabled --
 meaning `-sname` or `-name` is passed to the boot command. The new node [talks to
 the EPMD process](http://erlang.org/doc/apps/erts/erl_dist_protocol.html#epmd-protocol) to register its name with a port that the node will also bind
