@@ -34,7 +34,7 @@ Bypassing EPMD has been made possible through a couple new options added to `erl
   is when opening a remote shell `-remsh <node>` (`remote_console` in the
   release script) to a local node.
 
-And one for [`erl_call`](http://erlang.org/doc/man/erl_call.html) :
+An extra option has also been added to [`erl_call`](http://erlang.org/doc/man/erl_call.html) :
 
 * `-address P`: Sets the address and/or port to connect to the running Erlang
   node on.
