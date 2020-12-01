@@ -25,7 +25,7 @@ clustering nodes together and connecting a remote shell on the command line --
 which is essentially the same as clustering because a new node is started before
 attaching to the remote node to bring up a shell on that node.
 
-This has been made possible through a couple new options added to `erl`:
+Bypassing EPMD has been made possible through a couple new options added to `erl`:
 
 * `-erl_epmd_port P`: Configures the port this node will listen on and use when
   connecting to remote nodes.
