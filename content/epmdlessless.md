@@ -120,5 +120,5 @@ port, which requires every node to have its own IP. If this isn't an option, or
 for whatever reason you need to use separate ports for nodes, then [epmdless](https://github.com/tsloughter/epmdless)
 is an option to replace EPMD and track the node to port mapping. But if you are
 running with containers in an environment like Kubernetes you can now keep EPMD
-from running in each container by simply upgrading Erlang and rebar3, and
+from running in each container by simply upgrading Erlang and Rebar3, and
 setting the `ERL_DIST_PORT` environment variable.
