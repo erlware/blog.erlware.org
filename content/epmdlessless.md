@@ -2,7 +2,7 @@
 author = "Tristan Sloughter"
 type="post"
 categories = ["Erlang"]
-date = 2020-12-02T10:41:00Z
+date = 2020-12-05T10:41:00Z
 description = ""
 draft = false
 slug = "epmdlessless"
@@ -37,10 +37,12 @@ Bypassing EPMD has been made possible through a couple new options added to `erl
 
 * [`-erl_epmd_port P`](https://github.com/erlang/otp/commit/c21bbb6136a1f4d343c3cf53476107e78221a68f): Configures the port this node will listen on and use when
   connecting to remote nodes.
-* [`-dist_listen false`](https://github.com/erlang/otp/commit/7a7c90be0e87cb3b4920de5aaf215c4b9cebcb30): Setting this keeps the node from binding to the port,
-  instead it is only used for connecting to remote nodes. The use case for this
-  is when opening a remote shell `-remsh <node>` (`remote_console` in the
-  release script) to a local node.
+* [`-dist_listen
+  false`](https://github.com/erlang/otp/commit/7a7c90be0e87cb3b4920de5aaf215c4b9cebcb30):
+  Setting this keeps the node from binding to the port, preventing it from
+  acting as a server, and instead uses the port only for connecting to remote
+  nodes. The use case for this is when opening a remote shell `-remsh <node>`
+  (`remote_console` in the release script) to a local node.
 * [`-[s]name
   undefined`](https://github.com/erlang/otp/commit/61b1ad3c57f4e92fb9b55f97b9ffd9dee80067e2):
   Passing `undefined` for the short or long name of a node generates a unique node
@@ -94,7 +96,9 @@ After cloning the repo, build the Docker image and start 3 nodes (`node_a`, `nod
 $ docker-compose up
 ```
 
-Then, use `docker exec` to open a remote shell on `node_a` and connect to `node_b`:
+Then, use `docker exec` to open a remote shell on `node_a` and connect to
+`node_b` (be sure to disconnect from the remote shell with `Ctrl-g` followed by
+`q`, if you use `q().` it will shutdown the remote node):
 
 ```
 $ docker exec -ti node_a bin/epmdlessless remote_console
@@ -105,6 +109,9 @@ Eshell V11.1.3  (abort with ^G)
 true
 (epmdlessless@node_a)2> erlang:nodes().
 [epmdlessless@node_b]
+(epmdlessless@node_a)3> 
+User switch command
+ --> q
 ```
 
 Do the same on `node_c` and also connect to `node_b` and you'll see the full
@@ -119,6 +126,9 @@ Eshell V11.1.3  (abort with ^G)
 true
 (epmdlessless@node_c)2> erlang:nodes().
 [epmdlessless@node_b,epmdlessless@node_a]
+(epmdlessless@node_c)3> 
+User switch command
+ --> q
 ```
 
 Test the `rpc` command by running `erlang:nodes()` on `node_b`:
