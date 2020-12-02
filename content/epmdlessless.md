@@ -2,7 +2,7 @@
 author = "Tristan Sloughter"
 type="post"
 categories = ["Erlang"]
-date = 2020-11-30T10:41:00Z
+date = 2020-12-01T10:41:00Z
 description = ""
 draft = false
 slug = "epmdlessless"
@@ -35,17 +35,25 @@ attaching to the remote node to bring up a shell on that node.
 
 Bypassing EPMD has been made possible through a couple new options added to `erl`:
 
-* `-erl_epmd_port P`: Configures the port this node will listen on and use when
+* [`-erl_epmd_port P`](https://github.com/erlang/otp/commit/c21bbb6136a1f4d343c3cf53476107e78221a68f): Configures the port this node will listen on and use when
   connecting to remote nodes.
-* `-dist_listen false`: Setting this keeps the node from binding to the port,
+* [`-dist_listen false`](https://github.com/erlang/otp/commit/7a7c90be0e87cb3b4920de5aaf215c4b9cebcb30): Setting this keeps the node from binding to the port,
   instead it is only used for connecting to remote nodes. The use case for this
   is when opening a remote shell `-remsh <node>` (`remote_console` in the
   release script) to a local node.
+* [`-[s]name
+  undefined`](https://github.com/erlang/otp/commit/61b1ad3c57f4e92fb9b55f97b9ffd9dee80067e2):
+  Passing `undefined` for the short or long name of a node generates a unique node
+  name and sets additional flags, `-dist_listen false -hidden -dist_auto_connect never`.
 
 An extra option has also been added to [`erl_call`](http://erlang.org/doc/man/erl_call.html) :
 
-* `-address P`: Sets the address and/or port to connect to the running Erlang
-  node.
+* [`-address
+  P`](https://github.com/erlang/otp/commit/ce4fcf0640d81a268c15af339a888406b757ced5):
+  Sets the address and/or port to connect to the running Erlang node. This
+  removes the need to look up the remote node or to even specify its name when
+  running `erl_call`.
+* [`-R`](https://github.com/erlang/otp/commit/3a57ed212befae5d0e03569408849e8a72122911): Tells `erl_call` to use a dynamic random name for the hidden node it starts.
   
 As of OTP 23.1+ the `relx` generated release script uses `erl_call` instead of
 the custom `escript` `nodetool` when the commands `rpc` and `eval` are used to
@@ -62,10 +70,12 @@ When `ERL_DIST_PORT` is set in the environment the option to not start EPMD
 `erl_call` with `-address ${ERL_DIST_PORT}`.
 
 [epmdlessless](https://github.com/tsloughter/epmdlessless) is an example project
-that comes with a [docker-compose.yml]() setup that makes it simple to play
-these new features. Note that no changes are required to `vm.args.src` to
-disable EPMD or set a port to use, the only configuration done is through the
-environment variable `ERL_DIST_PORT` in `docker-compose.yml`:
+that comes with a
+[docker-compose.yml](https://github.com/tsloughter/epmdlessless/blob/main/docker-compose.yml)
+setup that makes it simple to play these new features. Note that no changes are
+required to `vm.args.src` to disable EPMD or set a port to use, the only
+configuration done is through the environment variable `ERL_DIST_PORT` in
+`docker-compose.yml`:
 
 ```
     ...
@@ -74,7 +84,11 @@ environment variable `ERL_DIST_PORT` in `docker-compose.yml`:
     ...
 ```
 
-First, build the Docker image and start 3 nodes (`node_a`, `node_b`, `node_c`):
+Note that each node must listen on the same port because setting
+`-erl_epmd_port P` tells Erlang both what port to listen on and what port to use
+when connecting to other nodes.
+
+After cloning the repo, build the Docker image and start 3 nodes (`node_a`, `node_b`, `node_c`):
 
 ```
 $ docker-compose up
