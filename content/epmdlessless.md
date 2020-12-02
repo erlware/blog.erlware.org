@@ -10,13 +10,13 @@ tags = ["Erlang"]
 title = "Running Erlang Releases without EPMD on OTP 23.1+"
 +++
 
-Erlang/OTP deployments that want to provide shell access relied on something
-called the Erlang Port Mapper Daemon (EPMD), a separate process that handled
-all distribution mechanisms. This often caused issues where local shell access to
-a running production system forced the use of peer-to-peer mechanisms that didn't
-always work well in all environments. Previous attempts at working around this
-requirement used third party dependencies such as
-[epmdless](https://github.com/tsloughter/epmdless), but still weren't ideal.
+Erlang/OTP deployments that want to provide shell access or cluster nodes relied
+on something called the Erlang Port Mapper Daemon (EPMD), a separate process
+that handled all distribution mechanisms. Previous attempts at working around
+this requirement used third party dependencies such as
+[epmdless](https://github.com/tsloughter/epmdless) and required specific
+configuration arguments to the VM to setup. This was not ideal and was easy to
+get wrong.
 
 With Erlang/OTP 23.1 and relx 4.2 (included in Rebar3 3.14.3) it is now possible
 to conveniently run Erlang releases without relying on EPMD for opening a
