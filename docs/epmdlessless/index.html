@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en-us" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Running Erlang Releases without EPMD on OTP 23.1&#43; &middot; Erlware Blog</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href="/epmdlessless/" />
+
+     <meta name="description" content="Erlang/OTP deployments that want to provide shell access or cluster nodes relied on something called the Erlang Port Mapper Daemon (EPMD), a separate process th" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary"/>
+    
+ 
+    <meta name="twitter:title" content="Running Erlang Releases without EPMD on OTP 23.1&#43;"/>
+    <meta name="twitter:description" content="Erlang/OTP deployments that want to provide shell access or cluster nodes relied on something called the Erlang Port Mapper Daemon (EPMD), a separate process th"/>
+    <meta name="twitter:url" content="/epmdlessless/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="Erlware Blog" />
+    <meta property="og:title" content="Running Erlang Releases without EPMD on OTP 23.1&#43; &middot; Erlware Blog" />
+    <meta property="og:url" content="/epmdlessless/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="Erlang/OTP deployments that want to provide shell access or cluster nodes relied on something called the Erlang Port Mapper Daemon (EPMD), a separate process th" />
+
+    <meta property="article:published_time" content="2020-12-05T10:41:00Z" />
+    <meta property="article:tag" content="Erlang" />
+
+
+    <meta name="generator" content="Hugo 0.76.2" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="/css/casper-two.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    
+
+     
+
+</head>
+
+
+<body class="post-template">
+  <div class="site-wrapper"> 
+
+<header class="site-header outer">
+  <div class="inner">
+    <nav class="site-nav">
+      <div class="site-nav-left">
+        <a class="site-nav-logo" href="#"><img src="/img/logo.png" alt="Erlware Blog" /></a>
+
+        <ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/about">About</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/erlware" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+      <article class="post-full post"> 
+    <header class="post-full-header">
+        <section class="post-full-meta">
+            <time class="post-full-meta-date" datetime="2020-12-05">5 December 2020</time>
+                <span class="date-divider">/</span> <a href="/tags/erlang/">#Erlang</a>&nbsp;
+        </section>
+        <h1 class="post-full-title">Running Erlang Releases without EPMD on OTP 23.1&#43;</h1>
+    </header>
+    
+    <figure class="post-full-image" style="background-image: url(/defimg/3.jpg)">
+    </figure>
+
+    <section class="post-full-content">
+        <div class="kg-card-markdown">
+        <p>Erlang/OTP deployments that want to provide shell access or cluster nodes relied
+on something called the Erlang Port Mapper Daemon (EPMD), a separate process
+that handled all distribution mechanisms. Previous attempts at working around
+this requirement used third party dependencies such as
+<a href="https://github.com/tsloughter/epmdless">epmdless</a> and required specific
+configuration arguments to the VM to setup. This was not ideal and was easy to
+get wrong.</p>
+<p>With Erlang/OTP 23.1 and relx 4.2 (included in Rebar3 3.14.3) it is now possible
+to conveniently run Erlang releases without relying on EPMD for opening a
+remote shell or clustering nodes. This is particularly going to make Erlang releases
+simpler to configure in locked down environments, and easier to use with containers.</p>
+<p>EPMD is a separate process that is started, if
+not already running, when an Erlang node boots with distribution enabled &ndash;
+meaning <code>-sname</code> or <code>-name</code> is passed to the boot command. The new node <a href="http://erlang.org/doc/apps/erts/erl_dist_protocol.html#epmd-protocol">talks to
+the EPMD process</a> to register its name with a port that the node will also bind
+to. When a node wants to connect to another one it must look up the port the other
+node is listening on through EPMD. This is required both for
+clustering nodes together and connecting a remote shell on the command line &ndash;
+which is essentially the same as clustering because a new node is started before
+attaching to the remote node to bring up a shell on that node.</p>
+<p>Bypassing EPMD has been made possible through a couple new options added to <code>erl</code>:</p>
+<ul>
+<li><a href="https://github.com/erlang/otp/commit/c21bbb6136a1f4d343c3cf53476107e78221a68f"><code>-erl_epmd_port P</code></a>: Configures the port this node will listen on and use when
+connecting to remote nodes.</li>
+<li><a href="https://github.com/erlang/otp/commit/7a7c90be0e87cb3b4920de5aaf215c4b9cebcb30"><code>-dist_listen false</code></a>:
+Setting this keeps the node from binding to the port, preventing it from
+acting as a server, and instead uses the port only for connecting to remote
+nodes. The use case for this is when opening a remote shell <code>-remsh &lt;node&gt;</code>
+(<code>remote_console</code> in the release script) to a local node.</li>
+<li><a href="https://github.com/erlang/otp/commit/61b1ad3c57f4e92fb9b55f97b9ffd9dee80067e2"><code>-[s]name undefined</code></a>:
+Passing <code>undefined</code> for the short or long name of a node generates a unique node
+name and sets additional flags, <code>-dist_listen false -hidden -dist_auto_connect never</code>.</li>
+</ul>
+<p>An extra option has also been added to <a href="http://erlang.org/doc/man/erl_call.html"><code>erl_call</code></a> :</p>
+<ul>
+<li><a href="https://github.com/erlang/otp/commit/ce4fcf0640d81a268c15af339a888406b757ced5"><code>-address P</code></a>:
+Sets the address and/or port to connect to the running Erlang node. This
+removes the need to look up the remote node or to even specify its name when
+running <code>erl_call</code>.</li>
+<li><a href="https://github.com/erlang/otp/commit/3a57ed212befae5d0e03569408849e8a72122911"><code>-R</code></a>: Tells <code>erl_call</code> to use a dynamic random name for the hidden node it starts.</li>
+</ul>
+<p>As of OTP 23.1+ the <code>relx</code> generated release script uses <code>erl_call</code> instead of
+the custom <code>escript</code> <code>nodetool</code> when the commands <code>rpc</code> and <code>eval</code> are used to
+run code on a running node.</p>
+<p>These options are used automatically by the release shell script when starting a
+node, opening a remote shell or interacting with the running node through <code>rpc</code>
+and <code>eval</code>. The only change you as a user must make to run your release without
+<code>epmd</code> is to set the OS environment variable <code>ERL_DIST_PORT</code>.</p>
+<p>When <code>ERL_DIST_PORT</code> is set in the environment the option to not start EPMD
+(<code>-start_epmd false</code>) is added to the <code>erl</code> arguments automatically, along with
+<code>-erl_epmd_port ${ERL_DIST_PORT}</code>. The <code>ERL_DIST_PORT</code> is also used by
+<code>erl_call</code> with <code>-address ${ERL_DIST_PORT}</code>.</p>
+<p><a href="https://github.com/tsloughter/epmdlessless">epmdlessless</a> is an example project
+that comes with a
+<a href="https://github.com/tsloughter/epmdlessless/blob/main/docker-compose.yml">docker-compose.yml</a>
+setup that makes it simple to play these new features. Note that no changes are
+required to <code>vm.args.src</code> to disable EPMD or set a port to use, the only
+configuration done is through the environment variable <code>ERL_DIST_PORT</code> in
+<code>docker-compose.yml</code>:</p>
+<pre><code>    ...
+    environment:
+      - ERL_DIST_PORT=8001
+    ...
+</code></pre><p>Note that each node must listen on the same port because setting
+<code>-erl_epmd_port P</code> tells Erlang both what port to listen on and what port to use
+when connecting to other nodes.</p>
+<p>After cloning the repo, build the Docker image and start 3 nodes (<code>node_a</code>, <code>node_b</code>, <code>node_c</code>):</p>
+<pre><code>$ docker-compose up
+</code></pre><p>Then, use <code>docker exec</code> to open a remote shell on <code>node_a</code> and connect to
+<code>node_b</code> (be sure to disconnect from the remote shell with <code>Ctrl-g</code> followed by
+<code>q</code>, if you use <code>q().</code> it will shutdown the remote node):</p>
+<pre><code>$ docker exec -ti node_a bin/epmdlessless remote_console
+Erlang/OTP 23 [erts-11.1.3] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1] [hipe]
+
+Eshell V11.1.3  (abort with ^G)
+(epmdlessless@node_a)1&gt; net_kernel:connect_node(epmdlessless@node_b).
+true
+(epmdlessless@node_a)2&gt; erlang:nodes().
+[epmdlessless@node_b]
+(epmdlessless@node_a)3&gt; 
+User switch command
+ --&gt; q
+</code></pre><p>Do the same on <code>node_c</code> and also connect to <code>node_b</code> and you&rsquo;ll see the full
+mesh is created with <code>node_a</code>:</p>
+<pre><code>$ docker exec -ti node_c bin/epmdlessless remote_console
+Erlang/OTP 23 [erts-11.1.3] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1] [hipe]
+
+Eshell V11.1.3  (abort with ^G)
+(epmdlessless@node_c)1&gt; net_kernel:connect_node(epmdlessless@node_b).
+true
+(epmdlessless@node_c)2&gt; erlang:nodes().
+[epmdlessless@node_b,epmdlessless@node_a]
+(epmdlessless@node_c)3&gt; 
+User switch command
+ --&gt; q
+</code></pre><p>Test the <code>rpc</code> command by running <code>erlang:nodes()</code> on <code>node_b</code>:</p>
+<pre><code>$ docker exec -ti node_b bin/epmdlessless rpc erlang nodes
+[epmdlessless@node_a, epmdlessless@node_c]
+</code></pre><p>Lastly, you can verify that none of the commands caused EPMD to be run:</p>
+<pre><code>$ docker exec -ti node_b erts-11.1.3/bin/epmd -names
+epmd: Cannot connect to local epmd
+</code></pre><h2 id="separate-ports-where-epmdless-is-still-needed">Separate Ports: Where epmdless is Still Needed</h2>
+<p>It is important to note that this requires every node to listen on the same
+port, which requires every node to have its own IP. If this isn&rsquo;t an option, or
+for whatever reason you need to use separate ports for nodes, then <a href="https://github.com/tsloughter/epmdless">epmdless</a>
+is an option to replace EPMD and track the node to port mapping. But if you are
+running with containers in an environment like Kubernetes you can now keep EPMD
+from running in each container by simply upgrading Erlang and Rebar3, and
+setting the <code>ERL_DIST_PORT</code> environment variable.</p>
+    
+        </div>
+    </section>
+
+    <footer class="post-full-footer">
+      <section class="author-card">
+        <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+        <section class="author-card-content">
+            <h4 class="author-card-name"><a href="/">Tristan Sloughter</a></h4>
+                <p></p>
+        </section>
+      </section>
+    </footer>
+</article>
+    
+    
+    
+
+  </div>
+</main>
+
+
+<aside class="read-next outer">
+  <div class="inner">
+    <div class="read-next-feed">      
+      
+
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/a-prop/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/a-prop/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #proper 
+              #property testing  </span>
+              
+              <h2 class="post-card-title">A Little on Property-Based Testing with PropEr</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Fred Hebert&rsquo;s latest book Property-Based Testing with PropEr, Erlang and Elixir is out in a print version from The Pragmatic Programmers.
+If you are like me you&rsquo;ve known you need to figure out property testing for a long time now and keep putting it off. Now that there is a book, with a free version even, it is the best time to get going.
+The book even details avoiding a common pitfall that I certainly fall into anytime I&rsquo;ve tried picking up property based testing: attempting to shoehorn property testing in to any problem even when a regular unit test is a better fit. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+    </div>
+  </div>
+</aside>
+
+<div class="floating-header">
+  <div class="floating-header-logo">
+    <a href="/">
+      <img src="/img/logo.png" alt="Erlware Blog" />
+      <span>Erlware Blog</span>
+    </a>
+  </div>
+  <span class="floating-header-divider">&mdash;</span>
+  <div class="floating-header-title">Running Erlang Releases without EPMD on OTP 23.1&#43;</div>
+  <div class="floating-header-share">
+    <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/></svg>
+    </div>
+    
+    <a class="floating-header-share-tw" href="https://twitter.com/share?text=Running%20Erlang%20Releases%20without%20EPMD%20on%20OTP%2023.1%2b&amp;url=%2fepmdlessless%2f"
+          onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+      </a>
+      <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=%2fepmdlessless%2f"
+          onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+      </a>
+  </div>
+
+  <progress class="progress" value="0">
+    <div class="progress-container">
+      <span class="progress-bar"></span>
+    </div>
+  </progress>
+</div>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/"></a>  <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/erlware" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    <script>
+
+
+
+
+
+$(document).ready(function () {
+    
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+</body></html>
