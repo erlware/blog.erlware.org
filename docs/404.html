@@ -81,50 +81,20 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/designing-for-actor-based-systems/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+    <a class="post-card-image-link" href="/mixed-erlang-and-scala-with-scalang/">
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
     </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/designing-for-actor-based-systems/">
+      <a class="post-card-content-link" href="/mixed-erlang-and-scala-with-scalang/">
           <header class="post-card-header">
               
-              <h2 class="post-card-title">Designing for Actor Based Systems</h2>
+              <h2 class="post-card-title">Mixed Erlang and Scala with Scalang</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>Many people are intrigued and excited about Erlang style concurrency. Once they get the capability in their hands though they realize that they don’t know how to take advantage of the capabilities processes or actors provide. To do this we need to understand how to decompose systems with process based concurrency in mind. Keep in mind, that this material works equally well for actors in Scala or agents in F#. Differences between actors and processes don&rsquo;t much matter for the sake of this discussion. ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
-          <span class="post-card-author"><a href="/">Martin J. Logan</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/signatures-reusable-toolable-testable-types/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/signatures-reusable-toolable-testable-types/">
-          <header class="post-card-header">
-              
-              <h2 class="post-card-title">Signatures - Reusable, Toolable, Testable Types</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>This tutorial is brought to you by ErlangCamp 2011 - Boston, August 12th and 13th - It&rsquo;s gonna be totally sweet!
-It often occurs in coding that we need a library, a set of functionality. Often there are several algorithms that could provide
-this functionality. However, the code that uses it, either doesn&rsquo;t care about the individual algorithm or wishes to delegate choosing that algorithm to some higher level. Lets take the concrete example of dictionaries. ...  </p>
+                <p>This is a summary of a talk by Cliff Moon @moonpolysoft given at Strangeloop about building mixed Erlang and Scala systems with Scalang. Boundary does network analytics as a service. Their architecture uses a mixture of Erlang and Scala. Erlang is very very good at doing things like no down time deploys. We can have very low downtime on public facing parts of the system and we don&rsquo;t even have to go down for deploys. ...  </p>
               
           </section>
       </a>
@@ -139,22 +109,59 @@ this functionality. However, the code that uses it, either doesn&rsquo;t care a
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/automatic-hex-package-publishing-with-travis-ci/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+    <a class="post-card-image-link" href="/rebar3-features-part-4-profiles/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
     </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/automatic-hex-package-publishing-with-travis-ci/">
+      <a class="post-card-content-link" href="/rebar3-features-part-4-profiles/">
           <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
               
-              <h2 class="post-card-title">Automatic Hex Package Publishing with Travis-CI</h2>
+              <h2 class="post-card-title">Rebar3 Features (part 4): Profiles</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>Note: Travis CI does not yet provide rebar3 as a build tool for Erlang projects, so you will have to include a rebar3 executable escript in your repository.
-In your application&rsquo;s .app.src file use &quot;git&quot; as the version. This will replace the version string with the current tag when publishing the hex package:
-{vsn,&#34;git&#34;}, In the .travis.yml configuration add the below section so that the script scripts/hex.sh is run everytime a new tag is made: ...  </p>
+                <p>Running tests and need meck or proper? Building docs and want edown? Bundling up a target system and want to include erts and turn off relx&rsquo;s dev_mode? Rebar3 now has you covered for these scenarios through profiles.
+Profiles can be named with any atom, can add new items to the configuration, or prepend new options to existing elements, and multiple profiles can be combined themselves.
+The two special profiles are default and global. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/a-prop/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/a-prop/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #proper 
+              #property testing  </span>
+              
+              <h2 class="post-card-title">A Little on Property-Based Testing with PropEr</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Fred Hebert&rsquo;s latest book Property-Based Testing with PropEr, Erlang and Elixir is out in a print version from The Pragmatic Programmers.
+If you are like me you&rsquo;ve known you need to figure out property testing for a long time now and keep putting it off. Now that there is a book, with a free version even, it is the best time to get going.
+The book even details avoiding a common pitfall that I certainly fall into anytime I&rsquo;ve tried picking up property based testing: attempting to shoehorn property testing in to any problem even when a regular unit test is a better fit. ...  </p>
               
           </section>
       </a>

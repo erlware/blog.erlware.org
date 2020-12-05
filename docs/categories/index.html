@@ -188,24 +188,26 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/erlang-dc-december-3rd-2011/">
+    <a class="post-card-image-link" href="/a-prop/">
       <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
     </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/erlang-dc-december-3rd-2011/">
+      <a class="post-card-content-link" href="/a-prop/">
           <header class="post-card-header">
               <span class="post-card-tags">
               #Erlang 
-              #Functional Programming  </span>
+              #proper 
+              #property testing  </span>
               
-              <h2 class="post-card-title">Erlang DC: December 3rd, 2011</h2>
+              <h2 class="post-card-title">A Little on Property-Based Testing with PropEr</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>ErlangDC is coming up in a month and will be featuring our own Eric Merritt speaking on building enterprise applications with Erlang and Sinan, as well as other great presentations from Erlang experts. You can still submit your own proposal.
-Get your tickets now! </p>
+                <p>Fred Hebert&rsquo;s latest book Property-Based Testing with PropEr, Erlang and Elixir is out in a print version from The Pragmatic Programmers.
+If you are like me you&rsquo;ve known you need to figure out property testing for a long time now and keep putting it off. Now that there is a book, with a free version even, it is the best time to get going.
+The book even details avoiding a common pitfall that I certainly fall into anytime I&rsquo;ve tried picking up property based testing: attempting to shoehorn property testing in to any problem even when a regular unit test is a better fit. ...  </p>
               
           </section>
       </a>
@@ -220,50 +222,61 @@ Get your tickets now! </p>
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/universal-makefile-for-erlang-projects-that-use-rebar/">
+    <a class="post-card-image-link" href="/erlang-cowboy-and-batman-js-for-building-web-applications/">
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/erlang-cowboy-and-batman-js-for-building-web-applications/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #API 
+              #batman.js 
+              #coffeescript 
+              #Cowboy 
+              #Erlang 
+              #Javascript 
+              #RESTful 
+              #Web  </span>
+              
+              <h2 class="post-card-title">Erlang, Cowboy and Batman.js for Building Web Applications</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>I&rsquo;ll have a complete walk of through using Cowboy and Batman.js to build the TodoMVC clone in a few days. For now I have the slides from my talk at the Chicago Erlang User Group:
+Chicago Erlang User Group April, 4th 2012
+I couldn&rsquo;t get iframe embedding to work with Wordpress&hellip; So if anyone knows what that is up with please comment. </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/automatic-hex-package-publishing-with-travis-ci/">
       <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/universal-makefile-for-erlang-projects-that-use-rebar/">
+      <a class="post-card-content-link" href="/automatic-hex-package-publishing-with-travis-ci/">
           <header class="post-card-header">
               
-              <h2 class="post-card-title">Universal Makefile for Erlang Projects That Use Rebar</h2>
+              <h2 class="post-card-title">Automatic Hex Package Publishing with Travis-CI</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>This post sponsored by ErlangCamp 2013 in Nashville and Amsterdam
-At this point in the game nearly every Erlang project uses Rebar. The problem with that is that Rebar&rsquo;s approach to the command line and command dependency chaining is leaves a lot to be desired. You tend to end up typing the same command with the same options list over and over again during the course of your work. Because of the poor dependency chaining you often must retype the same sequence of commands as well. ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
-          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/announcing-erlangdc-an-epic-one-day-erlang-conference-in-the-washington-dc-area/">
-      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/announcing-erlangdc-an-epic-one-day-erlang-conference-in-the-washington-dc-area/">
-          <header class="post-card-header">
-              
-              <h2 class="post-card-title">Announcing ErlangDC: An Epic One-Day Erlang Conference in the Washington, DC Area</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>We are happy to announce ErlangDC: An Epic One-Day Erlang Conference in the Washington, DC area.
-New to Erlang? Learn the basics — and find out why Erlang should be in your programmer&rsquo;s toolkit — during the morning bootcamp. Meet fellow DC-area Erlang enthusiasts at lunch. Learn advanced Erlang techniques in the afternoon tech talks. Swap Erlang war stories and make lifelong friends over pints at the post- conference Happy Hour. ...  </p>
+                <p>Note: Travis CI does not yet provide rebar3 as a build tool for Erlang projects, so you will have to include a rebar3 executable escript in your repository.
+In your application&rsquo;s .app.src file use &quot;git&quot; as the version. This will replace the version string with the current tag when publishing the hex package:
+{vsn,&#34;git&#34;}, In the .travis.yml configuration add the below section so that the script scripts/hex.sh is run everytime a new tag is made: ...  </p>
               
           </section>
       </a>

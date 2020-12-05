@@ -74,7 +74,7 @@ When `ERL_DIST_PORT` is set in the environment the option to not start EPMD
 [epmdlessless](https://github.com/tsloughter/epmdlessless) is an example project
 that comes with a
 [docker-compose.yml](https://github.com/tsloughter/epmdlessless/blob/main/docker-compose.yml)
-setup that makes it simple to play these new features. Note that no changes are
+setup that makes it simple to play with these new features. Note that no changes are
 required to `vm.args.src` to disable EPMD or set a port to use, the only
 configuration done is through the environment variable `ERL_DIST_PORT` in
 `docker-compose.yml`:
