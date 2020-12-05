@@ -13,9 +13,7 @@
     <link rel="canonical" href="/deploy-erlang-target-system-to-heroku/" />
 
      <meta name="description" content="In this post these new tools will be used:
- rebar3 hk - new cli client for Heroku
- hk slug plugin - plugin for hk that uploads the target system
- Heroku Cedar-1" /> 
+ rebar3 hk - new cli client for Heroku hk slug plugin - plugin for hk that uploads the target system Heroku Cedar-14 " /> 
 
      
     
@@ -24,9 +22,7 @@
  
     <meta name="twitter:title" content="Deploy Erlang Target System to Heroku"/>
     <meta name="twitter:description" content="In this post these new tools will be used:
- rebar3 hk - new cli client for Heroku
- hk slug plugin - plugin for hk that uploads the target system
- Heroku Cedar-1"/>
+ rebar3 hk - new cli client for Heroku hk slug plugin - plugin for hk that uploads the target system Heroku Cedar-14 "/>
     <meta name="twitter:url" content="/deploy-erlang-target-system-to-heroku/" />
     <meta name="twitter:site" content="@"/>
 
@@ -37,15 +33,13 @@
 
     <meta property="og:type" content="article" />
     <meta property="og:description" content="In this post these new tools will be used:
- rebar3 hk - new cli client for Heroku
- hk slug plugin - plugin for hk that uploads the target system
- Heroku Cedar-1" />
+ rebar3 hk - new cli client for Heroku hk slug plugin - plugin for hk that uploads the target system Heroku Cedar-14 " />
 
     <meta property="article:published_time" content="2014-08-28T02:54:05Z" />
     
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -112,46 +106,33 @@
         <h1 class="post-full-title">Deploy Erlang Target System to Heroku</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/5.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/7.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
         <p>In this post these new tools will be used:</p>
-
 <ul>
 <li><a href="https://github.com/rebar/rebar3" title="Rebar3">rebar3</a></li>
-<li><a href="https://github.com/heroku/hk" title="Heroku Client">hk</a> - new cli client for Heroku<br /></li>
-<li><a href="https://github.com/tsloughter/hk-slug" title="hk slug plugin">hk slug plugin</a> - plugin for hk that uploads the target system<br /></li>
-<li><a href="https://blog.heroku.com/archives/2014/8/19/cedar-14-public-beta" title="Heroku Cedar 14">Heroku Cedar-14</a> - new Heroku Cedar on Ubuntu 14.04<br /></li>
-<li><a href="https://devcenter.heroku.com/articles/platform-api-deploying-slugs" title="Heroku Slug API">Heroku Slug API</a><br />
-<br /></li>
+<li><a href="https://github.com/heroku/hk" title="Heroku Client">hk</a> - new cli client for Heroku</li>
+<li><a href="https://github.com/tsloughter/hk-slug" title="hk slug plugin">hk slug plugin</a> - plugin for hk that uploads the target system</li>
+<li><a href="https://blog.heroku.com/archives/2014/8/19/cedar-14-public-beta" title="Heroku Cedar 14">Heroku Cedar-14</a> - new Heroku Cedar on Ubuntu 14.04</li>
+<li><a href="https://devcenter.heroku.com/articles/platform-api-deploying-slugs" title="Heroku Slug API">Heroku Slug API</a></li>
 </ul>
-
-<p>First, clone <em>minasan</em> and create the Heroku application on Cedar-14:<br />
-<pre style="line-height:1.3em;font-family:monospace;color:#f8f8f2;background-color:#272822;">$ git clone <a href="https://github.com/tsloughter/minasan.git">https://github.com/tsloughter/minasan.git</a><br />
-$ cd minasan<br />
-$ heroku create &ndash;stack cedar-14</pre></p>
-
+<p>First, clone <em>minasan</em> and create the Heroku application on Cedar-14:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Now that Heroku has the cedar-14 stack if you are also running a recent Linux distro you can upload the target system created by <em>relx</em> directly to your app, before now we would have to build it on Heroku or in a system with an older glibc to work on Heroku&rsquo;s Ubuntu 10.04.</p>
-
-<p>Since <em>minasan</em> is using binary packages and a fork of <em>rebar</em> be sure to use the <em>rebar</em> included in the repo, same goes for _relx _so that including the Procfile in the tarball works. The first step will be to update the package index for <em>rebar</em>, then compiling and building the release tarball (with <em>erts</em> included and <em>dev-mode</em> off so the Erlang runtime is included):<br />
-<pre style="line-height:1.3em;font-family:monospace;color:#f8f8f2;background-color:#272822;">$ ./rebar3 update<br />
-$ ./rebar3 compile
-$ ./rebar3 do release -i true &ndash;dev-mode false, tar</pre></p>
-
-<p>Using the new Slug API endpoint through <em>hk slug</em> the tarball can be pushed directly as a slug to your app and then scale up the web process to at least 1:<br />
-<pre style="line-height:1.3em;font-family:monospace;color:#f8f8f2;background-color:#272822;">$ hk slug _rel/minasan/minasan-0.0.1.tar.gz<br />
-$ hk scale web=1<br />
-$ hk open<br />
-</pre></p>
-
+<p>Since <em>minasan</em> is using binary packages and a fork of <em>rebar</em> be sure to use the <em>rebar</em> included in the repo, same goes for _relx _so that including the Procfile in the tarball works. The first step will be to update the package index for <em>rebar</em>, then compiling and building the release tarball (with <em>erts</em> included and <em>dev-mode</em> off so the Erlang runtime is included):</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Using the new Slug API endpoint through <em>hk slug</em> the tarball can be pushed directly as a slug to your app and then scale up the web process to at least 1:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Your browser should now open to your new app.</p>
-
 <p>A few things to note:</p>
-
 <ul>
-<li><em>&rsquo;./rebar3 pkgs&rsquo;</em> will show you a list of available packages to use in <em>rebar deps</em><br /></li>
+<li><em>'./rebar3 pkgs'</em> will show you a list of available packages to use in <em>rebar deps</em></li>
 <li>Currently &lsquo;<em>hk slug&rsquo;</em> only support sending a tarball that does not yet have the structure of a slug. So it is unpacked and repacked. I plan to support directories and properly formatted tarballs.</li>
 </ul>
     
@@ -182,6 +163,61 @@ $ hk open<br />
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/monolith-vs-microservices-where-to-start/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/monolith-vs-microservices-where-to-start/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Monolith vs Microservices: Where to start</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>There is a debate going around how to do the initial design of a new system in the context of Microservices. Should you start with a Monolithic approach initially and move to a Microservices later or use Microservices from the beginning?
+Introduction Martin Fowler recently wrote article called &lsquo;Monolith First&rsquo; that talks about how to get started on a new Microservice project. Stefan Tilkov wrote a response Don&rsquo;t start with a monolith arguing the reverse. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Eric Merritt</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/designing-for-actor-based-systems/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/designing-for-actor-based-systems/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Designing for Actor Based Systems</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Many people are intrigued and excited about Erlang style concurrency. Once they get the capability in their hands though they realize that they don’t know how to take advantage of the capabilities processes or actors provide. To do this we need to understand how to decompose systems with process based concurrency in mind. Keep in mind, that this material works equally well for actors in Scala or agents in F#. Differences between actors and processes don&rsquo;t much matter for the sake of this discussion. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Martin J. Logan</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

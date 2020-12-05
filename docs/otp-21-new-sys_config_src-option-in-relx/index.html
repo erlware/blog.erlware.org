@@ -36,7 +36,7 @@
     <meta property="article:tag" content="Erlang" /><meta property="article:tag" content="rebar3" /><meta property="article:tag" content="relx" /><meta property="article:tag" content="OTP" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -104,26 +104,18 @@
         <h1 class="post-full-title">OTP-21: New sys_config_src option in relx</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/6.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/1.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
         <p>With the release of OTP-21 and rebar3 3.6.0, which includes a new relx 3.25.0, there is better support for dynamic configuration of releases at runtime. If you are new to this concept checkout the <a href="http://www.rebar3.org/docs/releases#section-dynamic-configuration">rebar3 docs first</a></p>
-
 <p>No longer will you be forced to declare <code>RELX_REPLACE_OS_VARS</code> and convert strings to integers in your code because the <code>sys.config</code> file had to be valid Erlang terms when building the release.</p>
-
 <p>Instead, you can use <code>{sys_config_src, &quot;config/sys.config.src&quot;}</code> and <code>{vm_args_src, &quot;config/vm.args.src&quot;}</code> and the extended start up script will replace variables for <code>.src</code> files without the need to set <code>RELX_REPLACE_OS_VARS</code>.</p>
-
 <p>Since this is based on a change in <code>systools</code> to support including <code>sys.config.src</code> without requiring validation of the contents you can also freely declare a config file that looks like this:</p>
-
 <pre><code>[{myapp, [{port, ${PORT}}]}].
-</code></pre>
-
-<p>An error, because this isn&rsquo;t a valid Erlang term file, will still be returned if your release configuration uses the <code>sys_config</code> option, but with <code>sys_config_src</code> it does not have to be valid terms until after variable replacement. In this case, <code>PORT=8080 bin/myrel console</code> will use a <code>sys.config</code> with contents <code>[{myapp, [{port, 8080}]}].</code></p>
-
+</code></pre><p>An error, because this isn&rsquo;t a valid Erlang term file, will still be returned if your release configuration uses the <code>sys_config</code> option, but with <code>sys_config_src</code> it does not have to be valid terms until after variable replacement. In this case, <code>PORT=8080 bin/myrel console</code> will use a <code>sys.config</code> with contents <code>[{myapp, [{port, 8080}]}].</code></p>
 <p><code>vm_args_src</code> was added to relx for consistency. The only thing that changes is how the start script handles it internally and that <code>RELX_REPLACE_OS_VARS</code> is not required for replacement to be run.</p>
-
 <p>This change also will resolve at least a couple annoyances related to how relx had to handle <code>sys.config</code> before, <a href="https://github.com/erlang/rebar3/issues/1753">https://github.com/erlang/rebar3/issues/1753</a> and <a href="https://github.com/erlware/relx/issues/604">https://github.com/erlware/relx/issues/604</a></p>
     
         </div>
@@ -153,6 +145,68 @@
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-building-docker-images/">
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-building-docker-images/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3 
+              #docker  </span>
+              
+              <h2 class="post-card-title">Rebar3: Building Docker Images</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>How I cut the time it takes to build an Erlang docker image in half. While adding support for a rebar3 option to only build dependencies and not project applications, rebar3 compile --deps_only, I realized it might already actually work for the Docker use case I had in mind.
+So I gave it a try and, yup, turns out it does!
+The idea is to cache a docker layer of the built dependencies to reuse if they haven&rsquo;t changed. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/automatic-hex-package-publishing-with-travis-ci/">
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/automatic-hex-package-publishing-with-travis-ci/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Automatic Hex Package Publishing with Travis-CI</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Note: Travis CI does not yet provide rebar3 as a build tool for Erlang projects, so you will have to include a rebar3 executable escript in your repository.
+In your application&rsquo;s .app.src file use &quot;git&quot; as the version. This will replace the version string with the current tag when publishing the hex package:
+{vsn,&#34;git&#34;}, In the .travis.yml configuration add the below section so that the script scripts/hex.sh is run everytime a new tag is made: ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

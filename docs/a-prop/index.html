@@ -39,7 +39,7 @@ If you are like " />
     <meta property="article:tag" content="Erlang" /><meta property="article:tag" content="proper" /><meta property="article:tag" content="property testing" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -107,32 +107,23 @@ If you are like " />
         <h1 class="post-full-title">A Little on Property-Based Testing with PropEr</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/2.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/3.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
         <p>Fred Hebert&rsquo;s latest book <a href="http://propertesting.com/">Property-Based Testing with PropEr, Erlang and Elixir</a> is out in a print version from The Pragmatic Programmers.</p>
-
 <p>If you are like me you&rsquo;ve known you need to figure out property testing for a long time now and keep putting it off. Now that there is a book, with a free version even, it is the best time to get going.</p>
-
 <p>The book even details avoiding a common pitfall that I certainly fall into anytime I&rsquo;ve tried picking up  property based testing: attempting to shoehorn property testing in to any problem even when a regular unit test is a better fit.</p>
-
 <p>As is made clear in the book, practice is important to leveling up with property based testing. So it is great that the book includes many exercises based on useful projects – not just sorting a list like the classic property test we&rsquo;ve all seen and not been able to get beyond!</p>
-
 <p>One thing I have to add to the content is running the <a href="https://erldocs.com/current/common_test/ct_property_test.html">properties through Common Test</a>. You still want to be able to run them on their own with the PropEr plugin so you can fiddle with the options easily but I find it far better to also include the tests in a CT suite to keep all my tests in a single command and output in CI, with a single cover configuration and nice rendered junit based output in services like CircleCI.</p>
-
 <p>An example of this method is found in this <a href="https://github.com/census-instrumentation/opencensus-erlang/blob/e45bd01e27f666fbf17453a39594376a1f1d601e/test/oc_sampler_period_or_count_prop_SUITE.erl">CT Suite</a> for <code>opencensus-erlang</code>. But it basically looks like:</p>
-
 <pre><code>init_per_suite(Config) -&gt;
     [{property_test_tool, proper} | Config].
 
 prop_test(Config) -&gt;
     ct_property_test:quickcheck(prop_base:prop_test(), Config).
-</code></pre>
-
-<p>The only issue is that <code>ct_property_test</code> wants to compile the tests and rebar3 already takes care of that. To resolve this I have a PR, so if you agree please give a thumbs up to my PR <a href="https://github.com/erlang/otp/pull/2145">https://github.com/erlang/otp/pull/2145</a> if it hasn&rsquo;t been merged yet when you are reading this :)</p>
-
+</code></pre><p>The only issue is that <code>ct_property_test</code> wants to compile the tests and rebar3 already takes care of that. To resolve this I have a PR, so if you agree please give a thumbs up to my PR <a href="https://github.com/erlang/otp/pull/2145">https://github.com/erlang/otp/pull/2145</a> if it hasn&rsquo;t been merged yet when you are reading this :)</p>
 <p>So do yourself a favor and at least checkout <a href="http://propertesting.com/toc.html">http://propertesting.com/toc.html</a>, or even better buy the <a href="https://pragprog.com/book/fhproper/property-based-testing-with-proper-erlang-and-elixir">book</a>.</p>
     
         </div>
@@ -162,6 +153,69 @@ prop_test(Config) -&gt;
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/epmdlessless/">
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/epmdlessless/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang  </span>
+              
+              <h2 class="post-card-title">Running Erlang Releases without EPMD on OTP 23.1&#43;</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Erlang/OTP deployments that want to provide shell access or cluster nodes relied on something called the Erlang Port Mapper Daemon (EPMD), a separate process that handled all distribution mechanisms. Previous attempts at working around this requirement used third party dependencies such as epmdless and required specific configuration arguments to the VM to setup. This was not ideal and was easy to get wrong.
+With Erlang/OTP 23.1 and relx 4.2 (included in Rebar3 3. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-building-docker-images/">
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-building-docker-images/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3 
+              #docker  </span>
+              
+              <h2 class="post-card-title">Rebar3: Building Docker Images</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>How I cut the time it takes to build an Erlang docker image in half. While adding support for a rebar3 option to only build dependencies and not project applications, rebar3 compile --deps_only, I realized it might already actually work for the Docker use case I had in mind.
+So I gave it a try and, yup, turns out it does!
+The idea is to cache a docker layer of the built dependencies to reuse if they haven&rsquo;t changed. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

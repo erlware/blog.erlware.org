@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Rebar on Erlware Blog</title>
+    <title>rebar on Erlware Blog</title>
     <link>/categories/rebar/</link>
-    <description>Recent content in Rebar on Erlware Blog</description>
+    <description>Recent content in rebar on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Sep 2012 23:13:47 +0000</lastBuildDate>
-    
-	<atom:link href="/categories/rebar/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 27 Sep 2012 23:13:47 +0000</lastBuildDate><atom:link href="/categories/rebar/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Projmake-mode: Flymake Replacement</title>
       <link>/projmake-mode-flymake-replacement/</link>

@@ -36,7 +36,7 @@
     <meta property="article:tag" content="Functional Programming" /><meta property="article:tag" content="Opa" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -110,14 +110,10 @@
     <section class="post-full-content">
         <div class="kg-card-markdown">
         <p><a href="https://github.com/HenJi">Nicolas Glondu</a> posted a <a href="http://bit.ly/mTu3QV">comment</a> on an <a href="http://blog.erlware.org/2011/10/06/opado-data-storage/">earlier post</a> detailing ways for doing database migrations with <a href="http://opalang.org" title="Opa">Opa</a>. I thought it was useful enough that I should put up a post around it:</p>
-
 <blockquote>
-<p>If you have complex changes in database structures in a OPA program, you have two choices :</p>
-
-<p>1 – Keep both structure in your database and create a function which populates the new empty field from the other fields. Launch your program once with –db-force-upgrade and launch this function once (adding fields is safe but the new fields are empty). After this, clean removed fields and the function and re-run your program with –db-force-upgrade once more (removing fields is also safe). After this, you can keep using your program normally. A bit long but convenient for changes in small applications (with one instance running). You don’t have to relaunch your program immediately and you can spread ou migration on two program updates.</p>
-
-<p>2 – Create another OPA program with both database definitions but with root nodes named differently [1]. Your program should take data from the original node and put it in the new node with your changes. That way you can have a standalone opa application for your migration. Which is more convenient if your program is used by other users. Once your program compiled, you can use command line options (–db-local) to use your true program’s database as the input root node an to put the output root node in a safe place. However, I don’t know if it works if your program has no specific root node defined.</p>
-
+<p>If you have complex changes in database structures in a OPA program, you have two choices :&gt;</p>
+<p>1 – Keep both structure in your database and create a function which populates the new empty field from the other fields. Launch your program once with –db-force-upgrade and launch this function once (adding fields is safe but the new fields are empty). After this, clean removed fields and the function and re-run your program with –db-force-upgrade once more (removing fields is also safe). After this, you can keep using your program normally. A bit long but convenient for changes in small applications (with one instance running). You don’t have to relaunch your program immediately and you can spread ou migration on two program updates.&gt;</p>
+<p>2 – Create another OPA program with both database definitions but with root nodes named differently [1]. Your program should take data from the original node and put it in the new node with your changes. That way you can have a standalone opa application for your migration. Which is more convenient if your program is used by other users. Once your program compiled, you can use command line options (–db-local) to use your true program’s database as the input root node an to put the output root node in a safe place. However, I don’t know if it works if your program has no specific root node defined.&gt;</p>
 <p>[1] You can define a root node with <code>database my_root = @meta</code> and use it with <code>db /my_root/toto : stringmap(int)</code>. You can have multiple root nodes in one program.</p>
 </blockquote>
     
@@ -148,6 +144,73 @@
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/adding-js-to-all-opa-resources-use-case-google-analytics/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/adding-js-to-all-opa-resources-use-case-google-analytics/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Javascript 
+              #Opa 
+              #Web  </span>
+              
+              <h2 class="post-card-title">Adding JS To all Opa Resources: Use Case Google Analytics</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>I decided I wanted to add Google Analytics to OpaDo but had no idea how to easily tell each page to include the necessary Javascript. I asked on the Opa mailing list and got a quick and simple response. Frederic Ye pointed me to Resource.register_external_js
+It couldn&rsquo;t have been any easier. You simply place your google_analytics.js file in your project and use the Resource.register_external_js function to modify the default customization of all Resources. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/opado-personal-todo-lists/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/opado-personal-todo-lists/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #dotcloud 
+              #Functional Programming 
+              #OCaml 
+              #Opa 
+              #Web  </span>
+              
+              <h2 class="post-card-title">OpaDo: Personal ToDo Lists</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>This is a continuation of two past posts (one, two) on my first application with Opa called OpaDo. You can try the live demo here and check out the full source code on Github
+Updating OpaDo to add user accounts the project structure has been changed a bit and modularized. Below is the new project layout.
+Now there is a main, todo and user module. The main module is the entry point for the app and looks like: ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

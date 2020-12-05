@@ -36,7 +36,7 @@
     <meta property="article:tag" content="Erlang" /><meta property="article:tag" content="rebar3" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -104,20 +104,15 @@
         <h1 class="post-full-title">Rebar3 Auto Compile and Load Plugin</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/7.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/4.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
-        <p>During development the Erlang shell is often used for quickly testing functionality. Erlang&rsquo;s ability to reload modules while running makes this workflow even more efficient. To go a step further in removing manual intervention tools like [sync]() and [active]() have been created. These libs will listen for file modifications, recompile and reload the changed modules.</p>
-
+        <p>During development the Erlang shell is often used for quickly testing functionality. Erlang&rsquo;s ability to reload modules while running makes this workflow even more efficient. To go a step further in removing manual intervention tools like <a href="">sync</a> and <a href="">active</a> have been created. These libs will listen for file modifications, recompile and reload the changed modules.</p>
 <p>With <a href="http://rebar3.org">rebar3</a> there is a plugin <a href="https://hex.pm/packages/rebar3_auto">rebar3_auto</a> which will start the shell, begin listening for modifications in the source directories of the project and recompile/reload when changes occur. Add to your global rebar3 configuration file to be able to use it on any of your projects <code>~/.config/rebar3/rebar.config</code>:</p>
-
 <pre><code>{plugins, [rebar3_auto]}.
-</code></pre>
-
-<p>Running <code>rebar3 auto</code> will start the shell the same as running rebar3 shell but will be listening for file changes in your project&rsquo;s application source directories. When a file is change it will message the rebar3 agent to run compile and reload modules.</p>
-
+</code></pre><p>Running <code>rebar3 auto</code> will start the shell the same as running rebar3 shell but will be listening for file changes in your project&rsquo;s application source directories. When a file is change it will message the rebar3 agent to run compile and reload modules.</p>
 <pre><code>(master) $ rebar3 auto                       
 ===&gt; Fetching rebar3_auto ({pkg,&lt;&lt;&quot;rebar3_auto&quot;&gt;&gt;,&lt;&lt;&quot;0.2.0&quot;&gt;&gt;})
 ===&gt; Downloaded package, caching at /home/tristan/.cache/rebar3/hex/default/packages/rebar3_auto-0.2.0.tar
@@ -132,19 +127,14 @@ Erlang/OTP 18 [erts-7.1] [source] [64-bit] [smp:4:4] [async-threads:0] [hipe] [k
 Eshell V7.1  (abort with ^G)
 1&gt; rlx_util:test().
 ** exception error: undefined function rlx_util:test/0
-</code></pre>
-
-<p>Oops, our function doesn&rsquo;t exist. Switch to your editor and add to <code>rlx_util.erl</code> a function <code>test/0</code> and export it, when you save you&rsquo;ll see it is recompiled and now available in the shell:</p>
-
+</code></pre><p>Oops, our function doesn&rsquo;t exist. Switch to your editor and add to <code>rlx_util.erl</code> a function <code>test/0</code> and export it, when you save you&rsquo;ll see it is recompiled and now available in the shell:</p>
 <pre><code>2&gt; 
 Verifying dependencies...
 Compiling relx
 
 2&gt; rlx_util:test().
 hello
-</code></pre>
-
-<p>In the shell all the features of the <code>shell</code> command, its configuration and the rebar3 agent are available, see the <a href="http://www.rebar3.org/docs/commands#shell">docs</a> for more information.</p>
+</code></pre><p>In the shell all the features of the <code>shell</code> command, its configuration and the rebar3 agent are available, see the <a href="http://www.rebar3.org/docs/commands#shell">docs</a> for more information.</p>
     
         </div>
     </section>
@@ -173,6 +163,68 @@ hello
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-features-part-6-_checkouts-2/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-features-part-6-_checkouts-2/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Features (part 6): _checkouts</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>In a build tool there is often a balancing act between ensuring repeatability and efficiency for the user. Wanting to make modifications on a dependency of your project is a common case of this. In rebar2 you could simply modify the source under deps/ and running rebar compile would pick those up. This meant that the contents of deps/ are not representative of the dependencies listed in rebar.config.
+With rebar3 a dependency is never rebuilt, even if a source file changes. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-features-part-5-dependency-branch-handling/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-features-part-5-dependency-branch-handling/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Features (part 5): Dependency Tracking</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>When starting rebar3 a goal was to never again end up in a situation where rm -rf deps to get the right set of dependencies was the quickest or only way forward.
+An important piece of this is the new and improved upgrade command. However, this post will cover a less visible (it isn&rsquo;t a new command) improvement related to how rebar3 fetches and tracks dependencies each time the compile command is run. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

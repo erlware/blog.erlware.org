@@ -36,7 +36,7 @@
     <meta property="article:tag" content="Backbone.js" /><meta property="article:tag" content="CouchDB" /><meta property="article:tag" content="Erlang" /><meta property="article:tag" content="Javascript" /><meta property="article:tag" content="MVC" /><meta property="article:tag" content="Web" /><meta property="article:tag" content="Webmachine" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -109,194 +109,69 @@
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
-        <p>To experiment with using a pure client-side rendering talking to an <a href="http://www.erlang.org" title="Erlang">Erlang</a> backend I&rsquo;ve taken <a href="http://www.jamesyu.org/2011/01/27/cloudedit-a-backbone-js-tutorial-by-example/">James Yu&rsquo;s CloudEdit tutorial</a> an app written with <a href="http://documentcloud.github.com/backbone/">Backbone.js</a> and <a href="http://rubyonrails.org/">Rails</a> and converted the backend to use <a href="http://webmachine.basho.com/">Webmachine</a> and <a href="http://couchdb.apache.org/">CouchDB</a>. You can see eCloudEdit in action <a href="http://erlware.org:8080">here</a>. The Backbone.js code is the same so to understand that please see James&rsquo; post, here I&rsquo;ll describe the Erlang backend.</p>
-
-<p>To begin with we setup two applications, one for handling the web interaction and a second for handling the database interaction. We end up with this directory layout:<br />
-<pre style="color:#bebebe;background-color:#262626;overflow:auto;padding:5px;">  |-eCloudEdit<br />
-   |-bin<br />
-   |-config<br />
-   |-doc<br />
-   |-lib<br />
-   |&mdash;ece_db<br />
-   |&mdash;&ndash;doc<br />
-   |&mdash;&ndash;ebin<br />
-   |&mdash;&ndash;include<br />
-   |&mdash;&ndash;src<br />
-   |&mdash;ece_web<br />
-   |&mdash;&ndash;doc<br />
-   |&mdash;&ndash;ebin<br />
-   |&mdash;&ndash;include<br />
-   |&mdash;&ndash;priv<br />
-   |&mdash;&mdash;-images<br />
-   |&mdash;&mdash;-javascripts<br />
-   |&mdash;&mdash;&mdash;controllers<br />
-   |&mdash;&mdash;&mdash;models<br />
-   |&mdash;&mdash;&mdash;views<br />
-   |&mdash;&mdash;-stylesheets<br />
-   |&mdash;&ndash;src</pre><br />
-Under ece_web/priv is where all the html and Javascript from CloudEdit is placed, with nothing changed. To serve up the static content through Webmachine we use this <a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_static.erl">resource</a> which we won&rsquo;t worry about in this article. Lets look at how webmachine deciced where to route requests. This is handled by a set of dispatch rules that are passed into Webmachine on startup. We can see how this is done by looking at ece_web_sup and how the supervisor loads Webmachine:</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_web_sup.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_web_sup.erl</a>)</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_web_sup.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_web_sup.erl</a>)</p>
-
-<p>[<br />
-<pre style="color:#bebebe;background-color:#262626;overflow:auto;padding:5px;"><span style="color:#66d9ef;">-spec</span> <span style="color:#66d9ef;">init</span>(<span style="color:#b0c4de;">list</span>()) -&gt; {<span style="color:#7fffd4;">ok</span>, {<span style="color:# fd971f;">SupFlags</span>::<span style="color:#66d9ef;">any</span>(), [<span style="color:# fd971f;">ChildSpec</span>::<span style="color:#66d9ef;">any</span>()]}} |<br />
-                          <span style="color:#7fffd4;">ignore</span> | {<span style="color:#7fffd4;">error</span>, <span style="color:# fd971f;">Reason</span>::<span style="color:#66d9ef;">any</span>()}.<br />
-<span style="color:# a6e22e;">init</span>([]) -&gt;<br />
-    <span style="color:# fd971f;">WebChild</span> = {<span style="color:#7fffd4;">webmachine_mochiweb</span>,<br />
-                {<span style="color:#7fffd4;">webmachine_mochiweb</span>, <span style="color:#7fffd4;">start</span>, [<span style="color:#66d9ef;">config</span>()]},<br />
-                <span style="color:#7fffd4;">permanent</span>, 5000, <span style="color:#7fffd4;">worker</span>, <span style="color:#7fffd4;">dynamic</span>},</p>
-
-<pre><code>&lt;span style=&quot;color:# fd971f;&quot;&gt;RestartStrategy&lt;/span&gt; = &lt;span style=&quot;color:#7fffd4;&quot;&gt;one_for_one&lt;/span&gt;,  
-&lt;span style=&quot;color:# fd971f;&quot;&gt;MaxRestarts&lt;/span&gt; = 3,  
-&lt;span style=&quot;color:# fd971f;&quot;&gt;MaxSecondsBetweenRestarts&lt;/span&gt; = 10,  
-&lt;span style=&quot;color:# fd971f;&quot;&gt;SupFlags&lt;/span&gt; = {&lt;span style=&quot;color:# fd971f;&quot;&gt;RestartStrategy&lt;/span&gt;, &lt;span style=&quot;color:# fd971f;&quot;&gt;MaxRestarts&lt;/span&gt;, &lt;span style=&quot;color:# fd971f;&quot;&gt;MaxSecondsBetweenRestarts&lt;/span&gt;},  
-
-{&lt;span style=&quot;color:#7fffd4;&quot;&gt;ok&lt;/span&gt;, {&lt;span style=&quot;color:# fd971f;&quot;&gt;SupFlags&lt;/span&gt; , [&lt;span style=&quot;color:# fd971f;&quot;&gt;WebChild&lt;/span&gt;]}}.  
-</code></pre>
-
-<p><span style="color:# a6e22e;">config</span>() -&gt;<br />
-    {<span style="color:#7fffd4;">ok</span>, <span style="color:# fd971f;">IP</span>} = <span style="color:#66d9ef;">application</span>:<span style="color:#66d9ef;">get_env</span>(<span style="color:#7fffd4;">webmachine_ip</span>),<br />
-    {<span style="color:#7fffd4;">ok</span>, <span style="color:# fd971f;">Port</span>} = <span style="color:#66d9ef;">application</span>:<span style="color:#66d9ef;">get_env</span>(<span style="color:#7fffd4;">webmachine_port</span>),<br />
-    {<span style="color:#7fffd4;">ok</span>, <span style="color:# fd971f;">App</span>}= <span style="color:#66d9ef;">application</span>:<span style="color:#66d9ef;">get_application</span>(),<br />
-    <span style="color:# fd971f;">LogDir</span> = <span style="color:#66d9ef;">code</span>:<span style="color:#66d9ef;">priv_dir</span>(<span style="color:# fd971f;">App</span>) <span style="color:#ff0000;">++</span> <span style="color:#e6db74;">&rdquo;/logs&rdquo;</span>,<br />
-    {<span style="color:#7fffd4;">ok</span>, <span style="color:# fd971f;">Dispatch</span>} = <span style="color:#66d9ef;">file</span>:<span style="color:#66d9ef;">consult</span>(<span style="color:#66d9ef;">filename</span>:<span style="color:#66d9ef;">join</span>([<span style="color:#66d9ef;">code</span>:<span style="color:#66d9ef;">priv_dir</span>(<span style="color:# fd971f;">App</span>), <span style="color:#e6db74;">&ldquo;dispatch&rdquo;</span>])),</p>
-
-<pre><code>[{&lt;span style=&quot;color:#7fffd4;&quot;&gt;ip&lt;/span&gt;, &lt;span style=&quot;color:# fd971f;&quot;&gt;IP&lt;/span&gt;},  
- {&lt;span style=&quot;color:#7fffd4;&quot;&gt;port&lt;/span&gt;, &lt;span style=&quot;color:# fd971f;&quot;&gt;Port&lt;/span&gt;},  
- {&lt;span style=&quot;color:#7fffd4;&quot;&gt;log_dir&lt;/span&gt;, &lt;span style=&quot;color:# fd971f;&quot;&gt;LogDir&lt;/span&gt;},  
- {&lt;span style=&quot;color:#7fffd4;&quot;&gt;backlog&lt;/span&gt;, 128},  
- {&lt;span style=&quot;color:#7fffd4;&quot;&gt;dispatch&lt;/span&gt;, &lt;span style=&quot;color:# fd971f;&quot;&gt;Dispatch&lt;/span&gt;}].&lt;/pre&gt;  
-</code></pre>
-
+        <p>To experiment with using a pure client-side rendering talking to an <a href="http://www.erlang.org" title="Erlang">Erlang</a> backend I&rsquo;ve taken <a href="http://www.jamesyu.org/2011/01/27/cloudedit-a-backbone-js-tutorial-by-example/">James Yu&rsquo;s CloudEdit tutorial</a> an app written with <a href="http://documentcloud.github.com/backbone/">Backbone.js</a> and <a href="http://rubyonrails.org/">Rails</a> and converted the backend to use <a href="http://webmachine.basho.com/">Webmachine</a> and <a href="http://couchdb.apache.org/">CouchDB</a>. You can see eCloudEdit in action <a href="http://erlware.org:8080">here</a>. The Backbone.js code is the same so to understand that please see James' post, here I&rsquo;ll describe the Erlang backend.</p>
+<p>To begin with we setup two applications, one for handling the web interaction and a second for handling the database interaction. We end up with this directory layout:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Under ece_web/priv is where all the html and Javascript from CloudEdit is placed, with nothing changed. To serve up the static content through Webmachine we use this <a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_static.erl">resource</a> which we won&rsquo;t worry about in this article. Lets look at how webmachine deciced where to route requests. This is handled by a set of dispatch rules that are passed into Webmachine on startup. We can see how this is done by looking at ece_web_sup and how the supervisor loads Webmachine:</p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_web_sup.erl"></a></p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_web_sup.erl"></a></p>
+<p>[</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_web_sup.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_web_sup.erl</a>)</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_web_sup.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_web_sup.erl</a>)</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_web_sup.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_web_sup.erl</a>)</p>
-
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_web_sup.erl"></a></p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_web_sup.erl"></a></p>
 <p>The dispatch terms are loaded from a file <em>dispatch</em> in the application&rsquo;s priv directory. For this app the dispatch file contains:</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/priv/dispatch">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/priv/dispatch</a>)</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/priv/dispatch">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/priv/dispatch</a>)</p>
-
-<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/priv/dispatch"><br />
-<pre style="color:#bebebe;background-color:#262626;overflow:auto;padding:5px;"><span style="background-color:#3e3d32;">{</span>[<span style="color:#e6db74;">&ldquo;documents&rdquo;</span>, <span style="color:#7fffd4;">id</span>], <span style="color:#7fffd4;">ece_resource_documents</span>, []<span style="background-color:#3e3d32;">}</span>.<br />
-{[<span style="color:#e6db74;">&ldquo;documents&rdquo;</span>], <span style="color:#7fffd4;">ece_resource_documents</span>, []}.<br />
-{[<span style="color:#7fffd4;">&lsquo;*&rsquo;</span>], <span style="color:#7fffd4;">ece_resource_static</span>, []}.</pre><br />
-</a></p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/priv/dispatch">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/priv/dispatch</a>)</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/priv/dispatch">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/priv/dispatch</a>)</p>
-
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/priv/dispatch"></a></p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/priv/dispatch"></a></p>
+<p>[</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/priv/dispatch">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/priv/dispatch</a>)</p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/priv/dispatch"></a></p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/priv/dispatch"></a></p>
 <p>There are two resources, one for handling the requests for creating, updating and viewing documents and one for serving up all other requests (static html, js and css files). The first rule matches paths like, <em>/documents/foo</em>, <em>id</em> is set to <em>foo</em> and the request is sent to the documents resource. If there is nothing after <em>/documents</em> it is still sent to the documents resource but there is no <em>id</em>.</p>
-
 <p>Webmachine is essentially a REST toolkit. You build resources by defining functions that handle the different possible HTTP requests. For this webapp we&rsquo;ll only be dealing with GET, POST and PUT. GET is used if we&rsquo;d like to retrieve information on documents, POST is for creating a new document and PUT is for updating a document.</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
-
-<p>[<br />
-<pre style="color:#bebebe;background-color:#262626;overflow:auto;padding:5px;"><span style="color:#66d9ef;">-record</span>(<span style="color:#66d9ef;">ctx</span>, {<span style="color:#7fffd4;">db</span>}).</p>
-
-<p><span style="color:# a6e22e;">init</span>([]) -&gt;<br />
-    {<span style="color:#7fffd4;">ok</span>, <span style="color:# fd971f;">PID</span>} = <span style="color:#66d9ef;">ece_db_sup</span>:<span style="color:#66d9ef;">start_child</span>(),<br />
-    {<span style="color:#7fffd4;">ok</span>, #<span style="color:#66d9ef;">ctx</span>{<span style="color:#7fffd4;">db</span>=<span style="color:# fd971f;">PID</span>}}.</p>
-
-<p><span style="color:# a6e22e;">allowed_methods</span>(<span style="color:# fd971f;">ReqData</span>, <span style="color:# fd971f;">Ctx</span>) -&gt;<br />
-    {[<span style="color:#7fffd4;">&lsquo;HEAD&rsquo;</span>, <span style="color:#7fffd4;">&lsquo;GET&rsquo;</span>, <span style="color:#7fffd4;">&lsquo;POST&rsquo;</span>, <span style="color:#7fffd4;">&lsquo;PUT&rsquo;</span>], <span style="color:# fd971f;">ReqData</span>, <span style="color:# fd971f;">Ctx</span>}.</p>
-
-<p><span style="color:# a6e22e;">content_types_accepted</span>(<span style="color:# fd971f;">ReqData</span>, <span style="color:# fd971f;">Ctx</span>) -&gt;<br />
-    {[{<span style="color:#e6db74;">&ldquo;application/json&rdquo;</span>, <span style="color:#7fffd4;">from_json</span>}], <span style="color:# fd971f;">ReqData</span>, <span style="color:# fd971f;">Ctx</span>}.</p>
-
-<p><span style="color:# a6e22e;">content_types_provided</span>(<span style="color:# fd971f;">ReqData</span>, <span style="color:# fd971f;">Ctx</span>) -&gt;<br />
-    {[{<span style="color:#e6db74;">&ldquo;application/json&rdquo;</span>, <span style="color:#7fffd4;">to_json</span>}], <span style="color:# fd971f;">ReqData</span>, <span style="color:# fd971f;">Ctx</span>}.</p>
-
-<p><span style="color:# a6e22e;">finish_request</span>(<span style="color:# fd971f;">ReqData</span>, <span style="color:# fd971f;">Ctx</span>) -&gt;<br />
-    <span style="color:#66d9ef;">ece_db_sup</span>:<span style="color:#66d9ef;">terminate_child</span>(<span style="color:# fd971f;">Ctx</span>#<span style="color:#66d9ef;">ctx</span>.<span style="color:#7fffd4;">db</span>),<br />
-    {<span style="color:#7fffd4;">true</span>, <span style="color:# fd971f;">ReqData</span>, <span style="color:# fd971f;">Ctx</span>}.</pre><br />
-](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
-
-<p>To handle GET requests we implemented the _to<em>json</em> function we specified in _content_types<em>provided</em> to handle GET requests for json data.</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
-
-<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"><br />
-<pre style="color:#bebebe;background-color:#262626;overflow:auto;padding:5px;"><span style="color:# a6e22e;">to_json</span>(<span style="color:# fd971f;">ReqData</span>, <span style="color:# fd971f;">Ctx</span>) -&gt;<br />
-    <span style="color:#f92672;">case</span> <span style="color:#66d9ef;">wrq</span>:<span style="color:#66d9ef;">path_info</span>(<span style="color:#7fffd4;">id</span>, <span style="color:# fd971f;">ReqData</span>) <span style="color:#f92672;">of</span><br />
-        <span style="color:#7fffd4;">undefined</span> -&gt;<br />
-            <span style="color:# fd971f;">All</span> = <span style="color:#66d9ef;">ece_db</span>:<span style="color:#66d9ef;">all</span>(<span style="color:# fd971f;">Ctx</span>#<span style="color:#66d9ef;">ctx</span>.<span style="color:#7fffd4;">db</span>),<br />
-            {<span style="color:# fd971f;">All</span>, <span style="color:# fd971f;">ReqData</span>, <span style="color:# fd971f;">Ctx</span>};<br />
-        <span style="color:# fd971f;">ID</span> -&gt;<br />
-            <span style="color:# fd971f;">JsonDoc</span> = <span style="color:#66d9ef;">ece_db</span>:<span style="color:#66d9ef;">find</span>(<span style="color:# fd971f;">Ctx</span>#<span style="color:#66d9ef;">ctx</span>.<span style="color:#7fffd4;">db</span>, <span style="color:# fd971f;">ID</span>),<br />
-            {<span style="color:# fd971f;">JsonDoc</span>, <span style="color:# fd971f;">ReqData</span>, <span style="color:# fd971f;">Ctx</span>}<br />
-    <span style="color:#f92672;">end</span>.</pre><br />
-</a></p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
-
-<p>_wrq:path<em>info</em> is used to find the value of <em>id</em>, which we set in the dispatch file, if it is <em>undefined</em> we know the request is for all documents, while if it has a value we know to find the contents of the document with that id and return its contents. We&rsquo;ll see the content of _ece<em>db:all/1</em> and _ece<em>db:find/2</em> in the next article. Just know they both return JSON data structures.</p>
-
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"></a></p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"></a></p>
+<p>[</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"></a></p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"></a></p>
+<p>To handle GET requests we implemented the <em>to_json</em> function we specified in <em>content_types_provided</em> to handle GET requests for json data.</p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"></a></p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"></a></p>
+<p>[</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"></a></p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"></a></p>
+<p><em>wrq:path_info</em> is used to find the value of <em>id</em>, which we set in the dispatch file, if it is <em>undefined</em> we know the request is for all documents, while if it has a value we know to find the contents of the document with that id and return its contents. We&rsquo;ll see the content of <em>ece_db:all/1</em> and <em>ece_db:find/2</em> in the next article. Just know they both return JSON data structures.</p>
 <p>Now we must support POST for creating documents or we have nothing to return to a GET request.</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
-
-<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"><br />
-<pre style="color:#bebebe;background-color:#262626;overflow:auto;padding:5px;"><span style="color:# a6e22e;">process<em>post</span>(<span style="color:# fd971f;">ReqData</span>, <span style="color:# fd971f;">Ctx</span>) -&gt;<br />
-    [{<span style="color:# fd971f;">JsonDoc</span>, <span style="color:# fd971f;"></em></span>}] = <span style="color:#66d9ef;">mochiweb_util</span>:<span style="color:#66d9ef;">parse_qs</span>(<span style="color:#66d9ef;">wrq</span>:<span style="color:#66d9ef;">req_body</span>(<span style="color:# fd971f;">ReqData</span>)),<br />
-    {<span style="color:#7fffd4;">struct</span>, <span style="color:# fd971f;">Doc</span>} = <span style="color:#66d9ef;">mochijson2</span>:<span style="color:#66d9ef;">decode</span>(<span style="color:# fd971f;">JsonDoc</span>),<br />
-    <span style="color:# fd971f;">NewDoc</span> = <span style="color:#66d9ef;">ece_db</span>:<span style="color:#66d9ef;">create</span>(<span style="color:# fd971f;">Ctx</span>#<span style="color:#66d9ef;">ctx</span>.<span style="color:#7fffd4;">db</span>, {<span style="color:# fd971f;">Doc</span>}),<br />
-    <span style="color:# fd971f;">ReqData2</span> = <span style="color:#66d9ef;">wrq</span>:<span style="color:#66d9ef;">set_resp_body</span>(<span style="color:# fd971f;">NewDoc</span>, <span style="color:# fd971f;">ReqData</span>),<br />
-    {<span style="color:#7fffd4;">true</span>, <span style="color:# fd971f;">ReqData2</span>, <span style="color:# fd971f;">Ctx</span>}.</pre><br />
-</a></p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
-
-<p>_wrq:req<em>body/1</em> returns the contents of the body sent in the HTTP request. Here it is the conents of the document to store. We decode it to an Erlang data structure and pass it to the _ece<em>db</em> app for inserting into the database. After inserting to the database the <em>create/2</em> function returns the new document with a new element id (in this case generated by CouchDB). This is required so we know the document&rsquo;s id which is used by the Backbone.js frontend. In order to return it from the POST request we must set response body to the contents of the document with _wrq:set_resp<em>body/2</em></p>
-
-<p>Lastly, updating documents requires support for PUT. In _contents_type<em>accepted/2</em> we&rsquo;ve specified that PUT requests with JSON content is sent to the function _from<em>json/2</em>:</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
-
-<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"><br />
-<pre style="color:#bebebe;background-color:#262626;overflow:auto;padding:5px;"><span style="color:# a6e22e;">from_json</span>(<span style="color:# fd971f;">ReqData</span>, <span style="color:# fd971f;">Ctx</span>) -&gt;<br />
-    <span style="color:#f92672;">case</span> <span style="color:#66d9ef;">wrq</span>:<span style="color:#66d9ef;">path_info</span>(<span style="color:#7fffd4;">id</span>, <span style="color:# fd971f;">ReqData</span>) <span style="color:#f92672;">of</span><br />
-        <span style="color:#7fffd4;">undefined</span> -&gt;<br />
-            {<span style="color:#7fffd4;">false</span>, <span style="color:# fd971f;">ReqData</span>, <span style="color:# fd971f;">Ctx</span>};<br />
-        <span style="color:# fd971f;">ID</span> -&gt;<br />
-            <span style="color:# fd971f;">JsonDoc</span> = <span style="color:#66d9ef;">wrq</span>:<span style="color:#66d9ef;">req_body</span>(<span style="color:# fd971f;">ReqData</span>),<br />
-            {<span style="color:#7fffd4;">struct</span>, <span style="color:# fd971f;">Doc</span>} = <span style="color:#66d9ef;">mochijson2</span>:<span style="color:#66d9ef;">decode</span>(<span style="color:# fd971f;">JsonDoc</span>),<br />
-            <span style="color:# fd971f;">NewDoc</span> = <span style="color:#66d9ef;">ece_db</span>:<span style="color:#66d9ef;">update</span>(<span style="color:# fd971f;">Ctx</span>#<span style="color:#66d9ef;">ctx</span>.<span style="color:#7fffd4;">db</span>, <span style="color:# fd971f;">ID</span>, <span style="color:# fd971f;">Doc</span>),<br />
-            <span style="color:# fd971f;">ReqData2</span> = <span style="color:#66d9ef;">wrq</span>:<span style="color:#66d9ef;">set_resp_body</span>(<span style="color:# fd971f;">NewDoc</span>, <span style="color:# fd971f;">ReqData</span>),<br />
-            {<span style="color:#7fffd4;">true</span>, <span style="color:# fd971f;">ReqData2</span>, <span style="color:# fd971f;">Ctx</span>}<br />
-    <span style="color:#f92672;">end</span>.</pre><br />
-</a></p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
-
-<p>[](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
-
-<p>If this request was not routed through the first rule in our dispatch file it does not have an <em>id</em> and thus can not be an update. When this happens we return false so the frontend is aware something has gone wrong. For requests containing an <em>id</em> we pass the contents of the requests body to _ece<em>db</em>&rsquo;s <em>update/2</em> function.</p>
-
-<p>In the next post I&rsquo;ll show how _ece<em>db</em> is implemented with <a href="http://benoitc.github.com/couchbeam/">Couchbeam</a> for reading and writing the documents to CouchDB on <a href="http://www.cloudant.com">Cloudant</a>.</p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"></a></p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"></a></p>
+<p>[</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"></a></p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"></a></p>
+<p><em>wrq:req_body/1</em> returns the contents of the body sent in the HTTP request. Here it is the conents of the document to store. We decode it to an Erlang data structure and pass it to the <em>ece_db</em> app for inserting into the database. After inserting to the database the <em>create/2</em> function returns the new document with a new element id (in this case generated by CouchDB). This is required so we know the document&rsquo;s id which is used by the Backbone.js frontend. In order to return it from the POST request we must set response body to the contents of the document with <em>wrq:set_resp_body/2</em></p>
+<p>Lastly, updating documents requires support for PUT. In <em>contents_type_accepted/2</em> we&rsquo;ve specified that PUT requests with JSON content is sent to the function <em>from_json/2</em>:</p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"></a></p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"></a></p>
+<p>[</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>](<a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl">https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl</a>)</p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"></a></p>
+<p><a href="https://github.com/tsloughter/eCloudEdit/blob/master/lib/ece_web/src/ece_resource_documents.erl"></a></p>
+<p>If this request was not routed through the first rule in our dispatch file it does not have an <em>id</em> and thus can not be an update. When this happens we return false so the frontend is aware something has gone wrong. For requests containing an <em>id</em> we pass the contents of the requests body to <em>ece_db</em>&rsquo;s <em>update/2</em> function.</p>
+<p>In the next post I&rsquo;ll show how <em>ece_db</em> is implemented with <a href="http://benoitc.github.com/couchbeam/">Couchbeam</a> for reading and writing the documents to CouchDB on <a href="http://www.cloudant.com">Cloudant</a>.</p>
     
         </div>
     </section>
@@ -325,6 +200,68 @@ Under ece_web/priv is where all the html and Javascript from CloudEdit is placed
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/ecloudedit-part-2-couchdb/">
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/ecloudedit-part-2-couchdb/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #CouchDB 
+              #Erlang 
+              #simple_one_for_one 
+              #Web 
+              #Webmachine  </span>
+              
+              <h2 class="post-card-title">eCloudEdit Part 2: CouchDB</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>In my last post I showed the Webmachine backend to James Yu&rsquo;s CloudEdit app in Backbone.js. What was left out was, where are the documents stored? Here I&rsquo;ll show how this is done with CouchDB. And you can give the app a try at http://erlware.org:8080
+First, a new Erlang app is needed that we&rsquo;ll call ece_db.
+Three modules are implemented, one that starts the app by calling the supervisor&rsquo;s start function, the supervisor itself that sets up a simple_one_for_one and the gen_server that handles the frontends requests for creating and modifying documents in CouchDB. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/about/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/about/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">About</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Erlware has been moving very slowly for the last 2 years while Eric and Martin have been off writing the recently published Erlang and OTP in Action. We are back to our passion, we have two new core team members, Jordan Wilberding and Tristan Sloughter, and we are working hard on Erlware! </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

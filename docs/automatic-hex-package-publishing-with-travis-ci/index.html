@@ -39,7 +39,7 @@ In " />
     
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -106,46 +106,36 @@ In " />
         <h1 class="post-full-title">Automatic Hex Package Publishing with Travis-CI</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/3.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/2.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
         <p><strong>Note</strong>: <a href="https://travis-ci.org">Travis CI</a> does not yet provide <a href="https://rebar3.org">rebar3</a> as a build tool for Erlang projects, so you will have to include a rebar3 executable escript in your repository.</p>
-
 <p>In your application&rsquo;s <code>.app.src</code> file use <code>&quot;git&quot;</code> as the version. This will replace the version string with the current tag when publishing the hex package:</p>
-
-<pre><code class="language-erlang">{vsn,&quot;git&quot;},
-</code></pre>
-
-<p>In the <code>.travis.yml</code> configuration add the below section so that the script <code>scripts/hex.sh</code> is run everytime a new tag is made:</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">{vsn,<span style="color:#e6db74">&#34;git&#34;</span>},
+</code></pre></div><p>In the <code>.travis.yml</code> configuration add the below section so that the script <code>scripts/hex.sh</code> is run everytime a new tag is made:</p>
 <pre><code>deploy:
   provider: script
   script: scripts/hex.sh
   on:
     tags: true
-</code></pre>
-
-<p>Create the script <code>hex.sh</code> under <code>scripts/</code> and make it executable:</p>
-
-<pre><code class="language-bash">#!/usr/bin/env bash
-
-## Setup hex user
+</code></pre><p>Create the script <code>hex.sh</code> under <code>scripts/</code> and make it executable:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/usr/bin/env bash
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">## Setup hex user</span>
 mkdir -p ~/.hex
-echo '{username,&lt;&lt;&quot;'${HEX_USERNAME}'&quot;&gt;&gt;}.' &gt; ~/.hex/hex.config
-echo '{key,&lt;&lt;&quot;'${HEX_KEY}'&quot;&gt;&gt;}.' &gt;&gt; ~/.hex/hex.config
+echo <span style="color:#e6db74">&#39;{username,&lt;&lt;&#34;&#39;</span><span style="color:#e6db74">${</span>HEX_USERNAME<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;&#34;&gt;&gt;}.&#39;</span> &gt; ~/.hex/hex.config
+echo <span style="color:#e6db74">&#39;{key,&lt;&lt;&#34;&#39;</span><span style="color:#e6db74">${</span>HEX_KEY<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;&#34;&gt;&gt;}.&#39;</span> &gt;&gt; ~/.hex/hex.config
 
-## Add the rebar3 hex plugin to global
+<span style="color:#75715e">## Add the rebar3 hex plugin to global</span>
 mkdir -p ~/.config/rebar3
-echo '{plugins, [rebar3_hex]}.' &gt; ~/.config/rebar3/rebar.config
+echo <span style="color:#e6db74">&#39;{plugins, [rebar3_hex]}.&#39;</span> &gt; ~/.config/rebar3/rebar.config
 
-./rebar3 hex publish &lt;&lt;EOF
-y
-EOF
-</code></pre>
-
-<p>In the script it relies on two environmental variables <code>$HEX_USERNAME</code> and <code>$HEX_KEY</code>. Using either the Travis CLI tool or web interface you can create these variables and have the values encrypted or unseen by viewers of your repository. For instructions see the Travis-CI <a href="http://docs.travis-ci.com/user/environment-variables/">environment variables docs</a>.</p>
+./rebar3 hex publish <span style="color:#e6db74">&lt;&lt;EOF
+</span><span style="color:#e6db74">y
+</span><span style="color:#e6db74">EOF</span>
+</code></pre></div><p>In the script it relies on two environmental variables <code>$HEX_USERNAME</code> and <code>$HEX_KEY</code>. Using either the Travis CLI tool or web interface you can create these variables and have the values encrypted or unseen by viewers of your repository. For instructions see the Travis-CI <a href="http://docs.travis-ci.com/user/environment-variables/">environment variables docs</a>.</p>
     
         </div>
     </section>
@@ -174,6 +164,71 @@ EOF
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/otp-21-new-sys_config_src-option-in-relx/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/otp-21-new-sys_config_src-option-in-relx/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3 
+              #relx 
+              #OTP  </span>
+              
+              <h2 class="post-card-title">OTP-21: New sys_config_src option in relx</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>With the release of OTP-21 and rebar3 3.6.0, which includes a new relx 3.25.0, there is better support for dynamic configuration of releases at runtime. If you are new to this concept checkout the rebar3 docs first
+No longer will you be forced to declare RELX_REPLACE_OS_VARS and convert strings to integers in your code because the sys.config file had to be valid Erlang terms when building the release.
+Instead, you can use {sys_config_src, &quot;config/sys. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-hex-plugin/">
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-hex-plugin/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Hex Plugin</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>No plugin is needed for using Hex packages in your project, covered in documentation here, but at this time the plugin rebar3_hex is needed for publishing. The plugin provides support for registering with hex.pm and publishing packages. For instructions on registering see the rebar3 hex.pm documentation, here we&rsquo;ll cover publishing a package with some unique features to the rebar3 plugin.
+rebar3 hex cut The cut command provides some automation on top of publish. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

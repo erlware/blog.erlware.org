@@ -33,7 +33,7 @@
     <meta property="og:description" content="" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -105,7 +105,7 @@
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/running-opa-applications-on-heroku/">
-      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
     </a>    
     
 
@@ -141,7 +141,7 @@ The currently available Heroku buildpack for Opa only supported the old, pre-Nod
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/opa-plugin-development-with-a-pubnub-example/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
@@ -176,7 +176,7 @@ But how do you use Javascript library X within your Opa code? ...  </p>
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/major-opado-speed-up-with-publish/">
-      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
     </a>    
     
 
@@ -209,7 +209,7 @@ But how do you use Javascript library X within your Opa code? ...  </p>
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/adding-js-to-all-opa-resources-use-case-google-analytics/">
-      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
@@ -258,7 +258,7 @@ It couldn&rsquo;t have been any easier. You simply place your google_analytics.j
           <section class="post-card-excerpt">
               
                 <p>Nicolas Glondu posted a comment on an earlier post detailing ways for doing database migrations with Opa. I thought it was useful enough that I should put up a post around it:
- If you have complex changes in database structures in a OPA program, you have two choices :
+ If you have complex changes in database structures in a OPA program, you have two choices :&gt;
 1 – Keep both structure in your database and create a function which populates the new empty field from the other fields. ...  </p>
               
           </section>
@@ -275,7 +275,7 @@ It couldn&rsquo;t have been any easier. You simply place your google_analytics.j
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/opado-personal-todo-lists/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
     </a>    
     
 
@@ -295,13 +295,7 @@ It couldn&rsquo;t have been any easier. You simply place your google_analytics.j
               
                 <p>This is a continuation of two past posts (one, two) on my first application with Opa called OpaDo. You can try the live demo here and check out the full source code on Github
 Updating OpaDo to add user accounts the project structure has been changed a bit and modularized. Below is the new project layout.
-opado/
-├── Makefile
-├── README.md
-├── dotcloud.yml
-├── resources
-│ ├── destroy.png
-│ └── todos. ...  </p>
+Now there is a main, todo and user module. The main module is the entry point for the app and looks like: ...  </p>
               
           </section>
       </a>
@@ -317,7 +311,7 @@ opado/
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/opado-data-storage/">
-      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
     </a>    
     
 
@@ -335,10 +329,8 @@ opado/
           <section class="post-card-excerpt">
               
                 <p>OpaDo (a port of the TodoMVC app to Opa) now persists todo items to the Opa database. The new version is up on dotcloud, http://opado-tristan.sloughter.dotcloud.com/
-I&rsquo;ve added a _todoitem type which stores the item&rsquo;s value and two other attributes we won&rsquo;t use until the next post when we have user accounts for their own _todoitem stores.
-type todo_item = { user_id : string
-; value : string
-; created_at : string ...  </p>
+I&rsquo;ve added a todo_item type which stores the item&rsquo;s value and two other attributes we won&rsquo;t use until the next post when we have user accounts for their own todo_item stores.
+To tell Opa where to store the records we&rsquo;ll create, we provide a path to the Opa db function and set its type. ...  </p>
               
           </section>
       </a>
@@ -354,7 +346,7 @@ type todo_item = { user_id : string
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/todomvc-in-opa/">
-      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
     </a>    
     
 

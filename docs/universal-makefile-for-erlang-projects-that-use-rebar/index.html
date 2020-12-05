@@ -39,7 +39,7 @@ At this point in the game nearly every Erlang project uses Rebar. The problem wi
     
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -106,80 +106,47 @@ At this point in the game nearly every Erlang project uses Rebar. The problem wi
         <h1 class="post-full-title">Universal Makefile for Erlang Projects That Use Rebar</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/5.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/6.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
-        <p><a href="http://www.erlangcamp.org"><img src="http://www.erlangcamp.com/assets/erlangcamp-logo-afdc8efebef6893f692323ad60d06871.png" alt="" /></a></p>
-
+        <p><a href="http://www.erlangcamp.org"><img src="http://www.erlangcamp.com/assets/erlangcamp-logo-afdc8efebef6893f692323ad60d06871.png" alt=""></a></p>
 <p><em>This post sponsored by <a href="http://www.erlangcamp.org">ErlangCamp 2013</a> in Nashville and Amsterdam</em></p>
-
 <p>At this point in the game nearly every Erlang project uses <a href="https://github.com/rebar/rebar">Rebar</a>. The problem with that is that Rebar&rsquo;s approach to the command line and command dependency chaining is leaves a lot to be desired. You tend to end up typing the same command with the same options list over and over again during the course of your work. Because of the poor dependency chaining you often must retype the same sequence of commands as well. Finally, there are certain things (like <a href="http://www.erlang.org/doc/man/dialyzer.html">Dialyzer</a> support) that Rebar does not support.</p>
-
 <p>In our Erlware projects, we want a consistent and recognizable entry point into the build process. For that reason we tend to treat Rebar as a low level tool and drive it and the other build tools I mentioned with a Makefile. That makes it far easier for us, as developers, to chain rules as needed and create additional rules that add features to the build system. This allows us to integrate other tools seamlessly into the build experience. At Erlware, we have developed a pretty standard Makefile that can be used with little or no changes from project to project. You can find the whole of that Makefile <a href="https://gist.github.com/ericbmerritt/5706091">here</a>. However, I will work my way through a few parts of it explaining so you understand what is going on and can make changes relevant to your project.</p>
-
 <p>The main targets this Makefile supports are as follows:</p>
-
 <ul>
-<li>deps: Pull the project dependencies (called automatically as needed)<br /></li>
-<li>update-reps: Update the dependencies (never called automatically)<br /></li>
-<li>compile: Compiles the project<br /></li>
-<li>doc: Builds the edoc documentation<br /></li>
-<li>test: Compiles the code and runs the tests (designed to be called by a human)<br /></li>
-<li>dialyzer: Build the dependency PLT and run dialyzer on the project<br /></li>
-<li>typer: Run <a href="http://www.erlang.se/workshop/2005/TypEr_Erlang05.pdf‎">Typer</a> on the project<br /></li>
-<li>shell: Bring up an Erlang shell with all the dependencies already loaded and unit tests compiled and available.<br /></li>
-<li>pdf: Turn your README.md into a pdf using pandoc (pretty useful at times, but completely optional)<br /></li>
-<li>clean: Delete the build output files<br /></li>
-<li>distclean: Remove the build output files as well as the project PLT file and all the dependencies<br /></li>
-<li>rebuild: Do a dist clean, rebuild everything from scratch and run both the tests and dialyzer<br />
-Now that we have an idea of the targets available lets work through the major points of the Makefile.<br />
-<br /></li>
+<li>deps: Pull the project dependencies (called automatically as needed)</li>
+<li>update-reps: Update the dependencies (never called automatically)</li>
+<li>compile: Compiles the project</li>
+<li>doc: Builds the edoc documentation</li>
+<li>test: Compiles the code and runs the tests (designed to be called by a human)</li>
+<li>dialyzer: Build the dependency PLT and run dialyzer on the project</li>
+<li>typer: Run <a href="http://www.erlang.se/workshop/2005/TypEr_Erlang05.pdf%E2%80%8E">Typer</a> on the project</li>
+<li>shell: Bring up an Erlang shell with all the dependencies already loaded and unit tests compiled and available.</li>
+<li>pdf: Turn your README.md into a pdf using pandoc (pretty useful at times, but completely optional)</li>
+<li>clean: Delete the build output files</li>
+<li>distclean: Remove the build output files as well as the project PLT file and all the dependencies</li>
+<li>rebuild: Do a dist clean, rebuild everything from scratch and run both the tests and dialyzer<br>
+Now that we have an idea of the targets available lets work through the major points of the Makefile.</li>
 </ul>
-
 <p><strong>Defining Variables</strong></p>
-
-<pre>  
-ERLFLAGS= -pa $(CURDIR)/.eunit -pa $(CURDIR)/ebin -pa $(CURDIR)/deps/*/ebin  
-  
-DEPS_PLT=$(CURDIR)/.deps_plt  
-DEPS=erts kernel stdlib  
-</pre>  
-  
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>At the top of the make file a few variables that are set. For the most part you don&rsquo;t ever have to touch any of these with the exception of DEPS. The DEPS variable provides a list of dependent applications that are used by Dialyzer to build the dependency PLT file. The others are ERLFLAGS, which is used by the shell command to correctly make your code available in the shell, and DEPS_PLT, which points to the location where the project PLT file will be located.</p>
-
 <p><strong>PLT Files and Dialyzer</strong></p>
-
-<pre>  
-$(DEPS_PLT):  
-    @echo Building local plt at $(DEPS_PLT)  
-    @echo  
-    dialyzer --output_plt $(DEPS_PLT) --build_plt \  
-       --apps $(DEPS) -r deps  
-  
-dialyzer: $(DEPS_PLT)  
-    dialyzer --fullpath --plt $(DEPS_PLT) -Wrace_conditions -r ./ebin  
-</pre>  
-  
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>This is how the Dialyzer command is run. The main things to notice here are that a PLT file specific to the project is built using the dependencies that you described at the top of the file in the DEPS variable. Building a per project PLT solves a raft of potential problems but has the downside that the first run of Dialyzer or the first run after a rebuild can take several minutes as it analyzes all of the dependencies to build the PLT file.</p>
-
 <p><strong>Rebuilding</strong></p>
-
 <p>Rebuilding is basically a completely clean rebuild and test of the system. You should run this code before you submit a PR or share code with your peers. It basically tries to ensure that you have not forgotten or left off anything that is needed.</p>
-
 <p><strong>Conclusion</strong></p>
-
 <p>You can, quite literally, drop this makefile into your project and use it today with only some very minor modification to the DEPS variable. If you are not already using something like this in your project I encourage you to add this Makefile now. It will save you a lot of tedious typing and make your build process much clearer to your users.</p>
-
 <p><strong>Alternatives</strong></p>
-
 <p>There are a few alternatives to this approach out there. These are quite good if somewhat more complex.</p>
-
 <ul>
-<li>Make setup that does not use rebar - <a href="https://github.com/extend/erlang.mk">https://github.com/extend/erlang.mk</a><br /></li>
+<li>Make setup that does not use rebar - <a href="https://github.com/extend/erlang.mk">https://github.com/extend/erlang.mk</a></li>
 <li>A more complete, but more complicated Makefile generator - <a href="https://github.com/opscode/concrete">https://github.com/opscode/concrete</a></li>
 </ul>
     
@@ -210,6 +177,62 @@ dialyzer: $(DEPS_PLT)
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/how-to-use-vim-for-erlang-development/">
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/how-to-use-vim-for-erlang-development/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">How to use Vim for Erlang Development</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>This post sponsored by ErlangCamp 2013 in Nashville which was epic!
+You are about to learn to use Vim as your editor for Erlang development. You will learn how to install and use a variety of really powerful Vim plugins to make Erlang dev with Vim smooth and satisfying!
+I have been developing Erlang now for about 13 years, many of them full time and even wrote a book on Erlang: Erlang &amp; OTP in Action. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/deal-of-the-day-half-off-erlang-and-otp-in-action/">
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/deal-of-the-day-half-off-erlang-and-otp-in-action/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Deal of the Day - Half off Erlang and OTP in Action</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Here is your chance to get our book Erlang and OTP in Action for half price on April 16th. Use code dotd0416au at www.manning.com/logan/ </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

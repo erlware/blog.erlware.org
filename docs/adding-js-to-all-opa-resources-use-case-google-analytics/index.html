@@ -36,7 +36,7 @@
     <meta property="article:tag" content="Javascript" /><meta property="article:tag" content="Opa" /><meta property="article:tag" content="Web" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -104,33 +104,16 @@
         <h1 class="post-full-title">Adding JS To all Opa Resources: Use Case Google Analytics</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/1.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/2.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
         <p>I decided I wanted to add <a href="http://www.google.com/analytics/" title="Google Analytics">Google Analytics</a> to <a href="http://opado.org/" title="OpaDo">OpaDo</a> but had no idea how to easily tell each page to include the necessary Javascript. I asked on the Opa mailing list and got a quick and simple response. Frederic Ye pointed me to <a href="http://doc.opalang.org/new_doc/#stdlib.core.web.resource.resource.opa.html/!/value_stdlib.core.web.resource.Resource.register_external_js" title="Opa Resource.register_external_js">Resource.register_external_js</a></p>
-
-<p>It couldn&rsquo;t have been any easier. You simply place your google_analytics.js file in your project and use the Resource.register_external_js function to modify the default customization of all Resources. See code below or on the <a href="https://github.com/tsloughter/opado" title="OpaDo Github">github repo</a>.<br />
-<pre style="color:#00ff00;background-color:#000000;"><span style="color:#00ffff;">package</span> opado<span style="color:#7fffd4;">.main</span></p>
-
-<p><span style="color:#00ffff;">import</span> opado<span style="color:#7fffd4;">.user</span><br />
-<span style="color:#00ffff;">import</span> opado<span style="color:#7fffd4;">.admin</span><br />
-<span style="color:#00ffff;">import</span> opado<span style="color:#7fffd4;">.todo</span></p>
-
-<p><span style="color:#b0c4de;">urls </span><span style="color:#98fb98;">: Parser.general_parser(http_request -&gt; resource)</span><span style="color:#b0c4de;"> =</span><br />
-  <span style="color:#00ffff;">parser</span><br />
-  | <span style="color:#00ffff;">{</span><span style="color:#87cefa;">Rule.debug_parse_string</span>(s <span style="color:#00ffff;">-&gt;</span> <span style="color:#87cefa;">Log.notice</span>(<span style="color:#ffa07a;">&ldquo;URL&rdquo;</span>,s))<span style="color:#00ffff;">}</span> Rule<span style="color:#7fffd4;">.fail</span> <span style="color:#00ffff;">-&gt;</span> <span style="color:#87cefa;">error</span>(<span style="color:#ffa07a;">&rdquo;&rdquo;</span>)<br />
-  | <span style="color:#ffa07a;">&rdquo;/todos&rdquo;</span> <span style="color:#b0c4de;">result=</span><span style="color:#00ffff;">{</span>Todo<span style="color:#7fffd4;">.resource</span><span style="color:#00ffff;">}</span> <span style="color:#00ffff;">-&gt;</span> result<br />
-  | <span style="color:#ffa07a;">&rdquo;/user&rdquo;</span> <span style="color:#b0c4de;">result=</span><span style="color:#00ffff;">{</span>User<span style="color:#7fffd4;">.resource</span><span style="color:#00ffff;">}</span> <span style="color:#00ffff;">-&gt;</span> result<br />
-  | <span style="color:#ffa07a;">&rdquo;/login&rdquo;</span> <span style="color:#b0c4de;">result=</span><span style="color:#00ffff;">{</span>User<span style="color:#7fffd4;">.resource</span><span style="color:#00ffff;">}</span> <span style="color:#00ffff;">-&gt;</span> result<br />
-  | <span style="color:#ffa07a;">&rdquo;/admin&rdquo;</span> <span style="color:#b0c4de;">result=</span><span style="color:#00ffff;">{</span>Admin<span style="color:#7fffd4;">.resource</span><span style="color:#00ffff;">}</span> <span style="color:#00ffff;">-&gt;</span> result<br />
-  | (.<span style="color:#00ffff;">*</span>) <span style="color:#b0c4de;">result=</span><span style="color:#00ffff;">{</span>Todo<span style="color:#7fffd4;">.resource</span><span style="color:#00ffff;">}</span> <span style="color:#00ffff;">-&gt;</span> result</p>
-
-<p><span style="color:#00ffff;">do</span> <span style="color:#87cefa;">Resource.register_external_js</span>(<span style="color:#ffa07a;">&rdquo;/resources/js/google_analytics.js&rdquo;</span>)<br />
-<span style="color:#00ffff;">server</span><span style="color:#b0c4de;"> =</span> <span style="color:#87cefa;">Server.of_bundle</span>([<span style="color:#cd3700;">@static_resource_directory</span>(<span style="color:#ffa07a;">&ldquo;resources&rdquo;</span>)])<br />
-<span style="color:#00ffff;">server</span><span style="color:#b0c4de;"> =</span> <span style="color:#87cefa;">Server.make</span>(urls)</pre><br />
-For a longer article/tutorial on dealing with external resources check out this blog post from the Opa team <a href="http://blog.opalang.org/2011/07/image-part-1-dealing-with-external.html" title="Opa: Dealing with External Resources">Dealing with External Resources</a>.</p>
+<p>It couldn&rsquo;t have been any easier. You simply place your google_analytics.js file in your project and use the Resource.register_external_js function to modify the default customization of all Resources. See code below or on the <a href="https://github.com/tsloughter/opado" title="OpaDo Github">github repo</a>.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>For a longer article/tutorial on dealing with external resources check out this blog post from the Opa team <a href="http://blog.opalang.org/2011/07/image-part-1-dealing-with-external.html" title="Opa: Dealing with External Resources">Dealing with External Resources</a>.</p>
     
         </div>
     </section>
@@ -159,6 +142,69 @@ For a longer article/tutorial on dealing with external resources check out this 
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/erlang-dc-december-3rd-2011/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/erlang-dc-december-3rd-2011/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #Functional Programming  </span>
+              
+              <h2 class="post-card-title">Erlang DC: December 3rd, 2011</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>ErlangDC is coming up in a month and will be featuring our own Eric Merritt speaking on building enterprise applications with Erlang and Sinan, as well as other great presentations from Erlang experts. You can still submit your own proposal.
+Get your tickets now! </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/opa-database-migrations/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/opa-database-migrations/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Functional Programming 
+              #Opa  </span>
+              
+              <h2 class="post-card-title">Opa Database Migrations</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Nicolas Glondu posted a comment on an earlier post detailing ways for doing database migrations with Opa. I thought it was useful enough that I should put up a post around it:
+ If you have complex changes in database structures in a OPA program, you have two choices :&gt;
+1 – Keep both structure in your database and create a function which populates the new empty field from the other fields. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

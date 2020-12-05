@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dotcloud on Erlware Blog</title>
+    <title>dotcloud on Erlware Blog</title>
     <link>/categories/dotcloud/</link>
-    <description>Recent content in Dotcloud on Erlware Blog</description>
+    <description>Recent content in dotcloud on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Nov 2011 07:19:48 +0000</lastBuildDate>
-    
-	<atom:link href="/categories/dotcloud/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 07 Nov 2011 07:19:48 +0000</lastBuildDate><atom:link href="/categories/dotcloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Major OpaDo Speed-Up with @publish</title>
       <link>/major-opado-speed-up-with-publish/</link>
@@ -28,13 +24,7 @@
       <guid>/opado-personal-todo-lists/</guid>
       <description>This is a continuation of two past posts (one, two) on my first application with Opa called OpaDo. You can try the live demo here and check out the full source code on Github
 Updating OpaDo to add user accounts the project structure has been changed a bit and modularized. Below is the new project layout.
-opado/
-├── Makefile
-├── README.md
-├── dotcloud.yml
-├── resources
-│ ├── destroy.png
-│ └── todos.</description>
+Now there is a main, todo and user module. The main module is the entry point for the app and looks like:</description>
     </item>
     
     <item>
@@ -44,10 +34,8 @@ opado/
       
       <guid>/opado-data-storage/</guid>
       <description>OpaDo (a port of the TodoMVC app to Opa) now persists todo items to the Opa database. The new version is up on dotcloud, http://opado-tristan.sloughter.dotcloud.com/
-I&amp;rsquo;ve added a _todoitem type which stores the item&amp;rsquo;s value and two other attributes we won&amp;rsquo;t use until the next post when we have user accounts for their own _todoitem stores.
-type todo_item = { user_id : string
-; value : string
-; created_at : string</description>
+I&amp;rsquo;ve added a todo_item type which stores the item&amp;rsquo;s value and two other attributes we won&amp;rsquo;t use until the next post when we have user accounts for their own todo_item stores.
+To tell Opa where to store the records we&amp;rsquo;ll create, we provide a path to the Opa db function and set its type.</description>
     </item>
     
   </channel>

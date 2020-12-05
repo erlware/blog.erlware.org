@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Couchdb on Erlware Blog</title>
+    <title>CouchDB on Erlware Blog</title>
     <link>/tags/couchdb/</link>
-    <description>Recent content in Couchdb on Erlware Blog</description>
+    <description>Recent content in CouchDB on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Feb 2011 23:37:34 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/couchdb/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 12 Feb 2011 23:37:34 +0000</lastBuildDate><atom:link href="/tags/couchdb/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>eCloudEdit Part 2: CouchDB</title>
       <link>/ecloudedit-part-2-couchdb/</link>
@@ -19,7 +15,7 @@
       <guid>/ecloudedit-part-2-couchdb/</guid>
       <description>In my last post I showed the Webmachine backend to James Yu&amp;rsquo;s CloudEdit app in Backbone.js. What was left out was, where are the documents stored? Here I&amp;rsquo;ll show how this is done with CouchDB. And you can give the app a try at http://erlware.org:8080
 First, a new Erlang app is needed that we&amp;rsquo;ll call ece_db.
-ece_db/ &amp;#9500;&amp;#9472;&amp;#9472; doc &amp;#9500;&amp;#9472;&amp;#9472; ebin &amp;#9474;&amp;#160;&amp;#160; &amp;#9500;&amp;#9472;&amp;#9472; ece_db.app &amp;#9474;&amp;#160;&amp;#160; &amp;#9492;&amp;#9472;&amp;#9472; overview.edoc &amp;#9500;&amp;#9472;&amp;#9472; include &amp;#9492;&amp;#9472;&amp;#9472; src &amp;#9500;&amp;#9472;&amp;#9472; ece_db.</description>
+Three modules are implemented, one that starts the app by calling the supervisor&amp;rsquo;s start function, the supervisor itself that sets up a simple_one_for_one and the gen_server that handles the frontends requests for creating and modifying documents in CouchDB.</description>
     </item>
     
     <item>
@@ -28,7 +24,7 @@ ece_db/ &amp;#9500;&amp;#9472;&amp;#9472; doc &amp;#9500;&amp;#9472;&amp;#9472; 
       <pubDate>Wed, 09 Feb 2011 09:10:43 +0000</pubDate>
       
       <guid>/ecloudedit-erlang-webmachine-and-backbone-js/</guid>
-      <description>To experiment with using a pure client-side rendering talking to an Erlang backend I&amp;rsquo;ve taken James Yu&amp;rsquo;s CloudEdit tutorial an app written with Backbone.js and Rails and converted the backend to use Webmachine and CouchDB. You can see eCloudEdit in action here. The Backbone.js code is the same so to understand that please see James&amp;rsquo; post, here I&amp;rsquo;ll describe the Erlang backend.
+      <description>To experiment with using a pure client-side rendering talking to an Erlang backend I&amp;rsquo;ve taken James Yu&amp;rsquo;s CloudEdit tutorial an app written with Backbone.js and Rails and converted the backend to use Webmachine and CouchDB. You can see eCloudEdit in action here. The Backbone.js code is the same so to understand that please see James&#39; post, here I&amp;rsquo;ll describe the Erlang backend.
 To begin with we setup two applications, one for handling the web interaction and a second for handling the database interaction.</description>
     </item>
     

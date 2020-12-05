@@ -42,7 +42,7 @@ does n" />
     
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -109,34 +109,28 @@ does n" />
         <h1 class="post-full-title">Erlang Common Test Continuous Integration</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/5.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/4.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
-        <p><a href="http://www.erlang.org/doc/apps/common_test/index.html">Common Test</a> is a well thought out integration testing framework for Erlang. If you<br />
-are not using it you probably should be. However, it has one fault. It<br />
-does not return non-negative exit status&rsquo; to the caller when the tests<br />
-fail. This is a major oversight, and it makes it difficult to use as<br />
-part of a continuous integration scheme or in a make based build<br />
+        <p><a href="http://www.erlang.org/doc/apps/common_test/index.html">Common Test</a> is a well thought out integration testing framework for Erlang. If you<br>
+are not using it you probably should be. However, it has one fault. It<br>
+does not return non-negative exit status' to the caller when the tests<br>
+fail. This is a major oversight, and it makes it difficult to use as<br>
+part of a continuous integration scheme or in a make based build<br>
 system.</p>
-
-<p>The long term fix is for the OTP folks to resolve the issue in the<br />
-<code>ct_run</code> command. To that end I have filed a bug report with the<br />
-Erlang folks. In the short term, though, we need this behaving<br />
-correctly. After much twiddling around with different solutions and<br />
-conversions on the erlang-questions list. This solution finally popped<br />
-out of a conversation with Lukas Larsson. Basically, we use the old<br />
+<p>The long term fix is for the OTP folks to resolve the issue in the<br>
+<code>ct_run</code> command. To that end I have filed a bug report with the<br>
+Erlang folks. In the short term, though, we need this behaving<br>
+correctly. After much twiddling around with different solutions and<br>
+conversions on the erlang-questions list. This solution finally popped<br>
+out of a conversation with Lukas Larsson. Basically, we use the old<br>
 unix standby of awk.</p>
-
-<p><pre></p>
-
-<pre><code>ct_run -dir tests  ... | awk &quot;/FAILED/{exit 1;}/failed/{exit 1;}/SKIPPED/{exit 1;}&quot;  
-</code></pre>
-
-<p></pre><br />
-Where <code>...</code> is replaced with your additional options. Its not the best<br />
-solution on the planet, but it is the simplest one that I found that<br />
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Where <code>...</code> is replaced with your additional options. Its not the best<br>
+solution on the planet, but it is the simplest one that I found that<br>
 works consistently.</p>
     
         </div>
@@ -166,6 +160,73 @@ works consistently.</p>
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/getting-flymake-and-rebar-to-play-nice/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/getting-flymake-and-rebar-to-play-nice/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Emacs 
+              #Erlang  </span>
+              
+              <h2 class="post-card-title">Getting Flymake and Rebar to Play Nice</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>TLDR;
+Copy and paste the following into your elisp erlang-mode configuration to get flymake working with Rebar projects.
+Intro
+Its probably no great surprise to anyone that I dislike Rebar a lot. That said there are times when I have no choice but to use it. This is always either because a company I am contracting for uses it, or an open source project I am contributing to uses it. When I am forced to use it there are a few things I don&rsquo;t want to give up. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/sinan-releases-and-being-right/">
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/sinan-releases-and-being-right/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Cowboy 
+              #Erlang 
+              #OTP 
+              #rebar 
+              #sinan  </span>
+              
+              <h2 class="post-card-title">Sinan Releases and Being Right</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Fred, of Learn You Some Erlang for Great Good, today posted on his blog about the problems around how rebar handles releases, Rebar Releases and Being Wrong. The problems he mentions and a few others are why, despite giving it a legitimate shot, I have found rebar unusable for my workflow to be efficient and stable while adhering to OTP standards at the same time.
+I suggest first reading his post, if you already use rebar, and then continuing on with the rest of this. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

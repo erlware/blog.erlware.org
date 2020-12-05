@@ -36,7 +36,7 @@
     <meta property="article:tag" content="Erlang" /><meta property="article:tag" content="rebar3" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -104,19 +104,15 @@
         <h1 class="post-full-title">Rebar3 Features (part 2): Dependency Tree</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/1.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/6.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
         <p><code>rebar3 tree</code> is a new command to allow the user to view what dependency pulled in each transitive dependency. This is especially useful with rebar3&rsquo;s dependency resolution strategy of &ldquo;first wins&rdquo;.</p>
-
 <p>Thanks for pushing for this feature goes to <a href="https://github.com/Licenser/">Heinz N. Gies</a> and inspiration comes from <a href="https://github.com/technomancy/leiningen">leiningen&rsquo;s</a> command <code>lein deps :tree</code>.</p>
-
 <p>For an example I&rsquo;ve cloned <a href="https://github.com/chef/chef-server/">chef-server</a> and built <code>oc_erchef</code> under <code>src/oc_erchef</code>. It is unique because it has both a top level app <code>oc_erchef</code> under <code>src/</code> as well as additional project apps under <code>apps/</code>.</p>
-
 <p>Additionally, I&rsquo;ve added <code>_checkouts/erlware_commons</code> to show how <a href="http://www.rebar3.org/docs/dependencies#checkout-dependencies">checkout dependencies</a>, an application linked to under <code>_checkouts/</code>, is moved to the top level and marked as <code>(checkout app)</code> and switched <code>lager</code> to a <a href="http://hex.pm">hex</a> <a href="http://www.rebar3.org/docs/dependencies#package-manager-dependencies">package dependency</a>, the rest being <a href="http://www.rebar3.org/docs/dependencies#source-dependencies">git sourced dependencies</a>.</p>
-
 <pre><code>$ rebar3 tree
 ├─ chef_db─12.1.2-6047c67 (project app)
 ├─ chef_index─12.1.2-6047c67 (project app)
@@ -162,8 +158,7 @@
    ├─ sync─0.1.3 (git repo)
    └─ uuid─1.3.2 (git repo)
       └─ quickrand─1.3.2 (git repo)
-</code></pre>
-    
+</code></pre>    
         </div>
     </section>
 
@@ -191,6 +186,67 @@
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-features-part-3-overrides/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-features-part-3-overrides/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 features (part 3): Overrides</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>What do you do when a dependency has settings in its rebar.config that are causing you problems? Maybe it includes dependencies that are not needed in the general case, like meck or edown. Or it could have set a required OTP version that isn&rsquo;t accurate and you want to remove. Or the app could contain C code that needs compiling and had relied on rebar2&rsquo;s port compiler. These problems often lead to forks of projects, which isn&rsquo;t good for anyone, so in rebar3 we&rsquo;ve added a feature called overrides. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-features-part-1-local-install-and-upgrade/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-features-part-1-local-install-and-upgrade/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Features (part 1): Local install and upgrade</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Update January 22, 2016: The original post has been modified to reflect that the commands install and upgrade were moved from the unstable namespace to the local namespace. Also added is use of the environment variable $REBAR3_ERL_ARGS in the run script which allows the user to specify custom Erlang VM arguments like: REBAR3_ERL_ARGS=&quot;+A10&quot; rebar3 shell.
+Rebar3 comes with a lot of new and improved features. I&rsquo;ll be publishing posts here to highlight some of these features over the coming weeks. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

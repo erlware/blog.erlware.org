@@ -33,7 +33,7 @@
     <meta property="og:description" content="" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -100,8 +100,39 @@
 
 <article class="post-card post"> 
     
+    <a class="post-card-image-link" href="/rebar3-features-part-3-overrides/">
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-features-part-3-overrides/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 features (part 3): Overrides</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>What do you do when a dependency has settings in its rebar.config that are causing you problems? Maybe it includes dependencies that are not needed in the general case, like meck or edown. Or it could have set a required OTP version that isn&rsquo;t accurate and you want to remove. Or the app could contain C code that needs compiling and had relied on rebar2&rsquo;s port compiler. These problems often lead to forks of projects, which isn&rsquo;t good for anyone, so in rebar3 we&rsquo;ve added a feature called overrides. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+
+
+<article class="post-card post"> 
+    
     <a class="post-card-image-link" href="/rebar3-features-part-2-dependency-tree/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
@@ -134,7 +165,7 @@ For an example I&rsquo;ve cloned chef-server and built oc_erchef under src/oc_er
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/rebar3-features-part-1-local-install-and-upgrade/">
-      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
     </a>    
     
 
@@ -166,7 +197,7 @@ Rebar3 comes with a lot of new and improved features. I&rsquo;ll be publishing p
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/monolith-vs-microservices-where-to-start/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
@@ -195,7 +226,7 @@ Introduction Martin Fowler recently wrote article called &lsquo;Monolith First&r
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/deploy-erlang-target-system-to-heroku/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
     </a>    
     
 
@@ -208,14 +239,7 @@ Introduction Martin Fowler recently wrote article called &lsquo;Monolith First&r
           <section class="post-card-excerpt">
               
                 <p>In this post these new tools will be used:
- rebar3 hk - new cli client for Heroku
- hk slug plugin - plugin for hk that uploads the target system
- Heroku Cedar-14 - new Heroku Cedar on Ubuntu 14.04
- Heroku Slug API
-  First, clone minasan and create the Heroku application on Cedar-14:
-$ git clone https://github.com/tsloughter/minasan.git
-$ cd minasan
-$ heroku create &ndash;stack cedar-14
+ rebar3 hk - new cli client for Heroku hk slug plugin - plugin for hk that uploads the target system Heroku Cedar-14 - new Heroku Cedar on Ubuntu 14.04 Heroku Slug API  First, clone minasan and create the Heroku application on Cedar-14:
 Now that Heroku has the cedar-14 stack if you are also running a recent Linux distro you can upload the target system created by relx directly to your app, before now we would have to build it on Heroku or in a system with an older glibc to work on Heroku&rsquo;s Ubuntu 10. ...  </p>
               
           </section>
@@ -232,7 +256,7 @@ Now that Heroku has the cedar-14 stack if you are also running a recent Linux di
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/designing-for-actor-based-systems/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
     </a>    
     
 
@@ -260,7 +284,7 @@ Now that Heroku has the cedar-14 stack if you are also running a recent Linux di
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/erlang-postgres-connection-pool-with-episcina/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
     </a>    
     
 
@@ -292,7 +316,7 @@ Now that Heroku has the cedar-14 stack if you are also running a recent Linux di
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/some-thoughts-on-go-and-erlang/">
-      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
     </a>    
     
 
@@ -324,7 +348,7 @@ Now that Heroku has the cedar-14 stack if you are also running a recent Linux di
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/how-to-use-vim-for-erlang-development/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
     </a>    
     
 
@@ -368,34 +392,6 @@ I have been developing Erlang now for about 13 years, many of them full time and
               
                 <p>This post sponsored by ErlangCamp 2013 in Nashville and Amsterdam
 At this point in the game nearly every Erlang project uses Rebar. The problem with that is that Rebar&rsquo;s approach to the command line and command dependency chaining is leaves a lot to be desired. You tend to end up typing the same command with the same options list over and over again during the course of your work. Because of the poor dependency chaining you often must retype the same sequence of commands as well. ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
-          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
-      </footer>
-    </div>
-</article>
-
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/deal-of-the-day-half-off-erlang-and-otp-in-action/">
-      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/deal-of-the-day-half-off-erlang-and-otp-in-action/">
-          <header class="post-card-header">
-              
-              <h2 class="post-card-title">Deal of the Day - Half off Erlang and OTP in Action</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>Here is your chance to get our book Erlang and OTP in Action for half price on April 16th. Use code dotd0416au at www.manning.com/logan/ </p>
               
           </section>
       </a>

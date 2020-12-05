@@ -36,7 +36,7 @@
     
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -103,64 +103,39 @@
         <h1 class="post-full-title">Monolith vs Microservices: Where to start</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/2.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/4.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
-        
-
-<p>There is a debate going around how to do the initial design of a new system in the context of Microservices. Should you start with a Monolithic approach initially and move to a Microservices later or use Microservices from the beginning?</p>
-
+        <p>There is a debate going around how to do the initial design of a new system in the context of Microservices. Should you start with a Monolithic approach initially and move to a Microservices later or use Microservices from the beginning?</p>
 <h4 id="introduction">Introduction</h4>
-
-<p>Martin Fowler recently wrote article called &lsquo;<a href="http://martinfowler.com/bliki/MonolithFirst.html">Monolith First</a>&rsquo; that talks about how to get started on a new Microservice project. Stefan Tilkov wrote a response <a href="href{http://martinfowler.com/articles/dont-start-monolith.html">Don&rsquo;t start with a monolith</a> arguing the reverse. As you would expect from the authors involved, both articles are well thought out and full of great information.</p>
-
+<p>Martin Fowler recently wrote article called &lsquo;<a href="http://martinfowler.com/bliki/MonolithFirst.html">Monolith First</a>&rsquo; that talks about how to get started on a new Microservice project. Stefan Tilkov wrote a response <a href="href%7Bhttp://martinfowler.com/articles/dont-start-monolith.html">Don&rsquo;t start with a monolith</a> arguing the reverse. As you would expect from the authors involved, both articles are well thought out and full of great information.</p>
 <p>Mr. Fowler posits that breaking things into services is error prone. You can&rsquo;t know ahead of time what the correct break out is so you should postpone that as late as possible. His implication is the main benifit of Microservices are their ability to scale. Mr. Tilkov hits on the point that the best time to architect a system is when you are starting out. Both authors, seem to miss the miss the point that these two options are not mutually exclusive.</p>
-
 <h4 id="the-modeling-failure">The Modeling failure</h4>
-
 <p>These Engineers are thinking about Microservices as a unit of distribution rather then a unit of decomposition. Instead of thinking about Microservices as a way to structure their programs they should think of them as a modeling construct for those programs. Conflating Microservices-as-modeling-construct with Microservices-as-unit-of-distribution is like conflating <a href="https://en.wikipedia.org/wiki/Common_Object_Request_Broker_Architecture">CORBA</a> with an Object System itself. It only makes sense in a very narrow context.</p>
-
 <p>I have the good fortune of having spent a significant part of my career writing systems in Erlang. <a href="http://www.erlang.org">Erlang</a> is a distributed, fault tolerant language that uses processes as the fundamental unit of decomposition in the same way that Objects are the fundamental unit of decomposition in languages like Java and C++. The difference is that processes are Microservices. They are completely independent and have an explicit API and life cycle. In fact, I have been describing programming in Erlang, as modeling using very fine grained SOA, for almost fifteen years. I wish I had coined the term &lsquo;Microservices&rsquo; instead, but the idea is the same. In Erlang There is no other approach to modeling. So you build your systems based on these tiny communicating services. It allows you to build your system as a group of small services that provide and receive work from one another. Erlang has another feature that makes all this possible. That feature is <a href="http://en.wikipedia.org/wiki/Location_transparency">Location Transparency</a>. Location Transparency means that I don&rsquo;t have to worry about where a service is to be able to communicate with it. I only need some name, a unique identifier. I can use the system facilities to communicate with the service identified by than name and have some high expectation that the service will receive it.</p>
-
 <p>With those two features Erlang has given me enough flexibility so that I can get all the benefits of composing my system in Micorservices and all the benefits of having the system be monolithic when it makes sense for it to be monolithic. Essentially, I don&rsquo;t have to worry about distribution during design and implementation at all. Erlang allows me to develop, test and do the initial deployments on a single node then, as the scale increases add new hardware to the system. This allows me to push out taking the additional conceptual load of distribution to as late a point as possible.</p>
-
 <h4 id="doing-it-right-in-other-languages">Doing It Right in Other Languages</h4>
-
 <p>This isn&rsquo;t really a Microservice vs Monolith debate. Its a reaction to the lack of certain fundamental properties in existing Microservice platforms for other languages. One of the most important properties is <a href="http://en.wikipedia.org/wiki/Location_transparency">Location Transparency</a>. Often DNS or other location metadata is hard coded into the system, forcing the implementer to make decisions at compile time that constraint what is deployed at run time. Locational Transparency allows you to design your system using Microservices as a modeling construct without worrying about those services will be deployed.</p>
-
 <p>In total, there are four properties that a Microservice framework needs to support. These are:</p>
-
 <ul>
 <li>Microservices are cheap to define.</li>
 <li>Microservices are Locationally Transparent.</li>
 <li>Service calls are context aware.</li>
 <li>Groups of services can be declaratively described for deployment.</li>
 </ul>
-
 <p>A framework that fully supports thees for properties allows us to use Microservices as a unit of modeling in any language. Lets deep-dive into each property individually.</p>
-
 <h5 id="micro-services-are-cheap-to-define">Micro services are cheap to define</h5>
-
 <p>Using Microservices must be as efficient to design and implement as possible. In the best case it&rsquo;s at least as efficient to implement as the native module constructs in a language, usually an Object or a Module. You also can&rsquo;t force the definition of a microservice to be in some foreign syntax like XML or Json. There will be a lot of Microservices and the creation of those services needs to flow with the language itself. So, in Java, we might take use attributes to take an object and expose its methods to a service compiler. This compiler could be run at compile time or at runtime. The details don&rsquo;t matter. In C++ we could use templates. In OCaml, the solution would be camlp4. All of these solutions use the same approach. They give the developer the ability to mark a Microservice as a Microservice and expose it&rsquo;s API without significant development overhead.</p>
-
 <h5 id="microservices-are-locationally-transparent">Microservices are Locationally Transparent</h5>
-
 <p>Microservices must be named in some unique way. Those names must be propagated throughout the system. That may be a single node on a developers desktop or ten thousand nodes spread through-out data centers in cities around the world. Systems that have this property allow names to be used as a composition and allows for useful Locational Transperancy.</p>
-
 <h5 id="service-calls-are-context-aware">Service calls are context aware</h5>
-
 <p>Service calls are the ubiquitous form of work delivery in Microservice based systems. These calls must be as inexpensive as possible. The best way for to accomplish this goal is to make the call infrastructure context aware. When the Provider and the Consumer of the service are both on the same node, then the call must be made in the most efficient way possible. Preferably this would devolve into a simple function call. At the very least, serialization and deserialization should be avoided. With out this feature, the performance of a system that uses Microservices as a modeling approach will suffer.</p>
-
 <h5 id="declaratively-describe-groups-of-services-as-nodes">Declaratively describe groups of services as nodes</h5>
-
 <p>It is important that we can easily change the composition of a node. That we can, through some declarative means change which services run where in our system. This must also be done without recompiling the system. In the best case, it would also be done without redeploying the system, though in many cases that is to much to ask for.</p>
-
 <p>So there must be some configuration based, preferably declarative approach to describing nodes in the network that comprises the distributed system.</p>
-
 <h5 id="conclusion">Conclusion</h5>
-
 <p>The debate about how to design the initial architecture of a new system, Monolith vs Microservice, is predicated on the false assumption that these two approaches are mutually exclusive. That Microservices are a means of distribution rather than an architectural choice. By questioning that assumption and creating a Microservice framework that supports the key properties that we have talked about in this article, we can build flexible, scalable systems that are also easy to design test and build.</p>
     
         </div>
@@ -190,6 +165,66 @@
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-features-part-1-local-install-and-upgrade/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-features-part-1-local-install-and-upgrade/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Features (part 1): Local install and upgrade</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Update January 22, 2016: The original post has been modified to reflect that the commands install and upgrade were moved from the unstable namespace to the local namespace. Also added is use of the environment variable $REBAR3_ERL_ARGS in the run script which allows the user to specify custom Erlang VM arguments like: REBAR3_ERL_ARGS=&quot;+A10&quot; rebar3 shell.
+Rebar3 comes with a lot of new and improved features. I&rsquo;ll be publishing posts here to highlight some of these features over the coming weeks. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/deploy-erlang-target-system-to-heroku/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/deploy-erlang-target-system-to-heroku/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Deploy Erlang Target System to Heroku</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>In this post these new tools will be used:
+ rebar3 hk - new cli client for Heroku hk slug plugin - plugin for hk that uploads the target system Heroku Cedar-14 - new Heroku Cedar on Ubuntu 14.04 Heroku Slug API  First, clone minasan and create the Heroku application on Cedar-14:
+Now that Heroku has the cedar-14 stack if you are also running a recent Linux distro you can upload the target system created by relx directly to your app, before now we would have to build it on Heroku or in a system with an older glibc to work on Heroku&rsquo;s Ubuntu 10. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

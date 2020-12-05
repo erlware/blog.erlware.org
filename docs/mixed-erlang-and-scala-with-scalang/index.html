@@ -36,7 +36,7 @@
     
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -103,60 +103,37 @@
         <h1 class="post-full-title">Mixed Erlang and Scala with Scalang</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/5.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/1.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
-        
-
-<p>This is a summary of a talk by <a href="http://twitter.com/moonpolysoft">Cliff Moon @moonpolysoft</a> given at Strangeloop about building mixed Erlang and Scala systems with Scalang. Boundary does network analytics as a service. Their architecture uses a mixture of Erlang and Scala. Erlang is very very good at doing things like no down time deploys. We can have very low downtime on public facing parts of the system and we don&rsquo;t even have to go down for deploys. On the data processing side one of the things that erlang is very bad at is dealing with numbers, and generally anything where mutability has a high value.</p>
-
+        <p>This is a summary of a talk by <a href="http://twitter.com/moonpolysoft">Cliff Moon @moonpolysoft</a> given at Strangeloop about building mixed Erlang and Scala systems with Scalang. Boundary does network analytics as a service. Their architecture uses a mixture of Erlang and Scala. Erlang is very very good at doing things like no down time deploys. We can have very low downtime on public facing parts of the system and we don&rsquo;t even have to go down for deploys. On the data processing side one of the things that erlang is very bad at is dealing with numbers, and generally anything where mutability has a high value.</p>
 <p>Trying to make the scala side talk do the Erlang side was required to handle the language choices for the system. Turns out that Erlang ships with Jinterface which is just the thing - or so it seem. Unfortunately it ended up being really really cumbersome. Jinterface is at the wrong level of abstraction. Erlang is all about actors and Jinterface only exposes mailboxes. All the rich interface you get in erlang with actors goes away when you are stuck with only mailboxes. The other problem is it is not performant. Primitives end up getting wrapped twice, first by Jinterface and then by a case class in scala which is just want to heavy weight when trying to process millions of pieces of data.</p>
-
 <p>They decided to take a step back, something that would be easier to use. They were looking for more correctness in behavior, things kind of behave like Erlang actors. They wanted performance, and then simplicity; not having to deal with custom serializers and other such cruft. The internal architecture is built on NIO sockets and Netty. There are also a bunch of codecs to do encoding and decoding between erlang and scala. There is also a delivery system wich deals with registration and actors which run in Jetlang - an actor framework for the JVM.</p>
-
 <p>The main interface into the system on the JVM side is something called a Node - this should be very familiar to Erlangers. It takes a node name and a magic cookie. So, pretty much exactly what you would expect.</p>
-
 <p>Once you have a node you want to make a process. Processes are spawned and messages are sent with the ! operator, just like in Erlang. You can send messages to a Pid, you can send messages to a local registered name, and you can send messages to a remote registered name by supplying a name node tuple. So basically just like Erlang.</p>
-
-<p><a href="http://erlware.files.wordpress.com/2011/09/scalang_processes.jpg"><img src="http://erlware.files.wordpress.com/2011/09/scalang_processes.jpg" alt="Cliff Moon talking about processes in scalang" title="scalang_processes" /></a></p>
-
+<p><a href="http://erlware.files.wordpress.com/2011/09/scalang_processes.jpg"><img src="http://erlware.files.wordpress.com/2011/09/scalang_processes.jpg" alt="Cliff Moon talking about processes in scalang" title="scalang_processes"></a></p>
 <h3 id="error-handing-in-scalang">Error Handing in Scalang</h3>
-
 <p>Scalang fires a link breakage exit signal anytime a Scalang process throws an uncaught exception. It works between Erlang and JVM. The one problem is that this is not preemptive on the JVM side as lightweight preemptive actors on the JVM side seems hard to do.</p>
-
 <h3 id="erlang-to-scala-type-mappings">Erlang to Scala Type Mappings</h3>
-
 <p>Most things are a one to one mapping for primitives. Anything that does not fit, like numbers, will be tured into something reasonable on the scala side. If just that is not quite good enough for you; you wnat to do rich type mappings. You can use a rich type mapping plugin to turn rich types into records and vice-versa.</p>
-
 <h3 id="scalang-services">Scalang Services</h3>
-
 <p>One of the big things about Erlang is OTP. You typically use gen_servers, behaviors. These behaviors give you messaging primitives for sync and async and lots of other good stuff. Scalang wants to be able to interact with gen_servers transparently on the other side. So three functions are implemented for Scalang processes:</p>
-
-<p>handleCall<br />
-handleCast<br />
+<p>handleCall<br>
+handleCast<br>
 handleInfo</p>
-
 <p>These will look very familiar for most Erlangers (if you are coding in OTP like you should be). Scalang also supports anonymous processes. You can just spawn processes with funs for those times when you don&rsquo;t want a gen_server.</p>
-
 <h3 id="runtime-metrics">Runtime Metrics</h3>
-
 <p>This is what boundary does, so they wanted to bake them into all of their JVM stuff. Scalang has a full suite of runtime metrics. You get things like meters showing how many messages have come across the wire for each process. Histograms for process performance. Time spent in serialization. Message queue sizes and quite a number of other metrics. The idea was to make it similar to pulling up a remote shell into an erlang instance and being able to query to see where the bottlenecks are.</p>
-
 <h3 id="scalang-jvm-performance-tuning">Scalang JVM Performance Tuning</h3>
-
 <p>We are all about running fast here. Scalang aims to make things easily tunable. It turns out one of the best way to performance tune is to screw around with the thread pools. The ThreadPoolFactory lets you screw around with different implementation. There are 4 kinds</p>
-
-<p>Boss Pool - initial connection and accept handling<br />
-Worker Pool - non blocking reads and writes<br />
-Actor Pool - process callbacks<br />
+<p>Boss Pool - initial connection and accept handling<br>
+Worker Pool - non blocking reads and writes<br>
+Actor Pool - process callbacks<br>
 Batch executor - per process execution logic</p>
-
 <p>Editorial: The system really looks to be quite powerful. It allows for the features I describe above as well as easy remote shell invocation of JVM nodes. It actually interacts nicely with EPMD for native feeling messaging. The system seems to be abstracted more appropriately than any Erlang to X intercoms library I have run across. I look forward to hearing about experiences using it.</p>
-
 <p>Martin Logan (<a href="http://twitter.com/martinjlogan">@martinjlogan</a>) also, if you are into distributed systems and metrics you should check out <a href="http://campdevops.com">Camp DevOps Conf in Chicago this Oct</a></p>
-
 <p>Here is where you can find the code and example usage information: <a href="https://github.com/boundary/scalang">https://github.com/boundary/scalang</a></p>
     
         </div>
@@ -186,6 +163,73 @@ Batch executor - per process execution logic</p>
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/centos6-chef-node-creation/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/centos6-chef-node-creation/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Chef 
+              #Devops 
+              #Opscode  </span>
+              
+              <h2 class="post-card-title">Centos6 : Chef Node Creation</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>I thought I&rsquo;d share the scripts I use to take a fresh Centos6 install and have it configured to work with a Chef server. Maybe its not as easy as when running in a virtualized environment, but it saves plenty of time.
+On the new node I run the setup_client.sh script which calls in the end client_gen.sh on the Chef server once everything is installed on the node. I left the version numbers for Ruby and Chef in the script so you know what versions I&rsquo;ve tested this with. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/batman-js-vs-knockout-js/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/batman-js-vs-knockout-js/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #batman.js 
+              #coffeescript 
+              #Javascript 
+              #js 
+              #knockout.js 
+              #RESTful  </span>
+              
+              <h2 class="post-card-title">Batman.js vs Knockout.js</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>The following is NOT a tutorial for either Batman.js or Knockout.js. But, it is instead a sort of side-by-side comparison of the two for creating a user creation form that POSTs the new user&rsquo;s data as JSON to the backend.
+The method of web development I&rsquo;ve come to find the best is based on heavy frontend Javascript (though written in Coffeescript) communicating with a backend via a RESTful interface. This is appealing, because you are not cluttering the application logic with view related code. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

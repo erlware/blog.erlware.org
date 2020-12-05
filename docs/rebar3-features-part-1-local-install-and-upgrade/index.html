@@ -36,7 +36,7 @@
     <meta property="article:tag" content="Erlang" /><meta property="article:tag" content="rebar3" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -104,53 +104,32 @@
         <h1 class="post-full-title">Rebar3 Features (part 1): Local install and upgrade</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/6.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/7.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
-        
-
-<p><strong>Update January 22, 2016:</strong> The original post has been modified to reflect that the commands <code>install</code> and <code>upgrade</code> were moved from the <code>unstable</code> namespace to the <code>local</code> namespace. Also added is use of the environment variable <code>$REBAR3_ERL_ARGS</code> in the run script which allows the user to specify custom Erlang VM arguments like: <code>REBAR3_ERL_ARGS=&quot;+A10&quot; rebar3 shell</code>.</p>
-
+        <p><strong>Update January 22, 2016:</strong> The original post has been modified to reflect that the commands <code>install</code> and <code>upgrade</code> were moved from the <code>unstable</code> namespace to the <code>local</code> namespace. Also added is use of the environment variable <code>$REBAR3_ERL_ARGS</code> in the run script which allows the user to specify custom Erlang VM arguments like: <code>REBAR3_ERL_ARGS=&quot;+A10&quot; rebar3 shell</code>.</p>
 <p><a href="https://rebar3.org">Rebar3</a> comes with a lot of new and improved features. I&rsquo;ll be publishing posts here to highlight some of these features over the coming weeks.</p>
-
 <h4 id="installing-and-upgrading-rebar3">Installing and Upgrading Rebar3</h4>
-
 <p>Rebar is an escript bundle, and this has been very important to its ease of use, mainly because they let Erlang users have a single file acting as an executable, regardless of the underlying Erlang installation, which can even be committed to a project&rsquo;s repository.</p>
-
 <p>So, rebar3 is also an escript. Pre-built escripts can be downloaded from s3:</p>
-
 <pre><code>$ wget https://s3.amazonaws.com/rebar3/rebar3
-</code></pre>
-
-<p>or clone and bootstrap the git repo:</p>
-
+</code></pre><p>or clone and bootstrap the git repo:</p>
 <pre><code>$ git clone https://github.com/rebar/rebar3.git
 $ cd rebar3
 $ ./bootstrap
-</code></pre>
-
-<p>However, escripts do have their drawbacks. They are slower to start, rely on the old Erlang io server, making <code>rebar3 shell</code> not act exactly the same as an <code>erl</code> shell, and it can lead to repos storing the escript along with the code but never upgrading it.</p>
-
+</code></pre><p>However, escripts do have their drawbacks. They are slower to start, rely on the old Erlang io server, making <code>rebar3 shell</code> not act exactly the same as an <code>erl</code> shell, and it can lead to repos storing the escript along with the code but never upgrading it.</p>
 <p>So in rebar3 we&rsquo;ve introduced the ability to extract the escript archive along with a run script to <code>~/.cache/rebar3/</code>, plus a command that will fetch and do the same for the latest escript release of rebar3 from s3.</p>
-
 <p>The <code>install</code> command will be under a provider namespace, originally it lived under <code>unstable</code>, the namespace for experimental features that are likely to change in the near future and that aren&rsquo;t yet considered stable, but now is in the <code>local</code> namespace:</p>
-
 <pre><code>$ ./rebar3 local install
 ===&gt; Extracting rebar3 libs to $HOME/.cache/rebar3/lib...
 ===&gt; Writing rebar3 run script $HOME/.cache/rebar3/bin/rebar3...
 ===&gt; Add to $PATH for use: export PATH=$HOME/.cache/rebar3/bin:$PATH
-</code></pre>
-
-<p>Follow the instructions for adding the rebar3 bin directory to your <code>$PATH</code>, and optionally add it to your shell&rsquo;s configuration, such as <code>~/.bashrc</code> or <code>~/.zshrc</code>.</p>
-
+</code></pre><p>Follow the instructions for adding the rebar3 bin directory to your <code>$PATH</code>, and optionally add it to your shell&rsquo;s configuration, such as <code>~/.bashrc</code> or <code>~/.zshrc</code>.</p>
 <p>To upgrade rebar3 use <code>rebar3 unstable upgrade</code> which will fetch the latest escript and extract it:</p>
-
 <pre><code>$ rebar3 local upgrade
-</code></pre>
-
-<p>We hope this new method for installing, upgrading and running rebar3 will allow people to be comfortable with not bundling rebar3 in their project&rsquo;s repositories, resolve any compilation speed differences between rebar3 and alternative Erlang build tools and help keep everyone up to date with the latest features and bug fixes.</p>
+</code></pre><p>We hope this new method for installing, upgrading and running rebar3 will allow people to be comfortable with not bundling rebar3 in their project&rsquo;s repositories, resolve any compilation speed differences between rebar3 and alternative Erlang build tools and help keep everyone up to date with the latest features and bug fixes.</p>
     
         </div>
     </section>
@@ -179,6 +158,66 @@ $ ./bootstrap
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-features-part-2-dependency-tree/">
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-features-part-2-dependency-tree/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Features (part 2): Dependency Tree</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>rebar3 tree is a new command to allow the user to view what dependency pulled in each transitive dependency. This is especially useful with rebar3&rsquo;s dependency resolution strategy of &ldquo;first wins&rdquo;.
+Thanks for pushing for this feature goes to Heinz N. Gies and inspiration comes from leiningen&rsquo;s command lein deps :tree.
+For an example I&rsquo;ve cloned chef-server and built oc_erchef under src/oc_erchef. It is unique because it has both a top level app oc_erchef under src/ as well as additional project apps under apps/. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/monolith-vs-microservices-where-to-start/">
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/monolith-vs-microservices-where-to-start/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Monolith vs Microservices: Where to start</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>There is a debate going around how to do the initial design of a new system in the context of Microservices. Should you start with a Monolithic approach initially and move to a Microservices later or use Microservices from the beginning?
+Introduction Martin Fowler recently wrote article called &lsquo;Monolith First&rsquo; that talks about how to get started on a new Microservice project. Stefan Tilkov wrote a response Don&rsquo;t start with a monolith arguing the reverse. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Eric Merritt</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

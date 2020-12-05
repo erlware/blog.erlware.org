@@ -33,7 +33,7 @@
     <meta property="og:description" content="" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -105,7 +105,7 @@
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/projmake-mode-flymake-replacement/">
-      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
     </a>    
     
 
@@ -142,7 +142,7 @@ This Emacs code also uses add-hook to set projmake-mode to start for erlang-mode
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/getting-flymake-and-rebar-to-play-nice/">
-      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
@@ -159,7 +159,8 @@ This Emacs code also uses add-hook to set projmake-mode to start for erlang-mode
               
                 <p>TLDR;
 Copy and paste the following into your elisp erlang-mode configuration to get flymake working with Rebar projects.
- (defun ebm-find-rebar-top-recr (dirname) (let* ((project-dir (locate-dominating-file dirname "rebar.config"))) (if project-dir (let* ((parent-dir (file-name-directory (directory-file-name project-dir))) (top-project-dir (if (and parent-dir (not (string= parent-dir "/"))) (ebm-find-rebar-top-recr parent-dir) nil))) (if top-project-dir top-project-dir project-dir)) project-dir))) (defun ebm-find-rebar-top () (interactive) (let* ((dirname (file-name-directory (buffer-file-name))) (project-dir (ebm-find-rebar-top-recr dirname))) (if project-dir project-dir (erlang-flymake-get-app-dir)))) (defun ebm-directory-dirs (dir name) "Find all directories in DIR. ...  </p>
+Intro
+Its probably no great surprise to anyone that I dislike Rebar a lot. That said there are times when I have no choice but to use it. This is always either because a company I am contracting for uses it, or an open source project I am contributing to uses it. When I am forced to use it there are a few things I don&rsquo;t want to give up. ...  </p>
               
           </section>
       </a>

@@ -36,7 +36,7 @@
     <meta property="article:tag" content="Erlang" /><meta property="article:tag" content="rebar3" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -104,31 +104,25 @@
         <h1 class="post-full-title">Rebar3 features (part 3): Overrides</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/2.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/1.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
         <p>What do you do when a dependency has settings in its <code>rebar.config</code> that are causing you problems? Maybe it includes dependencies that are not needed in the general case, like <code>meck</code> or <code>edown</code>. Or it could have set a required OTP version that isn&rsquo;t accurate and you want to remove. Or the app could contain C code that needs compiling and had relied on rebar2&rsquo;s port compiler. These problems often lead to forks of projects, which isn&rsquo;t good for anyone, so in rebar3 we&rsquo;ve added a feature called <code>overrides</code>.</p>
-
 <p>Overrides allow any <code>rebar.config</code> at a higher level than a dependency to either replace or add to the configuration of all or an individual application at a lower level.</p>
-
 <p>The type spec for overrides looks like:</p>
-
-<pre><code class="language-erlang">{overrides, [{add, atom(), [{atom(), any()]}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">{overrides, [{add, atom(), [{atom(), any()]}
              | {override, atom(), [{atom(), any()]},
              | {override, [{atom(), any()]} 
             ]}.
-</code></pre>
-
-<p>The <a href="https://github.com/basho/bitcask/">bitcask</a> application from Basho is configured to be built with rebar2, but instead of forking the project and patching the config, a user can instead simply add the below overrides section to their <code>rebar.config</code>:</p>
-
-<pre><code class="language-erlang">{overrides, 
+</code></pre></div><p>The <a href="https://github.com/basho/bitcask/">bitcask</a> application from Basho is configured to be built with rebar2, but instead of forking the project and patching the config, a user can instead simply add the below overrides section to their <code>rebar.config</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">{overrides, 
   [
     {override, bitcask,
       [{deps, []},
        {plugins, [pc]},
-       {artifacts, [&quot;priv/bitcask.so&quot;]},
+       {artifacts, [<span style="color:#e6db74">&#34;priv/bitcask.so&#34;</span>]},
        {provider_hooks, [{post, 
                           [{compile, {pc, compile}},
                            {clean, {pc, clean}}]
@@ -137,10 +131,7 @@
     }
   ]
 }.
-</code></pre>
-
-<p>These overrides for <code>bitcask</code> replace its <code>deps</code> entry with an empty list, this removes the <code>meck</code> dependency which is only needed if you were running tests and the <code>cuttlefish</code> dependency which isn&rsquo;t required. Plus, since the port compiler functionality was removed in rebar3, the <a href="http://www.rebar3.org/docs/using-available-plugins#port-compiler">port compiler</a> plugin must be added and hooked in to <code>compile</code> and <code>clean</code> with <code>provider_hooks</code>.</p>
-
+</code></pre></div><p>These overrides for <code>bitcask</code> replace its <code>deps</code> entry with an empty list, this removes the <code>meck</code> dependency which is only needed if you were running tests and the <code>cuttlefish</code> dependency which isn&rsquo;t required. Plus, since the port compiler functionality was removed in rebar3, the <a href="http://www.rebar3.org/docs/using-available-plugins#port-compiler">port compiler</a> plugin must be added and hooked in to <code>compile</code> and <code>clean</code> with <code>provider_hooks</code>.</p>
 <p>The rest of the guts of the override will be covered in future posts, see the docs for more information on <a href="http://www.rebar3.org/docs/configuration#section-provider-hooks">provider_hooks</a>, <a href="http://www.rebar3.org/docs/configuration#artifacts">artifacts</a> and <a href="http://www.rebar3.org/docs/using-available-plugins">plugins</a></p>
     
         </div>
@@ -170,6 +161,70 @@
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-features-part-4-profiles/">
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-features-part-4-profiles/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Features (part 4): Profiles</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Running tests and need meck or proper? Building docs and want edown? Bundling up a target system and want to include erts and turn off relx&rsquo;s dev_mode? Rebar3 now has you covered for these scenarios through profiles.
+Profiles can be named with any atom, can add new items to the configuration, or prepend new options to existing elements, and multiple profiles can be combined themselves.
+The two special profiles are default and global. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-features-part-2-dependency-tree/">
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-features-part-2-dependency-tree/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Features (part 2): Dependency Tree</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>rebar3 tree is a new command to allow the user to view what dependency pulled in each transitive dependency. This is especially useful with rebar3&rsquo;s dependency resolution strategy of &ldquo;first wins&rdquo;.
+Thanks for pushing for this feature goes to Heinz N. Gies and inspiration comes from leiningen&rsquo;s command lein deps :tree.
+For an example I&rsquo;ve cloned chef-server and built oc_erchef under src/oc_erchef. It is unique because it has both a top level app oc_erchef under src/ as well as additional project apps under apps/. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

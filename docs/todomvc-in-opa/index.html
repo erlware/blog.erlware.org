@@ -39,7 +39,7 @@ I wanted so" />
     <meta property="article:tag" content="Javascript" /><meta property="article:tag" content="Opa" /><meta property="article:tag" content="Web" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -107,72 +107,23 @@ I wanted so" />
         <h1 class="post-full-title">TodoMVC in Opa</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/7.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/3.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
         <p>Edit: I just learned that <a href="http://www.dotcloud.com">dotcloud</a> supports Opa! So I&rsquo;ve pushed OpaDo and you can see a demo here <a href="http://opado-tristan.sloughter.dotcloud.com/">http://opado-tristan.sloughter.dotcloud.com/</a></p>
-
 <p>I wanted something quick and simple to do in <a href="http://www.opalang.org">Opa</a> to give it a try so I decided to implement the TodoMVC example that has been redone in almost all Javascript frameworks, <a href="https://github.com/addyosmani/todomvc">https://github.com/addyosmani/todomvc</a>.</p>
-
 <p>The code can be found on GitHub here: <a href="https://github.com/tsloughter/OpaDo">https://github.com/tsloughter/OpaDo</a></p>
-
 <p>Opa is unique in that it is not only a new language but also a new web server and database. While Opa&rsquo;s page pushes the idea that its for the cloud and its easy distribution, I found the nicest part being the static typing and no need for Javascript.</p>
-
-<p>The functions below handle interactions with the Todo items. It somewhat reminds me of <a href="http://liftweb.net/">Lift</a> but taken even farther.<br />
-<pre style="color:#bebebe;background-color:#262626;"><span style="color:#ffa07a;">/** * {1</span><span style="color:#ffa07a;font-weight:bold;"> User interface</span><span style="color:#ffa07a;">} */</span><br />
-<span style="color:#87cefa;">update_counts</span>() =<br />
-  <span style="color:#b0c4de;">num_done =</span> <span style="color:#87cefa;">Dom.length</span>(<span style="color:#87cefa;">Dom.select_class</span>(<span style="color:#ffa07a;">&ldquo;done&rdquo;</span>))<br />
-  <span style="color:#b0c4de;">total =</span> <span style="color:#87cefa;">Dom.length</span>(<span style="color:#87cefa;">Dom.select_class</span>(<span style="color:#ffa07a;">&ldquo;todo&rdquo;</span>))<br />
-  <span style="color:#00ffff;">do</span> <span style="color:#87cefa;">Dom.set_text</span>(#number_done, <span style="color:#87cefa;">Int.to_string</span>(num_done))<br />
-  <span style="color:#87cefa;">Dom.set_text</span>(#number_left, <span style="color:#87cefa;">Int.to_string</span>(total <span style="color:#00ffff;">-</span> num_done))</p>
-
-<p><span style="color:#87cefa;">make_done</span>(id<span style="color:#98fb98;">: string</span>) =<br />
-  <span style="color:#00ffff;">do</span> <span style="color:#00ffff;">if</span> <span style="color:#87cefa;">Dom.is_checked</span>(<span style="color:#87cefa;">Dom.select_inside</span>(#<span style="color:#00ffff;">{</span>id<span style="color:#00ffff;">}</span>, <span style="color:#87cefa;">Dom.select_raw</span>(<span style="color:#ffa07a;">&ldquo;input&rdquo;</span>))) <span style="color:#00ffff;">then</span> <span style="color:#87cefa;">Dom.add_class</span>(#<span style="color:#00ffff;">{</span>id<span style="color:#00ffff;">}</span>, <span style="color:#ffa07a;">&ldquo;done&rdquo;</span>)<br />
-  <span style="color:#00ffff;">else</span><br />
-    <span style="color:#87cefa;">Dom.remove_class</span>(#<span style="color:#00ffff;">{</span>id<span style="color:#00ffff;">}</span>, <span style="color:#ffa07a;">&ldquo;done&rdquo;</span>)</p>
-
-<p><span style="color:#87cefa;">update_counts</span>()</p>
-
-<p><span style="color:#87cefa;">remove_item</span>(id<span style="color:#98fb98;">: string</span>) =<br />
-  <span style="color:#00ffff;">do</span> <span style="color:#87cefa;">Dom.remove</span>(#<span style="color:#00ffff;">{</span>id<span style="color:#00ffff;">}</span>)<br />
-  <span style="color:#87cefa;">update_counts</span>()</p>
-
-<p><span style="color:#87cefa;">remove_all_done</span>() =<br />
-  <span style="color:#00ffff;">do</span> <span style="color:#87cefa;">Dom.remove</span>(<span style="color:#87cefa;">Dom.select_parent_one</span>(<span style="color:#87cefa;">Dom.select_class</span>(<span style="color:#ffa07a;">&ldquo;done&rdquo;</span>)))<br />
-  <span style="color:#87cefa;">update_counts</span>()</p>
-
-<p><span style="color:#87cefa;">add_todo</span>(x<span style="color:#98fb98;">: string</span>) =<br />
-  <span style="color:#b0c4de;">id =</span> <span style="color:#87cefa;">Random.string</span>(8)<br />
-  <span style="color:#b0c4de;">li_id =</span> <span style="color:#87cefa;">Random.string</span>(8)<br />
-  <span style="color:#b0c4de;">line =</span> <span style="color:#ffa07a;">&lt;</span><span style="color:#00ffff;">li </span><span style="color:#ffa07a;">id={</span> li<em>id <span style="color:#ffa07a;">}&gt;&lt;</span><span style="color:#00ffff;">div </span><span style="color:#ffa07a;">class=&ldquo;todo&rdquo; id={</span> id <span style="color:#ffa07a;">}&gt; &lt;</span><span style="color:#00ffff;">div </span><span style="color:#ffa07a;">class=&ldquo;display&rdquo;&gt; &lt;</span><span style="color:#00ffff;">input </span><span style="color:#ffa07a;">class=&ldquo;check&rdquo; type=&ldquo;checkbox&rdquo; onclick={</span></em> <span style="color:#00ffff;">-&gt;</span> <span style="color:#87cefa;">make_done</span>(id) <span style="color:#ffa07a;">} </span><span style="color:#00ffff;">/</span><span style="color:#ffa07a;">&gt; &lt;</span><span style="color:#00ffff;">div </span><span style="color:#ffa07a;">class=&ldquo;todo_content&rdquo;&gt;{</span> x <span style="color:#ffa07a;">}&lt;</span><span style="color:#00ffff;">/div</span><span style="color:#ffa07a;">&gt; &lt;</span><span style="color:#00ffff;">span </span><span style="color:#ffa07a;">class=&ldquo;todo<em>destroy&rdquo; onclick={</span></em> <span style="color:#00ffff;">-&gt;</span> <span style="color:#87cefa;">remove_item</span>(li_id) <span style="color:#ffa07a;">}&gt;&lt;</span><span style="color:#00ffff;">/span</span><span style="color:#ffa07a;">&gt; &lt;</span><span style="color:#00ffff;">/div</span><span style="color:#ffa07a;">&gt; &lt;</span><span style="color:#00ffff;">div </span><span style="color:#ffa07a;">class=&ldquo;edit&rdquo;&gt; &lt;</span><span style="color:#00ffff;">input </span><span style="color:#ffa07a;">class=&ldquo;todo-input&rdquo; type=&ldquo;text&rdquo; value=&ldquo;&rdquo; </span><span style="color:#00ffff;">/</span><span style="color:#ffa07a;">&gt; &lt;</span><span style="color:#00ffff;">/div</span><span style="color:#ffa07a;">&gt; &lt;</span><span style="color:#00ffff;">/div</span><span style="color:#ffa07a;">&gt;&lt;</span><span style="color:#00ffff;">/li</span><span style="color:#ffa07a;">&gt;</span><br />
-  <span style="color:#00ffff;">do</span> <span style="color:#87cefa;">Dom.transform</span>([#todo_list <span style="color:#00ffff;">+&lt;-</span> line ])<br />
-  <span style="color:#00ffff;">do</span> <span style="color:#87cefa;">Dom.scroll_to_bottom</span>(#todo_list)<br />
-  <span style="color:#00ffff;">do</span> <span style="color:#87cefa;">Dom.set_value</span>(#new_todo, <span style="color:#ffa07a;">&rdquo;&rdquo;</span>)<br />
-  <span style="color:#87cefa;">update_counts</span>()</pre><br />
-It is unique in combining the HTML into the language itself. Some have argued against this but when it works well it makes perfect sense. I don&rsquo;t want to have to convert a designers HTML into some other representation! And being able to have type checked dynamic functionality within the HTML is a boon. Even with just this simple program, I found the usefulness of the type checker outstanding.</p>
-
-<p>Next we have the main outline of the page and the entry part for the program.<br />
-<pre style="color:#bebebe;background-color:#262626;"><span style="color:#87cefa;">start</span>() =<br />
-  <span style="color:#ffa07a;">&lt;</span><span style="color:#00ffff;">div </span><span style="color:#ffa07a;">id=&ldquo;todoapp&rdquo;&gt; &lt;</span><span style="color:#00ffff;">div </span><span style="color:#ffa07a;">class=&ldquo;title&rdquo;&gt; &lt;</span><span style="color:#00ffff;">h1</span><span style="color:#ffa07a;">&gt;Todos&lt;</span><span style="color:#00ffff;">/h1</span><span style="color:#ffa07a;">&gt; &lt;</span><span style="color:#00ffff;">/div</span><span style="color:#ffa07a;">&gt;</span><br />
-    <span style="color:#ffa07a;">&lt;</span><span style="color:#00ffff;">div </span><span style="color:#ffa07a;">class=&ldquo;content&rdquo;&gt; &lt;</span><span style="color:#00ffff;">div </span><span style="color:#ffa07a;">id=#create_todo&gt; &lt;</span><span style="color:#00ffff;">input </span><span style="color:#ffa07a;">id=#new<em>todo placeholder=&ldquo;What needs to be done?&rdquo; type=&ldquo;text&rdquo; onnewline={</span></em> <span style="color:#00ffff;">-&gt;</span> <span style="color:#87cefa;">add_todo</span>(<span style="color:#87cefa;">Dom.get_value</span>(#new_todo)) <span style="color:#ffa07a;">} </span><span style="color:#00ffff;">/</span><span style="color:#ffa07a;">&gt; &lt;</span><span style="color:#00ffff;">/div</span><span style="color:#ffa07a;">&gt;</span><br />
-      <span style="color:#ffa07a;">&lt;</span><span style="color:#00ffff;">div </span><span style="color:#ffa07a;">id=#todos&gt; &lt;</span><span style="color:#00ffff;">ul </span><span style="color:#ffa07a;">id=#todo_list&gt;&lt;</span><span style="color:#00ffff;">/ul</span><span style="color:#ffa07a;">&gt; &lt;</span><span style="color:#00ffff;">/div</span><span style="color:#ffa07a;">&gt;</span></p>
-
-<pre><code>  &lt;span style=&quot;color:#ffa07a;&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#00ffff;&quot;&gt;div &lt;/span&gt;&lt;span style=&quot;color:#ffa07a;&quot;&gt;id=&quot;todo_stats&quot;&amp;gt; &amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#00ffff;&quot;&gt;span &lt;/span&gt;&lt;span style=&quot;color:#ffa07a;&quot;&gt;class=&quot;todo_count&quot;&amp;gt; &amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#00ffff;&quot;&gt;span &lt;/span&gt;&lt;span style=&quot;color:#ffa07a;&quot;&gt;id=#number_left class=&quot;number&quot;&amp;gt;0&amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#00ffff;&quot;&gt;/span&lt;/span&gt;&lt;span style=&quot;color:#ffa07a;&quot;&gt;&amp;gt; &amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#00ffff;&quot;&gt;span &lt;/span&gt;&lt;span style=&quot;color:#ffa07a;&quot;&gt;class=&quot;word&quot;&amp;gt;items&amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#00ffff;&quot;&gt;/span&lt;/span&gt;&lt;span style=&quot;color:#ffa07a;&quot;&gt;&amp;gt; left. &amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#00ffff;&quot;&gt;/span&lt;/span&gt;&lt;span style=&quot;color:#ffa07a;&quot;&gt;&amp;gt; &amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#00ffff;&quot;&gt;span &lt;/span&gt;&lt;span style=&quot;color:#ffa07a;&quot;&gt;class=&quot;todo_clear&quot;&amp;gt; &amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#00ffff;&quot;&gt;a &lt;/span&gt;&lt;span style=&quot;color:#ffa07a;&quot;&gt;href=&quot;#&quot; onclick={&lt;/span&gt;_ &lt;span style=&quot;color:#00ffff;&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&quot;color:#87cefa;&quot;&gt;remove_all_done&lt;/span&gt;() &lt;span style=&quot;color:#ffa07a;&quot;&gt;}&amp;gt; Clear &amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#00ffff;&quot;&gt;span &lt;/span&gt;&lt;span style=&quot;color:#ffa07a;&quot;&gt;id=#number_done class=&quot;number-done&quot;&amp;gt;0&amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#00ffff;&quot;&gt;/span&lt;/span&gt;&lt;span style=&quot;color:#ffa07a;&quot;&gt;&amp;gt; completed &amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#00ffff;&quot;&gt;span &lt;/span&gt;&lt;span style=&quot;color:#ffa07a;&quot;&gt;class=&quot;word-done&quot;&amp;gt;items&amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#00ffff;&quot;&gt;/span&lt;/span&gt;&lt;span style=&quot;color:#ffa07a;&quot;&gt;&amp;gt; &amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#00ffff;&quot;&gt;/a&lt;/span&gt;&lt;span style=&quot;color:#ffa07a;&quot;&gt;&amp;gt; &amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#00ffff;&quot;&gt;/span&lt;/span&gt;&lt;span style=&quot;color:#ffa07a;&quot;&gt;&amp;gt; &amp;lt;&lt;/span&gt;&lt;span style=&quot;color:#00ffff;&quot;&gt;/div&lt;/span&gt;&lt;span style=&quot;color:#ffa07a;&quot;&gt;&amp;gt;&lt;/span&gt;  
-&amp;lt;/div&amp;gt;  
-</code></pre>
-
-<p>&lt;/div&gt;</p>
-
-<p><span style="color:#ffa07a;">/** * {1</span><span style="color:#ffa07a;font-weight:bold;"> Application</span><span style="color:#ffa07a;">} */</span></p>
-
-<p><span style="color:#ffa07a;">/** * Main entry point. */</span><br />
-<span style="color:#00ffff;">server</span><span style="color:#b0c4de;"> =</span> <span style="color:#87cefa;">Server.one_page_bundle</span>(<span style="color:#ffa07a;">&ldquo;Todo&rdquo;</span>,<br />
-       [<span style="color:#cd3700;">@static_resource_directory</span>(<span style="color:#ffa07a;">&ldquo;resources&rdquo;</span>)],<br />
-       [<span style="color:#ffa07a;">&ldquo;resources/todos.css&rdquo;</span>], start)</pre><br />
-It won&rsquo;t be able to replace my use of Erlang for the backend and Coffeescript for the frontend, but it looks very promising.</p>
-
+<p>The functions below handle interactions with the Todo items. It somewhat reminds me of <a href="http://liftweb.net/">Lift</a> but taken even farther.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>It is unique in combining the HTML into the language itself. Some have argued against this but when it works well it makes perfect sense. I don&rsquo;t want to have to convert a designers HTML into some other representation! And being able to have type checked dynamic functionality within the HTML is a boon. Even with just this simple program, I found the usefulness of the type checker outstanding.</p>
+<p>Next we have the main outline of the page and the entry part for the program.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>It won&rsquo;t be able to replace my use of Erlang for the backend and Coffeescript for the frontend, but it looks very promising.</p>
 <p>I&rsquo;ll be extending this example to include persistence, sessions and users and will add posts as I complete those.</p>
     
         </div>
@@ -202,6 +153,72 @@ It won&rsquo;t be able to replace my use of Erlang for the backend and Coffeescr
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/opado-data-storage/">
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/opado-data-storage/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #cloud 
+              #dotcloud 
+              #Opa 
+              #Web  </span>
+              
+              <h2 class="post-card-title">OpaDo Data Storage</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>OpaDo (a port of the TodoMVC app to Opa) now persists todo items to the Opa database. The new version is up on dotcloud, http://opado-tristan.sloughter.dotcloud.com/
+I&rsquo;ve added a todo_item type which stores the item&rsquo;s value and two other attributes we won&rsquo;t use until the next post when we have user accounts for their own todo_item stores.
+To tell Opa where to store the records we&rsquo;ll create, we provide a path to the Opa db function and set its type. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/centos6-chef-node-creation/">
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/centos6-chef-node-creation/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Chef 
+              #Devops 
+              #Opscode  </span>
+              
+              <h2 class="post-card-title">Centos6 : Chef Node Creation</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>I thought I&rsquo;d share the scripts I use to take a fresh Centos6 install and have it configured to work with a Chef server. Maybe its not as easy as when running in a virtualized environment, but it saves plenty of time.
+On the new node I run the setup_client.sh script which calls in the end client_gen.sh on the Chef server once everything is installed on the node. I left the version numbers for Ruby and Chef in the script so you know what versions I&rsquo;ve tested this with. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

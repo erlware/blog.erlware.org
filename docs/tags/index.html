@@ -33,7 +33,7 @@
     <meta property="og:description" content="" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -119,7 +119,7 @@
           
           <a href="/tags/emacs"> emacs </a> (2)&nbsp;&#x2F;&nbsp;
           
-          <a href="/tags/erlang"> erlang </a> (25)&nbsp;&#x2F;&nbsp;
+          <a href="/tags/erlang"> erlang </a> (26)&nbsp;&#x2F;&nbsp;
           
           <a href="/tags/fault-tolerance"> fault-tolerance </a> (1)&nbsp;&#x2F;&nbsp;
           
@@ -190,74 +190,8 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/erlang-common-test-continuous-integration/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/erlang-common-test-continuous-integration/">
-          <header class="post-card-header">
-              
-              <h2 class="post-card-title">Erlang Common Test Continuous Integration</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>Common Test is a well thought out integration testing framework for Erlang. If you
-are not using it you probably should be. However, it has one fault. It
-does not return non-negative exit status&rsquo; to the caller when the tests
-fail. This is a major oversight, and it makes it difficult to use as
-part of a continuous integration scheme or in a make based build
-system.
-The long term fix is for the OTP folks to resolve the issue in the ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
-          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/rebar3-features-part-1-local-install-and-upgrade/">
-      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/rebar3-features-part-1-local-install-and-upgrade/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #Erlang 
-              #rebar3  </span>
-              
-              <h2 class="post-card-title">Rebar3 Features (part 1): Local install and upgrade</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>Update January 22, 2016: The original post has been modified to reflect that the commands install and upgrade were moved from the unstable namespace to the local namespace. Also added is use of the environment variable $REBAR3_ERL_ARGS in the run script which allows the user to specify custom Erlang VM arguments like: REBAR3_ERL_ARGS=&quot;+A10&quot; rebar3 shell.
-Rebar3 comes with a lot of new and improved features. I&rsquo;ll be publishing posts here to highlight some of these features over the coming weeks. ...  </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
-          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
     <a class="post-card-image-link" href="/rebar3-auto-comile-and-load-plugin/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
     </a>    
     
 
@@ -272,8 +206,76 @@ Rebar3 comes with a lot of new and improved features. I&rsquo;ll be publishing p
           </header>
           <section class="post-card-excerpt">
               
-                <p>During development the Erlang shell is often used for quickly testing functionality. Erlang&rsquo;s ability to reload modules while running makes this workflow even more efficient. To go a step further in removing manual intervention tools like [sync]() and [active]() have been created. These libs will listen for file modifications, recompile and reload the changed modules.
+                <p>During development the Erlang shell is often used for quickly testing functionality. Erlang&rsquo;s ability to reload modules while running makes this workflow even more efficient. To go a step further in removing manual intervention tools like sync and active have been created. These libs will listen for file modifications, recompile and reload the changed modules.
 With rebar3 there is a plugin rebar3_auto which will start the shell, begin listening for modifications in the source directories of the project and recompile/reload when changes occur. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/ecloudedit-part-2-couchdb/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/ecloudedit-part-2-couchdb/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #CouchDB 
+              #Erlang 
+              #simple_one_for_one 
+              #Web 
+              #Webmachine  </span>
+              
+              <h2 class="post-card-title">eCloudEdit Part 2: CouchDB</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>In my last post I showed the Webmachine backend to James Yu&rsquo;s CloudEdit app in Backbone.js. What was left out was, where are the documents stored? Here I&rsquo;ll show how this is done with CouchDB. And you can give the app a try at http://erlware.org:8080
+First, a new Erlang app is needed that we&rsquo;ll call ece_db.
+Three modules are implemented, one that starts the app by calling the supervisor&rsquo;s start function, the supervisor itself that sets up a simple_one_for_one and the gen_server that handles the frontends requests for creating and modifying documents in CouchDB. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/erlang-dc-december-3rd-2011/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/erlang-dc-december-3rd-2011/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #Functional Programming  </span>
+              
+              <h2 class="post-card-title">Erlang DC: December 3rd, 2011</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>ErlangDC is coming up in a month and will be featuring our own Eric Merritt speaking on building enterprise applications with Erlang and Sinan, as well as other great presentations from Erlang experts. You can still submit your own proposal.
+Get your tickets now! </p>
               
           </section>
       </a>

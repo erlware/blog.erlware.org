@@ -36,7 +36,7 @@
     <meta property="article:tag" content="Emacs" /><meta property="article:tag" content="Erlang" /><meta property="article:tag" content="Functional Programming" /><meta property="article:tag" content="OTP" /><meta property="article:tag" content="rebar" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -104,25 +104,18 @@
         <h1 class="post-full-title">Projmake-mode: Flymake Replacement</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/4.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/6.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
         <p>There is a great new <a href="http://www.gnu.org/software/emacs/" title="Emacs">Emacs</a> plugin from <a href="http://blog.ericbmerritt.com/" title="Eric Merritt">Eric Merritt</a> that like <a href="http://www.emacswiki.org/emacs/FlyMake" title="FlyMake">FlyMake</a> builds your code and highlights within Emacs any errors or warnings, but unlike FlyMake builds across the whole project. You can clone the mode from here <a href="https://github.com/ericbmerritt/projmake-mode" title="projmake-mode">projmake-mode</a></p>
-
 <p>After cloning the repo to your desired location add this bit to your dot emacs file, replacing <em>&lt;PATH&gt;</em> with the path to where you cloned the repo.</p>
-
 <p>[gist]3794732[/gist]</p>
-
 <p>This Emacs code also uses <em>add-hook</em> to set <em>projmake-mode</em> to start for <em>erlang-mode</em> is loaded. Projmake by default knows how to handle <a href="https://github.com/basho/rebar" title="rebar">rebar</a> and Make based builds so there is no setup after this, assuming your project is built this way.</p>
-
-<p>Here is my <em>Makefile</em> for building Erlang projects with rebar, replace <em>PROJECT<em> with the name of your project:</em></em></p>
-
+<p>Here is my <em>Makefile</em> for building Erlang projects with rebar, replace <em>PROJECT<!-- raw HTML omitted --> with the name of your project:</em><!-- raw HTML omitted --></p>
 <p>[gist]3795007[/gist]</p>
-
 <p>Now you can load Emacs and a file from your project and if it is an Erlang file due to the <em>add-hook</em> function in our dot emacs file it will automatically load projmake-mode. You can add hooks for other modes or simply run <em>M-x projmake-mode</em>.</p>
-
 <p>For more documentation and how to extend to other types of projects check out the <a href="https://github.com/ericbmerritt/projmake-mode/blob/master/README.md" title="README">documentation</a>.</p>
     
         </div>
@@ -152,6 +145,70 @@
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/running-opa-applications-on-heroku/">
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/running-opa-applications-on-heroku/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #buildpacks 
+              #heroku 
+              #node.js 
+              #Opa 
+              #web development  </span>
+              
+              <h2 class="post-card-title">Running Opa Applications on Heroku</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>TL;DR
+As I&rsquo;ve mentioned before, Opa is a new web framework that introduces not only the framework itself but a whole new language. A lot has changed in Opa since I last posted about it. Now Opa has a Javascript-esque look and runs on Node.js. But it still has the amazing typing system that makes Opa a joy to code in.
+The currently available Heroku buildpack for Opa only supported the old, pre-Node, support. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/maru-models-json-to-erlang-record-with-custom-types/">
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/maru-models-json-to-erlang-record-with-custom-types/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang  </span>
+              
+              <h2 class="post-card-title">Maru Models: JSON to Erlang Record with Custom Types</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Working with Erlang for writing RESTful interfaces JSON is the communication &ldquo;language&rdquo; of choice. For simplifying the process of JSON to a model the backend could work with efficiently I&rsquo;ve created maru_models. This app decodes the JSON with jiffy and uses functions generated by a modified version of Ulf&rsquo;s exprecs to create an Erlang record. The generated functions are created with type information from the record definition and when a property is set for the record through these functions it is first passed to the convert function of maru_model_types to do any necessary processing. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

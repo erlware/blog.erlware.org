@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Erlware Blog</title>
@@ -6,89 +6,67 @@
     <description>Recent content in Tags on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 Apr 2012 20:11:28 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 05 Dec 2020 10:41:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Api</title>
-      <link>/tags/api/</link>
-      <pubDate>Fri, 27 Apr 2012 20:11:28 +0000</pubDate>
+      <title>Erlang</title>
+      <link>/tags/erlang/</link>
+      <pubDate>Sat, 05 Dec 2020 10:41:00 +0000</pubDate>
       
-      <guid>/tags/api/</guid>
+      <guid>/tags/erlang/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Backbone.js</title>
-      <link>/tags/backbone.js/</link>
-      <pubDate>Wed, 09 Feb 2011 09:10:43 +0000</pubDate>
+      <title>proper</title>
+      <link>/tags/proper/</link>
+      <pubDate>Sat, 08 Jun 2019 09:08:10 +0000</pubDate>
       
-      <guid>/tags/backbone.js/</guid>
+      <guid>/tags/proper/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Batman.js</title>
-      <link>/tags/batman.js/</link>
-      <pubDate>Mon, 30 Apr 2012 19:59:11 +0000</pubDate>
+      <title>property testing</title>
+      <link>/tags/property-testing/</link>
+      <pubDate>Sat, 08 Jun 2019 09:08:10 +0000</pubDate>
       
-      <guid>/tags/batman.js/</guid>
+      <guid>/tags/property-testing/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Buildpacks</title>
-      <link>/tags/buildpacks/</link>
-      <pubDate>Mon, 12 Nov 2012 22:07:50 +0000</pubDate>
+      <title>docker</title>
+      <link>/tags/docker/</link>
+      <pubDate>Tue, 18 Sep 2018 06:09:11 +0000</pubDate>
       
-      <guid>/tags/buildpacks/</guid>
+      <guid>/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Chef</title>
-      <link>/tags/chef/</link>
-      <pubDate>Thu, 29 Sep 2011 20:05:30 +0000</pubDate>
+      <title>rebar3</title>
+      <link>/tags/rebar3/</link>
+      <pubDate>Tue, 18 Sep 2018 06:09:11 +0000</pubDate>
       
-      <guid>/tags/chef/</guid>
+      <guid>/tags/rebar3/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Cloud</title>
-      <link>/tags/cloud/</link>
-      <pubDate>Thu, 24 Nov 2011 04:03:07 +0000</pubDate>
+      <title>OTP</title>
+      <link>/tags/otp/</link>
+      <pubDate>Thu, 21 Jun 2018 03:55:53 +0000</pubDate>
       
-      <guid>/tags/cloud/</guid>
+      <guid>/tags/otp/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Coffeescript</title>
-      <link>/tags/coffeescript/</link>
-      <pubDate>Fri, 27 Apr 2012 20:11:28 +0000</pubDate>
+      <title>relx</title>
+      <link>/tags/relx/</link>
+      <pubDate>Thu, 21 Jun 2018 03:55:53 +0000</pubDate>
       
-      <guid>/tags/coffeescript/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Couchdb</title>
-      <link>/tags/couchdb/</link>
-      <pubDate>Sat, 12 Feb 2011 23:37:34 +0000</pubDate>
-      
-      <guid>/tags/couchdb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cowboy</title>
-      <link>/tags/cowboy/</link>
-      <pubDate>Sat, 05 May 2012 01:33:07 +0000</pubDate>
-      
-      <guid>/tags/cowboy/</guid>
+      <guid>/tags/relx/</guid>
       <description></description>
     </item>
     
@@ -102,65 +80,20 @@
     </item>
     
     <item>
-      <title>Devops</title>
-      <link>/tags/devops/</link>
-      <pubDate>Thu, 29 Sep 2011 20:05:30 +0000</pubDate>
+      <title>Postgres</title>
+      <link>/tags/postgres/</link>
+      <pubDate>Mon, 05 May 2014 02:41:52 +0000</pubDate>
       
-      <guid>/tags/devops/</guid>
+      <guid>/tags/postgres/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Docker</title>
-      <link>/tags/docker/</link>
-      <pubDate>Tue, 18 Sep 2018 06:09:11 +0000</pubDate>
-      
-      <guid>/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dotcloud</title>
-      <link>/tags/dotcloud/</link>
-      <pubDate>Mon, 07 Nov 2011 07:19:48 +0000</pubDate>
-      
-      <guid>/tags/dotcloud/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Emacs</title>
-      <link>/tags/emacs/</link>
-      <pubDate>Thu, 27 Sep 2012 23:13:47 +0000</pubDate>
-      
-      <guid>/tags/emacs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Erlang</title>
-      <link>/tags/erlang/</link>
-      <pubDate>Sat, 08 Jun 2019 09:08:10 +0000</pubDate>
-      
-      <guid>/tags/erlang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Fault Tolerance</title>
+      <title>fault tolerance</title>
       <link>/tags/fault-tolerance/</link>
       <pubDate>Mon, 28 Apr 2014 01:41:16 +0000</pubDate>
       
       <guid>/tags/fault-tolerance/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Functional Programming</title>
-      <link>/tags/functional-programming/</link>
-      <pubDate>Thu, 27 Sep 2012 23:13:47 +0000</pubDate>
-      
-      <guid>/tags/functional-programming/</guid>
       <description></description>
     </item>
     
@@ -174,7 +107,16 @@
     </item>
     
     <item>
-      <title>Heroku</title>
+      <title>buildpacks</title>
+      <link>/tags/buildpacks/</link>
+      <pubDate>Mon, 12 Nov 2012 22:07:50 +0000</pubDate>
+      
+      <guid>/tags/buildpacks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>heroku</title>
       <link>/tags/heroku/</link>
       <pubDate>Mon, 12 Nov 2012 22:07:50 +0000</pubDate>
       
@@ -183,56 +125,11 @@
     </item>
     
     <item>
-      <title>Javascript</title>
-      <link>/tags/javascript/</link>
-      <pubDate>Mon, 30 Apr 2012 19:59:11 +0000</pubDate>
-      
-      <guid>/tags/javascript/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Js</title>
-      <link>/tags/js/</link>
-      <pubDate>Mon, 29 Aug 2011 01:37:13 +0000</pubDate>
-      
-      <guid>/tags/js/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Knockout.js</title>
-      <link>/tags/knockout.js/</link>
-      <pubDate>Mon, 29 Aug 2011 01:37:13 +0000</pubDate>
-      
-      <guid>/tags/knockout.js/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mvc</title>
-      <link>/tags/mvc/</link>
-      <pubDate>Wed, 09 Feb 2011 09:10:43 +0000</pubDate>
-      
-      <guid>/tags/mvc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Node.js</title>
+      <title>node.js</title>
       <link>/tags/node.js/</link>
       <pubDate>Mon, 12 Nov 2012 22:07:50 +0000</pubDate>
       
       <guid>/tags/node.js/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ocaml</title>
-      <link>/tags/ocaml/</link>
-      <pubDate>Sat, 15 Oct 2011 17:59:01 +0000</pubDate>
-      
-      <guid>/tags/ocaml/</guid>
       <description></description>
     </item>
     
@@ -246,70 +143,34 @@
     </item>
     
     <item>
-      <title>Opscode</title>
-      <link>/tags/opscode/</link>
-      <pubDate>Thu, 29 Sep 2011 20:05:30 +0000</pubDate>
+      <title>web development</title>
+      <link>/tags/web-development/</link>
+      <pubDate>Mon, 12 Nov 2012 22:07:50 +0000</pubDate>
       
-      <guid>/tags/opscode/</guid>
+      <guid>/tags/web-development/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Otp</title>
-      <link>/tags/otp/</link>
-      <pubDate>Thu, 21 Jun 2018 03:55:53 +0000</pubDate>
+      <title>Emacs</title>
+      <link>/tags/emacs/</link>
+      <pubDate>Thu, 27 Sep 2012 23:13:47 +0000</pubDate>
       
-      <guid>/tags/otp/</guid>
+      <guid>/tags/emacs/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Postgres</title>
-      <link>/tags/postgres/</link>
-      <pubDate>Mon, 05 May 2014 02:41:52 +0000</pubDate>
+      <title>Functional Programming</title>
+      <link>/tags/functional-programming/</link>
+      <pubDate>Thu, 27 Sep 2012 23:13:47 +0000</pubDate>
       
-      <guid>/tags/postgres/</guid>
+      <guid>/tags/functional-programming/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Proper</title>
-      <link>/tags/proper/</link>
-      <pubDate>Sat, 08 Jun 2019 09:08:10 +0000</pubDate>
-      
-      <guid>/tags/proper/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Property Testing</title>
-      <link>/tags/property-testing/</link>
-      <pubDate>Sat, 08 Jun 2019 09:08:10 +0000</pubDate>
-      
-      <guid>/tags/property-testing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pubnub</title>
-      <link>/tags/pubnub/</link>
-      <pubDate>Sun, 10 Apr 2011 20:33:19 +0000</pubDate>
-      
-      <guid>/tags/pubnub/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pubsub</title>
-      <link>/tags/pubsub/</link>
-      <pubDate>Sun, 10 Apr 2011 20:33:19 +0000</pubDate>
-      
-      <guid>/tags/pubsub/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Rebar</title>
+      <title>rebar</title>
       <link>/tags/rebar/</link>
       <pubDate>Thu, 27 Sep 2012 23:13:47 +0000</pubDate>
       
@@ -318,25 +179,43 @@
     </item>
     
     <item>
-      <title>Rebar3</title>
-      <link>/tags/rebar3/</link>
-      <pubDate>Tue, 18 Sep 2018 06:09:11 +0000</pubDate>
+      <title>Cowboy</title>
+      <link>/tags/cowboy/</link>
+      <pubDate>Sat, 05 May 2012 01:33:07 +0000</pubDate>
       
-      <guid>/tags/rebar3/</guid>
+      <guid>/tags/cowboy/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Relx</title>
-      <link>/tags/relx/</link>
-      <pubDate>Thu, 21 Jun 2018 03:55:53 +0000</pubDate>
+      <title>sinan</title>
+      <link>/tags/sinan/</link>
+      <pubDate>Sat, 05 May 2012 01:33:07 +0000</pubDate>
       
-      <guid>/tags/relx/</guid>
+      <guid>/tags/sinan/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Restful</title>
+      <title>batman.js</title>
+      <link>/tags/batman.js/</link>
+      <pubDate>Mon, 30 Apr 2012 19:59:11 +0000</pubDate>
+      
+      <guid>/tags/batman.js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>/tags/javascript/</link>
+      <pubDate>Mon, 30 Apr 2012 19:59:11 +0000</pubDate>
+      
+      <guid>/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RESTful</title>
       <link>/tags/restful/</link>
       <pubDate>Mon, 30 Apr 2012 19:59:11 +0000</pubDate>
       
@@ -345,20 +224,29 @@
     </item>
     
     <item>
-      <title>Simple_one_for_one</title>
-      <link>/tags/simple_one_for_one/</link>
-      <pubDate>Sun, 10 Apr 2011 20:33:19 +0000</pubDate>
+      <title>Webmachine</title>
+      <link>/tags/webmachine/</link>
+      <pubDate>Mon, 30 Apr 2012 19:59:11 +0000</pubDate>
       
-      <guid>/tags/simple_one_for_one/</guid>
+      <guid>/tags/webmachine/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Sinan</title>
-      <link>/tags/sinan/</link>
-      <pubDate>Sat, 05 May 2012 01:33:07 +0000</pubDate>
+      <title>API</title>
+      <link>/tags/api/</link>
+      <pubDate>Fri, 27 Apr 2012 20:11:28 +0000</pubDate>
       
-      <guid>/tags/sinan/</guid>
+      <guid>/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>coffeescript</title>
+      <link>/tags/coffeescript/</link>
+      <pubDate>Fri, 27 Apr 2012 20:11:28 +0000</pubDate>
+      
+      <guid>/tags/coffeescript/</guid>
       <description></description>
     </item>
     
@@ -372,20 +260,128 @@
     </item>
     
     <item>
-      <title>Web Development</title>
-      <link>/tags/web-development/</link>
-      <pubDate>Mon, 12 Nov 2012 22:07:50 +0000</pubDate>
+      <title>cloud</title>
+      <link>/tags/cloud/</link>
+      <pubDate>Thu, 24 Nov 2011 04:03:07 +0000</pubDate>
       
-      <guid>/tags/web-development/</guid>
+      <guid>/tags/cloud/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Webmachine</title>
-      <link>/tags/webmachine/</link>
-      <pubDate>Mon, 30 Apr 2012 19:59:11 +0000</pubDate>
+      <title>dotcloud</title>
+      <link>/tags/dotcloud/</link>
+      <pubDate>Mon, 07 Nov 2011 07:19:48 +0000</pubDate>
       
-      <guid>/tags/webmachine/</guid>
+      <guid>/tags/dotcloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OCaml</title>
+      <link>/tags/ocaml/</link>
+      <pubDate>Sat, 15 Oct 2011 17:59:01 +0000</pubDate>
+      
+      <guid>/tags/ocaml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chef</title>
+      <link>/tags/chef/</link>
+      <pubDate>Thu, 29 Sep 2011 20:05:30 +0000</pubDate>
+      
+      <guid>/tags/chef/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devops</title>
+      <link>/tags/devops/</link>
+      <pubDate>Thu, 29 Sep 2011 20:05:30 +0000</pubDate>
+      
+      <guid>/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Opscode</title>
+      <link>/tags/opscode/</link>
+      <pubDate>Thu, 29 Sep 2011 20:05:30 +0000</pubDate>
+      
+      <guid>/tags/opscode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>js</title>
+      <link>/tags/js/</link>
+      <pubDate>Mon, 29 Aug 2011 01:37:13 +0000</pubDate>
+      
+      <guid>/tags/js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>knockout.js</title>
+      <link>/tags/knockout.js/</link>
+      <pubDate>Mon, 29 Aug 2011 01:37:13 +0000</pubDate>
+      
+      <guid>/tags/knockout.js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pubnub</title>
+      <link>/tags/pubnub/</link>
+      <pubDate>Sun, 10 Apr 2011 20:33:19 +0000</pubDate>
+      
+      <guid>/tags/pubnub/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pubsub</title>
+      <link>/tags/pubsub/</link>
+      <pubDate>Sun, 10 Apr 2011 20:33:19 +0000</pubDate>
+      
+      <guid>/tags/pubsub/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>simple_one_for_one</title>
+      <link>/tags/simple_one_for_one/</link>
+      <pubDate>Sun, 10 Apr 2011 20:33:19 +0000</pubDate>
+      
+      <guid>/tags/simple_one_for_one/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CouchDB</title>
+      <link>/tags/couchdb/</link>
+      <pubDate>Sat, 12 Feb 2011 23:37:34 +0000</pubDate>
+      
+      <guid>/tags/couchdb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Backbone.js</title>
+      <link>/tags/backbone.js/</link>
+      <pubDate>Wed, 09 Feb 2011 09:10:43 +0000</pubDate>
+      
+      <guid>/tags/backbone.js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MVC</title>
+      <link>/tags/mvc/</link>
+      <pubDate>Wed, 09 Feb 2011 09:10:43 +0000</pubDate>
+      
+      <guid>/tags/mvc/</guid>
       <description></description>
     </item>
     

@@ -36,7 +36,7 @@
     <meta property="article:tag" content="Erlang" /><meta property="article:tag" content="rebar3" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -109,14 +109,9 @@
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
-        
-
-<p>No plugin is needed for using Hex packages in your project, covered in documentation <a href="http://www.rebar3.org/docs/dependencies#package-manager-dependencies">here</a>, but at this time the plugin <a href="https://hex.pm/packages/rebar3_hex">rebar3_hex</a> is needed for publishing. The plugin provides support for registering with <a href="http://hex.pm">hex.pm</a> and publishing packages. For instructions on registering see the <a href="https://hex.pm/docs/rebar3_publish">rebar3 hex.pm documentation</a>, here we&rsquo;ll cover publishing a package with some unique features to the rebar3 plugin.</p>
-
+        <p>No plugin is needed for using Hex packages in your project, covered in documentation <a href="http://www.rebar3.org/docs/dependencies#package-manager-dependencies">here</a>, but at this time the plugin <a href="https://hex.pm/packages/rebar3_hex">rebar3_hex</a> is needed for publishing. The plugin provides support for registering with <a href="http://hex.pm">hex.pm</a> and publishing packages. For instructions on registering see the <a href="https://hex.pm/docs/rebar3_publish">rebar3 hex.pm documentation</a>, here we&rsquo;ll cover publishing a package with some unique features to the rebar3 plugin.</p>
 <h3 id="rebar3-hex-cut">rebar3 hex cut</h3>
-
 <p>The <code>cut</code> command provides some automation on top of <code>publish</code>. The rebar3 hex plugin itself is a good example of a use case for this command. The <code>.app.src</code> file for the plugin looks like:</p>
-
 <pre><code>$ cat src/rebar3_hex.app.src 
 {application, rebar3_hex,
   [{description, &quot;Hex.pm plugin for rebar3&quot;},
@@ -126,16 +121,10 @@
    {licenses, [&quot;MIT&quot;]},
    {links, [{&quot;Github&quot;, &quot;https://github.com/tsloughter/rebar3_hex&quot;}]}]}.
 
-</code></pre>
-
-<p><code>contributors</code>, <code>licenses</code>, <code>links</code> are <code>hex</code> specific metadata. For the <code>vsn</code> of the application a commonly used feature of rebar3 is used where <code>&quot;git&quot;</code> is in the <code>.app.src</code> file and replaced at compile time with the latest git tag, if the current <code>HEAD</code> isn&rsquo;t on a specific tag the last tag with appended build metadata, as documented on <a href="http://semver.org/">semver.org</a>, is used.</p>
-
+</code></pre><p><code>contributors</code>, <code>licenses</code>, <code>links</code> are <code>hex</code> specific metadata. For the <code>vsn</code> of the application a commonly used feature of rebar3 is used where <code>&quot;git&quot;</code> is in the <code>.app.src</code> file and replaced at compile time with the latest git tag, if the current <code>HEAD</code> isn&rsquo;t on a specific tag the last tag with appended build metadata, as documented on <a href="http://semver.org/">semver.org</a>, is used.</p>
 <p>Running <code>cut</code> will first ask for what increment of the version to perform, major, minor or patch. The version, based on the git tag, is then incremented and a new tag is created. After publishing the package <code>cut</code> asks if the git tag should be pushed to <code>origin</code>.</p>
-
 <p>In the case an application has a static version string (not one like <code>&quot;git&quot;</code>) <code>cut</code> will increment the version and update <code>.app.src</code> and create a <code>version bump</code> commit and push to <code>origin</code>.</p>
-
 <p>Below is the output from publishing a version of <code>rebar3_hex</code> with the <code>cut</code> command:</p>
-
 <pre><code>(master) $ rebar3 hex cut             
 Select semver increment or other (Current 1.7.1):
 1) patch
@@ -157,14 +146,9 @@ Proceed? (&quot;Y&quot;)&gt; Y
 ===&gt; Published rebar3_hex 1.7.2
 Push new tag to origin? (&quot;Y&quot;)&gt; Y
 ===&gt; Pushing new tag v1.7.2...
-</code></pre>
-
-<h3 id="publishing-from-an-umbrella-project">Publishing from an umbrella project</h3>
-
+</code></pre><h3 id="publishing-from-an-umbrella-project">Publishing from an umbrella project</h3>
 <p>In an umbrella project there are multiple applications in the project. Since a package must be a single application the entire project can not be published as one. The rebar3 hex plugin will ask which application, or all, in the umbrella the user wants to publish.</p>
-
 <p>Remember to update the local rebar3 package registry with <code>rebar3 update</code> to fetch the latest published packages.</p>
-
 <p>With <a href="http://hex.pm">hex.pm</a> and <a href="https://hex.pm/docs/rebar3_publish">rebar3 hex</a> an efficient and effective Erlang package ecosystem can grow.</p>
     
         </div>
@@ -194,6 +178,66 @@ Push new tag to origin? (&quot;Y&quot;)&gt; Y
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/automatic-hex-package-publishing-with-travis-ci/">
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/automatic-hex-package-publishing-with-travis-ci/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Automatic Hex Package Publishing with Travis-CI</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Note: Travis CI does not yet provide rebar3 as a build tool for Erlang projects, so you will have to include a rebar3 executable escript in your repository.
+In your application&rsquo;s .app.src file use &quot;git&quot; as the version. This will replace the version string with the current tag when publishing the hex package:
+{vsn,&#34;git&#34;}, In the .travis.yml configuration add the below section so that the script scripts/hex.sh is run everytime a new tag is made: ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-features-part-6-_checkouts-2/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-features-part-6-_checkouts-2/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Features (part 6): _checkouts</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>In a build tool there is often a balancing act between ensuring repeatability and efficiency for the user. Wanting to make modifications on a dependency of your project is a common case of this. In rebar2 you could simply modify the source under deps/ and running rebar compile would pick those up. This meant that the contents of deps/ are not representative of the dependencies listed in rebar.config.
+With rebar3 a dependency is never rebuilt, even if a source file changes. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

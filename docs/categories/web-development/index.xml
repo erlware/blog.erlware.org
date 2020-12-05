@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Web Development on Erlware Blog</title>
+    <title>web development on Erlware Blog</title>
     <link>/categories/web-development/</link>
-    <description>Recent content in Web Development on Erlware Blog</description>
+    <description>Recent content in web development on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Nov 2012 22:07:50 +0000</lastBuildDate>
-    
-	<atom:link href="/categories/web-development/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 12 Nov 2012 22:07:50 +0000</lastBuildDate><atom:link href="/categories/web-development/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Running Opa Applications on Heroku</title>
       <link>/running-opa-applications-on-heroku/</link>

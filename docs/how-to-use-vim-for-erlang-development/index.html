@@ -39,7 +39,7 @@ You are about to learn to use Vim as your editor for Erlang development. You wil
     
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -106,165 +106,70 @@ You are about to learn to use Vim as your editor for Erlang development. You wil
         <h1 class="post-full-title">How to use Vim for Erlang Development</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/1.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/5.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
-        
-
-<p><a href="http://erlware.files.wordpress.com/2013/09/vim-logo-bas.png"><img src="http://erlware.files.wordpress.com/2013/09/vim-logo-bas.png?w=150" alt="vim editor logo" /></a></p>
-
-<p><em>This post sponsored by <a href="http://www.erlangcamp.org">ErlangCamp 2013</a> in Nashville which was epic!</p>
-
+        <p><a href="http://erlware.files.wordpress.com/2013/09/vim-logo-bas.png"><img src="http://erlware.files.wordpress.com/2013/09/vim-logo-bas.png?w=150" alt="vim editor logo"></a></p>
+<p><!-- raw HTML omitted -->This post sponsored by <a href="http://www.erlangcamp.org">ErlangCamp 2013</a> in Nashville which was epic!</p>
 <p>You are about to learn to use <strong>Vim</strong> as your editor for Erlang development. You will learn how to install and use a variety of really powerful Vim plugins to make Erlang dev with Vim smooth and satisfying!</p>
-
 <p>I have been developing Erlang now for about 13 years, many of them full time and even wrote a book on Erlang: <a href="http://manning.com/logan">Erlang &amp; OTP in Action</a>. I have loved every minute of it but there was always one thing that made me sad, probably makes you sad too - Emacs. Emacs is the de-facto editor for Erlang. The emacs mode included with the Erlang distro is quite wonderful. The fact still remains, Emacs, we do not like it. ctrl ~, ctrl x ctrl f etc&hellip; Nope!</p>
-
 <h2 id="setting-up-vim-for-erlang">Setting up Vim for Erlang</h2>
-
-<p>Let&rsquo;s get started setting up Vim for Erlang development. The first thing we need to do is setup pathogen so that installing subsequent packages is really simple. The first thing to do is create the directory <code>$HOME/.vim/autoload</code>. Download <a href="https://github.com/tpope/vim-pathogen">pathogen.vim from here</a> and place it into this directory. Now add the following 2 commands to your <code>$HOME/.vimrc</code> file.</p>
-
-<p><code>
-call pathogen#infect()  
-call pathogen#helptags()  
-</code></p>
-
+<p>Let&rsquo;s get started setting up Vim for Erlang development. The first thing we need to do is setup pathogen so that installing subsequent packages is really simple. The first thing to do is create the directory <code> $HOME/.vim/autoload</code>. Download <a href="https://github.com/tpope/vim-pathogen">pathogen.vim from here</a> and place it into this directory. Now add the following 2 commands to your <code>$HOME/.vimrc</code> file.</p>
+<p><code>call pathogen#infect()   call pathogen#helptags()  </code></p>
 <p>At this point pathogen will install and generate help documentation for any plugin you place into the <code>$HOME/.vim/bundle</code> directory - which you should of course create.</p>
-
 <p>With this created now we are ready to start installing plugins to make your life easier. Try these on for size by cloning these git repos directly into the <code>$HOME/.vim/bundle</code> directory. They will simply work next time you start vim.</p>
-
-<table>  
-<tr><td>[**vimerl.vim**](https://github.com/jimenezrick/vimerl)</td><td>Indenting, autocomplete and more for Erlang</td></tr>  
-<tr><td>[**ctrlp.vim**](https://github.com/kien/ctrlp.vim)</td><td>ctrl p and open a powerful fuzzy file finder. Makes navigating file trees a thing of the past.</td></tr>  
-<tr><td>[**NERDTree**](https://github.com/scrooloose/nerdtree)</td><td>Powerful file tree navigator right in vim - don't use it much since I installed ctrlp though.</td></tr>  
-<tr><td>[**NERDTree Tabs**](https://github.com/jistr/vim-nerdtree-tabs)</td><td>Add the NERDTree file finder to all tabs you have open in vim.</td></tr>  
-</table>  
-  
-
+<!-- raw HTML omitted -->
 <p>Before we get into basics on how to use all these plugins to create Erlang magic I want to show you two bonus tricks I really love. First, get a better color scheme. To do this create the directory <code>$HOME/.vim/colors</code> and find yourself a slick color scheme to drop into it. I recommend <a href="https://github.com/tpope/vim-vividchalk">vividchalk.vim by TPope</a>.</p>
-
 <blockquote>
-<p><strong>Pro Tip</strong></p>
-
-<p>For dropbox or other file sync users keep all your vim installs in sync easily like so; take your .vim and your .vimrc and move them into your Dropbox directory. Then run:</p>
-
-<p>`</p>
-
-<p>ln -s ~/Dropbox/.vim ~/.vim</p>
-
-<p>ln -s ~/Dropbox/.vimrc ~/.vimrc</p>
-
-<p>`</p>
-
+<p><strong>Pro Tip</strong>&gt;<br>
+For dropbox or other file sync users keep all your vim installs in sync easily like so; take your .vim and your .vimrc and move them into your Dropbox directory. Then run:&gt;</p>
+<p><code>&gt;    ln -s ~/Dropbox/.vim ~/.vim&gt;    ln -s ~/Dropbox/.vimrc ~/.vimrc&gt;   </code>&gt;</p>
 <p>Now all your machines vim installs will run just the same. If you have compatibility problems on any one, well then just skip this for that machine.</p>
 </blockquote>
-
 <p>Ok, so now on to how to use these plugins for Erlang/Vim greatness.</p>
-
 <h2 id="how-to-use-our-vim-plugins-for-erlang-dev">How to Use our Vim Plugins for Erlang Dev</h2>
-
-<p>I am going to use the <a href="https://github.com/erlware/erlware_commons">source for Erlware Commons</a> as an example. So I clone it first and then change into the <code>erlware_commons</code> directory and run vim. Now lets say I know what file I want to update, specifically the &ldquo;ec_date.erl&rdquo; file. The first thing I do is type <code>p</code> and then start typing ec_date.erl.</p>
-
-<pre>                                                                                                                                                            
-~                                                                                 
-[No Name] [TYPE= unix] [0/1 (100%)]                                               
-&gt; test/ec_dictionary_proper.erl  
-&gt; src/ec_dictionary.erl  
-&gt; src/ec_date.erl                                                                 
- prt  path  ={ files }=  &gt;&gt; ec_da  
-</pre>  
-  
-
+<p>I am going to use the <a href="https://github.com/erlware/erlware_commons">source for Erlware Commons</a> as an example. So I clone it first and then change into the <code>erlware_commons</code> directory and run vim. Now lets say I know what file I want to update, specifically the &ldquo;ec_date.erl&rdquo; file. The first thing I do is type <code> p</code> and then start typing ec_date.erl.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>You can see that as I start typing and get to &ldquo;ec_da&rdquo; ctrlp has already displayed a narrowed down list of files in the directory tree under where I have opened vim that match. The file on the bottom ec_date.erl is the one selected and so just pressing enter here will open it. If I wanted to select &ldquo;test/ec_dictionary_proper.erl&rdquo; then I could simply press the up arrow and select it or keep typing until it was the only selection.</p>
-
 <p>Now, what if I don&rsquo;t know what file I want to select? This is where NERDTree comes into play. Run <code>:NERDTree</code> and you will pop open the file browser. Like this:</p>
-
-<pre>  
-  Press ? for help             |  
-                               |~                                                 
-.. (up a dir)                  |~                                                 
-&lt;lang-projects/erlware_commons/|~                                                 
-▸ doc/                         |~                                                 
-▸ priv/                        |~                                                 
-▸ src/                         |~                                                 
-▸ test/                        |~                                                 
-  CONTRIBUTING.md              |~                                                 
-  COPYING                      |~                                                 
-  Makefile                     |~                                                 
-  README.md                    |~                                                 
-  rebar.config                 |~                                                 
-  rebar.config.script          |~                                                 
-~                              |~                                                 
-~                              |~                                                 
-~                              |~                                                                                                                                         
-</pre>  
-  
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Here we can see the directory tree for Erlware Commons. Each of the directories can be easily selected and expanded. Individual files can be selected and opened. There are a variety of ways to open a file. Below are the most common:</p>
-
 <ul>
-<li><code>&amp;lt;enter&amp;gt;</code> will open the file in the right pane<br /></li>
-<li><code>T</code> will open in a new tab within vim and keep focus in NERDTree<br /></li>
-<li><code>t</code> will open in a new tab and bring focus to the new tab<br />
-<br /></li>
+<li><code>&amp;lt;enter&amp;gt;</code> will open the file in the right pane</li>
+<li><code>T</code> will open in a new tab within vim and keep focus in NERDTree</li>
+<li><code>t</code> will open in a new tab and bring focus to the new tab</li>
 </ul>
-
 <p>IF you want to see the NERDTree browser in all your tabs use <code>:NERDTreeTabsToggle</code> to toggle it on and off. It will be the exact same NERDTree in the exact same state and cursor position on all tabs - nice! Once you are focused on the code in a given tab and you want to jump back to the left and into the NERDTree pane use <code>&amp;lt;ctrl&amp;gt; ww</code></p>
-
 <p>Once you have a load of tabs open you need to switch between then and to do this you need only two commands:</p>
-
 <ul>
-<li><code>gt</code> will goto the next tab the next tab<br /></li>
-<li><code>gT</code> will goto the previous tab<br />
-<br /></li>
+<li><code>gt</code> will goto the next tab the next tab</li>
+<li><code>gT</code> will goto the previous tab</li>
 </ul>
-
 <blockquote>
-<p><strong>Pro Tip</strong></p>
-
-<p>Map the tab commands and the NERDTreeTabsToggle command by adding the following to your vimrc.</p>
-
-<p>`</p>
-
-<p>map &lt;C-t&gt; :tabn&lt;Enter&gt;</p>
-
-<p>map &lt;C-n&gt; :tabnew&lt;Enter&gt;</p>
-
-<p>map nt :NERDTreeTabsToggle&lt;Enter&gt;</p>
-
-<p>`</p>
+<p><strong>Pro Tip</strong>&gt;<br>
+Map the tab commands and the NERDTreeTabsToggle command by adding the following to your vimrc.&gt;</p>
+<p><code>&gt;    map &amp;lt;C-t&amp;gt; :tabn&amp;lt;Enter&amp;gt;&gt;    map &amp;lt;C-n&amp;gt; :tabnew&amp;lt;Enter&amp;gt;&gt;    map nt :NERDTreeTabsToggle&amp;lt;Enter&amp;gt;&gt;   </code></p>
 </blockquote>
-
 <p>Ok, now on to editing Erlang with vimerl.</p>
-
 <h2 id="editing-with-vimerl">Editing with vimerl</h2>
-
 <p>This is not going to be an exhaustive list of vimerl editing commands but just a few of the goodies. The 20% you will use 80% of the time.</p>
-
 <h3 id="auto-indenting">Auto-indenting</h3>
-
 <p>vimerl will auto-indent for you as you type. But if you come across a line that you want to indent try typing <code>==</code>. Lets say you want to indent a block of code. Simple, mark the line that starts the block with <code>ma</code> then go to the end of the block and tell vimerl to indent to the mark as such: <code>='a</code>. Now if your whole file is a mess then try <code>gg</code> to go to the beginning of your file and then <code>=G</code> to indent all the way to the end. You can do this all in one step as in <code>gg=G</code>.</p>
-
 <h3 id="code-completion">Code Completion</h3>
-
 <p><code>ctrl-x ctrl-o</code> after typing a module name and a <code>:</code> will cause vimerl to suggest function names for you. It does this by searching the .beam and .erl files in the erlang code path (<code>code:get_path()</code> to see what they are) as well as looking at your rebar deps_dir if you are using rebar.config as part of your project.</p>
-
 <h3 id="skeletons">Skeletons</h3>
-
 <p>This is the feature that I loved most about the emacs mode for Erlang, well this and the auto indenting (most of the time, the fun() indenting still feels like a kick in the teeth). Here is a list of the most useful skeletons and the commands to generate them from within vimerl.</p>
-
 <ul>
-<li><strong>:ErlangApplication</strong> generate the skeleton for an OTP application behaviour.<br /></li>
-<li><strong>:ErlangSupervisor</strong> generate the skeleton for an OTP supervisor behaviour.<br /></li>
-<li><strong>:ErlangGen[Server|Fsm|Event]</strong> skeletons for gen server, fsm and event - yay!<br />
-<br /></li>
+<li><strong>:ErlangApplication</strong> generate the skeleton for an OTP application behaviour.</li>
+<li><strong>:ErlangSupervisor</strong> generate the skeleton for an OTP supervisor behaviour.</li>
+<li><strong>:ErlangGen[Server|Fsm|Event]</strong> skeletons for gen server, fsm and event - yay!</li>
 </ul>
-
 <p>Brilliant isn&rsquo;t it. Before I let you go there is one more invaluable command you should know about which is <code>:help vimerl</code> which will give you a list of all the other useful commands you may want to use. Remember to get it working be sure to add <code>call pathogen#helptags()</code> to the top of your .vimrc file. Goodbye Emacs, welcome back old friend Vim.</p>
-
 <p>Follow me on twitter <a href="http://twitter.com/martinjlogan">@martinjlogan</a></p>
-
 <p>&lt;esc&gt;:wq</p>
     
         </div>
@@ -294,6 +199,65 @@ call pathogen#helptags()
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/some-thoughts-on-go-and-erlang/">
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/some-thoughts-on-go-and-erlang/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #fault tolerance 
+              #Go  </span>
+              
+              <h2 class="post-card-title">Some Thoughts on Go and Erlang</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>UPDATE: I&rsquo;m seeing that I did not make the point of this post clear. I am not saying Go is wrong or should change because it isn&rsquo;t like Erlang. What I am attempting to show is the choices Go made that make it not an alternative to Erlang for backends where availability and low latency for high numbers of concurrent requests is a requirement. And notice I&rsquo;m not writing this about a language like Julia. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/universal-makefile-for-erlang-projects-that-use-rebar/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/universal-makefile-for-erlang-projects-that-use-rebar/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Universal Makefile for Erlang Projects That Use Rebar</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>This post sponsored by ErlangCamp 2013 in Nashville and Amsterdam
+At this point in the game nearly every Erlang project uses Rebar. The problem with that is that Rebar&rsquo;s approach to the command line and command dependency chaining is leaves a lot to be desired. You tend to end up typing the same command with the same options list over and over again during the course of your work. Because of the poor dependency chaining you often must retype the same sequence of commands as well. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

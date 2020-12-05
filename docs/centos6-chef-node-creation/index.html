@@ -36,7 +36,7 @@
     <meta property="article:tag" content="Chef" /><meta property="article:tag" content="Devops" /><meta property="article:tag" content="Opscode" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -104,58 +104,19 @@
         <h1 class="post-full-title">Centos6 : Chef Node Creation</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/2.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/3.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
-        
-
-<p>I thought I&rsquo;d share the scripts I use to take a fresh Centos6 install and have it configured to work with a Chef server. Maybe its not as easy as when running in a virtualized environment, but it saves plenty of time.</p>
-
-<p>On the new node I run the _setup<em>client.sh</em> script which calls in the end _client<em>gen.sh</em> on the Chef server once everything is installed on the node. I left the version numbers for Ruby and Chef in the script so you know what versions I&rsquo;ve tested this with.</p>
-
-<h2 id="setup-client-sh">setup_client.sh</h2>
-
-<pre style="color:#bebebe;background-color:#262626;"><span style="color:#ff7f24;">#</span><span style="color:#ff7f24;">!/bin/</span><span style="color:#00ffff;">bash</span>  
-<span style="color:#eedd82;">CHEF_IP</span>=XXX.XXX.XXX.XXX  
-<span style="color:#eedd82;">CHEF</span>=http://$CHEF_IP:4000  
-<span style="color:#eedd82;">CHEF_USER</span>=XXXXX  
-<span style="color:#eedd82;">NODE</span>=XXXXXXXX  
-<span style="color:#eedd82;">RUBY_VSN</span>=1.3.7  
-<span style="color:#eedd82;">CHEF_VSN</span>=0.9.16  
-  
-sudo rpm -Uvh http://download.fedora.redhat.com/pub/epel/6/x86_64/epel-release-6-5.noarch.rpm  
-  
-sudo yum update  
-  
-sudo yum install ruby ruby-shadow ruby-ri ruby-rdoc gcc gcc-c++ ruby-devel ruby-static  
-  
-<span style="color:#b0c4de;">cd</span> /tmp  
-wget http://production.cf.rubygems.org/rubygems/rubygems-$<span style="color:#eedd82;">RUBY_VSN</span>.tgz  
-tar zxf rubygems-$<span style="color:#eedd82;">RUBY_VSN</span>.tgz  
-<span style="color:#b0c4de;">cd</span> rubygems-$<span style="color:#eedd82;">RUBY_VSN</span>  
-sudo ruby setup.rb --no-format-executable  
-  
-sudo gem install chef -v $<span style="color:#eedd82;">CHEF_VSN</span>   
-  
-mkdir ~/.chef  
-  
-cat &gt; ~/.chef/knife.rb &lt;&lt;EOF<span style="color:#ffff00;font-weight:bold;"> log_level :info log_location STDOUT node_name '$NODE' client_key '/home/$USER/.chef/$NODE.pem' validation_client_name 'chef-validator' validation_key '/etc/chef/validation.pem' chef_server_url '$CHEF' cache_type 'BasicFile' cache_options( :path =&gt; '/home/$USER/.chef/checksums' ) EOF</span>  
-  
-ssh-keygen -t rsa  
-ssh-copy-id -i ~/.ssh/id_rsa.pub $<span style="color:#eedd82;">CHEF_IP</span>  
-  
-ssh $<span style="color:#eedd82;">CHEF_IP</span> <span style="color:#ffa07a;">"yes | knife client delete $NODE"</span>  
-ssh $<span style="color:#eedd82;">CHEF_IP</span> <span style="color:#ffa07a;">"yes | /home/$CHEF_USER/client_gen.sh $NODE"</span>  
-scp $<span style="color:#eedd82;">CHEF_IP</span>:/tmp/$<span style="color:#eedd82;">NODE</span> ~/.chef/$<span style="color:#eedd82;">NODE</span>.pem</pre>  
-  
-
-<h2 id="client-gen-sh">client_gen.sh</h2>
-
-<pre style="color:#bebebe;background-color:#262626;"><span style="color:#ff7f24;">#</span><span style="color:#ff7f24;">!/bin/</span><span style="color:#00ffff;">bash</span>  
-knife client create $<span style="color:#eedd82;">1</span> -n -a -f /tmp/$<span style="color:#eedd82;">1</span>  
-knife node create $<span style="color:#eedd82;">1</span> --no-editor</pre>
+        <p>I thought I&rsquo;d share the scripts I use to take a fresh Centos6 install and have it configured to work with a Chef server. Maybe its not as easy as when running in a virtualized environment, but it saves plenty of time.</p>
+<p>On the new node I run the <em>setup_client.sh</em> script which calls in the end <em>client_gen.sh</em> on the Chef server once everything is installed on the node. I left the version numbers for Ruby and Chef in the script so you know what versions I&rsquo;ve tested this with.</p>
+<h2 id="setup_clientsh">setup_client.sh</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="client_gensh">client_gen.sh</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
     
         </div>
     </section>
@@ -184,6 +145,67 @@ knife node create $<span style="color:#eedd82;">1</span> --no-editor</pre>
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/todomvc-in-opa/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/todomvc-in-opa/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Javascript 
+              #Opa 
+              #Web  </span>
+              
+              <h2 class="post-card-title">TodoMVC in Opa</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Edit: I just learned that dotcloud supports Opa! So I&rsquo;ve pushed OpaDo and you can see a demo here http://opado-tristan.sloughter.dotcloud.com/
+I wanted something quick and simple to do in Opa to give it a try so I decided to implement the TodoMVC example that has been redone in almost all Javascript frameworks, https://github.com/addyosmani/todomvc.
+The code can be found on GitHub here: https://github.com/tsloughter/OpaDo
+Opa is unique in that it is not only a new language but also a new web server and database. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/mixed-erlang-and-scala-with-scalang/">
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/mixed-erlang-and-scala-with-scalang/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Mixed Erlang and Scala with Scalang</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>This is a summary of a talk by Cliff Moon @moonpolysoft given at Strangeloop about building mixed Erlang and Scala systems with Scalang. Boundary does network analytics as a service. Their architecture uses a mixture of Erlang and Scala. Erlang is very very good at doing things like no down time deploys. We can have very low downtime on public facing parts of the system and we don&rsquo;t even have to go down for deploys. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

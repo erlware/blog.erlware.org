@@ -36,7 +36,7 @@
     <meta property="article:tag" content="Erlang" /><meta property="article:tag" content="rebar3" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -110,15 +110,10 @@
     <section class="post-full-content">
         <div class="kg-card-markdown">
         <p>When starting rebar3 a goal was to never again end up in a situation where <code>rm -rf deps</code> to get the right set of dependencies was the quickest or only way forward.</p>
-
 <p>An important piece of this is the new and improved <a href="http://www.rebar3.org/docs/dependencies#upgrading-dependencies">upgrade command</a>. However, this post will cover a less visible (it isn&rsquo;t a new command) improvement related to how rebar3 fetches and tracks dependencies each time the <code>compile</code> command is run.</p>
-
 <p>Since there is no <code>get-deps</code> command, each time <code>compile</code> is run it relies on a task that verifies all dependencies are fetched and available in the appropriate build directory (specific to the profiles being used). Every resource type (<code>pkg</code>, <code>git</code>, <code>hg</code> and possibly <a href="http://www.rebar3.org/docs/custom-dep-resources">third party types</a>) implements the behaviour <code>rebar_resource</code> which includes the function <code>needs_update/2</code>. If the application is found to exist already during the dependency verification phase and is in the lock file rebar3 then uses <code>needs_update/2</code> to check, unique to the resource type, if it is consistent with what is expected based on the lock file. If not, the source in the lock is fetched and replaces the current application.</p>
-
 <p>An example project <a href="https://github.com/tsloughter/dep_tracking">dep_tracking</a> has been created to show what this looks like when switching branches in a project that has differing dependencies between the branches. In this example the <code>master</code> branch depends on <code>cowboy</code> <code>1.0.3</code> and a branch <code>http2</code> depends on <code>cowboy</code> <code>master</code> where HTTP/2 support is being added. Just to show this doesn&rsquo;t change how transitive dependencies are handled, <code>ranch</code> has been added to the deps list as well, as a package <code>1.0.0</code> in <code>master</code> and <code>1.1.0</code> in <code>http2</code>.</p>
-
 <p>Clone the repository and build as usual:</p>
-
 <pre><code>$ git clone https://github.com/tsloughter/dep_tracking
 $ cd dep_tracking/
 (master) $ cat rebar.lock
@@ -141,12 +136,8 @@ $ cd dep_tracking/
 ===&gt; Compiling ranch
 ===&gt; Compiling cowboy
 ===&gt; Compiling dep_tracking
-</code></pre>
-
-<p>Notice that in the case of a package (a <a href="https://hex.pm">hex.pm</a> package to be specific) if a copy has already been fetched before, for any project, it is cached and will be reused instead of re-downloading, like in the case of git dependencies.</p>
-
+</code></pre><p>Notice that in the case of a package (a <a href="https://hex.pm">hex.pm</a> package to be specific) if a copy has already been fetched before, for any project, it is cached and will be reused instead of re-downloading, like in the case of git dependencies.</p>
 <p>Now, even though all dependencies have been fetched and built, switching branches to the <code>http2</code> branch and running <code>compile</code> again will fetch the new versions of the dependencies that need updating and compile them:</p>
-
 <pre><code>(master) $ git checkout http2
 (http2) $ cat rebar.lock
 [{&lt;&lt;&quot;cowboy&quot;&gt;&gt;,
@@ -168,10 +159,7 @@ $ cd dep_tracking/
 ===&gt; Compiling ranch
 ===&gt; Compiling cowboy
 ===&gt; Compiling dep_tracking
-</code></pre>
-
-<p>Rebar3 ensures the correct dependencies are fetched and built, simplifying working on different feature branches of your project or updating a branch with the upstream repository, without requiring any manual intervention.</p>
-
+</code></pre><p>Rebar3 ensures the correct dependencies are fetched and built, simplifying working on different feature branches of your project or updating a branch with the upstream repository, without requiring any manual intervention.</p>
 <p>May <code>rm -rf deps</code> be forever expunged from the vocabulary of free developers!</p>
     
         </div>
@@ -201,6 +189,69 @@ $ cd dep_tracking/
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-auto-comile-and-load-plugin/">
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-auto-comile-and-load-plugin/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Auto Compile and Load Plugin</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>During development the Erlang shell is often used for quickly testing functionality. Erlang&rsquo;s ability to reload modules while running makes this workflow even more efficient. To go a step further in removing manual intervention tools like sync and active have been created. These libs will listen for file modifications, recompile and reload the changed modules.
+With rebar3 there is a plugin rebar3_auto which will start the shell, begin listening for modifications in the source directories of the project and recompile/reload when changes occur. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-features-part-4-profiles/">
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-features-part-4-profiles/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Features (part 4): Profiles</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Running tests and need meck or proper? Building docs and want edown? Bundling up a target system and want to include erts and turn off relx&rsquo;s dev_mode? Rebar3 now has you covered for these scenarios through profiles.
+Profiles can be named with any atom, can add new items to the configuration, or prepend new options to existing elements, and multiple profiles can be combined themselves.
+The two special profiles are default and global. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

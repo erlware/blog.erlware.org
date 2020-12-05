@@ -36,7 +36,7 @@
     <meta property="article:tag" content="Erlang" /><meta property="article:tag" content="rebar3" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -104,26 +104,20 @@
         <h1 class="post-full-title">Rebar3 Features (part 6): _checkouts</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/2.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/7.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
         <p>In a build tool there is often a balancing act between ensuring repeatability and efficiency for the user. Wanting to make modifications on a dependency of your project is a common case of this. In rebar2 you could simply modify the source under <code>deps/</code> and running <code>rebar compile</code> would pick those up. This meant that the contents of <code>deps/</code> are not representative of the dependencies listed in <code>rebar.config</code>.</p>
-
-<p>With rebar3 a dependency is never rebuilt, even if a source file changes. Before compiling changes to the project apps&rsquo; source files rebar3 verifies that all dependencies are valid (meaning all <code>artifacts</code> exist and the <code>.app</code> file of the dependency matches the existing <code>beam</code> files for the dependency) and any that are not are fetch and/or built. To facilitate the workflow where a developer wants to modify one of these dependencies rebar3 introduces a feature call &ldquo;checkout dependencies&rdquo;.</p>
-
+<p>With rebar3 a dependency is never rebuilt, even if a source file changes. Before compiling changes to the project apps' source files rebar3 verifies that all dependencies are valid (meaning all <code>artifacts</code> exist and the <code>.app</code> file of the dependency matches the existing <code>beam</code> files for the dependency) and any that are not are fetch and/or built. To facilitate the workflow where a developer wants to modify one of these dependencies rebar3 introduces a feature call &ldquo;checkout dependencies&rdquo;.</p>
 <p>Checkout dependencies work by the user creating a directory <code>_checkouts</code> at the top level of the rebar3 project. Under <code>_checkouts/</code> a copy of or symlink to an application&rsquo;s directory can be placed to have that copy take precedence over any dep in a config file, whether it has already been fetched and built or not. The apps under <code>_checkouts</code> are treated like project apps and any changes made to source files will be compiled. There is no need to delete any copy of the applications under <code>_build/</code>, rebar3 handles properly setting the code paths when building applications so only the version found under <code>_checkouts</code> will be used.</p>
-
 <p>The checkouts also work for plugins. In the example below the structure of a <code>_checkouts</code> directory with two applications is shown. One being <code>erlware_commons</code> and the other a plugin <code>rebar3_auto</code>. This means that running <code>rebar3 auto</code> from this project will use the <code>_checkouts</code> copy of <code>rebar3_auto</code> and not one fetched to <code>_build/default/plugins</code>, a great way for performing manual testing on plugins you are developing.</p>
-
 <pre><code>$ tree _checkouts                 
 _checkouts
 ├── erlware_commons -&gt; ~/code/erlware_commons
 └── rebar3_auto -&gt; ~/code/rebar3_auto
-</code></pre>
-
-<p>Because the dependency used by the project is now not what is fetched and locked based on <code>rebar.config</code> or <code>rebar.lock</code> they will be removed from <code>rebar.lock</code> the next time <code>compile</code> is run. This makes clear to the developer that what is being built locally is not what would be built if pushed and fetched by another user, breaking repeatability. The developer must acknowledge this by making a point to commit the new lock file, if for whatever reason that is indeed a dependency to be removed.</p>
+</code></pre><p>Because the dependency used by the project is now not what is fetched and locked based on <code>rebar.config</code> or <code>rebar.lock</code> they will be removed from <code>rebar.lock</code> the next time <code>compile</code> is run. This makes clear to the developer that what is being built locally is not what would be built if pushed and fetched by another user, breaking repeatability. The developer must acknowledge this by making a point to commit the new lock file, if for whatever reason that is indeed a dependency to be removed.</p>
     
         </div>
     </section>
@@ -152,6 +146,68 @@ _checkouts
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-hex-plugin/">
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-hex-plugin/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Hex Plugin</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>No plugin is needed for using Hex packages in your project, covered in documentation here, but at this time the plugin rebar3_hex is needed for publishing. The plugin provides support for registering with hex.pm and publishing packages. For instructions on registering see the rebar3 hex.pm documentation, here we&rsquo;ll cover publishing a package with some unique features to the rebar3 plugin.
+rebar3 hex cut The cut command provides some automation on top of publish. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/rebar3-auto-comile-and-load-plugin/">
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/rebar3-auto-comile-and-load-plugin/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang 
+              #rebar3  </span>
+              
+              <h2 class="post-card-title">Rebar3 Auto Compile and Load Plugin</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>During development the Erlang shell is often used for quickly testing functionality. Erlang&rsquo;s ability to reload modules while running makes this workflow even more efficient. To go a step further in removing manual intervention tools like sync and active have been created. These libs will listen for file modifications, recompile and reload the changed modules.
+With rebar3 there is a plugin rebar3_auto which will start the shell, begin listening for modifications in the source directories of the project and recompile/reload when changes occur. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

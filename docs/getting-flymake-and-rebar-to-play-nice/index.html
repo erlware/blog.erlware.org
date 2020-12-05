@@ -14,7 +14,8 @@
 
      <meta name="description" content="TLDR;
 Copy and paste the following into your elisp erlang-mode configuration to get flymake working with Rebar projects.
- (defun ebm-find-rebar-top-recr (dirnam" /> 
+Intro
+Its probably no great surprise to" /> 
 
      
     
@@ -24,7 +25,8 @@ Copy and paste the following into your elisp erlang-mode configuration to get fl
     <meta name="twitter:title" content="Getting Flymake and Rebar to Play Nice"/>
     <meta name="twitter:description" content="TLDR;
 Copy and paste the following into your elisp erlang-mode configuration to get flymake working with Rebar projects.
- (defun ebm-find-rebar-top-recr (dirnam"/>
+Intro
+Its probably no great surprise to"/>
     <meta name="twitter:url" content="/getting-flymake-and-rebar-to-play-nice/" />
     <meta name="twitter:site" content="@"/>
 
@@ -36,13 +38,14 @@ Copy and paste the following into your elisp erlang-mode configuration to get fl
     <meta property="og:type" content="article" />
     <meta property="og:description" content="TLDR;
 Copy and paste the following into your elisp erlang-mode configuration to get flymake working with Rebar projects.
- (defun ebm-find-rebar-top-recr (dirnam" />
+Intro
+Its probably no great surprise to" />
 
     <meta property="article:published_time" content="2012-05-16T01:39:32Z" />
     <meta property="article:tag" content="Emacs" /><meta property="article:tag" content="Erlang" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -115,164 +118,39 @@ Copy and paste the following into your elisp erlang-mode configuration to get fl
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
-        <p><strong>TLDR;</strong><br />
+        <p><strong>TLDR;</strong><br>
 Copy and paste the following into your elisp erlang-mode configuration to get flymake working with Rebar projects.</p>
-
-<pre>  
- (defun ebm-find-rebar-top-recr (dirname)  
-      (let* ((project-dir (locate-dominating-file dirname "rebar.config")))  
-        (if project-dir  
-            (let* ((parent-dir (file-name-directory (directory-file-name project-dir)))  
-                   (top-project-dir (if (and parent-dir (not (string= parent-dir "/")))  
-                                       (ebm-find-rebar-top-recr parent-dir)  
-                                      nil)))  
-              (if top-project-dir  
-                  top-project-dir  
-                project-dir))  
-              project-dir)))  
-  
-    (defun ebm-find-rebar-top ()  
-      (interactive)  
-      (let* ((dirname (file-name-directory (buffer-file-name)))  
-             (project-dir (ebm-find-rebar-top-recr dirname)))  
-        (if project-dir  
-            project-dir  
-          (erlang-flymake-get-app-dir))))  
-  
-     (defun ebm-directory-dirs (dir name)  
-        "Find all directories in DIR."  
-        (unless (file-directory-p dir)  
-          (error "Not a directory `%s'" dir))  
-        (let ((dir (directory-file-name dir))  
-              (dirs '())  
-              (files (directory-files dir nil nil t)))  
-            (dolist (file files)  
-              (unless (member file '("." ".."))  
-                (let ((absolute-path (expand-file-name (concat dir "/" file))))  
-                  (when (file-directory-p absolute-path)  
-                    (if (string= file name)  
-                        (setq dirs (append (cons absolute-path  
-                                                 (ebm-directory-dirs absolute-path name))  
-                                           dirs))  
-                        (setq dirs (append  
-                                    (ebm-directory-dirs absolute-path name)  
-                                    dirs)))))))  
-              dirs))  
-  
-    (defun ebm-get-deps-code-path-dirs ()  
-        (ebm-directory-dirs (ebm-find-rebar-top) "ebin"))  
-  
-    (defun ebm-get-deps-include-dirs ()  
-       (ebm-directory-dirs (ebm-find-rebar-top) "include"))  
-  
-    (fset 'erlang-flymake-get-code-path-dirs 'ebm-get-deps-code-path-dirs)  
-    (fset 'erlang-flymake-get-include-dirs-function 'ebm-get-deps-include-dirs)  
-</pre>  
-  
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p><strong>Intro</strong></p>
-
 <p>Its probably no great surprise to anyone that I dislike <a href="https://github.com/basho/rebar" title="Rebar">Rebar</a> a lot. That said there are times when I have no choice but to use it. This is always either because a company I am contracting for uses it, or an open source project I am contributing to uses it. When I am forced to use it there are a few things I don&rsquo;t want to give up. Most important among these is <a href="http://flymake.sourceforge.net/" title="Flymake">Flymake</a> for Erlang. The default setup for Flymake doesn&rsquo;t work for Rebar projects because Flymake does not know where the code and include paths for dependencies are. Fortunately, we can fix this with a few lines of elisp.</p>
-
 <p><strong>Flymake For Erlang</strong></p>
-
 <p>First make sure you have Flymake for Erlang installed. It is easiest just <a href="http://www.erlang.org/doc/apps/tools/erlang_mode_chapter.html" title="Erlang Flymake Instructions">to follow the directions available on the Erlang Website</a>.</p>
-
 <p><strong>The Elisp Additions for Erlang Flymake</strong></p>
-
 <p>There are two defvars that point to functions that are used to search for the correct code paths and include paths respectively. We are going to replace those functions with our own functions. Both these functions search upwards from the directory that contains the file pointed to by the current buffer, looking for the top most &lsquo;rebar.config&rsquo; in the directory path. It then uses that for a base and searches down the directory structure looking for either &lsquo;ebin&rsquo; files or &lsquo;include&rsquo; files.</p>
-
 <p>There are two things to note here. The first is that you must have already run <code>get-deps</code> for rebar for this to work and the second is that if your project is truly huge or you have way more dependencies then you probably need this search could take a second or two. That is a second or two too long in an interactive compiler like Flymake. That said, the likelihood that you will run into this second problem is quite low.</p>
-
 <p><strong>Getting Started</strong></p>
-
 <p>The very thing you want to do is ensure that you have <code>required</code> the <code>erlang-flymake</code> module. Most of what we do below depends on this.</p>
-
-<pre>  
-(require 'erlang-flymake)  
-</pre>  
-  
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p><strong>Finding the Top rebar.config</strong></p>
-
 <p>The second thing we want to do is look for the top <code>rebar.config</code> in the project. If a rebar project contains more then one OTP application its quite likely that it will contain more then one <code>rebar.config</code>. The very topmost <code>rebar</code>config` is the right one to serve as root of our search. So we introduce a set of recursive functions to look for that top level dir.</p>
-
-<pre>  
-    (defun ebm-find-rebar-top-recr (dirname)  
-      (let* ((project-dir (locate-dominating-file dirname "rebar.config")))  
-        (if project-dir  
-            (let* ((parent-dir (file-name-directory (directory-file-name project-dir)))  
-                   (top-project-dir (if (and parent-dir (not (string= parent-dir "/")))  
-                                       (ebm-find-rebar-top-recr parent-dir)  
-                                      nil)))  
-              (if top-project-dir  
-                  top-project-dir  
-                project-dir))  
-              project-dir)))  
-</pre>  
-  
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p><code>ebm-find-rebar-top-recr</code> will return either the top most directory or <code>nil</code>. Our next function takes that result and does something useful with.</p>
-
-<pre>  
-    (defun ebm-find-rebar-top ()  
-      (interactive)  
-      (let* ((dirname (file-name-directory (buffer-file-name)))  
-             (project-dir (ebm-find-rebar-top-recr dirname)))  
-        (if project-dir  
-            project-dir  
-          (erlang-flymake-get-app-dir))))  
-</pre>  
-  
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>In this function, we get the directory containing the file pointed at by the current buffer. We then call our recr function. If it returns a directory we return that, if it returns nil however, we call the original <code>erlang-flymake-get-app-dir</code> function.</p>
-
 <p>At this point we should have our project root. Now its a simple matter of recursively searching down the directory tree looking for files of a certain name. So we create a function that does just that, given a directory and a name will return a list of absolute paths for each subdirectory that matches the specified name.</p>
-
-<pre>  
-(defun ebm-directory-dirs (dir name)  
-        "Find all directories in DIR."  
-        (unless (file-directory-p dir)  
-          (error "Not a directory `%s'" dir))  
-        (let ((dir (directory-file-name dir))  
-              (dirs '())  
-              (files (directory-files dir nil nil t)))  
-            (dolist (file files)  
-              (unless (member file '("." ".."))  
-                (let ((absolute-path (expand-file-name (concat dir "/" file))))  
-                  (when (file-directory-p absolute-path)  
-                    (if (string= file name)  
-                        (setq dirs (append (cons absolute-path  
-                                                 (ebm-directory-dirs absolute-path name))  
-                                           dirs))  
-                        (setq dirs (append  
-                                    (ebm-directory-dirs absolute-path name)  
-                                    dirs)))))))  
-              dirs))  
-</pre>  
-  
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Now we write a couple of functions to replace the corresponding functions in <code>erlang-flymake</code>. The first looks for all <code>ebin</code> directories while the second looks for all <code>include</code> directories.</p>
-
-<pre>  
-    (defun ebm-get-deps-code-path-dirs ()  
-        (ebm-directory-dirs (ebm-find-rebar-top) "ebin"))  
-  
-    (defun ebm-get-deps-include-dirs ()  
-       (ebm-directory-dirs (ebm-find-rebar-top) "include"))  
-</pre>  
-  
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Finally we replace the <code>erlang-flymake</code> versions of those functions with our implementations.</p>
-
-<pre>  
-(fset 'erlang-flymake-get-code-path-dirs 'ebm-get-deps-code-path-dirs)  
-(fset 'erlang-flymake-get-include-dirs-function 'ebm-get-deps-include-dirs)  
-</pre>  
-  
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p><strong>Conclusion</strong></p>
-
 <p>This approach is a bit of a hack, we basically use some heuristics to find a root and then just grab everything under that that looks remotely like a code or include directory. While its a bit hacky it has the valuable upside that its flexible and robust.</p>
     
         </div>
@@ -302,6 +180,68 @@ Copy and paste the following into your elisp erlang-mode configuration to get fl
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/maru-models-json-to-erlang-record-with-custom-types/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/maru-models-json-to-erlang-record-with-custom-types/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang  </span>
+              
+              <h2 class="post-card-title">Maru Models: JSON to Erlang Record with Custom Types</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Working with Erlang for writing RESTful interfaces JSON is the communication &ldquo;language&rdquo; of choice. For simplifying the process of JSON to a model the backend could work with efficiently I&rsquo;ve created maru_models. This app decodes the JSON with jiffy and uses functions generated by a modified version of Ulf&rsquo;s exprecs to create an Erlang record. The generated functions are created with type information from the record definition and when a property is set for the record through these functions it is first passed to the convert function of maru_model_types to do any necessary processing. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/erlang-common-test-continuous-integration/">
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/erlang-common-test-continuous-integration/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Erlang Common Test Continuous Integration</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Common Test is a well thought out integration testing framework for Erlang. If you
+are not using it you probably should be. However, it has one fault. It
+does not return non-negative exit status' to the caller when the tests
+fail. This is a major oversight, and it makes it difficult to use as
+part of a continuous integration scheme or in a make based build
+system.
+The long term fix is for the OTP folks to resolve the issue in the ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

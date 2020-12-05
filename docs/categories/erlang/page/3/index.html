@@ -33,7 +33,7 @@
     <meta property="og:description" content="" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -88,7 +88,7 @@
     <div class="site-header-content">
         <h1 class="site-title">Erlang</h1>
         <h2 class="site-description">
-                A collection of 25 posts
+                A collection of 26 posts
                 
         </h2>
     </div>
@@ -100,6 +100,36 @@
   <div class="inner">
     <div class="post-feed">
       
+
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/erlangotp-release-structure/">
+      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/erlangotp-release-structure/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang  </span>
+              
+              <h2 class="post-card-title">Erlang/OTP Release Structure</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>How to organize Erlang/OTP releases over on my personal blog. Worth reading if you are in the process of figuring out how to manage Erlang in your organization. </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
 
 
 <article class="post-card post"> 
@@ -136,7 +166,7 @@ Sinan - Building Enterprise Application from Eric Merritt on Vimeo. </p>
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/erlang-dc-december-3rd-2011/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
     </a>    
     
 
@@ -168,7 +198,7 @@ Get your tickets now! </p>
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/erlang-pubnub-client-and-chat/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
@@ -203,7 +233,7 @@ In the ePubNub README you&rsquo;ll find information on some basic usage of the a
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/ecloudedit-part-2-couchdb/">
-      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
     </a>    
     
 
@@ -223,7 +253,7 @@ In the ePubNub README you&rsquo;ll find information on some basic usage of the a
               
                 <p>In my last post I showed the Webmachine backend to James Yu&rsquo;s CloudEdit app in Backbone.js. What was left out was, where are the documents stored? Here I&rsquo;ll show how this is done with CouchDB. And you can give the app a try at http://erlware.org:8080
 First, a new Erlang app is needed that we&rsquo;ll call ece_db.
-ece_db/ &#9500;&#9472;&#9472; doc &#9500;&#9472;&#9472; ebin &#9474;&#160;&#160; &#9500;&#9472;&#9472; ece_db.app &#9474;&#160;&#160; &#9492;&#9472;&#9472; overview.edoc &#9500;&#9472;&#9472; include &#9492;&#9472;&#9472; src &#9500;&#9472;&#9472; ece_db. ...  </p>
+Three modules are implemented, one that starts the app by calling the supervisor&rsquo;s start function, the supervisor itself that sets up a simple_one_for_one and the gen_server that handles the frontends requests for creating and modifying documents in CouchDB. ...  </p>
               
           </section>
       </a>
@@ -239,7 +269,7 @@ ece_db/ &#9500;&#9472;&#9472; doc &#9500;&#9472;&#9472; ebin &#9474;&#160;&#160;
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/ecloudedit-erlang-webmachine-and-backbone-js/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
     </a>    
     
 
@@ -259,7 +289,7 @@ ece_db/ &#9500;&#9472;&#9472; doc &#9500;&#9472;&#9472; ebin &#9474;&#160;&#160;
           </header>
           <section class="post-card-excerpt">
               
-                <p>To experiment with using a pure client-side rendering talking to an Erlang backend I&rsquo;ve taken James Yu&rsquo;s CloudEdit tutorial an app written with Backbone.js and Rails and converted the backend to use Webmachine and CouchDB. You can see eCloudEdit in action here. The Backbone.js code is the same so to understand that please see James&rsquo; post, here I&rsquo;ll describe the Erlang backend.
+                <p>To experiment with using a pure client-side rendering talking to an Erlang backend I&rsquo;ve taken James Yu&rsquo;s CloudEdit tutorial an app written with Backbone.js and Rails and converted the backend to use Webmachine and CouchDB. You can see eCloudEdit in action here. The Backbone.js code is the same so to understand that please see James' post, here I&rsquo;ll describe the Erlang backend.
 To begin with we setup two applications, one for handling the web interaction and a second for handling the database interaction. ...  </p>
               
           </section>

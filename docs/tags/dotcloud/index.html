@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>Dotcloud &middot; Erlware Blog</title>
+    <title>dotcloud &middot; Erlware Blog</title>
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,13 +19,13 @@
     <meta name="twitter:card" content="summary"/>
     
  
-    <meta name="twitter:title" content="Dotcloud"/>
+    <meta name="twitter:title" content="dotcloud"/>
     <meta name="twitter:description" content=""/>
     <meta name="twitter:url" content="/tags/dotcloud/" />
     <meta name="twitter:site" content="@"/>
 
     <meta property="og:site_name" content="Erlware Blog" />
-    <meta property="og:title" content="Dotcloud &middot; Erlware Blog" />
+    <meta property="og:title" content="dotcloud &middot; Erlware Blog" />
     <meta property="og:url" content="/tags/dotcloud/" />
     
 
@@ -33,7 +33,7 @@
     <meta property="og:description" content="" />
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -86,7 +86,7 @@
     </nav>  
 
     <div class="site-header-content">
-        <h1 class="site-title">Dotcloud</h1>
+        <h1 class="site-title">dotcloud</h1>
         <h2 class="site-description">
                 A collection of 3 posts
                 
@@ -105,7 +105,7 @@
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/major-opado-speed-up-with-publish/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
     </a>    
     
 
@@ -138,7 +138,7 @@
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/opado-personal-todo-lists/">
-      <div class="post-card-image" style="background-image: url(/defimg/1.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/3.jpg)"></div>
     </a>    
     
 
@@ -158,13 +158,7 @@
               
                 <p>This is a continuation of two past posts (one, two) on my first application with Opa called OpaDo. You can try the live demo here and check out the full source code on Github
 Updating OpaDo to add user accounts the project structure has been changed a bit and modularized. Below is the new project layout.
-opado/
-├── Makefile
-├── README.md
-├── dotcloud.yml
-├── resources
-│ ├── destroy.png
-│ └── todos. ...  </p>
+Now there is a main, todo and user module. The main module is the entry point for the app and looks like: ...  </p>
               
           </section>
       </a>
@@ -180,7 +174,7 @@ opado/
 <article class="post-card post"> 
     
     <a class="post-card-image-link" href="/opado-data-storage/">
-      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
     </a>    
     
 
@@ -198,10 +192,8 @@ opado/
           <section class="post-card-excerpt">
               
                 <p>OpaDo (a port of the TodoMVC app to Opa) now persists todo items to the Opa database. The new version is up on dotcloud, http://opado-tristan.sloughter.dotcloud.com/
-I&rsquo;ve added a _todoitem type which stores the item&rsquo;s value and two other attributes we won&rsquo;t use until the next post when we have user accounts for their own _todoitem stores.
-type todo_item = { user_id : string
-; value : string
-; created_at : string ...  </p>
+I&rsquo;ve added a todo_item type which stores the item&rsquo;s value and two other attributes we won&rsquo;t use until the next post when we have user accounts for their own todo_item stores.
+To tell Opa where to store the records we&rsquo;ll create, we provide a path to the Opa db function and set its type. ...  </p>
               
           </section>
       </a>

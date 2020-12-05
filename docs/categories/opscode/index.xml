@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Opscode on Erlware Blog</title>
@@ -6,11 +6,7 @@
     <description>Recent content in Opscode on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Sep 2011 20:05:30 +0000</lastBuildDate>
-    
-	<atom:link href="/categories/opscode/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 29 Sep 2011 20:05:30 +0000</lastBuildDate><atom:link href="/categories/opscode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Centos6 : Chef Node Creation</title>
       <link>/centos6-chef-node-creation/</link>
@@ -18,7 +14,7 @@
       
       <guid>/centos6-chef-node-creation/</guid>
       <description>I thought I&amp;rsquo;d share the scripts I use to take a fresh Centos6 install and have it configured to work with a Chef server. Maybe its not as easy as when running in a virtualized environment, but it saves plenty of time.
-On the new node I run the _setupclient.sh script which calls in the end _clientgen.sh on the Chef server once everything is installed on the node. I left the version numbers for Ruby and Chef in the script so you know what versions I&amp;rsquo;ve tested this with.</description>
+On the new node I run the setup_client.sh script which calls in the end client_gen.sh on the Chef server once everything is installed on the node. I left the version numbers for Ruby and Chef in the script so you know what versions I&amp;rsquo;ve tested this with.</description>
     </item>
     
   </channel>

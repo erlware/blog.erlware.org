@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Rebar3 on Erlware Blog</title>
+    <title>rebar3 on Erlware Blog</title>
     <link>/tags/rebar3/</link>
-    <description>Recent content in Rebar3 on Erlware Blog</description>
+    <description>Recent content in rebar3 on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Sep 2018 06:09:11 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/rebar3/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 18 Sep 2018 06:09:11 +0000</lastBuildDate><atom:link href="/tags/rebar3/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rebar3: Building Docker Images</title>
       <link>/rebar3-building-docker-images/</link>
@@ -59,7 +55,7 @@ With rebar3 a dependency is never rebuilt, even if a source file changes.</descr
       <pubDate>Sat, 26 Sep 2015 21:57:18 +0000</pubDate>
       
       <guid>/rebar3-auto-comile-and-load-plugin/</guid>
-      <description>During development the Erlang shell is often used for quickly testing functionality. Erlang&amp;rsquo;s ability to reload modules while running makes this workflow even more efficient. To go a step further in removing manual intervention tools like [sync]() and [active]() have been created. These libs will listen for file modifications, recompile and reload the changed modules.
+      <description>During development the Erlang shell is often used for quickly testing functionality. Erlang&amp;rsquo;s ability to reload modules while running makes this workflow even more efficient. To go a step further in removing manual intervention tools like sync and active have been created. These libs will listen for file modifications, recompile and reload the changed modules.
 With rebar3 there is a plugin rebar3_auto which will start the shell, begin listening for modifications in the source directories of the project and recompile/reload when changes occur.</description>
     </item>
     

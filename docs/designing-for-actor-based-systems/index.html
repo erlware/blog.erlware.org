@@ -36,7 +36,7 @@
     
 
 
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.76.2" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/built/screen.css" /> 
@@ -103,95 +103,62 @@
         <h1 class="post-full-title">Designing for Actor Based Systems</h1>
     </header>
     
-    <figure class="post-full-image" style="background-image: url(/defimg/3.jpg)">
+    <figure class="post-full-image" style="background-image: url(/defimg/5.jpg)">
     </figure>
 
     <section class="post-full-content">
         <div class="kg-card-markdown">
         <p>Many people are intrigued and excited about Erlang style concurrency. Once they get the capability in their hands though they realize that they don’t know how to take advantage of the capabilities processes or actors provide. To do this we need to understand how to decompose systems with process based concurrency in mind. Keep in mind, that this material works equally well for actors in Scala or agents in F#. Differences between actors and processes don&rsquo;t much matter for the sake of this discussion. Before we dive into process based design it will be helpful to look at a more familiar approach so we can contrast the two.</p>
-
 <p>If you come from an OO background your natural instinct is to design much like you do when decomposing a problem for OO programming. After all, processes are much like objects in that they send messages to one another and they hold state. It goes something like this</p>
-
 <ol>
-<li>Determine your use cases<br /></li>
-<li>Create a narrative of what it is you are trying to design<br /></li>
-<li>Run through the narrative and pull out the nouns as potential classes<br /></li>
-<li>Do the same for the verbs acting on the nouns as potential methods on the classes<br /></li>
-<li>Clean all this up getting consolidating any duplication<br />
-For example, lets say you were trying to build software to run a vending machine. The use cases might be paying for and getting a soda. Another one might be paying too little and getting change back. So one of the narratives there might be<br />
-<br /></li>
+<li>Determine your use cases</li>
+<li>Create a narrative of what it is you are trying to design</li>
+<li>Run through the narrative and pull out the nouns as potential classes</li>
+<li>Do the same for the verbs acting on the nouns as potential methods on the classes</li>
+<li>Clean all this up getting consolidating any duplication<br>
+For example, lets say you were trying to build software to run a vending machine. The use cases might be paying for and getting a soda. Another one might be paying too little and getting change back. So one of the narratives there might be</li>
 </ol>
-
 <p>As a customer I put sufficient coins into the vending machine and then press the selection button for coke and then press the button to vend and the robotic arm fetches a coke and dumps it into the pickup tray. The coke is nice and cold because the cooling system keeps the air in the vending machine at 50 degrees.</p>
-
 <p>Now we think about all the unique nouns in our narrative which are: customer, coins, vending machine, selection button, coke, vend button, robotic arm and cooling system. And we generally turn them into objects. Next we consider the verbs that act on those nouns and consider them for methods.</p>
-
 <p>selection button : push</p>
-
 <p>vend button : push</p>
-
 <p>robotic arm : pickup (coke)</p>
-
 <p>etcetera&hellip; After this you apply some lovely object oriented design principles and voila - you have a system that nicely models your narrative but does not take advantage of more than a single core on your system and is positively undistributable.</p>
-
 <p>Oh come on you say, don’t be daft, substitute the word object for actor and you are good to go. Well as it turns out not quite. Do we really need a coin process, how about a vend button process and lets not forget the coke process?? Darnit, this makes no sense! Lets back up and see what we can do about this.</p>
-
 <p><strong>Designing for Process Based Concurrency</strong></p>
-
 <p>The first thing you must do before we move on is say this three times</p>
-
 <p>“Processes are not threads. Processes are really cheap. Ohmmmm”</p>
-
 <p>“Processes are not threads. Processes are really cheap. Ohmmmm”</p>
-
 <p>“Processes are not threads. Processes are really cheap. Ohmmmm”</p>
-
 <p>This trips up folks new to process bases systems. They want to be stingy with processes worrying that they will take a long time to create, have massive context switching times, pollute L1 cache, etc… Remember that in almost all such systems, certainly for Erlang, Scala and F# processes/actors/agents are green threads. This means they have their own schedulers built into the VM they are running in. You never have to swap out a thread to switch between running one process vs another. With Erlang based systems you usually configure one erlang scheduler per core on the system. These schedulers remain relatively constant.</p>
-
 <p>With that in mind we solve some of the sticking points many new to process based systems have; not taking advantage of all the concurrency in the system or using complex “process pooling”.</p>
-
-<p>**One process for each truly concurrent *<strong><em>activity</em></strong>* in the system.**</p>
-
+<p><strong>One process for each truly concurrent <strong><strong>activity</strong></strong> in the system.</strong></p>
 <p>That is the rule. Going back to our vending machine what do we have that is really concurrent in that system. Coins? Not really. Slots? Not really. Buttons? Not really. Those are not activities they are things. What are the truly concurrent activities, the activities that do not have to happen in synchronous lock step?</p>
-
 <ul>
-<li>Putting coins into the slot<br /></li>
-<li>Handling coins<br /></li>
-<li>Handling selections<br /></li>
-<li>Fetching the coke and putting it into the pickup tray<br /></li>
-<li>Cooling the soda<br />
-We can use a process for all of these activities. We don’t If you want to name them for the nouns that perform the activities - but remember we are not making them processes because they are nouns. Notice how we go granular here, we did not just create a process for the customer and the vending machine. We created one for all the truly concurrent activities in our narrative - in this way we leverage more of the concurrency available to us. Now we know what processes we need, the next step is to organize them.<br />
-<br /></li>
+<li>Putting coins into the slot</li>
+<li>Handling coins</li>
+<li>Handling selections</li>
+<li>Fetching the coke and putting it into the pickup tray</li>
+<li>Cooling the soda<br>
+We can use a process for all of these activities. We don’t If you want to name them for the nouns that perform the activities - but remember we are not making them processes because they are nouns. Notice how we go granular here, we did not just create a process for the customer and the vending machine. We created one for all the truly concurrent activities in our narrative - in this way we leverage more of the concurrency available to us. Now we know what processes we need, the next step is to organize them.</li>
 </ul>
-
 <p><strong>Organizing Processes</strong></p>
-
 <p>The various languages that use process based concurrency have differing levels of sophistication here. I am going to draw on the concepts from the Erlang language which have been used in the Akka system for Scala and which I have rolled successfully myself in F#.</p>
-
 <p>Again, forget all of your OO modeling techniques. Processes are not objects, they are fundamental units of concurrency. Forget all your thread modeling techniques - it’s not even close. Share nothing copy everything changes the game. To get started think about which of your processes have to cooperate with one another. In this case what do we have.</p>
-
 <ul>
-<li>Putting coins in a slot, cooperates with<br /></li>
-<li>Handling coins, cooperates with<br /></li>
-<li>Handling selections, cooperates with<br /></li>
-<li>Fetching the coke and putting it into the pickup tray<br />
-and nothing cooperates with, Cooling the soda - it happens whether or not other processes are there to support it or not. Putting coins in the slot however makes no sense if there is no way to handle them, and handing them makes no sense of you can’t make a selection and making a selection… well you get the drift.<br />
-<br /></li>
+<li>Putting coins in a slot, cooperates with</li>
+<li>Handling coins, cooperates with</li>
+<li>Handling selections, cooperates with</li>
+<li>Fetching the coke and putting it into the pickup tray<br>
+and nothing cooperates with, Cooling the soda - it happens whether or not other processes are there to support it or not. Putting coins in the slot however makes no sense if there is no way to handle them, and handing them makes no sense of you can’t make a selection and making a selection… well you get the drift.</li>
 </ul>
-
 <p>To model this we are going to use a tree of “Supervisors”. Supervisors create and watch over processes. Because of copy everything share nothing properties of actors one can’t corrupt another. So, a supervisor can watch over an actor and restart it when it blows up in the presence of some error. This means we get some incredible fault tolerance. But, that aside, lets talk about how to model these dependencies. We do so in a tree. First, we setup a supervisor at the top of the tree which models no dependencies between any of the processes it starts. In this layer we add the cooling system and then we add another supervisor which will start the group of dependent processes in the order in which they depend on one another. This supervisor will restart processes that die according to their dependencies. If a dependency dies the supervisor will kill and restart dependent processes so that everything starts in a known base state down the chain.</p>
-
-<p>**<strong><br />
-<a href="https://erlware.files.wordpress.com/2014/07/proctree.png"><img src="https://erlware.files.wordpress.com/2014/07/proctree.png?w=497" alt="proctree" /></a></p>
-
-<p>**</strong></p>
-
+<p>**<!-- raw HTML omitted --><br>
+<a href="https://erlware.files.wordpress.com/2014/07/proctree.png"><img src="https://erlware.files.wordpress.com/2014/07/proctree.png?w=497" alt="proctree"></a></p>
+<p>**<!-- raw HTML omitted --></p>
 <p>Now with things decomposed into processes, dependencies fleshed out and placed into a supervision hierarchy you are basically ready to go. Is there more to design for actor based concurrency - yes of course there is but here you have the fundamentals. Now it’s time to go and play with it and generate questions. Feel free to ask them here or on twitter at <a href="http://twitter.com/martinjlogan">@martinjlogan</a>.  I may do a second installment on some more advanced topics based on feedback.</p>
-
 <p>If you want to learn more come to <a href="http://erlangcamp.com">Erlang Camp</a> Oct 10 and 11, 2014 in Austin!</p>
-
 <p>**</p>
-
 <p>**</p>
     
         </div>
@@ -221,6 +188,66 @@ and nothing cooperates with, Cooling the soda - it happens whether or not other 
       
 
       
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/deploy-erlang-target-system-to-heroku/">
+      <div class="post-card-image" style="background-image: url(/defimg/5.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/deploy-erlang-target-system-to-heroku/">
+          <header class="post-card-header">
+              
+              <h2 class="post-card-title">Deploy Erlang Target System to Heroku</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>In this post these new tools will be used:
+ rebar3 hk - new cli client for Heroku hk slug plugin - plugin for hk that uploads the target system Heroku Cedar-14 - new Heroku Cedar on Ubuntu 14.04 Heroku Slug API  First, clone minasan and create the Heroku application on Cedar-14:
+Now that Heroku has the cedar-14 stack if you are also running a recent Linux distro you can upload the target system created by relx directly to your app, before now we would have to build it on Heroku or in a system with an older glibc to work on Heroku&rsquo;s Ubuntu 10. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+      
+      
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/erlang-postgres-connection-pool-with-episcina/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/erlang-postgres-connection-pool-with-episcina/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Databases 
+              #Erlang 
+              #Postgres  </span>
+              
+              <h2 class="post-card-title">Erlang Postgres Connection Pool with Episcina</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Almost exactly a year ago I was looking to merge the many forks of Will Glozer&rsquo;s Postgres client for use in a project at Heroku. Instead Semiocast released their client, I gave it a try and never looked back. (But note that David Welton, a braver person than me, is working on merging the forks of epgsql at this time). I found Semiocast&rsquo;s client to be clean, stable and I liked the interface better. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
       
     </div>
   </div>

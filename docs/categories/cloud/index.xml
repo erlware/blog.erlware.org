@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cloud on Erlware Blog</title>
+    <title>cloud on Erlware Blog</title>
     <link>/categories/cloud/</link>
-    <description>Recent content in Cloud on Erlware Blog</description>
+    <description>Recent content in cloud on Erlware Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Nov 2011 04:03:07 +0000</lastBuildDate>
-    
-	<atom:link href="/categories/cloud/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 24 Nov 2011 04:03:07 +0000</lastBuildDate><atom:link href="/categories/cloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Opa Plugin Development with a PubNub Example</title>
       <link>/opa-plugin-development-with-a-pubnub-example/</link>
@@ -28,10 +24,8 @@ But how do you use Javascript library X within your Opa code?</description>
       
       <guid>/opado-data-storage/</guid>
       <description>OpaDo (a port of the TodoMVC app to Opa) now persists todo items to the Opa database. The new version is up on dotcloud, http://opado-tristan.sloughter.dotcloud.com/
-I&amp;rsquo;ve added a _todoitem type which stores the item&amp;rsquo;s value and two other attributes we won&amp;rsquo;t use until the next post when we have user accounts for their own _todoitem stores.
-type todo_item = { user_id : string
-; value : string
-; created_at : string</description>
+I&amp;rsquo;ve added a todo_item type which stores the item&amp;rsquo;s value and two other attributes we won&amp;rsquo;t use until the next post when we have user accounts for their own todo_item stores.
+To tell Opa where to store the records we&amp;rsquo;ll create, we provide a path to the Opa db function and set its type.</description>
     </item>
     
   </channel>
