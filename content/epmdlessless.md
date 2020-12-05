@@ -7,6 +7,7 @@ description = ""
 draft = false
 slug = "epmdlessless"
 tags = ["Erlang"]
+image = "/defimg/5.jpg"
 title = "Running Erlang Releases without EPMD on OTP 23.1+"
 +++
 
@@ -18,7 +19,7 @@ this requirement used third party dependencies such as
 configuration arguments to the VM to setup. This was not ideal and was easy to
 get wrong.
 
-With Erlang/OTP 23.1 and relx 4.2 (included in Rebar3 3.14.3) it is now possible
+With [Erlang/OTP 23.1](https://www.erlang.org/news/141) and [relx 4.2](https://github.com/erlware/relx/releases/tag/v4.2.0) (included in [Rebar3 3.14.3](https://blog.erlware.org/epmdlessless/)) it is now possible
 to conveniently run Erlang releases without relying on EPMD for opening a
 remote shell or clustering nodes. This is particularly going to make Erlang releases
 simpler to configure in locked down environments, and easier to use with containers.

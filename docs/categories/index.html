@@ -188,26 +188,26 @@
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/a-prop/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
+    <a class="post-card-image-link" href="/rebar3-building-docker-images/">
+      <div class="post-card-image" style="background-image: url(/defimg/4.jpg)"></div>
     </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/a-prop/">
+      <a class="post-card-content-link" href="/rebar3-building-docker-images/">
           <header class="post-card-header">
               <span class="post-card-tags">
               #Erlang 
-              #proper 
-              #property testing  </span>
+              #rebar3 
+              #docker  </span>
               
-              <h2 class="post-card-title">A Little on Property-Based Testing with PropEr</h2>
+              <h2 class="post-card-title">Rebar3: Building Docker Images</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>Fred Hebert&rsquo;s latest book Property-Based Testing with PropEr, Erlang and Elixir is out in a print version from The Pragmatic Programmers.
-If you are like me you&rsquo;ve known you need to figure out property testing for a long time now and keep putting it off. Now that there is a book, with a free version even, it is the best time to get going.
-The book even details avoiding a common pitfall that I certainly fall into anytime I&rsquo;ve tried picking up property based testing: attempting to shoehorn property testing in to any problem even when a regular unit test is a better fit. ...  </p>
+                <p>How I cut the time it takes to build an Erlang docker image in half. While adding support for a rebar3 option to only build dependencies and not project applications, rebar3 compile --deps_only, I realized it might already actually work for the Docker use case I had in mind.
+So I gave it a try and, yup, turns out it does!
+The idea is to cache a docker layer of the built dependencies to reuse if they haven&rsquo;t changed. ...  </p>
               
           </section>
       </a>
@@ -222,61 +222,58 @@ The book even details avoiding a common pitfall that I certainly fall into anyti
 
 <article class="post-card post"> 
     
-    <a class="post-card-image-link" href="/erlang-cowboy-and-batman-js-for-building-web-applications/">
-      <div class="post-card-image" style="background-image: url(/defimg/6.jpg)"></div>
-    </a>    
-    
-
-    <div class="post-card-content">
-      <a class="post-card-content-link" href="/erlang-cowboy-and-batman-js-for-building-web-applications/">
-          <header class="post-card-header">
-              <span class="post-card-tags">
-              #API 
-              #batman.js 
-              #coffeescript 
-              #Cowboy 
-              #Erlang 
-              #Javascript 
-              #RESTful 
-              #Web  </span>
-              
-              <h2 class="post-card-title">Erlang, Cowboy and Batman.js for Building Web Applications</h2>
-          </header>
-          <section class="post-card-excerpt">
-              
-                <p>I&rsquo;ll have a complete walk of through using Cowboy and Batman.js to build the TodoMVC clone in a few days. For now I have the slides from my talk at the Chicago Erlang User Group:
-Chicago Erlang User Group April, 4th 2012
-I couldn&rsquo;t get iframe embedding to work with Wordpress&hellip; So if anyone knows what that is up with please comment. </p>
-              
-          </section>
-      </a>
-
-      <footer class="post-card-meta">
-          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
-          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
-      </footer>
-    </div>
-</article>
- 
-
-<article class="post-card post"> 
-    
-    <a class="post-card-image-link" href="/automatic-hex-package-publishing-with-travis-ci/">
+    <a class="post-card-image-link" href="/ecloudedit-part-2-couchdb/">
       <div class="post-card-image" style="background-image: url(/defimg/2.jpg)"></div>
     </a>    
     
 
     <div class="post-card-content">
-      <a class="post-card-content-link" href="/automatic-hex-package-publishing-with-travis-ci/">
+      <a class="post-card-content-link" href="/ecloudedit-part-2-couchdb/">
           <header class="post-card-header">
+              <span class="post-card-tags">
+              #CouchDB 
+              #Erlang 
+              #simple_one_for_one 
+              #Web 
+              #Webmachine  </span>
               
-              <h2 class="post-card-title">Automatic Hex Package Publishing with Travis-CI</h2>
+              <h2 class="post-card-title">eCloudEdit Part 2: CouchDB</h2>
           </header>
           <section class="post-card-excerpt">
               
-                <p>Note: Travis CI does not yet provide rebar3 as a build tool for Erlang projects, so you will have to include a rebar3 executable escript in your repository.
-In your application&rsquo;s .app.src file use &quot;git&quot; as the version. This will replace the version string with the current tag when publishing the hex package:
-{vsn,&#34;git&#34;}, In the .travis.yml configuration add the below section so that the script scripts/hex.sh is run everytime a new tag is made: ...  </p>
+                <p>In my last post I showed the Webmachine backend to James Yu&rsquo;s CloudEdit app in Backbone.js. What was left out was, where are the documents stored? Here I&rsquo;ll show how this is done with CouchDB. And you can give the app a try at http://erlware.org:8080
+First, a new Erlang app is needed that we&rsquo;ll call ece_db.
+Three modules are implemented, one that starts the app by calling the supervisor&rsquo;s start function, the supervisor itself that sets up a simple_one_for_one and the gen_server that handles the frontends requests for creating and modifying documents in CouchDB. ...  </p>
+              
+          </section>
+      </a>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="/img/avatar.jpeg" alt="Author" />
+          <span class="post-card-author"><a href="/">Tristan Sloughter</a></span>
+      </footer>
+    </div>
+</article>
+ 
+
+<article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="/maru-models-json-to-erlang-record-with-custom-types/">
+      <div class="post-card-image" style="background-image: url(/defimg/7.jpg)"></div>
+    </a>    
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="/maru-models-json-to-erlang-record-with-custom-types/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Erlang  </span>
+              
+              <h2 class="post-card-title">Maru Models: JSON to Erlang Record with Custom Types</h2>
+          </header>
+          <section class="post-card-excerpt">
+              
+                <p>Working with Erlang for writing RESTful interfaces JSON is the communication &ldquo;language&rdquo; of choice. For simplifying the process of JSON to a model the backend could work with efficiently I&rsquo;ve created maru_models. This app decodes the JSON with jiffy and uses functions generated by a modified version of Ulf&rsquo;s exprecs to create an Erlang record. The generated functions are created with type information from the record definition and when a property is set for the record through these functions it is first passed to the convert function of maru_model_types to do any necessary processing. ...  </p>
               
           </section>
       </a>
